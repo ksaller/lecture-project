@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<featuremapping:FeatureMappingModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:featuremapping="http://www.tudresden.de/featuremapping" composerID="org.featuremapper.interpreter.emf.interpreter">
+  <featureModel>
+    <value href="../feature/wsn.feature#/"/>
+  </featureModel>
+</featuremapping:FeatureMappingModel>
