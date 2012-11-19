@@ -20,15 +20,6 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="ContextClassifies"
-          description="Create new ContextClassifies">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="PriorConnection"
           description="Create new PriorConnection">
         <smallIcon

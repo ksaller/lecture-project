@@ -18,6 +18,7 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
@@ -95,14 +96,14 @@ public class RuntimeConfigEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new RectangleFigure();
+		return primaryShape = new RuntimeConfigFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public RectangleFigure getPrimaryShape() {
-		return (RectangleFigure) primaryShape;
+	public RuntimeConfigFigure getPrimaryShape() {
+		return (RuntimeConfigFigure) primaryShape;
 	}
 
 	/**
@@ -189,7 +190,7 @@ public class RuntimeConfigEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnTarget() {
+	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(MetamodelElementTypes.IncludeConnection_4002);
 		return types;
@@ -198,12 +199,38 @@ public class RuntimeConfigEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
+	public List<IElementType> getMARelTypesOnSourceAndTarget(
+			IGraphicalEditPart targetEditPart) {
+		LinkedList<IElementType> types = new LinkedList<IElementType>();
+		if (targetEditPart instanceof ContextEditPart) {
+			types.add(MetamodelElementTypes.IncludeConnection_4002);
+		}
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == MetamodelElementTypes.IncludeConnection_4002) {
 			types.add(MetamodelElementTypes.Context_2002);
 		}
 		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public class RuntimeConfigFigure extends RectangleFigure {
+
+		/**
+		 * @generated
+		 */
+		public RuntimeConfigFigure() {
+			this.setLineWidth(2);
+		}
+
 	}
 
 }

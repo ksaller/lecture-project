@@ -36,11 +36,17 @@ public class IncludeConnectionCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
+	private final Context container;
+
+	/**
+	 * @generated
+	 */
 	public IncludeConnectionCreateCommand(CreateRelationshipRequest request,
 			EObject source, EObject target) {
 		super(request.getLabel(), null, request);
 		this.source = source;
 		this.target = target;
+		container = deduceContainer(source, target);
 	}
 
 	/**
@@ -50,18 +56,22 @@ public class IncludeConnectionCreateCommand extends EditElementCommand {
 		if (source == null && target == null) {
 			return false;
 		}
-		if (source != null && false == source instanceof Context) {
+		if (source != null && false == source instanceof RuntimeConfig) {
 			return false;
 		}
-		if (target != null && false == target instanceof RuntimeConfig) {
+		if (target != null && false == target instanceof Context) {
 			return false;
 		}
 		if (getSource() == null) {
 			return true; // link creation is in progress; source is not defined yet
 		}
 		// target may be null here but it's possible to check constraint
+		if (getContainer() == null) {
+			return false;
+		}
 		return MetamodelBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateIncludeConnection_4002(getSource(), getTarget());
+				.canCreateIncludeConnection_4002(getContainer(), getSource(),
+						getTarget());
 	}
 
 	/**
@@ -76,8 +86,9 @@ public class IncludeConnectionCreateCommand extends EditElementCommand {
 
 		IncludeConnection newElement = MetamodelFactory.eINSTANCE
 				.createIncludeConnection();
-		getSource().getIncluded().add(newElement);
-		newElement.setSource(getTarget());
+		getContainer().getIncluded().add(newElement);
+		newElement.setSource(getSource());
+		newElement.setTarget(getTarget());
 		doConfigure(newElement, monitor, info);
 		((CreateElementRequest) getRequest()).setNewElement(newElement);
 		return CommandResult.newOKCommandResult(newElement);
@@ -118,15 +129,40 @@ public class IncludeConnectionCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected Context getSource() {
-		return (Context) source;
+	protected RuntimeConfig getSource() {
+		return (RuntimeConfig) source;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected RuntimeConfig getTarget() {
-		return (RuntimeConfig) target;
+	protected Context getTarget() {
+		return (Context) target;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Context getContainer() {
+		return container;
+	}
+
+	/**
+	 * Default approach is to traverse ancestors of the source to find instance of container.
+	 * Modify with appropriate logic.
+	 * @generated
+	 */
+	private static Context deduceContainer(EObject source, EObject target) {
+		// Find container element for the new link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null; element = element
+				.eContainer()) {
+			if (element instanceof Context) {
+				return (Context) element;
+			}
+		}
+		return null;
 	}
 
 }

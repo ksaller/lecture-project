@@ -184,21 +184,21 @@ public class MetamodelVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (MetamodelPackage.eINSTANCE.getAssociateConnection().isSuperTypeOf(
-				domainElement.eClass())) {
-			return AssociateConnectionEditPart.VISUAL_ID;
-		}
 		if (MetamodelPackage.eINSTANCE.getIncludeConnection().isSuperTypeOf(
 				domainElement.eClass())) {
 			return IncludeConnectionEditPart.VISUAL_ID;
 		}
-		if (MetamodelPackage.eINSTANCE.getPriorConnection().isSuperTypeOf(
+		if (MetamodelPackage.eINSTANCE.getAssociateConnection().isSuperTypeOf(
 				domainElement.eClass())) {
-			return PriorConnectionEditPart.VISUAL_ID;
+			return AssociateConnectionEditPart.VISUAL_ID;
 		}
 		if (MetamodelPackage.eINSTANCE.getExcludeConnection().isSuperTypeOf(
 				domainElement.eClass())) {
 			return ExcludeConnectionEditPart.VISUAL_ID;
+		}
+		if (MetamodelPackage.eINSTANCE.getPriorConnection().isSuperTypeOf(
+				domainElement.eClass())) {
+			return PriorConnectionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

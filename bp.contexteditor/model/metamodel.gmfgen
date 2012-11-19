@@ -25,6 +25,7 @@
         visualID="2001"
         editPartClassName="RuntimeConfigEditPart"
         itemSemanticEditPolicyClassName="RuntimeConfigItemSemanticEditPolicy"
+        notationViewFactoryClassName="RuntimeConfigViewFactory"
         canonicalEditPolicyClassName="RuntimeConfigCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="RuntimeConfigGraphicalNodeEditPolicy"
         createCommandClassName="RuntimeConfigCreateCommand">
@@ -34,8 +35,9 @@
           xsi:type="gmfgen:MetamodelType"
           editHelperClassName="RuntimeConfigEditHelper"/>
       <viewmap
-          xsi:type="gmfgen:FigureViewmap"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="RuntimeConfigFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RuntimeConfigFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RuntimeConfigFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setLineWidth(2);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
             href="metamodel.genmodel#//metamodel/RuntimeConfig"/>
@@ -49,6 +51,7 @@
         visualID="2002"
         editPartClassName="ContextEditPart"
         itemSemanticEditPolicyClassName="ContextItemSemanticEditPolicy"
+        notationViewFactoryClassName="ContextViewFactory"
         canonicalEditPolicyClassName="ContextCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ContextGraphicalNodeEditPolicy"
         createCommandClassName="ContextCreateCommand">
@@ -61,7 +64,7 @@
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="FLOW_LAYOUT"
           className="ContextFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ContextFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureContextNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ContextFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureContextNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureContextNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureContextNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureContextNameFigure() {&#xA;&#x9;&#x9;return fFigureContextNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ContextFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureContextNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ContextFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureContextNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureContextNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureContextNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureContextNameFigure() {&#xA;&#x9;&#x9;return fFigureContextNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
             href="metamodel.genmodel#//metamodel/Context"/>
@@ -74,6 +77,7 @@
           visualID="5001"
           editPartClassName="ContextNameEditPart"
           itemSemanticEditPolicyClassName="ContextNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="ContextNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -86,39 +90,16 @@
             parser="//@labelParsers/@implementations.0">
           <metaFeatures
               href="metamodel.genmodel#//metamodel/Context/name"/>
+          <editableMetaFeatures
+              href="metamodel.genmodel#//metamodel/Context/name"/>
         </modelFacet>
       </labels>
     </topLevelNodes>
     <links
-        visualID="4001"
-        editPartClassName="AssociateConnectionEditPart"
-        itemSemanticEditPolicyClassName="AssociateConnectionItemSemanticEditPolicy"
-        createCommandClassName="AssociateConnectionCreateCommand"
-        reorientCommandClassName="AssociateConnectionReorientCommand">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="AssociateConnectionEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:FigureViewmap"
-          figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx"/>
-      <modelFacet
-          xsi:type="gmfgen:TypeLinkModelFacet">
-        <metaClass
-            href="metamodel.genmodel#//metamodel/AssociateConnection"/>
-        <containmentMetaFeature
-            href="metamodel.genmodel#//metamodel/Context/sourceConnections"/>
-        <childMetaFeature
-            href="metamodel.genmodel#//metamodel/Context/sourceConnections"/>
-        <targetMetaFeature
-            href="metamodel.genmodel#//metamodel/Connection/source"/>
-      </modelFacet>
-    </links>
-    <links
         visualID="4002"
         editPartClassName="IncludeConnectionEditPart"
         itemSemanticEditPolicyClassName="IncludeConnectionItemSemanticEditPolicy"
+        notationViewFactoryClassName="IncludeConnectionViewFactory"
         createCommandClassName="IncludeConnectionCreateCommand"
         reorientCommandClassName="IncludeConnectionReorientCommand">
       <diagramRunTimeClass
@@ -127,8 +108,9 @@
           xsi:type="gmfgen:MetamodelType"
           editHelperClassName="IncludeConnectionEditHelper"/>
       <viewmap
-          xsi:type="gmfgen:FigureViewmap"
-          figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx"/>
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="IncludeConnectionFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class IncludeConnectionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public IncludeConnectionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(3);&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet
           xsi:type="gmfgen:TypeLinkModelFacet">
         <metaClass
@@ -137,40 +119,47 @@
             href="metamodel.genmodel#//metamodel/Context/included"/>
         <childMetaFeature
             href="metamodel.genmodel#//metamodel/Context/included"/>
-        <targetMetaFeature
+        <sourceMetaFeature
             href="metamodel.genmodel#//metamodel/IncludeConnection/source"/>
+        <targetMetaFeature
+            href="metamodel.genmodel#//metamodel/IncludeConnection/target"/>
       </modelFacet>
     </links>
     <links
-        visualID="4003"
-        editPartClassName="PriorConnectionEditPart"
-        itemSemanticEditPolicyClassName="PriorConnectionItemSemanticEditPolicy"
-        createCommandClassName="PriorConnectionCreateCommand"
-        reorientCommandClassName="PriorConnectionReorientCommand">
+        visualID="4001"
+        editPartClassName="AssociateConnectionEditPart"
+        itemSemanticEditPolicyClassName="AssociateConnectionItemSemanticEditPolicy"
+        notationViewFactoryClassName="AssociateConnectionViewFactory"
+        createCommandClassName="AssociateConnectionCreateCommand"
+        reorientCommandClassName="AssociateConnectionReorientCommand">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="PriorConnectionEditHelper"/>
+          editHelperClassName="AssociateConnectionEditHelper"/>
       <viewmap
-          xsi:type="gmfgen:FigureViewmap"
-          figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx"/>
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="AssociateConnectionFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class AssociateConnectionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public AssociateConnectionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet
           xsi:type="gmfgen:TypeLinkModelFacet">
         <metaClass
-            href="metamodel.genmodel#//metamodel/PriorConnection"/>
+            href="metamodel.genmodel#//metamodel/AssociateConnection"/>
         <containmentMetaFeature
             href="metamodel.genmodel#//metamodel/Context/sourceConnections"/>
         <childMetaFeature
             href="metamodel.genmodel#//metamodel/Context/sourceConnections"/>
-        <targetMetaFeature
+        <sourceMetaFeature
             href="metamodel.genmodel#//metamodel/Connection/source"/>
+        <targetMetaFeature
+            href="metamodel.genmodel#//metamodel/Connection/target"/>
       </modelFacet>
     </links>
     <links
         visualID="4004"
         editPartClassName="ExcludeConnectionEditPart"
         itemSemanticEditPolicyClassName="ExcludeConnectionItemSemanticEditPolicy"
+        notationViewFactoryClassName="ExcludeConnectionViewFactory"
         createCommandClassName="ExcludeConnectionCreateCommand"
         reorientCommandClassName="ExcludeConnectionReorientCommand">
       <diagramRunTimeClass
@@ -179,8 +168,9 @@
           xsi:type="gmfgen:MetamodelType"
           editHelperClassName="ExcludeConnectionEditHelper"/>
       <viewmap
-          xsi:type="gmfgen:FigureViewmap"
-          figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx"/>
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ExcludeConnectionFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ExcludeConnectionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ExcludeConnectionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;setSourceDecoration(createSourceDecoration());&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createSourceDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;df.setLineWidth(3);&#xA;df.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;df.setLineWidth(3);&#xA;df.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet
           xsi:type="gmfgen:TypeLinkModelFacet">
         <metaClass
@@ -189,8 +179,40 @@
             href="metamodel.genmodel#//metamodel/Context/sourceConnections"/>
         <childMetaFeature
             href="metamodel.genmodel#//metamodel/Context/sourceConnections"/>
-        <targetMetaFeature
+        <sourceMetaFeature
             href="metamodel.genmodel#//metamodel/Connection/source"/>
+        <targetMetaFeature
+            href="metamodel.genmodel#//metamodel/Connection/target"/>
+      </modelFacet>
+    </links>
+    <links
+        visualID="4003"
+        editPartClassName="PriorConnectionEditPart"
+        itemSemanticEditPolicyClassName="PriorConnectionItemSemanticEditPolicy"
+        notationViewFactoryClassName="PriorConnectionViewFactory"
+        createCommandClassName="PriorConnectionCreateCommand"
+        reorientCommandClassName="PriorConnectionReorientCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="PriorConnectionEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="PriorConnectionFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PriorConnectionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PriorConnectionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;df.setLineWidth(3);&#xA;df.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet
+          xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass
+            href="metamodel.genmodel#//metamodel/PriorConnection"/>
+        <containmentMetaFeature
+            href="metamodel.genmodel#//metamodel/Context/sourceConnections"/>
+        <childMetaFeature
+            href="metamodel.genmodel#//metamodel/Context/sourceConnections"/>
+        <sourceMetaFeature
+            href="metamodel.genmodel#//metamodel/Connection/source"/>
+        <targetMetaFeature
+            href="metamodel.genmodel#//metamodel/Connection/target"/>
       </modelFacet>
     </links>
     <palette>
@@ -200,36 +222,32 @@
             xsi:type="gmfgen:ToolEntry"
             title="Context"
             description="Create new Context"
-            genNodes="//@diagram/@topLevelNodes.0"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="ContextClassifies"
-            description="Create new ContextClassifies"
             genNodes="//@diagram/@topLevelNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="PriorConnection"
             description="Create new PriorConnection"
-            genLinks="//@diagram/@links.0"/>
+            genLinks="//@diagram/@links.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="ExcludeConnection"
             description="Create new ExcludeConnection"
-            genLinks="//@diagram/@links.1"/>
+            genLinks="//@diagram/@links.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="AssociateConnection"
             description="Create new AssociateConnection"
-            genLinks="//@diagram/@links.2"/>
+            genLinks="//@diagram/@links.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="RuntimeConfig"
             description="Create new RuntimeConfig"
-            genLinks="//@diagram/@links.3"/>
+            genNodes="//@diagram/@topLevelNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="IncludeConnection"
-            description="Create new IncludeConnection"/>
+            description="Create new IncludeConnection"
+            genLinks="//@diagram/@links.0"/>
       </groups>
     </palette>
     <preferencePages

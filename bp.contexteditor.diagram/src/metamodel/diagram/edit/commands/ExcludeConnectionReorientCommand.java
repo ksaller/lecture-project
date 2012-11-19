@@ -65,10 +65,14 @@ public class ExcludeConnectionReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Context && newEnd instanceof Context)) {
 			return false;
 		}
-		Context target = getLink().getSource();
+		Context target = getLink().getTarget();
+		if (!(getLink().eContainer() instanceof Context)) {
+			return false;
+		}
+		Context container = (Context) getLink().eContainer();
 		return MetamodelBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistExcludeConnection_4004(getLink(), getNewSource(),
-						target);
+				.canExistExcludeConnection_4004(container, getLink(),
+						getNewSource(), target);
 	}
 
 	/**
@@ -78,12 +82,13 @@ public class ExcludeConnectionReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Context && newEnd instanceof Context)) {
 			return false;
 		}
+		Context source = getLink().getSource();
 		if (!(getLink().eContainer() instanceof Context)) {
 			return false;
 		}
-		Context source = (Context) getLink().eContainer();
+		Context container = (Context) getLink().eContainer();
 		return MetamodelBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistExcludeConnection_4004(getLink(), source,
+				.canExistExcludeConnection_4004(container, getLink(), source,
 						getNewTarget());
 	}
 
@@ -109,8 +114,7 @@ public class ExcludeConnectionReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected CommandResult reorientSource() throws ExecutionException {
-		getOldSource().getSourceConnections().remove(getLink());
-		getNewSource().getSourceConnections().add(getLink());
+		getLink().setSource(getNewSource());
 		return CommandResult.newOKCommandResult(getLink());
 	}
 
@@ -118,7 +122,7 @@ public class ExcludeConnectionReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected CommandResult reorientTarget() throws ExecutionException {
-		getLink().setSource(getNewTarget());
+		getLink().setTarget(getNewTarget());
 		return CommandResult.newOKCommandResult(getLink());
 	}
 

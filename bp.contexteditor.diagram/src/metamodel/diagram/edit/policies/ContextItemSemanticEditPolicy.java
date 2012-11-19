@@ -51,6 +51,13 @@ public class ContextItemSemanticEditPolicy extends
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
+			if (MetamodelVisualIDRegistry.getVisualID(incomingLink) == IncludeConnectionEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						incomingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+				continue;
+			}
 			if (MetamodelVisualIDRegistry.getVisualID(incomingLink) == AssociateConnectionEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						incomingLink.getElement(), false);
@@ -58,14 +65,14 @@ public class ContextItemSemanticEditPolicy extends
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 				continue;
 			}
-			if (MetamodelVisualIDRegistry.getVisualID(incomingLink) == PriorConnectionEditPart.VISUAL_ID) {
+			if (MetamodelVisualIDRegistry.getVisualID(incomingLink) == ExcludeConnectionEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						incomingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 				continue;
 			}
-			if (MetamodelVisualIDRegistry.getVisualID(incomingLink) == ExcludeConnectionEditPart.VISUAL_ID) {
+			if (MetamodelVisualIDRegistry.getVisualID(incomingLink) == PriorConnectionEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						incomingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
@@ -82,7 +89,7 @@ public class ContextItemSemanticEditPolicy extends
 				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
 				continue;
 			}
-			if (MetamodelVisualIDRegistry.getVisualID(outgoingLink) == IncludeConnectionEditPart.VISUAL_ID) {
+			if (MetamodelVisualIDRegistry.getVisualID(outgoingLink) == ExcludeConnectionEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						outgoingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
@@ -90,13 +97,6 @@ public class ContextItemSemanticEditPolicy extends
 				continue;
 			}
 			if (MetamodelVisualIDRegistry.getVisualID(outgoingLink) == PriorConnectionEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(
-						outgoingLink.getElement(), false);
-				cmd.add(new DestroyElementCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-				continue;
-			}
-			if (MetamodelVisualIDRegistry.getVisualID(outgoingLink) == ExcludeConnectionEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						outgoingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
@@ -131,23 +131,22 @@ public class ContextItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
+		if (MetamodelElementTypes.IncludeConnection_4002 == req
+				.getElementType()) {
+			return null;
+		}
 		if (MetamodelElementTypes.AssociateConnection_4001 == req
 				.getElementType()) {
 			return getGEFWrapper(new AssociateConnectionCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
-		if (MetamodelElementTypes.IncludeConnection_4002 == req
+		if (MetamodelElementTypes.ExcludeConnection_4004 == req
 				.getElementType()) {
-			return getGEFWrapper(new IncludeConnectionCreateCommand(req,
+			return getGEFWrapper(new ExcludeConnectionCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
 		if (MetamodelElementTypes.PriorConnection_4003 == req.getElementType()) {
 			return getGEFWrapper(new PriorConnectionCreateCommand(req,
-					req.getSource(), req.getTarget()));
-		}
-		if (MetamodelElementTypes.ExcludeConnection_4004 == req
-				.getElementType()) {
-			return getGEFWrapper(new ExcludeConnectionCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -158,22 +157,23 @@ public class ContextItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
+		if (MetamodelElementTypes.IncludeConnection_4002 == req
+				.getElementType()) {
+			return getGEFWrapper(new IncludeConnectionCreateCommand(req,
+					req.getSource(), req.getTarget()));
+		}
 		if (MetamodelElementTypes.AssociateConnection_4001 == req
 				.getElementType()) {
 			return getGEFWrapper(new AssociateConnectionCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
-		if (MetamodelElementTypes.IncludeConnection_4002 == req
-				.getElementType()) {
-			return null;
-		}
-		if (MetamodelElementTypes.PriorConnection_4003 == req.getElementType()) {
-			return getGEFWrapper(new PriorConnectionCreateCommand(req,
-					req.getSource(), req.getTarget()));
-		}
 		if (MetamodelElementTypes.ExcludeConnection_4004 == req
 				.getElementType()) {
 			return getGEFWrapper(new ExcludeConnectionCreateCommand(req,
+					req.getSource(), req.getTarget()));
+		}
+		if (MetamodelElementTypes.PriorConnection_4003 == req.getElementType()) {
+			return getGEFWrapper(new PriorConnectionCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -188,14 +188,14 @@ public class ContextItemSemanticEditPolicy extends
 	protected Command getReorientRelationshipCommand(
 			ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
-		case AssociateConnectionEditPart.VISUAL_ID:
-			return getGEFWrapper(new AssociateConnectionReorientCommand(req));
 		case IncludeConnectionEditPart.VISUAL_ID:
 			return getGEFWrapper(new IncludeConnectionReorientCommand(req));
-		case PriorConnectionEditPart.VISUAL_ID:
-			return getGEFWrapper(new PriorConnectionReorientCommand(req));
+		case AssociateConnectionEditPart.VISUAL_ID:
+			return getGEFWrapper(new AssociateConnectionReorientCommand(req));
 		case ExcludeConnectionEditPart.VISUAL_ID:
 			return getGEFWrapper(new ExcludeConnectionReorientCommand(req));
+		case PriorConnectionEditPart.VISUAL_ID:
+			return getGEFWrapper(new PriorConnectionReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}

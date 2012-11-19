@@ -36,7 +36,10 @@ public class MetamodelParserProvider extends AbstractProvider implements
 		if (contextName_5001Parser == null) {
 			EAttribute[] features = new EAttribute[] { MetamodelPackage.eINSTANCE
 					.getContext_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features);
+			EAttribute[] editableFeatures = new EAttribute[] { MetamodelPackage.eINSTANCE
+					.getContext_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
 			contextName_5001Parser = parser;
 		}
 		return contextName_5001Parser;

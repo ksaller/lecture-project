@@ -328,39 +328,51 @@ public class MetamodelBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateAssociateConnection_4001(Context source,
+		public boolean canCreateIncludeConnection_4002(Context container,
+				RuntimeConfig source, Context target) {
+			return canExistIncludeConnection_4002(container, null, source,
+					target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreateAssociateConnection_4001(Context container,
+				Context source, Context target) {
+			return canExistAssociateConnection_4001(container, null, source,
+					target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreateExcludeConnection_4004(Context container,
+				Context source, Context target) {
+			return canExistExcludeConnection_4004(container, null, source,
+					target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreatePriorConnection_4003(Context container,
+				Context source, Context target) {
+			return canExistPriorConnection_4003(container, null, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistIncludeConnection_4002(Context container,
+				IncludeConnection linkInstance, RuntimeConfig source,
 				Context target) {
-			return canExistAssociateConnection_4001(null, source, target);
+			return true;
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canCreateIncludeConnection_4002(Context source,
-				RuntimeConfig target) {
-			return canExistIncludeConnection_4002(null, source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreatePriorConnection_4003(Context source,
-				Context target) {
-			return canExistPriorConnection_4003(null, source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateExcludeConnection_4004(Context source,
-				Context target) {
-			return canExistExcludeConnection_4004(null, source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistAssociateConnection_4001(
+		public boolean canExistAssociateConnection_4001(Context container,
 				AssociateConnection linkInstance, Context source, Context target) {
 			return true;
 		}
@@ -368,25 +380,16 @@ public class MetamodelBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canExistIncludeConnection_4002(
-				IncludeConnection linkInstance, Context source,
-				RuntimeConfig target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistPriorConnection_4003(
-				PriorConnection linkInstance, Context source, Context target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistExcludeConnection_4004(
+		public boolean canExistExcludeConnection_4004(Context container,
 				ExcludeConnection linkInstance, Context source, Context target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistPriorConnection_4003(Context container,
+				PriorConnection linkInstance, Context source, Context target) {
 			return true;
 		}
 	}

@@ -283,14 +283,6 @@ public class ContextDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case AssociateConnectionEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(MetamodelDiagramUpdater
-						.getAssociateConnection_4001ContainedLinks(view));
-			}
-			domain2NotationMap.putView(view.getElement(), view);
-			break;
-		}
 		case IncludeConnectionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(MetamodelDiagramUpdater
@@ -299,10 +291,10 @@ public class ContextDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case PriorConnectionEditPart.VISUAL_ID: {
+		case AssociateConnectionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(MetamodelDiagramUpdater
-						.getPriorConnection_4003ContainedLinks(view));
+						.getAssociateConnection_4001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -311,6 +303,14 @@ public class ContextDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(MetamodelDiagramUpdater
 						.getExcludeConnection_4004ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case PriorConnectionEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(MetamodelDiagramUpdater
+						.getPriorConnection_4003ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

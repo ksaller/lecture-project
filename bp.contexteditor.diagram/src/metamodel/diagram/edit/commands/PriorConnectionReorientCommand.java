@@ -65,10 +65,14 @@ public class PriorConnectionReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Context && newEnd instanceof Context)) {
 			return false;
 		}
-		Context target = getLink().getSource();
-		return MetamodelBaseItemSemanticEditPolicy
-				.getLinkConstraints()
-				.canExistPriorConnection_4003(getLink(), getNewSource(), target);
+		Context target = getLink().getTarget();
+		if (!(getLink().eContainer() instanceof Context)) {
+			return false;
+		}
+		Context container = (Context) getLink().eContainer();
+		return MetamodelBaseItemSemanticEditPolicy.getLinkConstraints()
+				.canExistPriorConnection_4003(container, getLink(),
+						getNewSource(), target);
 	}
 
 	/**
@@ -78,13 +82,14 @@ public class PriorConnectionReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Context && newEnd instanceof Context)) {
 			return false;
 		}
+		Context source = getLink().getSource();
 		if (!(getLink().eContainer() instanceof Context)) {
 			return false;
 		}
-		Context source = (Context) getLink().eContainer();
-		return MetamodelBaseItemSemanticEditPolicy
-				.getLinkConstraints()
-				.canExistPriorConnection_4003(getLink(), source, getNewTarget());
+		Context container = (Context) getLink().eContainer();
+		return MetamodelBaseItemSemanticEditPolicy.getLinkConstraints()
+				.canExistPriorConnection_4003(container, getLink(), source,
+						getNewTarget());
 	}
 
 	/**
@@ -109,8 +114,7 @@ public class PriorConnectionReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected CommandResult reorientSource() throws ExecutionException {
-		getOldSource().getSourceConnections().remove(getLink());
-		getNewSource().getSourceConnections().add(getLink());
+		getLink().setSource(getNewSource());
 		return CommandResult.newOKCommandResult(getLink());
 	}
 
@@ -118,7 +122,7 @@ public class PriorConnectionReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected CommandResult reorientTarget() throws ExecutionException {
-		getLink().setSource(getNewTarget());
+		getLink().setTarget(getNewTarget());
 		return CommandResult.newOKCommandResult(getLink());
 	}
 

@@ -200,17 +200,17 @@ public class MetamodelElementTypes {
 
 			elements.put(Context_2002, MetamodelPackage.eINSTANCE.getContext());
 
-			elements.put(AssociateConnection_4001,
-					MetamodelPackage.eINSTANCE.getAssociateConnection());
-
 			elements.put(IncludeConnection_4002,
 					MetamodelPackage.eINSTANCE.getIncludeConnection());
 
-			elements.put(PriorConnection_4003,
-					MetamodelPackage.eINSTANCE.getPriorConnection());
+			elements.put(AssociateConnection_4001,
+					MetamodelPackage.eINSTANCE.getAssociateConnection());
 
 			elements.put(ExcludeConnection_4004,
 					MetamodelPackage.eINSTANCE.getExcludeConnection());
+
+			elements.put(PriorConnection_4003,
+					MetamodelPackage.eINSTANCE.getPriorConnection());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -231,10 +231,10 @@ public class MetamodelElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ContextDiagram_1000);
 			KNOWN_ELEMENT_TYPES.add(RuntimeConfig_2001);
 			KNOWN_ELEMENT_TYPES.add(Context_2002);
-			KNOWN_ELEMENT_TYPES.add(AssociateConnection_4001);
 			KNOWN_ELEMENT_TYPES.add(IncludeConnection_4002);
-			KNOWN_ELEMENT_TYPES.add(PriorConnection_4003);
+			KNOWN_ELEMENT_TYPES.add(AssociateConnection_4001);
 			KNOWN_ELEMENT_TYPES.add(ExcludeConnection_4004);
+			KNOWN_ELEMENT_TYPES.add(PriorConnection_4003);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -250,14 +250,14 @@ public class MetamodelElementTypes {
 			return RuntimeConfig_2001;
 		case ContextEditPart.VISUAL_ID:
 			return Context_2002;
-		case AssociateConnectionEditPart.VISUAL_ID:
-			return AssociateConnection_4001;
 		case IncludeConnectionEditPart.VISUAL_ID:
 			return IncludeConnection_4002;
-		case PriorConnectionEditPart.VISUAL_ID:
-			return PriorConnection_4003;
+		case AssociateConnectionEditPart.VISUAL_ID:
+			return AssociateConnection_4001;
 		case ExcludeConnectionEditPart.VISUAL_ID:
 			return ExcludeConnection_4004;
+		case PriorConnectionEditPart.VISUAL_ID:
+			return PriorConnection_4003;
 		}
 		return null;
 	}

@@ -63,28 +63,33 @@ public class IncludeConnectionReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected boolean canReorientSource() {
-		if (!(oldEnd instanceof Context && newEnd instanceof Context)) {
+		if (!(oldEnd instanceof RuntimeConfig && newEnd instanceof RuntimeConfig)) {
 			return false;
 		}
-		RuntimeConfig target = getLink().getSource();
+		Context target = getLink().getTarget();
+		if (!(getLink().eContainer() instanceof Context)) {
+			return false;
+		}
+		Context container = (Context) getLink().eContainer();
 		return MetamodelBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistIncludeConnection_4002(getLink(), getNewSource(),
-						target);
+				.canExistIncludeConnection_4002(container, getLink(),
+						getNewSource(), target);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean canReorientTarget() {
-		if (!(oldEnd instanceof RuntimeConfig && newEnd instanceof RuntimeConfig)) {
+		if (!(oldEnd instanceof Context && newEnd instanceof Context)) {
 			return false;
 		}
+		RuntimeConfig source = getLink().getSource();
 		if (!(getLink().eContainer() instanceof Context)) {
 			return false;
 		}
-		Context source = (Context) getLink().eContainer();
+		Context container = (Context) getLink().eContainer();
 		return MetamodelBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistIncludeConnection_4002(getLink(), source,
+				.canExistIncludeConnection_4002(container, getLink(), source,
 						getNewTarget());
 	}
 
@@ -110,8 +115,7 @@ public class IncludeConnectionReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected CommandResult reorientSource() throws ExecutionException {
-		getOldSource().getIncluded().remove(getLink());
-		getNewSource().getIncluded().add(getLink());
+		getLink().setSource(getNewSource());
 		return CommandResult.newOKCommandResult(getLink());
 	}
 
@@ -119,7 +123,7 @@ public class IncludeConnectionReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected CommandResult reorientTarget() throws ExecutionException {
-		getLink().setSource(getNewTarget());
+		getLink().setTarget(getNewTarget());
 		return CommandResult.newOKCommandResult(getLink());
 	}
 
@@ -133,28 +137,28 @@ public class IncludeConnectionReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected Context getOldSource() {
-		return (Context) oldEnd;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Context getNewSource() {
-		return (Context) newEnd;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected RuntimeConfig getOldTarget() {
+	protected RuntimeConfig getOldSource() {
 		return (RuntimeConfig) oldEnd;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected RuntimeConfig getNewTarget() {
+	protected RuntimeConfig getNewSource() {
 		return (RuntimeConfig) newEnd;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Context getOldTarget() {
+		return (Context) oldEnd;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Context getNewTarget() {
+		return (Context) newEnd;
 	}
 }

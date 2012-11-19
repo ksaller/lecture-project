@@ -54,6 +54,10 @@ public class MetamodelModelingAssistantProvider extends
 	public List getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof RuntimeConfigEditPart) {
+			return ((RuntimeConfigEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
 		if (sourceEditPart instanceof ContextEditPart) {
 			return ((ContextEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
@@ -66,10 +70,6 @@ public class MetamodelModelingAssistantProvider extends
 	public List getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof RuntimeConfigEditPart) {
-			return ((RuntimeConfigEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
-		}
 		if (targetEditPart instanceof ContextEditPart) {
 			return ((ContextEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
@@ -85,6 +85,10 @@ public class MetamodelModelingAssistantProvider extends
 				.getAdapter(IGraphicalEditPart.class);
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof RuntimeConfigEditPart) {
+			return ((RuntimeConfigEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
 		if (sourceEditPart instanceof ContextEditPart) {
 			return ((ContextEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
@@ -99,10 +103,6 @@ public class MetamodelModelingAssistantProvider extends
 			IElementType relationshipType) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof RuntimeConfigEditPart) {
-			return ((RuntimeConfigEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
-		}
 		if (targetEditPart instanceof ContextEditPart) {
 			return ((ContextEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
@@ -117,6 +117,10 @@ public class MetamodelModelingAssistantProvider extends
 			IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof RuntimeConfigEditPart) {
+			return ((RuntimeConfigEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
 		if (sourceEditPart instanceof ContextEditPart) {
 			return ((ContextEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);

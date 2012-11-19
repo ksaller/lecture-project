@@ -45,14 +45,29 @@ public class AssociateConnectionEditPart extends ConnectionNodeEditPart
 	 * @generated
 	 */
 	protected Connection createConnectionFigure() {
-		return new PolylineConnectionEx();
+		return new AssociateConnectionFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public PolylineConnectionEx getPrimaryShape() {
-		return (PolylineConnectionEx) getFigure();
+	public AssociateConnectionFigure getPrimaryShape() {
+		return (AssociateConnectionFigure) getFigure();
+	}
+
+	/**
+	 * @generated
+	 */
+	public class AssociateConnectionFigure extends PolylineConnectionEx {
+
+		/**
+		 * @generated
+		 */
+		public AssociateConnectionFigure() {
+			this.setLineWidth(2);
+
+		}
+
 	}
 
 }

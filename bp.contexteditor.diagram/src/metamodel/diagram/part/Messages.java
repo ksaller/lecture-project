@@ -298,62 +298,52 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ContextClassifies2CreationTool_title;
+	public static String PriorConnection2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ContextClassifies2CreationTool_desc;
+	public static String PriorConnection2CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PriorConnection3CreationTool_title;
+	public static String ExcludeConnection3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PriorConnection3CreationTool_desc;
+	public static String ExcludeConnection3CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ExcludeConnection4CreationTool_title;
+	public static String AssociateConnection4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ExcludeConnection4CreationTool_desc;
+	public static String AssociateConnection4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String AssociateConnection5CreationTool_title;
+	public static String RuntimeConfig5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String AssociateConnection5CreationTool_desc;
+	public static String RuntimeConfig5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String RuntimeConfig6CreationTool_title;
+	public static String IncludeConnection6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String RuntimeConfig6CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String IncludeConnection7CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String IncludeConnection7CreationTool_desc;
+	public static String IncludeConnection6CreationTool_desc;
 
 	/**
 	 * @generated

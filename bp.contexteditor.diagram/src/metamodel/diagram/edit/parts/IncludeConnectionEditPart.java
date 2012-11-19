@@ -45,14 +45,29 @@ public class IncludeConnectionEditPart extends ConnectionNodeEditPart implements
 	 * @generated
 	 */
 	protected Connection createConnectionFigure() {
-		return new PolylineConnectionEx();
+		return new IncludeConnectionFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public PolylineConnectionEx getPrimaryShape() {
-		return (PolylineConnectionEx) getFigure();
+	public IncludeConnectionFigure getPrimaryShape() {
+		return (IncludeConnectionFigure) getFigure();
+	}
+
+	/**
+	 * @generated
+	 */
+	public class IncludeConnectionFigure extends PolylineConnectionEx {
+
+		/**
+		 * @generated
+		 */
+		public IncludeConnectionFigure() {
+			this.setLineWidth(3);
+
+		}
+
 	}
 
 }

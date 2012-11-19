@@ -35,12 +35,11 @@ public class MetamodelPaletteFactory {
 				Messages.Metamodel1Group_title);
 		paletteContainer.setId("createMetamodel1Group"); //$NON-NLS-1$
 		paletteContainer.add(createContext1CreationTool());
-		paletteContainer.add(createContextClassifies2CreationTool());
-		paletteContainer.add(createPriorConnection3CreationTool());
-		paletteContainer.add(createExcludeConnection4CreationTool());
-		paletteContainer.add(createAssociateConnection5CreationTool());
-		paletteContainer.add(createRuntimeConfig6CreationTool());
-		paletteContainer.add(createIncludeConnection7CreationTool());
+		paletteContainer.add(createPriorConnection2CreationTool());
+		paletteContainer.add(createExcludeConnection3CreationTool());
+		paletteContainer.add(createAssociateConnection4CreationTool());
+		paletteContainer.add(createRuntimeConfig5CreationTool());
+		paletteContainer.add(createIncludeConnection6CreationTool());
 		return paletteContainer;
 	}
 
@@ -51,24 +50,8 @@ public class MetamodelPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.Context1CreationTool_title,
 				Messages.Context1CreationTool_desc,
-				Collections
-						.singletonList(MetamodelElementTypes.RuntimeConfig_2001));
-		entry.setId("createContext1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(MetamodelElementTypes
-				.getImageDescriptor(MetamodelElementTypes.RuntimeConfig_2001));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createContextClassifies2CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ContextClassifies2CreationTool_title,
-				Messages.ContextClassifies2CreationTool_desc,
 				Collections.singletonList(MetamodelElementTypes.Context_2002));
-		entry.setId("createContextClassifies2CreationTool"); //$NON-NLS-1$
+		entry.setId("createContext1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(MetamodelElementTypes
 				.getImageDescriptor(MetamodelElementTypes.Context_2002));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -78,45 +61,13 @@ public class MetamodelPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPriorConnection3CreationTool() {
+	private ToolEntry createPriorConnection2CreationTool() {
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.PriorConnection3CreationTool_title,
-				Messages.PriorConnection3CreationTool_desc,
-				Collections
-						.singletonList(MetamodelElementTypes.AssociateConnection_4001));
-		entry.setId("createPriorConnection3CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(MetamodelElementTypes
-				.getImageDescriptor(MetamodelElementTypes.AssociateConnection_4001));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createExcludeConnection4CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.ExcludeConnection4CreationTool_title,
-				Messages.ExcludeConnection4CreationTool_desc,
-				Collections
-						.singletonList(MetamodelElementTypes.IncludeConnection_4002));
-		entry.setId("createExcludeConnection4CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(MetamodelElementTypes
-				.getImageDescriptor(MetamodelElementTypes.IncludeConnection_4002));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createAssociateConnection5CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.AssociateConnection5CreationTool_title,
-				Messages.AssociateConnection5CreationTool_desc,
+				Messages.PriorConnection2CreationTool_title,
+				Messages.PriorConnection2CreationTool_desc,
 				Collections
 						.singletonList(MetamodelElementTypes.PriorConnection_4003));
-		entry.setId("createAssociateConnection5CreationTool"); //$NON-NLS-1$
+		entry.setId("createPriorConnection2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(MetamodelElementTypes
 				.getImageDescriptor(MetamodelElementTypes.PriorConnection_4003));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -126,13 +77,13 @@ public class MetamodelPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createRuntimeConfig6CreationTool() {
+	private ToolEntry createExcludeConnection3CreationTool() {
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.RuntimeConfig6CreationTool_title,
-				Messages.RuntimeConfig6CreationTool_desc,
+				Messages.ExcludeConnection3CreationTool_title,
+				Messages.ExcludeConnection3CreationTool_desc,
 				Collections
 						.singletonList(MetamodelElementTypes.ExcludeConnection_4004));
-		entry.setId("createRuntimeConfig6CreationTool"); //$NON-NLS-1$
+		entry.setId("createExcludeConnection3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(MetamodelElementTypes
 				.getImageDescriptor(MetamodelElementTypes.ExcludeConnection_4004));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -142,12 +93,48 @@ public class MetamodelPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createIncludeConnection7CreationTool() {
-		ToolEntry entry = new ToolEntry(
-				Messages.IncludeConnection7CreationTool_title,
-				Messages.IncludeConnection7CreationTool_desc, null, null) {
-		};
-		entry.setId("createIncludeConnection7CreationTool"); //$NON-NLS-1$
+	private ToolEntry createAssociateConnection4CreationTool() {
+		LinkToolEntry entry = new LinkToolEntry(
+				Messages.AssociateConnection4CreationTool_title,
+				Messages.AssociateConnection4CreationTool_desc,
+				Collections
+						.singletonList(MetamodelElementTypes.AssociateConnection_4001));
+		entry.setId("createAssociateConnection4CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(MetamodelElementTypes
+				.getImageDescriptor(MetamodelElementTypes.AssociateConnection_4001));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createRuntimeConfig5CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.RuntimeConfig5CreationTool_title,
+				Messages.RuntimeConfig5CreationTool_desc,
+				Collections
+						.singletonList(MetamodelElementTypes.RuntimeConfig_2001));
+		entry.setId("createRuntimeConfig5CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(MetamodelElementTypes
+				.getImageDescriptor(MetamodelElementTypes.RuntimeConfig_2001));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createIncludeConnection6CreationTool() {
+		LinkToolEntry entry = new LinkToolEntry(
+				Messages.IncludeConnection6CreationTool_title,
+				Messages.IncludeConnection6CreationTool_desc,
+				Collections
+						.singletonList(MetamodelElementTypes.IncludeConnection_4002));
+		entry.setId("createIncludeConnection6CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(MetamodelElementTypes
+				.getImageDescriptor(MetamodelElementTypes.IncludeConnection_4002));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

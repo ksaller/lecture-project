@@ -3,6 +3,9 @@ package metamodel.diagram.edit.parts;
 import metamodel.diagram.edit.policies.ExcludeConnectionItemSemanticEditPolicy;
 
 import org.eclipse.draw2d.Connection;
+import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.PolylineDecoration;
+import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
@@ -45,14 +48,51 @@ public class ExcludeConnectionEditPart extends ConnectionNodeEditPart implements
 	 * @generated
 	 */
 	protected Connection createConnectionFigure() {
-		return new PolylineConnectionEx();
+		return new ExcludeConnectionFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public PolylineConnectionEx getPrimaryShape() {
-		return (PolylineConnectionEx) getFigure();
+	public ExcludeConnectionFigure getPrimaryShape() {
+		return (ExcludeConnectionFigure) getFigure();
+	}
+
+	/**
+	 * @generated
+	 */
+	public class ExcludeConnectionFigure extends PolylineConnectionEx {
+
+		/**
+		 * @generated
+		 */
+		public ExcludeConnectionFigure() {
+			this.setLineWidth(2);
+
+			setSourceDecoration(createSourceDecoration());
+			setTargetDecoration(createTargetDecoration());
+		}
+
+		/**
+		 * @generated
+		 */
+		private RotatableDecoration createSourceDecoration() {
+			PolylineDecoration df = new PolylineDecoration();
+			df.setLineWidth(3);
+			df.setLineStyle(Graphics.LINE_DASH);
+			return df;
+		}
+
+		/**
+		 * @generated
+		 */
+		private RotatableDecoration createTargetDecoration() {
+			PolylineDecoration df = new PolylineDecoration();
+			df.setLineWidth(3);
+			df.setLineStyle(Graphics.LINE_DASH);
+			return df;
+		}
+
 	}
 
 }

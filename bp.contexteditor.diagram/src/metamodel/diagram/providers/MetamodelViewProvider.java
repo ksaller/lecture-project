@@ -236,20 +236,20 @@ public class MetamodelViewProvider extends AbstractProvider implements
 		IElementType elementType = getSemanticElementType(semanticAdapter);
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (MetamodelVisualIDRegistry.getVisualID(elementTypeHint)) {
-		case AssociateConnectionEditPart.VISUAL_ID:
-			return createAssociateConnection_4001(
-					getSemanticElement(semanticAdapter), containerView, index,
-					persisted, preferencesHint);
 		case IncludeConnectionEditPart.VISUAL_ID:
 			return createIncludeConnection_4002(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
-		case PriorConnectionEditPart.VISUAL_ID:
-			return createPriorConnection_4003(
+		case AssociateConnectionEditPart.VISUAL_ID:
+			return createAssociateConnection_4001(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case ExcludeConnectionEditPart.VISUAL_ID:
 			return createExcludeConnection_4004(
+					getSemanticElement(semanticAdapter), containerView, index,
+					persisted, preferencesHint);
+		case PriorConnectionEditPart.VISUAL_ID:
+			return createPriorConnection_4003(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		}
