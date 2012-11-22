@@ -2,10 +2,6 @@
  */
 package metamodel.impl;
 
-import feature.FeaturePackage;
-
-import feature.impl.FeaturePackageImpl;
-
 import metamodel.AssociateConnection;
 import metamodel.Classification;
 import metamodel.Classifier;
@@ -27,13 +23,9 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import viewmapping.ViewmappingPackage;
+import org.feature.multi.perspective.mapping.viewmapping.ViewmappingPackage;
 
-import viewmapping.impl.ViewmappingPackageImpl;
-
-import viewmodel.ViewmodelPackage;
-
-import viewmodel.impl.ViewmodelPackageImpl;
+import org.featuremapper.models.feature.FeaturePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -158,22 +150,14 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 
 		isInited = true;
 
-		// Obtain or create and register interdependencies
-		FeaturePackageImpl theFeaturePackage = (FeaturePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FeaturePackage.eNS_URI) instanceof FeaturePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FeaturePackage.eNS_URI) : FeaturePackage.eINSTANCE);
-		ViewmappingPackageImpl theViewmappingPackage = (ViewmappingPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ViewmappingPackage.eNS_URI) instanceof ViewmappingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ViewmappingPackage.eNS_URI) : ViewmappingPackage.eINSTANCE);
-		ViewmodelPackageImpl theViewmodelPackage = (ViewmodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ViewmodelPackage.eNS_URI) instanceof ViewmodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ViewmodelPackage.eNS_URI) : ViewmodelPackage.eINSTANCE);
+		// Initialize simple dependencies
+		ViewmappingPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theMetamodelPackage.createPackageContents();
-		theFeaturePackage.createPackageContents();
-		theViewmappingPackage.createPackageContents();
-		theViewmodelPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theMetamodelPackage.initializePackageContents();
-		theFeaturePackage.initializePackageContents();
-		theViewmappingPackage.initializePackageContents();
-		theViewmodelPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theMetamodelPackage.freeze();
@@ -515,7 +499,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEAttribute(getContext_Name(), ecorePackage.getEString(), "name", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_Classifies(), this.getClassifier(), null, "classifies", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_TargetConnections(), this.getConnection(), this.getConnection_Source(), "targetConnections", null, 0, -1, Context.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getContext_Included(), this.getIncludeConnection(), this.getIncludeConnection_Target(), "included", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContext_Included(), this.getIncludeConnection(), this.getIncludeConnection_Target(), "included", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_SourceConnections(), this.getConnection(), this.getConnection_Target(), "sourceConnections", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(classifierEClass, Classifier.class, "Classifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -533,11 +517,11 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEClass(associateConnectionEClass, AssociateConnection.class, "AssociateConnection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(runtimeConfigEClass, RuntimeConfig.class, "RuntimeConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRuntimeConfig_Includes(), this.getIncludeConnection(), this.getIncludeConnection_Source(), "includes", null, 0, -1, RuntimeConfig.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getRuntimeConfig_Includes(), this.getIncludeConnection(), this.getIncludeConnection_Source(), "includes", null, 0, -1, RuntimeConfig.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(includeConnectionEClass, IncludeConnection.class, "IncludeConnection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIncludeConnection_Source(), this.getRuntimeConfig(), this.getRuntimeConfig_Includes(), "source", null, 1, 1, IncludeConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIncludeConnection_Target(), this.getContext(), this.getContext_Included(), "target", null, 1, 1, IncludeConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIncludeConnection_Target(), this.getContext(), this.getContext_Included(), "target", null, 1, 1, IncludeConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contextDiagramEClass, ContextDiagram.class, "ContextDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContextDiagram_MappingReference(), theViewmappingPackage.getMapping(), null, "mappingReference", null, 1, 1, ContextDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

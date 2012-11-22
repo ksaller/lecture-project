@@ -24,19 +24,19 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface RuntimeConfig extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Includes</b></em>' reference list.
+	 * Returns the value of the '<em><b>Includes</b></em>' containment reference list.
 	 * The list contents are of type {@link metamodel.IncludeConnection}.
 	 * It is bidirectional and its opposite is '{@link metamodel.IncludeConnection#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Includes</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Includes</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Includes</em>' reference list.
+	 * @return the value of the '<em>Includes</em>' containment reference list.
 	 * @see metamodel.MetamodelPackage#getRuntimeConfig_Includes()
 	 * @see metamodel.IncludeConnection#getSource
-	 * @model opposite="source" transient="true" derived="true"
+	 * @model opposite="source" containment="true" transient="true" derived="true"
 	 * @generated
 	 */
 	EList<IncludeConnection> getIncludes();

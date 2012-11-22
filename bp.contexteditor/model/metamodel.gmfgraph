@@ -9,9 +9,8 @@
       name="Default">
     <figures
         xsi:type="gmfgraph:PolylineDecoration"
-        name="Dash"
-        lineWidth="3"
-        lineKind="LINE_DASH"/>
+        name="Arrow"
+        lineWidth="2"/>
     <descriptors
         name="ContextFigure">
       <actualFigure
@@ -56,15 +55,15 @@
         name="RuntimeConfigFigure">
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
-          name="RuntimeConfigFigure"
-          lineWidth="2"/>
+          name="RuntimeConfigFigure"/>
     </descriptors>
     <descriptors
         name="IncludeConnectionFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           name="IncludeConnectionFigure"
-          lineWidth="3"/>
+          lineWidth="4"
+          lineKind="LINE_DOT"/>
     </descriptors>
   </figures>
   <nodes
@@ -88,7 +87,5 @@
   <labels
       name="ContextName"
       figure="ContextFigure"
-      contentPane="//@figures.0/@descriptors.0/@accessors.0"
-      accessor="//@figures.0/@descriptors.0/@accessors.0"
-      container="//@figures.0/@descriptors.0/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.0/@accessors.0"/>
 </gmfgraph:Canvas>

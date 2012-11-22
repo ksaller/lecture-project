@@ -6,7 +6,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
-import viewmapping.Mapping;
+import org.feature.multi.perspective.mapping.viewmapping.Mapping;
 
 /**
  * <!-- begin-user-doc -->

@@ -7,18 +7,12 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: feature,
- feature.impl,
- feature.util,
- metamodel,
+Export-Package: metamodel,
  metamodel.impl,
- metamodel.util,
- viewmapping,
- viewmapping.impl,
- viewmapping.util,
- viewmodel,
- viewmodel.impl,
- viewmodel.util
+ metamodel.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.featuremapper.models.feature;visibility:=reexport,
+ org.feature.multi.perspective.mapping;visibility:=reexport,
+ org.feature.multi.perspective.model;visibility:=reexport
 Bundle-ActivationPolicy: lazy

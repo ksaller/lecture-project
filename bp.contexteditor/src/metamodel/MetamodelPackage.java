@@ -94,7 +94,7 @@ public interface MetamodelPackage extends EPackage {
 	int CONTEXT__TARGET_CONNECTIONS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Included</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Included</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -316,7 +316,7 @@ public interface MetamodelPackage extends EPackage {
 	int RUNTIME_CONFIG = 6;
 
 	/**
-	 * The feature id for the '<em><b>Includes</b></em>' reference list.
+	 * The feature id for the '<em><b>Includes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -344,7 +344,7 @@ public interface MetamodelPackage extends EPackage {
 	int INCLUDE_CONNECTION = 7;
 
 	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * The feature id for the '<em><b>Source</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -353,7 +353,7 @@ public interface MetamodelPackage extends EPackage {
 	int INCLUDE_CONNECTION__SOURCE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Target</b></em>' container reference.
+	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -471,10 +471,10 @@ public interface MetamodelPackage extends EPackage {
 	EReference getContext_TargetConnections();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link metamodel.Context#getIncluded <em>Included</em>}'.
+	 * Returns the meta object for the reference list '{@link metamodel.Context#getIncluded <em>Included</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Included</em>'.
+	 * @return the meta object for the reference list '<em>Included</em>'.
 	 * @see metamodel.Context#getIncluded()
 	 * @see #getContext()
 	 * @generated
@@ -597,10 +597,10 @@ public interface MetamodelPackage extends EPackage {
 	EClass getRuntimeConfig();
 
 	/**
-	 * Returns the meta object for the reference list '{@link metamodel.RuntimeConfig#getIncludes <em>Includes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link metamodel.RuntimeConfig#getIncludes <em>Includes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Includes</em>'.
+	 * @return the meta object for the containment reference list '<em>Includes</em>'.
 	 * @see metamodel.RuntimeConfig#getIncludes()
 	 * @see #getRuntimeConfig()
 	 * @generated
@@ -618,10 +618,10 @@ public interface MetamodelPackage extends EPackage {
 	EClass getIncludeConnection();
 
 	/**
-	 * Returns the meta object for the reference '{@link metamodel.IncludeConnection#getSource <em>Source</em>}'.
+	 * Returns the meta object for the container reference '{@link metamodel.IncludeConnection#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @return the meta object for the container reference '<em>Source</em>'.
 	 * @see metamodel.IncludeConnection#getSource()
 	 * @see #getIncludeConnection()
 	 * @generated
@@ -629,10 +629,10 @@ public interface MetamodelPackage extends EPackage {
 	EReference getIncludeConnection_Source();
 
 	/**
-	 * Returns the meta object for the container reference '{@link metamodel.IncludeConnection#getTarget <em>Target</em>}'.
+	 * Returns the meta object for the reference '{@link metamodel.IncludeConnection#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Target</em>'.
+	 * @return the meta object for the reference '<em>Target</em>'.
 	 * @see metamodel.IncludeConnection#getTarget()
 	 * @see #getIncludeConnection()
 	 * @generated
@@ -749,7 +749,7 @@ public interface MetamodelPackage extends EPackage {
 		EReference CONTEXT__TARGET_CONNECTIONS = eINSTANCE.getContext_TargetConnections();
 
 		/**
-		 * The meta object literal for the '<em><b>Included</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Included</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -857,7 +857,7 @@ public interface MetamodelPackage extends EPackage {
 		EClass RUNTIME_CONFIG = eINSTANCE.getRuntimeConfig();
 
 		/**
-		 * The meta object literal for the '<em><b>Includes</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Includes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -875,7 +875,7 @@ public interface MetamodelPackage extends EPackage {
 		EClass INCLUDE_CONNECTION = eINSTANCE.getIncludeConnection();
 
 		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Source</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -883,7 +883,7 @@ public interface MetamodelPackage extends EPackage {
 		EReference INCLUDE_CONNECTION__SOURCE = eINSTANCE.getIncludeConnection_Source();
 
 		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

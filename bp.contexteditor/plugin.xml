@@ -13,25 +13,4 @@
             genModel="model/metamodel.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <package
-            uri="http://www.tudresden.de/feature"
-            class="feature.FeaturePackage"
-            genModel="model/metamodel.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <package
-            uri="http://www.tudresden.de/viewmapping"
-            class="viewmapping.ViewmappingPackage"
-            genModel="model/metamodel.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <package
-            uri="http://org.feature.multi.perspective.model/schema/1.0"
-            class="viewmodel.ViewmodelPackage"
-            genModel="model/metamodel.genmodel"/>
-   </extension>
-
 </plugin>

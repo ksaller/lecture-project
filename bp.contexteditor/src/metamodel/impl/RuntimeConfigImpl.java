@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class RuntimeConfigImpl extends EObjectImpl implements RuntimeConfig {
 	/**
-	 * The cached value of the '{@link #getIncludes() <em>Includes</em>}' reference list.
+	 * The cached value of the '{@link #getIncludes() <em>Includes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIncludes()
@@ -70,7 +70,7 @@ public class RuntimeConfigImpl extends EObjectImpl implements RuntimeConfig {
 	 */
 	public EList<IncludeConnection> getIncludes() {
 		if (includes == null) {
-			includes = new EObjectWithInverseResolvingEList<IncludeConnection>(IncludeConnection.class, this, MetamodelPackage.RUNTIME_CONFIG__INCLUDES, MetamodelPackage.INCLUDE_CONNECTION__SOURCE);
+			includes = new EObjectContainmentWithInverseEList<IncludeConnection>(IncludeConnection.class, this, MetamodelPackage.RUNTIME_CONFIG__INCLUDES, MetamodelPackage.INCLUDE_CONNECTION__SOURCE);
 		}
 		return includes;
 	}

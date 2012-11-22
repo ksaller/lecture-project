@@ -8,19 +8,6 @@
     xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
   <nodes>
     <containmentFeature
-        href="metamodel.ecore#//ContextDiagram/containsRuntimeConfigs"/>
-    <ownedChild>
-      <domainMetaElement
-          href="metamodel.ecore#//RuntimeConfig"/>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="metamodel.gmftool#//@palette/@tools.0/@tools.0"/>
-      <diagramNode
-          href="metamodel.gmfgraph#RuntimeConfig"/>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
         href="metamodel.ecore#//ContextDiagram/containsContexts"/>
     <ownedChild>
       <domainMetaElement
@@ -31,42 +18,29 @@
             href="metamodel.gmfgraph#ContextName"/>
         <features
             href="metamodel.ecore#//Context/name"/>
+        <editableFeatures
+            href="metamodel.ecore#//Context/name"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="metamodel.gmftool#//@palette/@tools.0/@tools.1"/>
+          href="metamodel.gmftool#//@palette/@tools.0/@tools.0"/>
       <diagramNode
           href="metamodel.gmfgraph#Context"/>
     </ownedChild>
   </nodes>
-  <links>
-    <domainMetaElement
-        href="metamodel.ecore#//AssociateConnection"/>
+  <nodes>
     <containmentFeature
-        href="metamodel.ecore#//Context/sourceConnections"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="metamodel.gmftool#//@palette/@tools.0/@tools.2"/>
-    <diagramLink
-        href="metamodel.gmfgraph#AssociateConnection"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="metamodel.ecore#//Connection/source"/>
-  </links>
-  <links>
-    <domainMetaElement
-        href="metamodel.ecore#//IncludeConnection"/>
-    <containmentFeature
-        href="metamodel.ecore#//Context/included"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="metamodel.gmftool#//@palette/@tools.0/@tools.3"/>
-    <diagramLink
-        href="metamodel.gmfgraph#IncludeConnection"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="metamodel.ecore#//IncludeConnection/source"/>
-  </links>
+        href="metamodel.ecore#//ContextDiagram/containsRuntimeConfigs"/>
+    <ownedChild>
+      <domainMetaElement
+          href="metamodel.ecore#//RuntimeConfig"/>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="metamodel.gmftool#//@palette/@tools.0/@tools.4"/>
+      <diagramNode
+          href="metamodel.gmfgraph#RuntimeConfig"/>
+    </ownedChild>
+  </nodes>
   <links>
     <domainMetaElement
         href="metamodel.ecore#//PriorConnection"/>
@@ -74,12 +48,15 @@
         href="metamodel.ecore#//Context/sourceConnections"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="metamodel.gmftool#//@palette/@tools.0/@tools.4"/>
+        href="metamodel.gmftool#//@palette/@tools.0/@tools.1"/>
     <diagramLink
         href="metamodel.gmfgraph#PriorConnection"/>
-    <linkMetaFeature
+    <sourceMetaFeature
         xsi:type="ecore:EReference"
         href="metamodel.ecore#//Connection/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="metamodel.ecore#//Connection/target"/>
   </links>
   <links>
     <domainMetaElement
@@ -88,12 +65,49 @@
         href="metamodel.ecore#//Context/sourceConnections"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="metamodel.gmftool#//@palette/@tools.0/@tools.5"/>
+        href="metamodel.gmftool#//@palette/@tools.0/@tools.2"/>
     <diagramLink
         href="metamodel.gmfgraph#ExcludeConnection"/>
-    <linkMetaFeature
+    <sourceMetaFeature
         xsi:type="ecore:EReference"
         href="metamodel.ecore#//Connection/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="metamodel.ecore#//Connection/target"/>
+  </links>
+  <links>
+    <domainMetaElement
+        href="metamodel.ecore#//IncludeConnection"/>
+    <containmentFeature
+        href="metamodel.ecore#//RuntimeConfig/includes"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="metamodel.gmftool#//@palette/@tools.0/@tools.5"/>
+    <diagramLink
+        href="metamodel.gmfgraph#IncludeConnection"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="metamodel.ecore#//IncludeConnection/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="metamodel.ecore#//IncludeConnection/target"/>
+  </links>
+  <links>
+    <domainMetaElement
+        href="metamodel.ecore#//AssociateConnection"/>
+    <containmentFeature
+        href="metamodel.ecore#//Context/sourceConnections"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="metamodel.gmftool#//@palette/@tools.0/@tools.3"/>
+    <diagramLink
+        href="metamodel.gmfgraph#AssociateConnection"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="metamodel.ecore#//Connection/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="metamodel.ecore#//Connection/target"/>
   </links>
   <diagram>
     <diagramCanvas

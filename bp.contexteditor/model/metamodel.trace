@@ -5,24 +5,24 @@
     xmlns:trace="http://www.eclipse.org/gmf/2006/Trace">
   <nodeTraces
       visualID="2001"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://bp/contexteditor/model/metamodel.ecore' and _eClass_.name = 'RuntimeConfig') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://bp/contexteditor/model/metamodel.ecore' and _eClass_.name = 'ContextDiagram') and _containmentMF_.name = 'containsRuntimeConfigs')"/>
-  <nodeTraces
-      visualID="2002"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://bp/contexteditor/model/metamodel.ecore' and _eClass_.name = 'Context') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://bp/contexteditor/model/metamodel.ecore' and _eClass_.name = 'ContextDiagram') and _containmentMF_.name = 'containsContexts')">
     <nodeLabelTraces
         visualID="5001"
         queryText="true"/>
   </nodeTraces>
+  <nodeTraces
+      visualID="2002"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://bp/contexteditor/model/metamodel.ecore' and _eClass_.name = 'RuntimeConfig') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://bp/contexteditor/model/metamodel.ecore' and _eClass_.name = 'ContextDiagram') and _containmentMF_.name = 'containsRuntimeConfigs')"/>
   <linkTraces
       visualID="4001"
-      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://bp/contexteditor/model/metamodel.ecore' and _eClass_.name = 'AssociateConnection')"/>
-  <linkTraces
-      visualID="4002"
-      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://bp/contexteditor/model/metamodel.ecore' and _eClass_.name = 'IncludeConnection')"/>
-  <linkTraces
-      visualID="4003"
       queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://bp/contexteditor/model/metamodel.ecore' and _eClass_.name = 'PriorConnection')"/>
   <linkTraces
-      visualID="4004"
+      visualID="4002"
       queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://bp/contexteditor/model/metamodel.ecore' and _eClass_.name = 'ExcludeConnection')"/>
+  <linkTraces
+      visualID="4003"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://bp/contexteditor/model/metamodel.ecore' and _eClass_.name = 'IncludeConnection')"/>
+  <linkTraces
+      visualID="4004"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://bp/contexteditor/model/metamodel.ecore' and _eClass_.name = 'AssociateConnection')"/>
 </trace:TraceModel>

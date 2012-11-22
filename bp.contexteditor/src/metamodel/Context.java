@@ -88,19 +88,19 @@ public interface Context extends EObject {
 	EList<Connection> getTargetConnections();
 
 	/**
-	 * Returns the value of the '<em><b>Included</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Included</b></em>' reference list.
 	 * The list contents are of type {@link metamodel.IncludeConnection}.
 	 * It is bidirectional and its opposite is '{@link metamodel.IncludeConnection#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Included</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Included</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Included</em>' containment reference list.
+	 * @return the value of the '<em>Included</em>' reference list.
 	 * @see metamodel.MetamodelPackage#getContext_Included()
 	 * @see metamodel.IncludeConnection#getTarget
-	 * @model opposite="target" containment="true"
+	 * @model opposite="target"
 	 * @generated
 	 */
 	EList<IncludeConnection> getIncluded();

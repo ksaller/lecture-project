@@ -2,9 +2,9 @@
  */
 package metamodel;
 
-import feature.Feature;
-
 import org.eclipse.emf.ecore.EObject;
+
+import org.featuremapper.models.feature.Feature;
 
 /**
  * <!-- begin-user-doc -->

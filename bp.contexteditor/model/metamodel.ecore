@@ -9,14 +9,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetConnections" upperBound="-1"
         eType="#//Connection" transient="true" derived="true" eOpposite="#//Connection/source"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="included" upperBound="-1"
-        eType="#//IncludeConnection" containment="true" eOpposite="#//IncludeConnection/target"/>
+        eType="#//IncludeConnection" eOpposite="#//IncludeConnection/target"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourceConnections" upperBound="-1"
         eType="#//Connection" containment="true" eOpposite="#//Connection/target"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Classifier">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="feature" eType="#//Classification"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="featureReference" lowerBound="1"
-        eType="ecore:EClass feature.ecore#//Feature"/>
+        eType="ecore:EClass platform:/plugin/org.featuremapper.models.feature/model/feature.ecore#//Feature"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Classification">
     <eLiterals name="dead"/>
@@ -34,7 +34,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="AssociateConnection" eSuperTypes="#//Connection"/>
   <eClassifiers xsi:type="ecore:EClass" name="RuntimeConfig">
     <eStructuralFeatures xsi:type="ecore:EReference" name="includes" upperBound="-1"
-        eType="#//IncludeConnection" transient="true" derived="true" eOpposite="#//IncludeConnection/source"/>
+        eType="#//IncludeConnection" transient="true" derived="true" containment="true"
+        eOpposite="#//IncludeConnection/source"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IncludeConnection">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
@@ -44,7 +45,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContextDiagram">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mappingReference" lowerBound="1"
-        eType="ecore:EClass viewmapping.ecore#//Mapping"/>
+        eType="ecore:EClass ../../org.feature.multi.perspective.mapping/model/viewmapping.ecore#//Mapping"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containsContexts" upperBound="-1"
         eType="#//Context" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containsRuntimeConfigs"

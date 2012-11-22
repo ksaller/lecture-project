@@ -85,7 +85,7 @@ public class ContextImpl extends EObjectImpl implements Context {
 	protected EList<Connection> targetConnections;
 
 	/**
-	 * The cached value of the '{@link #getIncluded() <em>Included</em>}' containment reference list.
+	 * The cached value of the '{@link #getIncluded() <em>Included</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIncluded()
@@ -175,7 +175,7 @@ public class ContextImpl extends EObjectImpl implements Context {
 	 */
 	public EList<IncludeConnection> getIncluded() {
 		if (included == null) {
-			included = new EObjectContainmentWithInverseEList<IncludeConnection>(IncludeConnection.class, this, MetamodelPackage.CONTEXT__INCLUDED, MetamodelPackage.INCLUDE_CONNECTION__TARGET);
+			included = new EObjectWithInverseResolvingEList<IncludeConnection>(IncludeConnection.class, this, MetamodelPackage.CONTEXT__INCLUDED, MetamodelPackage.INCLUDE_CONNECTION__TARGET);
 		}
 		return included;
 	}

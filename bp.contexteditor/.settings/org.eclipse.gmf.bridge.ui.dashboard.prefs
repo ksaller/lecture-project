@@ -3,6 +3,6 @@ gmf_dashboard/domainGenerationModel=platform\:/resource/bp.contexteditor/model/m
 gmf_dashboard/domainModel=platform\:/resource/bp.contexteditor/model/metamodel.ecore
 gmf_dashboard/generationModel=platform\:/resource/bp.contexteditor/model/metamodel.gmfgen
 gmf_dashboard/graphicalDefinitionModel=platform\:/resource/bp.contexteditor/model/metamodel.gmfgraph
-gmf_dashboard/mappingModel=platform\:/resource/bp.contexteditor/model/metamodel1.gmfmap
+gmf_dashboard/mappingModel=platform\:/resource/bp.contexteditor/model/metamodel.gmfmap
 gmf_dashboard/option_rcp=*
 gmf_dashboard/toolingDefinitionModel=platform\:/resource/bp.contexteditor/model/metamodel.gmftool

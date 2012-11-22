@@ -2,8 +2,6 @@
  */
 package metamodel.impl;
 
-import feature.Feature;
-
 import metamodel.Classification;
 import metamodel.Classifier;
 import metamodel.MetamodelPackage;
@@ -15,6 +13,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import org.featuremapper.models.feature.Feature;
 
 /**
  * <!-- begin-user-doc -->

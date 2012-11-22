@@ -34,14 +34,14 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class IncludeConnectionImpl extends EObjectImpl implements IncludeConnection {
 	/**
-	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
+	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSource()
+	 * @see #getTarget()
 	 * @generated
 	 * @ordered
 	 */
-	protected RuntimeConfig source;
+	protected Context target;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,7 +68,8 @@ public class IncludeConnectionImpl extends EObjectImpl implements IncludeConnect
 	 * @generated
 	 */
 	public RuntimeConfig getSource() {
-		return source;
+		if (eContainerFeatureID() != MetamodelPackage.INCLUDE_CONNECTION__SOURCE) return null;
+		return (RuntimeConfig)eContainer();
 	}
 
 	/**
@@ -77,12 +78,7 @@ public class IncludeConnectionImpl extends EObjectImpl implements IncludeConnect
 	 * @generated
 	 */
 	public NotificationChain basicSetSource(RuntimeConfig newSource, NotificationChain msgs) {
-		RuntimeConfig oldSource = source;
-		source = newSource;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetamodelPackage.INCLUDE_CONNECTION__SOURCE, oldSource, newSource);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eBasicSetContainer((InternalEObject)newSource, MetamodelPackage.INCLUDE_CONNECTION__SOURCE, msgs);
 		return msgs;
 	}
 
@@ -92,10 +88,12 @@ public class IncludeConnectionImpl extends EObjectImpl implements IncludeConnect
 	 * @generated
 	 */
 	public void setSource(RuntimeConfig newSource) {
-		if (newSource != source) {
+		if (newSource != eInternalContainer() || (eContainerFeatureID() != MetamodelPackage.INCLUDE_CONNECTION__SOURCE && newSource != null)) {
+			if (EcoreUtil.isAncestor(this, newSource))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (source != null)
-				msgs = ((InternalEObject)source).eInverseRemove(this, MetamodelPackage.RUNTIME_CONFIG__INCLUDES, RuntimeConfig.class, msgs);
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
 			if (newSource != null)
 				msgs = ((InternalEObject)newSource).eInverseAdd(this, MetamodelPackage.RUNTIME_CONFIG__INCLUDES, RuntimeConfig.class, msgs);
 			msgs = basicSetSource(newSource, msgs);
@@ -111,8 +109,24 @@ public class IncludeConnectionImpl extends EObjectImpl implements IncludeConnect
 	 * @generated
 	 */
 	public Context getTarget() {
-		if (eContainerFeatureID() != MetamodelPackage.INCLUDE_CONNECTION__TARGET) return null;
-		return (Context)eContainer();
+		if (target != null && target.eIsProxy()) {
+			InternalEObject oldTarget = (InternalEObject)target;
+			target = (Context)eResolveProxy(oldTarget);
+			if (target != oldTarget) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MetamodelPackage.INCLUDE_CONNECTION__TARGET, oldTarget, target));
+			}
+		}
+		return target;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Context basicGetTarget() {
+		return target;
 	}
 
 	/**
@@ -121,7 +135,12 @@ public class IncludeConnectionImpl extends EObjectImpl implements IncludeConnect
 	 * @generated
 	 */
 	public NotificationChain basicSetTarget(Context newTarget, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newTarget, MetamodelPackage.INCLUDE_CONNECTION__TARGET, msgs);
+		Context oldTarget = target;
+		target = newTarget;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetamodelPackage.INCLUDE_CONNECTION__TARGET, oldTarget, newTarget);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
 		return msgs;
 	}
 
@@ -131,12 +150,10 @@ public class IncludeConnectionImpl extends EObjectImpl implements IncludeConnect
 	 * @generated
 	 */
 	public void setTarget(Context newTarget) {
-		if (newTarget != eInternalContainer() || (eContainerFeatureID() != MetamodelPackage.INCLUDE_CONNECTION__TARGET && newTarget != null)) {
-			if (EcoreUtil.isAncestor(this, newTarget))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+		if (newTarget != target) {
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
+			if (target != null)
+				msgs = ((InternalEObject)target).eInverseRemove(this, MetamodelPackage.CONTEXT__INCLUDED, Context.class, msgs);
 			if (newTarget != null)
 				msgs = ((InternalEObject)newTarget).eInverseAdd(this, MetamodelPackage.CONTEXT__INCLUDED, Context.class, msgs);
 			msgs = basicSetTarget(newTarget, msgs);
@@ -155,12 +172,12 @@ public class IncludeConnectionImpl extends EObjectImpl implements IncludeConnect
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case MetamodelPackage.INCLUDE_CONNECTION__SOURCE:
-				if (source != null)
-					msgs = ((InternalEObject)source).eInverseRemove(this, MetamodelPackage.RUNTIME_CONFIG__INCLUDES, RuntimeConfig.class, msgs);
-				return basicSetSource((RuntimeConfig)otherEnd, msgs);
-			case MetamodelPackage.INCLUDE_CONNECTION__TARGET:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetSource((RuntimeConfig)otherEnd, msgs);
+			case MetamodelPackage.INCLUDE_CONNECTION__TARGET:
+				if (target != null)
+					msgs = ((InternalEObject)target).eInverseRemove(this, MetamodelPackage.CONTEXT__INCLUDED, Context.class, msgs);
 				return basicSetTarget((Context)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -190,8 +207,8 @@ public class IncludeConnectionImpl extends EObjectImpl implements IncludeConnect
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case MetamodelPackage.INCLUDE_CONNECTION__TARGET:
-				return eInternalContainer().eInverseRemove(this, MetamodelPackage.CONTEXT__INCLUDED, Context.class, msgs);
+			case MetamodelPackage.INCLUDE_CONNECTION__SOURCE:
+				return eInternalContainer().eInverseRemove(this, MetamodelPackage.RUNTIME_CONFIG__INCLUDES, RuntimeConfig.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -207,7 +224,8 @@ public class IncludeConnectionImpl extends EObjectImpl implements IncludeConnect
 			case MetamodelPackage.INCLUDE_CONNECTION__SOURCE:
 				return getSource();
 			case MetamodelPackage.INCLUDE_CONNECTION__TARGET:
-				return getTarget();
+				if (resolve) return getTarget();
+				return basicGetTarget();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -257,9 +275,9 @@ public class IncludeConnectionImpl extends EObjectImpl implements IncludeConnect
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case MetamodelPackage.INCLUDE_CONNECTION__SOURCE:
-				return source != null;
+				return getSource() != null;
 			case MetamodelPackage.INCLUDE_CONNECTION__TARGET:
-				return getTarget() != null;
+				return target != null;
 		}
 		return super.eIsSet(featureID);
 	}
