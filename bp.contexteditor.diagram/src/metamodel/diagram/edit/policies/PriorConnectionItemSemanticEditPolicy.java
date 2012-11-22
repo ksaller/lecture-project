@@ -16,7 +16,7 @@ public class PriorConnectionItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public PriorConnectionItemSemanticEditPolicy() {
-		super(MetamodelElementTypes.PriorConnection_4003);
+		super(MetamodelElementTypes.PriorConnection_4001);
 	}
 
 	/**

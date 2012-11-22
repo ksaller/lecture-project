@@ -57,25 +57,25 @@ public class IncludeConnectionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSourcePropertyDescriptor(object);
+			addTargetPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Source feature.
+	 * This adds a property descriptor for the Target feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSourcePropertyDescriptor(Object object) {
+	protected void addTargetPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IncludeConnection_source_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IncludeConnection_source_feature", "_UI_IncludeConnection_type"),
-				 MetamodelPackage.Literals.INCLUDE_CONNECTION__SOURCE,
+				 getString("_UI_IncludeConnection_target_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IncludeConnection_target_feature", "_UI_IncludeConnection_type"),
+				 MetamodelPackage.Literals.INCLUDE_CONNECTION__TARGET,
 				 true,
 				 false,
 				 true,

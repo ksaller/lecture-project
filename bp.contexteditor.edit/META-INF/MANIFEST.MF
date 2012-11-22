@@ -8,11 +8,14 @@ Bundle-Activator: metamodel.provider.MetamodelEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: feature.provider,
- metamodel.provider,
- viewmapping.provider,
- viewmodel.provider
+Export-Package: metamodel.provider
 Require-Bundle: org.eclipse.core.runtime,
  bp.contexteditor;visibility:=reexport,
- org.eclipse.emf.edit;visibility:=reexport
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.featuremapper.models.feature;visibility:=reexport,
+ org.featuremapper.models.feature.edit;visibility:=reexport,
+ org.feature.multi.perspective.mapping;visibility:=reexport,
+ org.feature.multi.perspective.mapping.edit;visibility:=reexport,
+ org.feature.multi.perspective.model;visibility:=reexport,
+ org.feature.multi.perspective.model.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

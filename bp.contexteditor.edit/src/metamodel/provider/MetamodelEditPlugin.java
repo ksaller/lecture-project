@@ -6,6 +6,12 @@ import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.feature.multi.perspective.mapping.viewmapping.provider.ViewmappingEditPlugin;
+
+import org.feature.multi.perspective.model.viewmodel.provider.ViewmodelEditPlugin;
+
+import org.featuremapper.models.feature.provider.FeatureEditPlugin;
+
 /**
  * This is the central singleton for the Metamodel edit plugin.
  * <!-- begin-user-doc -->
@@ -38,6 +44,9 @@ public final class MetamodelEditPlugin extends EMFPlugin {
 	public MetamodelEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     FeatureEditPlugin.INSTANCE,
+		     ViewmappingEditPlugin.INSTANCE,
+		     ViewmodelEditPlugin.INSTANCE,
 		   });
 	}
 

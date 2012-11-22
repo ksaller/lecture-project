@@ -308,7 +308,7 @@ public class ContextNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = MetamodelParserProvider
 					.getParser(
-							MetamodelElementTypes.Context_2002,
+							MetamodelElementTypes.Context_2001,
 							getParserElement(),
 							MetamodelVisualIDRegistry
 									.getType(metamodel.diagram.edit.parts.ContextNameEditPart.VISUAL_ID));

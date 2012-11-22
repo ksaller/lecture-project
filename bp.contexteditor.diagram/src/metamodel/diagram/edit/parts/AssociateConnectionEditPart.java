@@ -18,7 +18,7 @@ public class AssociateConnectionEditPart extends ConnectionNodeEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4001;
+	public static final int VISUAL_ID = 4004;
 
 	/**
 	 * @generated
@@ -44,6 +44,7 @@ public class AssociateConnectionEditPart extends ConnectionNodeEditPart
 	 * 
 	 * @generated
 	 */
+
 	protected Connection createConnectionFigure() {
 		return new AssociateConnectionFigure();
 	}

@@ -36,7 +36,7 @@ public class IncludeConnectionCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	private final Context container;
+	private final RuntimeConfig container;
 
 	/**
 	 * @generated
@@ -70,7 +70,7 @@ public class IncludeConnectionCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return MetamodelBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateIncludeConnection_4002(getContainer(), getSource(),
+				.canCreateIncludeConnection_4003(getContainer(), getSource(),
 						getTarget());
 	}
 
@@ -86,7 +86,7 @@ public class IncludeConnectionCreateCommand extends EditElementCommand {
 
 		IncludeConnection newElement = MetamodelFactory.eINSTANCE
 				.createIncludeConnection();
-		getContainer().getIncluded().add(newElement);
+		getContainer().getIncludes().add(newElement);
 		newElement.setSource(getSource());
 		newElement.setTarget(getTarget());
 		doConfigure(newElement, monitor, info);
@@ -143,7 +143,7 @@ public class IncludeConnectionCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	public Context getContainer() {
+	public RuntimeConfig getContainer() {
 		return container;
 	}
 
@@ -152,14 +152,14 @@ public class IncludeConnectionCreateCommand extends EditElementCommand {
 	 * Modify with appropriate logic.
 	 * @generated
 	 */
-	private static Context deduceContainer(EObject source, EObject target) {
+	private static RuntimeConfig deduceContainer(EObject source, EObject target) {
 		// Find container element for the new link.
 		// Climb up by containment hierarchy starting from the source
 		// and return the first element that is instance of the container class.
 		for (EObject element = source; element != null; element = element
 				.eContainer()) {
-			if (element instanceof Context) {
-				return (Context) element;
+			if (element instanceof RuntimeConfig) {
+				return (RuntimeConfig) element;
 			}
 		}
 		return null;

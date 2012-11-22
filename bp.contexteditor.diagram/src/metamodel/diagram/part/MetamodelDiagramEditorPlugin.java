@@ -22,11 +22,10 @@ import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.feature.multi.perspective.mapping.viewmapping.provider.ViewmappingItemProviderAdapterFactory;
+import org.feature.multi.perspective.model.viewmodel.provider.ViewmodelItemProviderAdapterFactory;
+import org.featuremapper.models.feature.provider.FeatureItemProviderAdapterFactory;
 import org.osgi.framework.BundleContext;
-
-import viewmapping.provider.ViewmappingItemProviderAdapterFactory;
-import viewmodel.provider.ViewmodelItemProviderAdapterFactory;
-import feature.provider.FeatureItemProviderAdapterFactory;
 
 /**
  * @generated

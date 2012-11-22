@@ -3,7 +3,6 @@ package metamodel.diagram.edit.parts;
 import metamodel.diagram.edit.policies.ExcludeConnectionItemSemanticEditPolicy;
 
 import org.eclipse.draw2d.Connection;
-import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.PolylineDecoration;
 import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
@@ -21,7 +20,7 @@ public class ExcludeConnectionEditPart extends ConnectionNodeEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4004;
+	public static final int VISUAL_ID = 4002;
 
 	/**
 	 * @generated
@@ -47,6 +46,7 @@ public class ExcludeConnectionEditPart extends ConnectionNodeEditPart implements
 	 * 
 	 * @generated
 	 */
+
 	protected Connection createConnectionFigure() {
 		return new ExcludeConnectionFigure();
 	}
@@ -78,8 +78,7 @@ public class ExcludeConnectionEditPart extends ConnectionNodeEditPart implements
 		 */
 		private RotatableDecoration createSourceDecoration() {
 			PolylineDecoration df = new PolylineDecoration();
-			df.setLineWidth(3);
-			df.setLineStyle(Graphics.LINE_DASH);
+			df.setLineWidth(2);
 			return df;
 		}
 
@@ -88,8 +87,7 @@ public class ExcludeConnectionEditPart extends ConnectionNodeEditPart implements
 		 */
 		private RotatableDecoration createTargetDecoration() {
 			PolylineDecoration df = new PolylineDecoration();
-			df.setLineWidth(3);
-			df.setLineStyle(Graphics.LINE_DASH);
+			df.setLineWidth(2);
 			return df;
 		}
 

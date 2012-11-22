@@ -72,7 +72,7 @@ public class AssociateConnectionReorientCommand extends EditElementCommand {
 		}
 		Context container = (Context) getLink().eContainer();
 		return MetamodelBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistAssociateConnection_4001(container, getLink(),
+				.canExistAssociateConnection_4004(container, getLink(),
 						getNewSource(), target);
 	}
 
@@ -89,7 +89,7 @@ public class AssociateConnectionReorientCommand extends EditElementCommand {
 		}
 		Context container = (Context) getLink().eContainer();
 		return MetamodelBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistAssociateConnection_4001(container, getLink(), source,
+				.canExistAssociateConnection_4004(container, getLink(), source,
 						getNewTarget());
 	}
 

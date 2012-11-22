@@ -71,7 +71,7 @@ public class PriorConnectionReorientCommand extends EditElementCommand {
 		}
 		Context container = (Context) getLink().eContainer();
 		return MetamodelBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistPriorConnection_4003(container, getLink(),
+				.canExistPriorConnection_4001(container, getLink(),
 						getNewSource(), target);
 	}
 
@@ -88,7 +88,7 @@ public class PriorConnectionReorientCommand extends EditElementCommand {
 		}
 		Context container = (Context) getLink().eContainer();
 		return MetamodelBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistPriorConnection_4003(container, getLink(), source,
+				.canExistPriorConnection_4001(container, getLink(), source,
 						getNewTarget());
 	}
 

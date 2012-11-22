@@ -28,11 +28,11 @@ public class ContextDiagramItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (MetamodelElementTypes.RuntimeConfig_2001 == req.getElementType()) {
-			return getGEFWrapper(new RuntimeConfigCreateCommand(req));
-		}
-		if (MetamodelElementTypes.Context_2002 == req.getElementType()) {
+		if (MetamodelElementTypes.Context_2001 == req.getElementType()) {
 			return getGEFWrapper(new ContextCreateCommand(req));
+		}
+		if (MetamodelElementTypes.RuntimeConfig_2002 == req.getElementType()) {
+			return getGEFWrapper(new RuntimeConfigCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

@@ -3,6 +3,7 @@ package metamodel.diagram.edit.parts;
 import metamodel.diagram.edit.policies.IncludeConnectionItemSemanticEditPolicy;
 
 import org.eclipse.draw2d.Connection;
+import org.eclipse.draw2d.Graphics;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITreeBranchEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
@@ -18,7 +19,7 @@ public class IncludeConnectionEditPart extends ConnectionNodeEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4002;
+	public static final int VISUAL_ID = 4003;
 
 	/**
 	 * @generated
@@ -44,6 +45,7 @@ public class IncludeConnectionEditPart extends ConnectionNodeEditPart implements
 	 * 
 	 * @generated
 	 */
+
 	protected Connection createConnectionFigure() {
 		return new IncludeConnectionFigure();
 	}
@@ -64,7 +66,8 @@ public class IncludeConnectionEditPart extends ConnectionNodeEditPart implements
 		 * @generated
 		 */
 		public IncludeConnectionFigure() {
-			this.setLineWidth(3);
+			this.setLineWidth(4);
+			this.setLineStyle(Graphics.LINE_DOT);
 
 		}
 

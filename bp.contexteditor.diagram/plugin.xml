@@ -206,7 +206,7 @@
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Metamodel"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4002,4001,4004,4003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002,4003,4004"/>
       </viewProvider>
    </extension>
 
@@ -221,7 +221,7 @@
             <method name="getType()" value="2001,2002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4002,4001,4004,4003"/>
+            <method name="getType()" value="4001,4002,4003,4004"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="5001"/>
@@ -238,9 +238,9 @@
       <modelingAssistantProvider class="metamodel.diagram.providers.MetamodelModelingAssistantProvider">
          <Priority name="Lowest"/>
          <object class="metamodel.diagram.edit.parts.ContextDiagramEditPart" id="ContextDiagram_1000"/>
-         <object class="metamodel.diagram.edit.parts.RuntimeConfigEditPart" id="RuntimeConfig_2001"/>
-         <object class="metamodel.diagram.edit.parts.ContextEditPart" id="Context_2002"/>
-         <context elements="ContextDiagram_1000,RuntimeConfig_2001,Context_2002,"/>
+         <object class="metamodel.diagram.edit.parts.ContextEditPart" id="Context_2001"/>
+         <object class="metamodel.diagram.edit.parts.RuntimeConfigEditPart" id="RuntimeConfig_2002"/>
+         <context elements="ContextDiagram_1000,Context_2001,RuntimeConfig_2002,"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -272,62 +272,62 @@
       </metamodel>
       <metamodel nsURI="http://bp/contexteditor/model/metamodel.ecore">
          <metamodelType
-               id="bp.contexteditor.diagram.RuntimeConfig_2001"
-               name="%metatype.name.RuntimeConfig_2001"
+               id="bp.contexteditor.diagram.Context_2001"
+               name="%metatype.name.Context_2001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="RuntimeConfig"
-               edithelper="metamodel.diagram.edit.helpers.RuntimeConfigEditHelper">
+               eclass="Context"
+               edithelper="metamodel.diagram.edit.helpers.ContextEditHelper">
             <param name="semanticHint" value="2001"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://bp/contexteditor/model/metamodel.ecore">
          <metamodelType
-               id="bp.contexteditor.diagram.Context_2002"
-               name="%metatype.name.Context_2002"
+               id="bp.contexteditor.diagram.RuntimeConfig_2002"
+               name="%metatype.name.RuntimeConfig_2002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Context"
-               edithelper="metamodel.diagram.edit.helpers.ContextEditHelper">
+               eclass="RuntimeConfig"
+               edithelper="metamodel.diagram.edit.helpers.RuntimeConfigEditHelper">
             <param name="semanticHint" value="2002"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://bp/contexteditor/model/metamodel.ecore">
          <metamodelType
-               id="bp.contexteditor.diagram.IncludeConnection_4002"
-               name="%metatype.name.IncludeConnection_4002"
+               id="bp.contexteditor.diagram.PriorConnection_4001"
+               name="%metatype.name.PriorConnection_4001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="IncludeConnection"
-               edithelper="metamodel.diagram.edit.helpers.IncludeConnectionEditHelper">
-            <param name="semanticHint" value="4002"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://bp/contexteditor/model/metamodel.ecore">
-         <metamodelType
-               id="bp.contexteditor.diagram.AssociateConnection_4001"
-               name="%metatype.name.AssociateConnection_4001"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="AssociateConnection"
-               edithelper="metamodel.diagram.edit.helpers.AssociateConnectionEditHelper">
+               eclass="PriorConnection"
+               edithelper="metamodel.diagram.edit.helpers.PriorConnectionEditHelper">
             <param name="semanticHint" value="4001"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://bp/contexteditor/model/metamodel.ecore">
          <metamodelType
-               id="bp.contexteditor.diagram.ExcludeConnection_4004"
-               name="%metatype.name.ExcludeConnection_4004"
+               id="bp.contexteditor.diagram.ExcludeConnection_4002"
+               name="%metatype.name.ExcludeConnection_4002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="ExcludeConnection"
                edithelper="metamodel.diagram.edit.helpers.ExcludeConnectionEditHelper">
-            <param name="semanticHint" value="4004"/>
+            <param name="semanticHint" value="4002"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://bp/contexteditor/model/metamodel.ecore">
          <metamodelType
-               id="bp.contexteditor.diagram.PriorConnection_4003"
-               name="%metatype.name.PriorConnection_4003"
+               id="bp.contexteditor.diagram.IncludeConnection_4003"
+               name="%metatype.name.IncludeConnection_4003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="PriorConnection"
-               edithelper="metamodel.diagram.edit.helpers.PriorConnectionEditHelper">
+               eclass="IncludeConnection"
+               edithelper="metamodel.diagram.edit.helpers.IncludeConnectionEditHelper">
             <param name="semanticHint" value="4003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://bp/contexteditor/model/metamodel.ecore">
+         <metamodelType
+               id="bp.contexteditor.diagram.AssociateConnection_4004"
+               name="%metatype.name.AssociateConnection_4004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="AssociateConnection"
+               edithelper="metamodel.diagram.edit.helpers.AssociateConnectionEditHelper">
+            <param name="semanticHint" value="4004"/>
          </metamodelType>
       </metamodel>
    </extension>
@@ -343,12 +343,12 @@
       </clientContext> 
       <binding context="bp.contexteditor.diagram.TypeContext">
          <elementType ref="bp.contexteditor.diagram.ContextDiagram_1000"/>
-         <elementType ref="bp.contexteditor.diagram.RuntimeConfig_2001"/>
-         <elementType ref="bp.contexteditor.diagram.Context_2002"/>
-         <elementType ref="bp.contexteditor.diagram.IncludeConnection_4002"/>
-         <elementType ref="bp.contexteditor.diagram.AssociateConnection_4001"/>
-         <elementType ref="bp.contexteditor.diagram.ExcludeConnection_4004"/>
-         <elementType ref="bp.contexteditor.diagram.PriorConnection_4003"/>
+         <elementType ref="bp.contexteditor.diagram.Context_2001"/>
+         <elementType ref="bp.contexteditor.diagram.RuntimeConfig_2002"/>
+         <elementType ref="bp.contexteditor.diagram.PriorConnection_4001"/>
+         <elementType ref="bp.contexteditor.diagram.ExcludeConnection_4002"/>
+         <elementType ref="bp.contexteditor.diagram.IncludeConnection_4003"/>
+         <elementType ref="bp.contexteditor.diagram.AssociateConnection_4004"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

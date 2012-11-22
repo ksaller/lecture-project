@@ -59,27 +59,27 @@ public class MetamodelElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType RuntimeConfig_2001 = getElementType("bp.contexteditor.diagram.RuntimeConfig_2001"); //$NON-NLS-1$
+	public static final IElementType Context_2001 = getElementType("bp.contexteditor.diagram.Context_2001"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Context_2002 = getElementType("bp.contexteditor.diagram.Context_2002"); //$NON-NLS-1$
+	public static final IElementType RuntimeConfig_2002 = getElementType("bp.contexteditor.diagram.RuntimeConfig_2002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType AssociateConnection_4001 = getElementType("bp.contexteditor.diagram.AssociateConnection_4001"); //$NON-NLS-1$
+	public static final IElementType PriorConnection_4001 = getElementType("bp.contexteditor.diagram.PriorConnection_4001"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType IncludeConnection_4002 = getElementType("bp.contexteditor.diagram.IncludeConnection_4002"); //$NON-NLS-1$
+	public static final IElementType ExcludeConnection_4002 = getElementType("bp.contexteditor.diagram.ExcludeConnection_4002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType PriorConnection_4003 = getElementType("bp.contexteditor.diagram.PriorConnection_4003"); //$NON-NLS-1$
+	public static final IElementType IncludeConnection_4003 = getElementType("bp.contexteditor.diagram.IncludeConnection_4003"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ExcludeConnection_4004 = getElementType("bp.contexteditor.diagram.ExcludeConnection_4004"); //$NON-NLS-1$
+	public static final IElementType AssociateConnection_4004 = getElementType("bp.contexteditor.diagram.AssociateConnection_4004"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -195,22 +195,22 @@ public class MetamodelElementTypes {
 			elements.put(ContextDiagram_1000,
 					MetamodelPackage.eINSTANCE.getContextDiagram());
 
-			elements.put(RuntimeConfig_2001,
+			elements.put(Context_2001, MetamodelPackage.eINSTANCE.getContext());
+
+			elements.put(RuntimeConfig_2002,
 					MetamodelPackage.eINSTANCE.getRuntimeConfig());
 
-			elements.put(Context_2002, MetamodelPackage.eINSTANCE.getContext());
+			elements.put(PriorConnection_4001,
+					MetamodelPackage.eINSTANCE.getPriorConnection());
 
-			elements.put(IncludeConnection_4002,
-					MetamodelPackage.eINSTANCE.getIncludeConnection());
-
-			elements.put(AssociateConnection_4001,
-					MetamodelPackage.eINSTANCE.getAssociateConnection());
-
-			elements.put(ExcludeConnection_4004,
+			elements.put(ExcludeConnection_4002,
 					MetamodelPackage.eINSTANCE.getExcludeConnection());
 
-			elements.put(PriorConnection_4003,
-					MetamodelPackage.eINSTANCE.getPriorConnection());
+			elements.put(IncludeConnection_4003,
+					MetamodelPackage.eINSTANCE.getIncludeConnection());
+
+			elements.put(AssociateConnection_4004,
+					MetamodelPackage.eINSTANCE.getAssociateConnection());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -229,12 +229,12 @@ public class MetamodelElementTypes {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(ContextDiagram_1000);
-			KNOWN_ELEMENT_TYPES.add(RuntimeConfig_2001);
-			KNOWN_ELEMENT_TYPES.add(Context_2002);
-			KNOWN_ELEMENT_TYPES.add(IncludeConnection_4002);
-			KNOWN_ELEMENT_TYPES.add(AssociateConnection_4001);
-			KNOWN_ELEMENT_TYPES.add(ExcludeConnection_4004);
-			KNOWN_ELEMENT_TYPES.add(PriorConnection_4003);
+			KNOWN_ELEMENT_TYPES.add(Context_2001);
+			KNOWN_ELEMENT_TYPES.add(RuntimeConfig_2002);
+			KNOWN_ELEMENT_TYPES.add(PriorConnection_4001);
+			KNOWN_ELEMENT_TYPES.add(ExcludeConnection_4002);
+			KNOWN_ELEMENT_TYPES.add(IncludeConnection_4003);
+			KNOWN_ELEMENT_TYPES.add(AssociateConnection_4004);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -246,18 +246,18 @@ public class MetamodelElementTypes {
 		switch (visualID) {
 		case ContextDiagramEditPart.VISUAL_ID:
 			return ContextDiagram_1000;
-		case RuntimeConfigEditPart.VISUAL_ID:
-			return RuntimeConfig_2001;
 		case ContextEditPart.VISUAL_ID:
-			return Context_2002;
-		case IncludeConnectionEditPart.VISUAL_ID:
-			return IncludeConnection_4002;
-		case AssociateConnectionEditPart.VISUAL_ID:
-			return AssociateConnection_4001;
-		case ExcludeConnectionEditPart.VISUAL_ID:
-			return ExcludeConnection_4004;
+			return Context_2001;
+		case RuntimeConfigEditPart.VISUAL_ID:
+			return RuntimeConfig_2002;
 		case PriorConnectionEditPart.VISUAL_ID:
-			return PriorConnection_4003;
+			return PriorConnection_4001;
+		case ExcludeConnectionEditPart.VISUAL_ID:
+			return ExcludeConnection_4002;
+		case IncludeConnectionEditPart.VISUAL_ID:
+			return IncludeConnection_4003;
+		case AssociateConnectionEditPart.VISUAL_ID:
+			return AssociateConnection_4004;
 		}
 		return null;
 	}

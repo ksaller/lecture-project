@@ -16,7 +16,7 @@ public class IncludeConnectionItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public IncludeConnectionItemSemanticEditPolicy() {
-		super(MetamodelElementTypes.IncludeConnection_4002);
+		super(MetamodelElementTypes.IncludeConnection_4003);
 	}
 
 	/**

@@ -29,7 +29,7 @@ public class RuntimeConfigItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public RuntimeConfigItemSemanticEditPolicy() {
-		super(MetamodelElementTypes.RuntimeConfig_2001);
+		super(MetamodelElementTypes.RuntimeConfig_2002);
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class RuntimeConfigItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (MetamodelElementTypes.IncludeConnection_4002 == req
+		if (MetamodelElementTypes.IncludeConnection_4003 == req
 				.getElementType()) {
 			return getGEFWrapper(new IncludeConnectionCreateCommand(req,
 					req.getSource(), req.getTarget()));
@@ -90,7 +90,7 @@ public class RuntimeConfigItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (MetamodelElementTypes.IncludeConnection_4002 == req
+		if (MetamodelElementTypes.IncludeConnection_4003 == req
 				.getElementType()) {
 			return null;
 		}

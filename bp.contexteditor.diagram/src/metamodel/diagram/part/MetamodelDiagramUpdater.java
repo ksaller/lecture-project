@@ -56,22 +56,22 @@ public class MetamodelDiagramUpdater {
 		}
 		ContextDiagram modelElement = (ContextDiagram) view.getElement();
 		LinkedList<MetamodelNodeDescriptor> result = new LinkedList<MetamodelNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getContainsRuntimeConfigs()
-				.iterator(); it.hasNext();) {
-			RuntimeConfig childElement = (RuntimeConfig) it.next();
-			int visualID = MetamodelVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == RuntimeConfigEditPart.VISUAL_ID) {
-				result.add(new MetamodelNodeDescriptor(childElement, visualID));
-				continue;
-			}
-		}
 		for (Iterator<?> it = modelElement.getContainsContexts().iterator(); it
 				.hasNext();) {
 			Context childElement = (Context) it.next();
 			int visualID = MetamodelVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == ContextEditPart.VISUAL_ID) {
+				result.add(new MetamodelNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		for (Iterator<?> it = modelElement.getContainsRuntimeConfigs()
+				.iterator(); it.hasNext();) {
+			RuntimeConfig childElement = (RuntimeConfig) it.next();
+			int visualID = MetamodelVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == RuntimeConfigEditPart.VISUAL_ID) {
 				result.add(new MetamodelNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -86,18 +86,18 @@ public class MetamodelDiagramUpdater {
 		switch (MetamodelVisualIDRegistry.getVisualID(view)) {
 		case ContextDiagramEditPart.VISUAL_ID:
 			return getContextDiagram_1000ContainedLinks(view);
-		case RuntimeConfigEditPart.VISUAL_ID:
-			return getRuntimeConfig_2001ContainedLinks(view);
 		case ContextEditPart.VISUAL_ID:
-			return getContext_2002ContainedLinks(view);
-		case IncludeConnectionEditPart.VISUAL_ID:
-			return getIncludeConnection_4002ContainedLinks(view);
-		case AssociateConnectionEditPart.VISUAL_ID:
-			return getAssociateConnection_4001ContainedLinks(view);
-		case ExcludeConnectionEditPart.VISUAL_ID:
-			return getExcludeConnection_4004ContainedLinks(view);
+			return getContext_2001ContainedLinks(view);
+		case RuntimeConfigEditPart.VISUAL_ID:
+			return getRuntimeConfig_2002ContainedLinks(view);
 		case PriorConnectionEditPart.VISUAL_ID:
-			return getPriorConnection_4003ContainedLinks(view);
+			return getPriorConnection_4001ContainedLinks(view);
+		case ExcludeConnectionEditPart.VISUAL_ID:
+			return getExcludeConnection_4002ContainedLinks(view);
+		case IncludeConnectionEditPart.VISUAL_ID:
+			return getIncludeConnection_4003ContainedLinks(view);
+		case AssociateConnectionEditPart.VISUAL_ID:
+			return getAssociateConnection_4004ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -107,18 +107,18 @@ public class MetamodelDiagramUpdater {
 	 */
 	public static List<MetamodelLinkDescriptor> getIncomingLinks(View view) {
 		switch (MetamodelVisualIDRegistry.getVisualID(view)) {
-		case RuntimeConfigEditPart.VISUAL_ID:
-			return getRuntimeConfig_2001IncomingLinks(view);
 		case ContextEditPart.VISUAL_ID:
-			return getContext_2002IncomingLinks(view);
-		case IncludeConnectionEditPart.VISUAL_ID:
-			return getIncludeConnection_4002IncomingLinks(view);
-		case AssociateConnectionEditPart.VISUAL_ID:
-			return getAssociateConnection_4001IncomingLinks(view);
-		case ExcludeConnectionEditPart.VISUAL_ID:
-			return getExcludeConnection_4004IncomingLinks(view);
+			return getContext_2001IncomingLinks(view);
+		case RuntimeConfigEditPart.VISUAL_ID:
+			return getRuntimeConfig_2002IncomingLinks(view);
 		case PriorConnectionEditPart.VISUAL_ID:
-			return getPriorConnection_4003IncomingLinks(view);
+			return getPriorConnection_4001IncomingLinks(view);
+		case ExcludeConnectionEditPart.VISUAL_ID:
+			return getExcludeConnection_4002IncomingLinks(view);
+		case IncludeConnectionEditPart.VISUAL_ID:
+			return getIncludeConnection_4003IncomingLinks(view);
+		case AssociateConnectionEditPart.VISUAL_ID:
+			return getAssociateConnection_4004IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -128,18 +128,18 @@ public class MetamodelDiagramUpdater {
 	 */
 	public static List<MetamodelLinkDescriptor> getOutgoingLinks(View view) {
 		switch (MetamodelVisualIDRegistry.getVisualID(view)) {
-		case RuntimeConfigEditPart.VISUAL_ID:
-			return getRuntimeConfig_2001OutgoingLinks(view);
 		case ContextEditPart.VISUAL_ID:
-			return getContext_2002OutgoingLinks(view);
-		case IncludeConnectionEditPart.VISUAL_ID:
-			return getIncludeConnection_4002OutgoingLinks(view);
-		case AssociateConnectionEditPart.VISUAL_ID:
-			return getAssociateConnection_4001OutgoingLinks(view);
-		case ExcludeConnectionEditPart.VISUAL_ID:
-			return getExcludeConnection_4004OutgoingLinks(view);
+			return getContext_2001OutgoingLinks(view);
+		case RuntimeConfigEditPart.VISUAL_ID:
+			return getRuntimeConfig_2002OutgoingLinks(view);
 		case PriorConnectionEditPart.VISUAL_ID:
-			return getPriorConnection_4003OutgoingLinks(view);
+			return getPriorConnection_4001OutgoingLinks(view);
+		case ExcludeConnectionEditPart.VISUAL_ID:
+			return getExcludeConnection_4002OutgoingLinks(view);
+		case IncludeConnectionEditPart.VISUAL_ID:
+			return getIncludeConnection_4003OutgoingLinks(view);
+		case AssociateConnectionEditPart.VISUAL_ID:
+			return getAssociateConnection_4004OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -155,29 +155,31 @@ public class MetamodelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MetamodelLinkDescriptor> getRuntimeConfig_2001ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<MetamodelLinkDescriptor> getContext_2002ContainedLinks(
+	public static List<MetamodelLinkDescriptor> getContext_2001ContainedLinks(
 			View view) {
 		Context modelElement = (Context) view.getElement();
 		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
-		result.addAll(getContainedTypeModelFacetLinks_IncludeConnection_4002(modelElement));
-		result.addAll(getContainedTypeModelFacetLinks_AssociateConnection_4001(modelElement));
-		result.addAll(getContainedTypeModelFacetLinks_ExcludeConnection_4004(modelElement));
-		result.addAll(getContainedTypeModelFacetLinks_PriorConnection_4003(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_PriorConnection_4001(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_ExcludeConnection_4002(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_AssociateConnection_4004(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<MetamodelLinkDescriptor> getAssociateConnection_4001ContainedLinks(
+	public static List<MetamodelLinkDescriptor> getRuntimeConfig_2002ContainedLinks(
+			View view) {
+		RuntimeConfig modelElement = (RuntimeConfig) view.getElement();
+		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_IncludeConnection_4003(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<MetamodelLinkDescriptor> getPriorConnection_4001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -185,7 +187,7 @@ public class MetamodelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MetamodelLinkDescriptor> getIncludeConnection_4002ContainedLinks(
+	public static List<MetamodelLinkDescriptor> getExcludeConnection_4002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -193,7 +195,7 @@ public class MetamodelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MetamodelLinkDescriptor> getPriorConnection_4003ContainedLinks(
+	public static List<MetamodelLinkDescriptor> getIncludeConnection_4003ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -201,7 +203,7 @@ public class MetamodelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MetamodelLinkDescriptor> getExcludeConnection_4004ContainedLinks(
+	public static List<MetamodelLinkDescriptor> getAssociateConnection_4004ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -209,27 +211,19 @@ public class MetamodelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MetamodelLinkDescriptor> getRuntimeConfig_2001IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<MetamodelLinkDescriptor> getContext_2002IncomingLinks(
+	public static List<MetamodelLinkDescriptor> getContext_2001IncomingLinks(
 			View view) {
 		Context modelElement = (Context) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
-		result.addAll(getIncomingTypeModelFacetLinks_IncludeConnection_4002(
+		result.addAll(getIncomingTypeModelFacetLinks_PriorConnection_4001(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AssociateConnection_4001(
+		result.addAll(getIncomingTypeModelFacetLinks_ExcludeConnection_4002(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_ExcludeConnection_4004(
+		result.addAll(getIncomingTypeModelFacetLinks_IncludeConnection_4003(
 				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_PriorConnection_4003(
+		result.addAll(getIncomingTypeModelFacetLinks_AssociateConnection_4004(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -237,7 +231,7 @@ public class MetamodelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MetamodelLinkDescriptor> getAssociateConnection_4001IncomingLinks(
+	public static List<MetamodelLinkDescriptor> getRuntimeConfig_2002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -245,7 +239,7 @@ public class MetamodelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MetamodelLinkDescriptor> getIncludeConnection_4002IncomingLinks(
+	public static List<MetamodelLinkDescriptor> getPriorConnection_4001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -253,7 +247,7 @@ public class MetamodelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MetamodelLinkDescriptor> getPriorConnection_4003IncomingLinks(
+	public static List<MetamodelLinkDescriptor> getExcludeConnection_4002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -261,7 +255,7 @@ public class MetamodelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MetamodelLinkDescriptor> getExcludeConnection_4004IncomingLinks(
+	public static List<MetamodelLinkDescriptor> getIncludeConnection_4003IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -269,115 +263,71 @@ public class MetamodelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MetamodelLinkDescriptor> getRuntimeConfig_2001OutgoingLinks(
+	public static List<MetamodelLinkDescriptor> getAssociateConnection_4004IncomingLinks(
 			View view) {
-		RuntimeConfig modelElement = (RuntimeConfig) view.getElement();
-		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
-		result.addAll(getOutgoingTypeModelFacetLinks_IncludeConnection_4002(modelElement));
-		return result;
+		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<MetamodelLinkDescriptor> getContext_2002OutgoingLinks(
+	public static List<MetamodelLinkDescriptor> getContext_2001OutgoingLinks(
 			View view) {
 		Context modelElement = (Context) view.getElement();
 		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
-		result.addAll(getOutgoingTypeModelFacetLinks_AssociateConnection_4001(modelElement));
-		result.addAll(getOutgoingTypeModelFacetLinks_ExcludeConnection_4004(modelElement));
-		result.addAll(getOutgoingTypeModelFacetLinks_PriorConnection_4003(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_PriorConnection_4001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_ExcludeConnection_4002(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_AssociateConnection_4004(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<MetamodelLinkDescriptor> getAssociateConnection_4001OutgoingLinks(
+	public static List<MetamodelLinkDescriptor> getRuntimeConfig_2002OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<MetamodelLinkDescriptor> getIncludeConnection_4002OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<MetamodelLinkDescriptor> getPriorConnection_4003OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<MetamodelLinkDescriptor> getExcludeConnection_4004OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Collection<MetamodelLinkDescriptor> getContainedTypeModelFacetLinks_AssociateConnection_4001(
-			Context container) {
+		RuntimeConfig modelElement = (RuntimeConfig) view.getElement();
 		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
-		for (Iterator<?> links = container.getSourceConnections().iterator(); links
-				.hasNext();) {
-			EObject linkObject = (EObject) links.next();
-			if (false == linkObject instanceof AssociateConnection) {
-				continue;
-			}
-			AssociateConnection link = (AssociateConnection) linkObject;
-			if (AssociateConnectionEditPart.VISUAL_ID != MetamodelVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			Context dst = link.getTarget();
-			Context src = link.getSource();
-			result.add(new MetamodelLinkDescriptor(src, dst, link,
-					MetamodelElementTypes.AssociateConnection_4001,
-					AssociateConnectionEditPart.VISUAL_ID));
-		}
+		result.addAll(getOutgoingTypeModelFacetLinks_IncludeConnection_4003(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	private static Collection<MetamodelLinkDescriptor> getContainedTypeModelFacetLinks_IncludeConnection_4002(
-			Context container) {
-		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
-		for (Iterator<?> links = container.getIncluded().iterator(); links
-				.hasNext();) {
-			EObject linkObject = (EObject) links.next();
-			if (false == linkObject instanceof IncludeConnection) {
-				continue;
-			}
-			IncludeConnection link = (IncludeConnection) linkObject;
-			if (IncludeConnectionEditPart.VISUAL_ID != MetamodelVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			Context dst = link.getTarget();
-			RuntimeConfig src = link.getSource();
-			result.add(new MetamodelLinkDescriptor(src, dst, link,
-					MetamodelElementTypes.IncludeConnection_4002,
-					IncludeConnectionEditPart.VISUAL_ID));
-		}
-		return result;
+	public static List<MetamodelLinkDescriptor> getPriorConnection_4001OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	private static Collection<MetamodelLinkDescriptor> getContainedTypeModelFacetLinks_PriorConnection_4003(
+	public static List<MetamodelLinkDescriptor> getExcludeConnection_4002OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<MetamodelLinkDescriptor> getIncludeConnection_4003OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<MetamodelLinkDescriptor> getAssociateConnection_4004OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<MetamodelLinkDescriptor> getContainedTypeModelFacetLinks_PriorConnection_4001(
 			Context container) {
 		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
 		for (Iterator<?> links = container.getSourceConnections().iterator(); links
@@ -394,7 +344,7 @@ public class MetamodelDiagramUpdater {
 			Context dst = link.getTarget();
 			Context src = link.getSource();
 			result.add(new MetamodelLinkDescriptor(src, dst, link,
-					MetamodelElementTypes.PriorConnection_4003,
+					MetamodelElementTypes.PriorConnection_4001,
 					PriorConnectionEditPart.VISUAL_ID));
 		}
 		return result;
@@ -403,7 +353,141 @@ public class MetamodelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<MetamodelLinkDescriptor> getIncomingTypeModelFacetLinks_IncludeConnection_4002(
+	private static Collection<MetamodelLinkDescriptor> getContainedTypeModelFacetLinks_ExcludeConnection_4002(
+			Context container) {
+		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
+		for (Iterator<?> links = container.getSourceConnections().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof ExcludeConnection) {
+				continue;
+			}
+			ExcludeConnection link = (ExcludeConnection) linkObject;
+			if (ExcludeConnectionEditPart.VISUAL_ID != MetamodelVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Context dst = link.getTarget();
+			Context src = link.getSource();
+			result.add(new MetamodelLinkDescriptor(src, dst, link,
+					MetamodelElementTypes.ExcludeConnection_4002,
+					ExcludeConnectionEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<MetamodelLinkDescriptor> getContainedTypeModelFacetLinks_IncludeConnection_4003(
+			RuntimeConfig container) {
+		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
+		for (Iterator<?> links = container.getIncludes().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof IncludeConnection) {
+				continue;
+			}
+			IncludeConnection link = (IncludeConnection) linkObject;
+			if (IncludeConnectionEditPart.VISUAL_ID != MetamodelVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Context dst = link.getTarget();
+			RuntimeConfig src = link.getSource();
+			result.add(new MetamodelLinkDescriptor(src, dst, link,
+					MetamodelElementTypes.IncludeConnection_4003,
+					IncludeConnectionEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<MetamodelLinkDescriptor> getContainedTypeModelFacetLinks_AssociateConnection_4004(
+			Context container) {
+		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
+		for (Iterator<?> links = container.getSourceConnections().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof AssociateConnection) {
+				continue;
+			}
+			AssociateConnection link = (AssociateConnection) linkObject;
+			if (AssociateConnectionEditPart.VISUAL_ID != MetamodelVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Context dst = link.getTarget();
+			Context src = link.getSource();
+			result.add(new MetamodelLinkDescriptor(src, dst, link,
+					MetamodelElementTypes.AssociateConnection_4004,
+					AssociateConnectionEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<MetamodelLinkDescriptor> getIncomingTypeModelFacetLinks_PriorConnection_4001(
+			Context target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() != MetamodelPackage.eINSTANCE
+					.getConnection_Target()
+					|| false == setting.getEObject() instanceof PriorConnection) {
+				continue;
+			}
+			PriorConnection link = (PriorConnection) setting.getEObject();
+			if (PriorConnectionEditPart.VISUAL_ID != MetamodelVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Context src = link.getSource();
+			result.add(new MetamodelLinkDescriptor(src, target, link,
+					MetamodelElementTypes.PriorConnection_4001,
+					PriorConnectionEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<MetamodelLinkDescriptor> getIncomingTypeModelFacetLinks_ExcludeConnection_4002(
+			Context target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() != MetamodelPackage.eINSTANCE
+					.getConnection_Target()
+					|| false == setting.getEObject() instanceof ExcludeConnection) {
+				continue;
+			}
+			ExcludeConnection link = (ExcludeConnection) setting.getEObject();
+			if (ExcludeConnectionEditPart.VISUAL_ID != MetamodelVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Context src = link.getSource();
+			result.add(new MetamodelLinkDescriptor(src, target, link,
+					MetamodelElementTypes.ExcludeConnection_4002,
+					ExcludeConnectionEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<MetamodelLinkDescriptor> getIncomingTypeModelFacetLinks_IncludeConnection_4003(
 			Context target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
@@ -422,7 +506,7 @@ public class MetamodelDiagramUpdater {
 			}
 			RuntimeConfig src = link.getSource();
 			result.add(new MetamodelLinkDescriptor(src, target, link,
-					MetamodelElementTypes.IncludeConnection_4002,
+					MetamodelElementTypes.IncludeConnection_4003,
 					IncludeConnectionEditPart.VISUAL_ID));
 		}
 		return result;
@@ -431,33 +515,7 @@ public class MetamodelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<MetamodelLinkDescriptor> getContainedTypeModelFacetLinks_ExcludeConnection_4004(
-			Context container) {
-		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
-		for (Iterator<?> links = container.getSourceConnections().iterator(); links
-				.hasNext();) {
-			EObject linkObject = (EObject) links.next();
-			if (false == linkObject instanceof ExcludeConnection) {
-				continue;
-			}
-			ExcludeConnection link = (ExcludeConnection) linkObject;
-			if (ExcludeConnectionEditPart.VISUAL_ID != MetamodelVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			Context dst = link.getTarget();
-			Context src = link.getSource();
-			result.add(new MetamodelLinkDescriptor(src, dst, link,
-					MetamodelElementTypes.ExcludeConnection_4004,
-					ExcludeConnectionEditPart.VISUAL_ID));
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Collection<MetamodelLinkDescriptor> getIncomingTypeModelFacetLinks_AssociateConnection_4001(
+	private static Collection<MetamodelLinkDescriptor> getIncomingTypeModelFacetLinks_AssociateConnection_4004(
 			Context target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
@@ -477,7 +535,7 @@ public class MetamodelDiagramUpdater {
 			}
 			Context src = link.getSource();
 			result.add(new MetamodelLinkDescriptor(src, target, link,
-					MetamodelElementTypes.AssociateConnection_4001,
+					MetamodelElementTypes.AssociateConnection_4004,
 					AssociateConnectionEditPart.VISUAL_ID));
 		}
 		return result;
@@ -486,161 +544,7 @@ public class MetamodelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<MetamodelLinkDescriptor> getIncomingTypeModelFacetLinks_PriorConnection_4003(
-			Context target,
-			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
-		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences
-				.get(target);
-		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() != MetamodelPackage.eINSTANCE
-					.getConnection_Target()
-					|| false == setting.getEObject() instanceof PriorConnection) {
-				continue;
-			}
-			PriorConnection link = (PriorConnection) setting.getEObject();
-			if (PriorConnectionEditPart.VISUAL_ID != MetamodelVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			Context src = link.getSource();
-			result.add(new MetamodelLinkDescriptor(src, target, link,
-					MetamodelElementTypes.PriorConnection_4003,
-					PriorConnectionEditPart.VISUAL_ID));
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Collection<MetamodelLinkDescriptor> getOutgoingTypeModelFacetLinks_IncludeConnection_4002(
-			RuntimeConfig source) {
-		Context container = null;
-		// Find container element for the link.
-		// Climb up by containment hierarchy starting from the source
-		// and return the first element that is instance of the container class.
-		for (EObject element = source; element != null && container == null; element = element
-				.eContainer()) {
-			if (element instanceof Context) {
-				container = (Context) element;
-			}
-		}
-		if (container == null) {
-			return Collections.emptyList();
-		}
-		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
-		for (Iterator<?> links = container.getIncluded().iterator(); links
-				.hasNext();) {
-			EObject linkObject = (EObject) links.next();
-			if (false == linkObject instanceof IncludeConnection) {
-				continue;
-			}
-			IncludeConnection link = (IncludeConnection) linkObject;
-			if (IncludeConnectionEditPart.VISUAL_ID != MetamodelVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			Context dst = link.getTarget();
-			RuntimeConfig src = link.getSource();
-			if (src != source) {
-				continue;
-			}
-			result.add(new MetamodelLinkDescriptor(src, dst, link,
-					MetamodelElementTypes.IncludeConnection_4002,
-					IncludeConnectionEditPart.VISUAL_ID));
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Collection<MetamodelLinkDescriptor> getOutgoingTypeModelFacetLinks_AssociateConnection_4001(
-			Context source) {
-		Context container = null;
-		// Find container element for the link.
-		// Climb up by containment hierarchy starting from the source
-		// and return the first element that is instance of the container class.
-		for (EObject element = source; element != null && container == null; element = element
-				.eContainer()) {
-			if (element instanceof Context) {
-				container = (Context) element;
-			}
-		}
-		if (container == null) {
-			return Collections.emptyList();
-		}
-		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
-		for (Iterator<?> links = container.getSourceConnections().iterator(); links
-				.hasNext();) {
-			EObject linkObject = (EObject) links.next();
-			if (false == linkObject instanceof AssociateConnection) {
-				continue;
-			}
-			AssociateConnection link = (AssociateConnection) linkObject;
-			if (AssociateConnectionEditPart.VISUAL_ID != MetamodelVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			Context dst = link.getTarget();
-			Context src = link.getSource();
-			if (src != source) {
-				continue;
-			}
-			result.add(new MetamodelLinkDescriptor(src, dst, link,
-					MetamodelElementTypes.AssociateConnection_4001,
-					AssociateConnectionEditPart.VISUAL_ID));
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Collection<MetamodelLinkDescriptor> getOutgoingTypeModelFacetLinks_ExcludeConnection_4004(
-			Context source) {
-		Context container = null;
-		// Find container element for the link.
-		// Climb up by containment hierarchy starting from the source
-		// and return the first element that is instance of the container class.
-		for (EObject element = source; element != null && container == null; element = element
-				.eContainer()) {
-			if (element instanceof Context) {
-				container = (Context) element;
-			}
-		}
-		if (container == null) {
-			return Collections.emptyList();
-		}
-		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
-		for (Iterator<?> links = container.getSourceConnections().iterator(); links
-				.hasNext();) {
-			EObject linkObject = (EObject) links.next();
-			if (false == linkObject instanceof ExcludeConnection) {
-				continue;
-			}
-			ExcludeConnection link = (ExcludeConnection) linkObject;
-			if (ExcludeConnectionEditPart.VISUAL_ID != MetamodelVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			Context dst = link.getTarget();
-			Context src = link.getSource();
-			if (src != source) {
-				continue;
-			}
-			result.add(new MetamodelLinkDescriptor(src, dst, link,
-					MetamodelElementTypes.ExcludeConnection_4004,
-					ExcludeConnectionEditPart.VISUAL_ID));
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Collection<MetamodelLinkDescriptor> getOutgoingTypeModelFacetLinks_PriorConnection_4003(
+	private static Collection<MetamodelLinkDescriptor> getOutgoingTypeModelFacetLinks_PriorConnection_4001(
 			Context source) {
 		Context container = null;
 		// Find container element for the link.
@@ -673,7 +577,7 @@ public class MetamodelDiagramUpdater {
 				continue;
 			}
 			result.add(new MetamodelLinkDescriptor(src, dst, link,
-					MetamodelElementTypes.PriorConnection_4003,
+					MetamodelElementTypes.PriorConnection_4001,
 					PriorConnectionEditPart.VISUAL_ID));
 		}
 		return result;
@@ -682,27 +586,125 @@ public class MetamodelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<MetamodelLinkDescriptor> getIncomingTypeModelFacetLinks_ExcludeConnection_4004(
-			Context target,
-			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+	private static Collection<MetamodelLinkDescriptor> getOutgoingTypeModelFacetLinks_ExcludeConnection_4002(
+			Context source) {
+		Context container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
+			if (element instanceof Context) {
+				container = (Context) element;
+			}
+		}
+		if (container == null) {
+			return Collections.emptyList();
+		}
 		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences
-				.get(target);
-		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() != MetamodelPackage.eINSTANCE
-					.getConnection_Target()
-					|| false == setting.getEObject() instanceof ExcludeConnection) {
+		for (Iterator<?> links = container.getSourceConnections().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof ExcludeConnection) {
 				continue;
 			}
-			ExcludeConnection link = (ExcludeConnection) setting.getEObject();
+			ExcludeConnection link = (ExcludeConnection) linkObject;
 			if (ExcludeConnectionEditPart.VISUAL_ID != MetamodelVisualIDRegistry
 					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
+			Context dst = link.getTarget();
 			Context src = link.getSource();
-			result.add(new MetamodelLinkDescriptor(src, target, link,
-					MetamodelElementTypes.ExcludeConnection_4004,
+			if (src != source) {
+				continue;
+			}
+			result.add(new MetamodelLinkDescriptor(src, dst, link,
+					MetamodelElementTypes.ExcludeConnection_4002,
 					ExcludeConnectionEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<MetamodelLinkDescriptor> getOutgoingTypeModelFacetLinks_IncludeConnection_4003(
+			RuntimeConfig source) {
+		RuntimeConfig container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
+			if (element instanceof RuntimeConfig) {
+				container = (RuntimeConfig) element;
+			}
+		}
+		if (container == null) {
+			return Collections.emptyList();
+		}
+		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
+		for (Iterator<?> links = container.getIncludes().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof IncludeConnection) {
+				continue;
+			}
+			IncludeConnection link = (IncludeConnection) linkObject;
+			if (IncludeConnectionEditPart.VISUAL_ID != MetamodelVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Context dst = link.getTarget();
+			RuntimeConfig src = link.getSource();
+			if (src != source) {
+				continue;
+			}
+			result.add(new MetamodelLinkDescriptor(src, dst, link,
+					MetamodelElementTypes.IncludeConnection_4003,
+					IncludeConnectionEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<MetamodelLinkDescriptor> getOutgoingTypeModelFacetLinks_AssociateConnection_4004(
+			Context source) {
+		Context container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
+			if (element instanceof Context) {
+				container = (Context) element;
+			}
+		}
+		if (container == null) {
+			return Collections.emptyList();
+		}
+		LinkedList<MetamodelLinkDescriptor> result = new LinkedList<MetamodelLinkDescriptor>();
+		for (Iterator<?> links = container.getSourceConnections().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof AssociateConnection) {
+				continue;
+			}
+			AssociateConnection link = (AssociateConnection) linkObject;
+			if (AssociateConnectionEditPart.VISUAL_ID != MetamodelVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Context dst = link.getTarget();
+			Context src = link.getSource();
+			if (src != source) {
+				continue;
+			}
+			result.add(new MetamodelLinkDescriptor(src, dst, link,
+					MetamodelElementTypes.AssociateConnection_4004,
+					AssociateConnectionEditPart.VISUAL_ID));
 		}
 		return result;
 	}

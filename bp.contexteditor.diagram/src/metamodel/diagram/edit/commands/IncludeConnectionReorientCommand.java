@@ -67,12 +67,12 @@ public class IncludeConnectionReorientCommand extends EditElementCommand {
 			return false;
 		}
 		Context target = getLink().getTarget();
-		if (!(getLink().eContainer() instanceof Context)) {
+		if (!(getLink().eContainer() instanceof RuntimeConfig)) {
 			return false;
 		}
-		Context container = (Context) getLink().eContainer();
+		RuntimeConfig container = (RuntimeConfig) getLink().eContainer();
 		return MetamodelBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistIncludeConnection_4002(container, getLink(),
+				.canExistIncludeConnection_4003(container, getLink(),
 						getNewSource(), target);
 	}
 
@@ -84,12 +84,12 @@ public class IncludeConnectionReorientCommand extends EditElementCommand {
 			return false;
 		}
 		RuntimeConfig source = getLink().getSource();
-		if (!(getLink().eContainer() instanceof Context)) {
+		if (!(getLink().eContainer() instanceof RuntimeConfig)) {
 			return false;
 		}
-		Context container = (Context) getLink().eContainer();
+		RuntimeConfig container = (RuntimeConfig) getLink().eContainer();
 		return MetamodelBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistIncludeConnection_4002(container, getLink(), source,
+				.canExistIncludeConnection_4003(container, getLink(), source,
 						getNewTarget());
 	}
 

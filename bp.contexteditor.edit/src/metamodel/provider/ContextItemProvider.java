@@ -66,6 +66,7 @@ public class ContextItemProvider
 			addNamePropertyDescriptor(object);
 			addClassifiesPropertyDescriptor(object);
 			addTargetConnectionsPropertyDescriptor(object);
+			addIncludedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -137,6 +138,28 @@ public class ContextItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Included feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIncludedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Context_included_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Context_included_feature", "_UI_Context_type"),
+				 MetamodelPackage.Literals.CONTEXT__INCLUDED,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -148,7 +171,6 @@ public class ContextItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MetamodelPackage.Literals.CONTEXT__INCLUDED);
 			childrenFeatures.add(MetamodelPackage.Literals.CONTEXT__SOURCE_CONNECTIONS);
 		}
 		return childrenFeatures;
@@ -207,7 +229,6 @@ public class ContextItemProvider
 			case MetamodelPackage.CONTEXT__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case MetamodelPackage.CONTEXT__INCLUDED:
 			case MetamodelPackage.CONTEXT__SOURCE_CONNECTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -225,11 +246,6 @@ public class ContextItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.CONTEXT__INCLUDED,
-				 MetamodelFactory.eINSTANCE.createIncludeConnection()));
 
 		newChildDescriptors.add
 			(createChildParameter

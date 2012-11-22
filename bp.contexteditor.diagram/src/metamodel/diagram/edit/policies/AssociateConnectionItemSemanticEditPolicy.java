@@ -16,7 +16,7 @@ public class AssociateConnectionItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public AssociateConnectionItemSemanticEditPolicy() {
-		super(MetamodelElementTypes.AssociateConnection_4001);
+		super(MetamodelElementTypes.AssociateConnection_4004);
 	}
 
 	/**

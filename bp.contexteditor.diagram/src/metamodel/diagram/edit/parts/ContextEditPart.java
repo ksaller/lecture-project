@@ -38,7 +38,7 @@ public class ContextEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2002;
+	public static final int VISUAL_ID = 2001;
 
 	/**
 	 * @generated
@@ -254,9 +254,9 @@ public class ContextEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
-		types.add(MetamodelElementTypes.AssociateConnection_4001);
-		types.add(MetamodelElementTypes.ExcludeConnection_4004);
-		types.add(MetamodelElementTypes.PriorConnection_4003);
+		types.add(MetamodelElementTypes.PriorConnection_4001);
+		types.add(MetamodelElementTypes.ExcludeConnection_4002);
+		types.add(MetamodelElementTypes.AssociateConnection_4004);
 		return types;
 	}
 
@@ -267,13 +267,13 @@ public class ContextEditPart extends ShapeNodeEditPart {
 			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof metamodel.diagram.edit.parts.ContextEditPart) {
-			types.add(MetamodelElementTypes.AssociateConnection_4001);
+			types.add(MetamodelElementTypes.PriorConnection_4001);
 		}
 		if (targetEditPart instanceof metamodel.diagram.edit.parts.ContextEditPart) {
-			types.add(MetamodelElementTypes.ExcludeConnection_4004);
+			types.add(MetamodelElementTypes.ExcludeConnection_4002);
 		}
 		if (targetEditPart instanceof metamodel.diagram.edit.parts.ContextEditPart) {
-			types.add(MetamodelElementTypes.PriorConnection_4003);
+			types.add(MetamodelElementTypes.AssociateConnection_4004);
 		}
 		return types;
 	}
@@ -283,12 +283,12 @@ public class ContextEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == MetamodelElementTypes.AssociateConnection_4001) {
-			types.add(MetamodelElementTypes.Context_2002);
-		} else if (relationshipType == MetamodelElementTypes.ExcludeConnection_4004) {
-			types.add(MetamodelElementTypes.Context_2002);
-		} else if (relationshipType == MetamodelElementTypes.PriorConnection_4003) {
-			types.add(MetamodelElementTypes.Context_2002);
+		if (relationshipType == MetamodelElementTypes.PriorConnection_4001) {
+			types.add(MetamodelElementTypes.Context_2001);
+		} else if (relationshipType == MetamodelElementTypes.ExcludeConnection_4002) {
+			types.add(MetamodelElementTypes.Context_2001);
+		} else if (relationshipType == MetamodelElementTypes.AssociateConnection_4004) {
+			types.add(MetamodelElementTypes.Context_2001);
 		}
 		return types;
 	}
@@ -298,10 +298,10 @@ public class ContextEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(4);
-		types.add(MetamodelElementTypes.IncludeConnection_4002);
-		types.add(MetamodelElementTypes.AssociateConnection_4001);
-		types.add(MetamodelElementTypes.ExcludeConnection_4004);
-		types.add(MetamodelElementTypes.PriorConnection_4003);
+		types.add(MetamodelElementTypes.PriorConnection_4001);
+		types.add(MetamodelElementTypes.ExcludeConnection_4002);
+		types.add(MetamodelElementTypes.IncludeConnection_4003);
+		types.add(MetamodelElementTypes.AssociateConnection_4004);
 		return types;
 	}
 
@@ -310,14 +310,14 @@ public class ContextEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == MetamodelElementTypes.IncludeConnection_4002) {
-			types.add(MetamodelElementTypes.RuntimeConfig_2001);
-		} else if (relationshipType == MetamodelElementTypes.AssociateConnection_4001) {
-			types.add(MetamodelElementTypes.Context_2002);
-		} else if (relationshipType == MetamodelElementTypes.ExcludeConnection_4004) {
-			types.add(MetamodelElementTypes.Context_2002);
-		} else if (relationshipType == MetamodelElementTypes.PriorConnection_4003) {
-			types.add(MetamodelElementTypes.Context_2002);
+		if (relationshipType == MetamodelElementTypes.PriorConnection_4001) {
+			types.add(MetamodelElementTypes.Context_2001);
+		} else if (relationshipType == MetamodelElementTypes.ExcludeConnection_4002) {
+			types.add(MetamodelElementTypes.Context_2001);
+		} else if (relationshipType == MetamodelElementTypes.IncludeConnection_4003) {
+			types.add(MetamodelElementTypes.RuntimeConfig_2002);
+		} else if (relationshipType == MetamodelElementTypes.AssociateConnection_4004) {
+			types.add(MetamodelElementTypes.Context_2001);
 		}
 		return types;
 	}

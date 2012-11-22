@@ -69,7 +69,7 @@ public class AssociateConnectionCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return MetamodelBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateAssociateConnection_4001(getContainer(), getSource(),
+				.canCreateAssociateConnection_4004(getContainer(), getSource(),
 						getTarget());
 	}
 

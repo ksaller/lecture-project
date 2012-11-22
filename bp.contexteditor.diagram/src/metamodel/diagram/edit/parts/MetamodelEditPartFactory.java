@@ -25,26 +25,26 @@ public class MetamodelEditPartFactory implements EditPartFactory {
 			case ContextDiagramEditPart.VISUAL_ID:
 				return new ContextDiagramEditPart(view);
 
-			case RuntimeConfigEditPart.VISUAL_ID:
-				return new RuntimeConfigEditPart(view);
-
 			case ContextEditPart.VISUAL_ID:
 				return new ContextEditPart(view);
 
 			case ContextNameEditPart.VISUAL_ID:
 				return new ContextNameEditPart(view);
 
+			case RuntimeConfigEditPart.VISUAL_ID:
+				return new RuntimeConfigEditPart(view);
+
+			case PriorConnectionEditPart.VISUAL_ID:
+				return new PriorConnectionEditPart(view);
+
+			case ExcludeConnectionEditPart.VISUAL_ID:
+				return new ExcludeConnectionEditPart(view);
+
 			case IncludeConnectionEditPart.VISUAL_ID:
 				return new IncludeConnectionEditPart(view);
 
 			case AssociateConnectionEditPart.VISUAL_ID:
 				return new AssociateConnectionEditPart(view);
-
-			case ExcludeConnectionEditPart.VISUAL_ID:
-				return new ExcludeConnectionEditPart(view);
-
-			case PriorConnectionEditPart.VISUAL_ID:
-				return new PriorConnectionEditPart(view);
 
 			}
 		}

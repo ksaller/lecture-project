@@ -69,7 +69,7 @@ public class ExcludeConnectionCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return MetamodelBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateExcludeConnection_4004(getContainer(), getSource(),
+				.canCreateExcludeConnection_4002(getContainer(), getSource(),
 						getTarget());
 	}
 

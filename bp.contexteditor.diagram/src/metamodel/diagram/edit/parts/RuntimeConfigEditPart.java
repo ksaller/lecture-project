@@ -35,7 +35,7 @@ public class RuntimeConfigEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2001;
+	public static final int VISUAL_ID = 2002;
 
 	/**
 	 * @generated
@@ -96,14 +96,14 @@ public class RuntimeConfigEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new RuntimeConfigFigure();
+		return primaryShape = new RectangleFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public RuntimeConfigFigure getPrimaryShape() {
-		return (RuntimeConfigFigure) primaryShape;
+	public RectangleFigure getPrimaryShape() {
+		return (RectangleFigure) primaryShape;
 	}
 
 	/**
@@ -192,7 +192,7 @@ public class RuntimeConfigEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(MetamodelElementTypes.IncludeConnection_4002);
+		types.add(MetamodelElementTypes.IncludeConnection_4003);
 		return types;
 	}
 
@@ -203,7 +203,7 @@ public class RuntimeConfigEditPart extends ShapeNodeEditPart {
 			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof ContextEditPart) {
-			types.add(MetamodelElementTypes.IncludeConnection_4002);
+			types.add(MetamodelElementTypes.IncludeConnection_4003);
 		}
 		return types;
 	}
@@ -213,24 +213,10 @@ public class RuntimeConfigEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == MetamodelElementTypes.IncludeConnection_4002) {
-			types.add(MetamodelElementTypes.Context_2002);
+		if (relationshipType == MetamodelElementTypes.IncludeConnection_4003) {
+			types.add(MetamodelElementTypes.Context_2001);
 		}
 		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public class RuntimeConfigFigure extends RectangleFigure {
-
-		/**
-		 * @generated
-		 */
-		public RuntimeConfigFigure() {
-			this.setLineWidth(2);
-		}
-
 	}
 
 }

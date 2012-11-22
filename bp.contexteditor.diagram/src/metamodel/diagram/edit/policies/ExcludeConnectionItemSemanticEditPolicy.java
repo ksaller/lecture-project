@@ -16,7 +16,7 @@ public class ExcludeConnectionItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ExcludeConnectionItemSemanticEditPolicy() {
-		super(MetamodelElementTypes.ExcludeConnection_4004);
+		super(MetamodelElementTypes.ExcludeConnection_4002);
 	}
 
 	/**

@@ -69,7 +69,7 @@ public class PriorConnectionCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return MetamodelBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreatePriorConnection_4003(getContainer(), getSource(),
+				.canCreatePriorConnection_4001(getContainer(), getSource(),
 						getTarget());
 	}
 

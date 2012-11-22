@@ -126,13 +126,13 @@ public class MetamodelVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case ContextDiagramEditPart.VISUAL_ID:
-			if (MetamodelPackage.eINSTANCE.getRuntimeConfig().isSuperTypeOf(
-					domainElement.eClass())) {
-				return RuntimeConfigEditPart.VISUAL_ID;
-			}
 			if (MetamodelPackage.eINSTANCE.getContext().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ContextEditPart.VISUAL_ID;
+			}
+			if (MetamodelPackage.eINSTANCE.getRuntimeConfig().isSuperTypeOf(
+					domainElement.eClass())) {
+				return RuntimeConfigEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -161,10 +161,10 @@ public class MetamodelVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case ContextDiagramEditPart.VISUAL_ID:
-			if (RuntimeConfigEditPart.VISUAL_ID == nodeVisualID) {
+			if (ContextEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ContextEditPart.VISUAL_ID == nodeVisualID) {
+			if (RuntimeConfigEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -184,6 +184,14 @@ public class MetamodelVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
+		if (MetamodelPackage.eINSTANCE.getPriorConnection().isSuperTypeOf(
+				domainElement.eClass())) {
+			return PriorConnectionEditPart.VISUAL_ID;
+		}
+		if (MetamodelPackage.eINSTANCE.getExcludeConnection().isSuperTypeOf(
+				domainElement.eClass())) {
+			return ExcludeConnectionEditPart.VISUAL_ID;
+		}
 		if (MetamodelPackage.eINSTANCE.getIncludeConnection().isSuperTypeOf(
 				domainElement.eClass())) {
 			return IncludeConnectionEditPart.VISUAL_ID;
@@ -191,14 +199,6 @@ public class MetamodelVisualIDRegistry {
 		if (MetamodelPackage.eINSTANCE.getAssociateConnection().isSuperTypeOf(
 				domainElement.eClass())) {
 			return AssociateConnectionEditPart.VISUAL_ID;
-		}
-		if (MetamodelPackage.eINSTANCE.getExcludeConnection().isSuperTypeOf(
-				domainElement.eClass())) {
-			return ExcludeConnectionEditPart.VISUAL_ID;
-		}
-		if (MetamodelPackage.eINSTANCE.getPriorConnection().isSuperTypeOf(
-				domainElement.eClass())) {
-			return PriorConnectionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}
@@ -240,8 +240,8 @@ public class MetamodelVisualIDRegistry {
 		switch (visualID) {
 		case ContextDiagramEditPart.VISUAL_ID:
 			return false;
-		case RuntimeConfigEditPart.VISUAL_ID:
 		case ContextEditPart.VISUAL_ID:
+		case RuntimeConfigEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
