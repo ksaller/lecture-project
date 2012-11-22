@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/org.west.es.context.model/model/contextModel.genmodel
+gmf_dashboard/domainModel=platform\:/resource/org.west.es.context.model/model/contextModel.ecore
+gmf_dashboard/generationModel=platform\:/resource/org.west.es.context.model/model/contextModel.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/org.west.es.context.model/model/contextModel.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/org.west.es.context.model/model/contextModel.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/org.west.es.context.model/model/contextModel.gmftool

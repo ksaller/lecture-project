@@ -1,0 +1,7 @@
+# Tracing options for the org.west.es.context.diagram plug-in
+
+# Common issues
+org.west.es.context.diagram/debug=false
+
+# Visual IDs
+org.west.es.context.diagram/debug/visualID=false

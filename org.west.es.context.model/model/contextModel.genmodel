@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.west.es.context.model/src" modelPluginID="org.west.es.context.model"
+    modelName="ContextModel" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false" usedGenPackages="platform:/plugin/org.featuremapper.models.feature/model/feature.genmodel#//feature ../../org.feature.multi.perspective.mapping/model/viewmapping.genmodel#//viewmapping ../../org.feature.multi.perspective.model/model/viewmodel.genmodel#//viewmodel">
+  <foreignModel>contextModel.ecore</foreignModel>
+  <genPackages prefix="ContextModel" basePackage="org.west.es.context" disposableProviderFactory="true"
+      ecorePackage="contextModel.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="contextModel.ecore#//Classification">
+      <genEnumLiterals ecoreEnumLiteral="contextModel.ecore#//Classification/UNBOUND"/>
+      <genEnumLiterals ecoreEnumLiteral="contextModel.ecore#//Classification/ALIVE"/>
+      <genEnumLiterals ecoreEnumLiteral="contextModel.ecore#//Classification/DEAD"/>
+    </genEnums>
+    <genClasses ecoreClass="contextModel.ecore#//Container">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contextModel.ecore#//Container/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contextModel.ecore#//Container/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contextModel.ecore#//Container/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contextModel.ecore#//Container/creationDate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contextModel.ecore#//Container/contextElements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contextModel.ecore#//Container/contextInstances"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextModel.ecore#//Container/associatedMappingModel"/>
+    </genClasses>
+    <genClasses ecoreClass="contextModel.ecore#//ContextElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contextModel.ecore#//ContextElement/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextModel.ecore#//ContextElement/associatedMapping"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextModel.ecore#//ContextElement/priorizeLinks"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextModel.ecore#//ContextElement/extendsLink"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextModel.ecore#//ContextElement/excludeLinks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contextModel.ecore#//ContextElement/classifiedFeatures"/>
+    </genClasses>
+    <genClasses ecoreClass="contextModel.ecore#//ContextInstance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contextModel.ecore#//ContextInstance/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextModel.ecore#//ContextInstance/includeLinks"/>
+    </genClasses>
+    <genClasses ecoreClass="contextModel.ecore#//ClassifiedFeature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contextModel.ecore#//ClassifiedFeature/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextModel.ecore#//ClassifiedFeature/feature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contextModel.ecore#//ClassifiedFeature/classification"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
