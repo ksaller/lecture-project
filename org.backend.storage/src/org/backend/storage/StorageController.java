@@ -70,6 +70,7 @@ public class StorageController {
 	private void init(){
 		setTerms(TextExpressionParser.parseExpressions(featuremodel));
 		setConstraints(featuremodel.getConstraints());
+		contextFac = ContextModelFactory.eINSTANCE;
 		contextContainer = contextFac.createContainer();
 	}
 	
