@@ -1,12 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Storage
-Bundle-SymbolicName: org.backend.storage
+Bundle-Name: Live
+Bundle-SymbolicName: org.backend.live
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.featuremapper.models.feature,
- org.eclipse.emf.ecore.xmi,
- org.junit,
  org.emftext.term.propositional,
- org.feature.model.sat
-Export-Package: org.backend.storage
+ org.backend.storage;bundle-version="1.0.0"
