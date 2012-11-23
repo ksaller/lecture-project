@@ -4,30 +4,5 @@
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="tests"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.emftext.commons.antlr3_4_0"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.emftext.term.propositional"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.emftext.term.propositional.edit"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.emftext.term.propositional.editor"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.emftext.term.propositional.expression.resource.expression"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.emftext.term.propositional.expression.resource.expression.ui"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.feature.model.csp"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.feature.model.sat"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.feature.model.slicer"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.feature.model.utilities"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.feature.multi.perspective.classification"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.feature.multi.perspective.classification.resource.clt"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.feature.multi.perspective.classification.resource.clt.ui"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.feature.multi.perspective.mapping"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.feature.multi.perspective.mapping.edit"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.feature.multi.perspective.mapping.editor"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.feature.multi.perspective.mapping.viewmapping.resource.mtext"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.feature.multi.perspective.mapping.viewmapping.resource.mtext.ui"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.feature.multi.perspective.model"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.feature.multi.perspective.model.edit"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.feature.multi.perspective.model.editor"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.west.es.context.model"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.west.es.context.model.edit"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.west.es.context.model.editor"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.west.es.context.model.tests"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
