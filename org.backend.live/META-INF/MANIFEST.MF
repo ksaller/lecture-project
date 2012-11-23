@@ -6,4 +6,6 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.featuremapper.models.feature,
  org.emftext.term.propositional,
- org.backend.storage;bundle-version="1.0.0"
+ org.backend.storage;bundle-version="1.0.0",
+ org.junit,
+ org.west.es.context.model

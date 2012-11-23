@@ -8,5 +8,6 @@ Require-Bundle: org.featuremapper.models.feature,
  org.eclipse.emf.ecore.xmi,
  org.junit,
  org.emftext.term.propositional,
- org.feature.model.sat
+ org.feature.model.sat,
+ org.west.es.context.model
 Export-Package: org.backend.storage
