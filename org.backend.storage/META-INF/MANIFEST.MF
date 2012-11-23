@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Storage
+Bundle-SymbolicName: org.backend.storage
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.featuremapper.models.feature,
+ org.eclipse.emf.ecore.xmi,
+ org.junit
