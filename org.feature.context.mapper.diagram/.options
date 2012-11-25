@@ -1,0 +1,7 @@
+# Tracing options for the org.feature.context.mapper.diagram plug-in
+
+# Common issues
+org.feature.context.mapper.diagram/debug=false
+
+# Visual IDs
+org.feature.context.mapper.diagram/debug/visualID=false

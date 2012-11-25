@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/org.feature.context.mapper/model/contextmapper.genmodel
+gmf_dashboard/domainModel=platform\:/resource/org.feature.context.mapper/model/contextmapper.ecore
+gmf_dashboard/generationModel=platform\:/resource/org.feature.context.mapper/model/contextmapper.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/org.feature.context.mapper/model/contextmapper.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/org.feature.context.mapper/model/contextmapper.gmfmap
+gmf_dashboard/option_rcp=*
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/org.feature.context.mapper/model/contextmapper.gmftool
