@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: contextmapper.diagram.part.ContextmapperDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: contextmapper.diagram.edit.parts, 
+Export-Package: contextmapper.diagram.edit.parts,
  contextmapper.diagram.part,
  contextmapper.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,
