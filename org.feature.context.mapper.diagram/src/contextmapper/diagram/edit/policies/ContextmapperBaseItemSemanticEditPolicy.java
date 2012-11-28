@@ -328,26 +328,9 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		/**
 		 * @generated
 		 */
-		public boolean canCreatePriorConnection_4001(Context container,
-				Context source, Context target) {
-			return canExistPriorConnection_4001(container, null, source, target);
-		}
-
-		/**
-		 * @generated
-		 */
 		public boolean canCreateExcludeConnection_4002(Context container,
 				Context source, Context target) {
 			return canExistExcludeConnection_4002(container, null, source,
-					target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateIncludeConnection_4003(RuntimeConfig container,
-				RuntimeConfig source, Context target) {
-			return canExistIncludeConnection_4003(container, null, source,
 					target);
 		}
 
@@ -363,9 +346,18 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		/**
 		 * @generated
 		 */
-		public boolean canExistPriorConnection_4001(Context container,
-				PriorConnection linkInstance, Context source, Context target) {
-			return true;
+		public boolean canCreateIncludeConnection_4003(RuntimeConfig container,
+				RuntimeConfig source, Context target) {
+			return canExistIncludeConnection_4003(container, null, source,
+					target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreatePriorConnection_4001(Context container,
+				Context source, Context target) {
+			return canExistPriorConnection_4001(container, null, source, target);
 		}
 
 		/**
@@ -373,6 +365,14 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		 */
 		public boolean canExistExcludeConnection_4002(Context container,
 				ExcludeConnection linkInstance, Context source, Context target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistAssociateConnection_4004(Context container,
+				AssociateConnection linkInstance, Context source, Context target) {
 			return true;
 		}
 
@@ -388,8 +388,8 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		/**
 		 * @generated
 		 */
-		public boolean canExistAssociateConnection_4004(Context container,
-				AssociateConnection linkInstance, Context source, Context target) {
+		public boolean canExistPriorConnection_4001(Context container,
+				PriorConnection linkInstance, Context source, Context target) {
 			return true;
 		}
 	}

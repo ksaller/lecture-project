@@ -25,15 +25,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextmapper.ecore#//Connection/source"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference contextmapper.ecore#//Connection/target"/>
     </genClasses>
-    <genClasses ecoreClass="contextmapper.ecore#//PriorConnection">
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute contextmapper.ecore#//PriorConnection/type"/>
-    </genClasses>
-    <genClasses ecoreClass="contextmapper.ecore#//ExcludeConnection">
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute contextmapper.ecore#//ExcludeConnection/type"/>
-    </genClasses>
-    <genClasses ecoreClass="contextmapper.ecore#//AssociateConnection">
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute contextmapper.ecore#//AssociateConnection/type"/>
-    </genClasses>
+    <genClasses ecoreClass="contextmapper.ecore#//PriorConnection"/>
+    <genClasses ecoreClass="contextmapper.ecore#//ExcludeConnection"/>
+    <genClasses ecoreClass="contextmapper.ecore#//AssociateConnection"/>
     <genClasses ecoreClass="contextmapper.ecore#//RuntimeConfig">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contextmapper.ecore#//RuntimeConfig/includes"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contextmapper.ecore#//RuntimeConfig/name"/>
@@ -41,7 +35,6 @@
     <genClasses ecoreClass="contextmapper.ecore#//IncludeConnection">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference contextmapper.ecore#//IncludeConnection/source"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextmapper.ecore#//IncludeConnection/target"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute contextmapper.ecore#//IncludeConnection/type"/>
     </genClasses>
     <genClasses ecoreClass="contextmapper.ecore#//ContextDiagram">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextmapper.ecore#//ContextDiagram/mappingReference"/>

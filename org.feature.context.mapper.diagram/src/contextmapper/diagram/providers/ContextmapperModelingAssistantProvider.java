@@ -41,8 +41,8 @@ public class ContextmapperModelingAssistantProvider extends
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof ContextDiagramEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-			types.add(ContextmapperElementTypes.Context_2001);
 			types.add(ContextmapperElementTypes.RuntimeConfig_2002);
+			types.add(ContextmapperElementTypes.Context_2001);
 			return types;
 		}
 		return Collections.EMPTY_LIST;
@@ -54,12 +54,12 @@ public class ContextmapperModelingAssistantProvider extends
 	public List getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof ContextEditPart) {
-			return ((ContextEditPart) sourceEditPart).getMARelTypesOnSource();
-		}
 		if (sourceEditPart instanceof RuntimeConfigEditPart) {
 			return ((RuntimeConfigEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof ContextEditPart) {
+			return ((ContextEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		return Collections.EMPTY_LIST;
 	}
@@ -85,12 +85,12 @@ public class ContextmapperModelingAssistantProvider extends
 				.getAdapter(IGraphicalEditPart.class);
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof ContextEditPart) {
-			return ((ContextEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
 		if (sourceEditPart instanceof RuntimeConfigEditPart) {
 			return ((RuntimeConfigEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof ContextEditPart) {
+			return ((ContextEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		return Collections.EMPTY_LIST;
@@ -117,12 +117,12 @@ public class ContextmapperModelingAssistantProvider extends
 			IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof ContextEditPart) {
-			return ((ContextEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
-		}
 		if (sourceEditPart instanceof RuntimeConfigEditPart) {
 			return ((RuntimeConfigEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof ContextEditPart) {
+			return ((ContextEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		return Collections.EMPTY_LIST;

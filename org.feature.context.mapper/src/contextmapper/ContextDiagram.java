@@ -6,7 +6,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.feature.multi.perspective.mapping.viewmapping.Mapping;
+import org.feature.multi.perspective.mapping.viewmapping.MappingModel;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,12 +36,12 @@ public interface ContextDiagram extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mapping Reference</em>' reference.
-	 * @see #setMappingReference(Mapping)
+	 * @see #setMappingReference(MappingModel)
 	 * @see contextmapper.ContextmapperPackage#getContextDiagram_MappingReference()
 	 * @model required="true"
 	 * @generated
 	 */
-	Mapping getMappingReference();
+	MappingModel getMappingReference();
 
 	/**
 	 * Sets the value of the '{@link contextmapper.ContextDiagram#getMappingReference <em>Mapping Reference</em>}' reference.
@@ -51,7 +51,7 @@ public interface ContextDiagram extends EObject {
 	 * @see #getMappingReference()
 	 * @generated
 	 */
-	void setMappingReference(Mapping value);
+	void setMappingReference(MappingModel value);
 
 	/**
 	 * Returns the value of the '<em><b>Contains Contexts</b></em>' containment reference list.

@@ -14,11 +14,7 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import contextmapper.ContextmapperPackage;
-import contextmapper.diagram.edit.parts.AssociateConnectionTypeEditPart;
 import contextmapper.diagram.edit.parts.ContextNameEditPart;
-import contextmapper.diagram.edit.parts.ExcludeConnectionTypeEditPart;
-import contextmapper.diagram.edit.parts.IncludeConnectionTypeEditPart;
-import contextmapper.diagram.edit.parts.PriorConnectionTypeEditPart;
 import contextmapper.diagram.edit.parts.RuntimeConfigNameEditPart;
 import contextmapper.diagram.parsers.MessageFormatParser;
 import contextmapper.diagram.part.ContextmapperVisualIDRegistry;
@@ -28,27 +24,6 @@ import contextmapper.diagram.part.ContextmapperVisualIDRegistry;
  */
 public class ContextmapperParserProvider extends AbstractProvider implements
 		IParserProvider {
-
-	/**
-	 * @generated
-	 */
-	private IParser contextName_5001Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getContextName_5001Parser() {
-		if (contextName_5001Parser == null) {
-			EAttribute[] features = new EAttribute[] { ContextmapperPackage.eINSTANCE
-					.getContext_Name() };
-			EAttribute[] editableFeatures = new EAttribute[] { ContextmapperPackage.eINSTANCE
-					.getContext_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features,
-					editableFeatures);
-			contextName_5001Parser = parser;
-		}
-		return contextName_5001Parser;
-	}
 
 	/**
 	 * @generated
@@ -74,73 +49,22 @@ public class ContextmapperParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser priorConnectionType_6001Parser;
+	private IParser contextName_5001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPriorConnectionType_6001Parser() {
-		if (priorConnectionType_6001Parser == null) {
+	private IParser getContextName_5001Parser() {
+		if (contextName_5001Parser == null) {
 			EAttribute[] features = new EAttribute[] { ContextmapperPackage.eINSTANCE
-					.getPriorConnection_Type() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			priorConnectionType_6001Parser = parser;
+					.getContext_Name() };
+			EAttribute[] editableFeatures = new EAttribute[] { ContextmapperPackage.eINSTANCE
+					.getContext_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			contextName_5001Parser = parser;
 		}
-		return priorConnectionType_6001Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser excludeConnectionType_6002Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getExcludeConnectionType_6002Parser() {
-		if (excludeConnectionType_6002Parser == null) {
-			EAttribute[] features = new EAttribute[] { ContextmapperPackage.eINSTANCE
-					.getExcludeConnection_Type() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			excludeConnectionType_6002Parser = parser;
-		}
-		return excludeConnectionType_6002Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser includeConnectionType_6003Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getIncludeConnectionType_6003Parser() {
-		if (includeConnectionType_6003Parser == null) {
-			EAttribute[] features = new EAttribute[] { ContextmapperPackage.eINSTANCE
-					.getIncludeConnection_Type() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			includeConnectionType_6003Parser = parser;
-		}
-		return includeConnectionType_6003Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser associateConnectionType_6004Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getAssociateConnectionType_6004Parser() {
-		if (associateConnectionType_6004Parser == null) {
-			EAttribute[] features = new EAttribute[] { ContextmapperPackage.eINSTANCE
-					.getAssociateConnection_Type() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			associateConnectionType_6004Parser = parser;
-		}
-		return associateConnectionType_6004Parser;
+		return contextName_5001Parser;
 	}
 
 	/**
@@ -148,18 +72,10 @@ public class ContextmapperParserProvider extends AbstractProvider implements
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
-		case ContextNameEditPart.VISUAL_ID:
-			return getContextName_5001Parser();
 		case RuntimeConfigNameEditPart.VISUAL_ID:
 			return getRuntimeConfigName_5002Parser();
-		case PriorConnectionTypeEditPart.VISUAL_ID:
-			return getPriorConnectionType_6001Parser();
-		case ExcludeConnectionTypeEditPart.VISUAL_ID:
-			return getExcludeConnectionType_6002Parser();
-		case IncludeConnectionTypeEditPart.VISUAL_ID:
-			return getIncludeConnectionType_6003Parser();
-		case AssociateConnectionTypeEditPart.VISUAL_ID:
-			return getAssociateConnectionType_6004Parser();
+		case ContextNameEditPart.VISUAL_ID:
+			return getContextName_5001Parser();
 		}
 		return null;
 	}

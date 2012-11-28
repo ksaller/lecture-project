@@ -15,7 +15,8 @@
         name="ContextFigure">
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
-          name="ContextFigure">
+          name="ContextFigure"
+          lineWidth="2">
         <layout
             xsi:type="gmfgraph:FlowLayout"/>
         <children
@@ -35,7 +36,7 @@
           targetDecoration="//@figures.0/@figures.0">
         <children
             xsi:type="gmfgraph:Label"
-            name="PriorConnectionTypeFigure"
+            name="PriorConnectionNameFigure"
             text="priorize"/>
       </actualFigure>
       <accessors
@@ -51,7 +52,7 @@
           targetDecoration="//@figures.0/@figures.0">
         <children
             xsi:type="gmfgraph:Label"
-            name="ExcludeConnectionTypeFigure"
+            name="ExcludeConnectionNameFigure"
             text="exclude"/>
       </actualFigure>
       <accessors
@@ -63,13 +64,32 @@
           xsi:type="gmfgraph:PolylineConnection"
           name="AssociateConnectionFigure"
           lineWidth="2">
+        <layout
+            xsi:type="gmfgraph:BorderLayout"/>
         <children
             xsi:type="gmfgraph:Label"
-            name="AssociateConnectionTypeFigure"
+            name="AssociateConnectionNameFigure"
             text="associate"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="RuntimeConfigFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Ellipse"
+          name="RuntimeConfigFigure"
+          lineWidth="2">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="RuntimeConfigNameFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureRuntimeConfigNameFigure"
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="IncludeConnectionFigure">
@@ -78,31 +98,18 @@
           name="IncludeConnectionFigure"
           lineWidth="2"
           lineKind="LINE_DASH"
-          targetDecoration="//@figures.0/@figures.0">
-        <children
-            xsi:type="gmfgraph:Label"
-            name="IncludeConnectionTypeFigure"
-            text="&lt;...>"/>
-      </actualFigure>
-      <accessors
-          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
-    </descriptors>
-    <descriptors
-        name="RuntimeConfigFigure">
-      <actualFigure
-          xsi:type="gmfgraph:Ellipse"
-          name="RuntimeConfigFigure">
+          sourceDecoration="//@figures.0/@figures.0">
         <layout
             xsi:type="gmfgraph:FlowLayout"/>
         <children
             xsi:type="gmfgraph:Label"
-            name="RuntimeConfigNameFigure"
-            text="&lt;Runtime...>"/>
+            name="IncludeConnectionNameFigure"
+            text="include"/>
       </actualFigure>
       <accessors
-          accessor="getFigureRuntimeConfigNameFigure"
           figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors/>
   </figures>
   <nodes
       name="Context"
@@ -117,33 +124,32 @@
       name="ExcludeConnection"
       figure="ExcludeConnectionFigure"/>
   <connections
-      name="IncludeConnection"
-      figure="IncludeConnectionFigure"/>
-  <connections
       name="AssociateConnection"
       figure="AssociateConnectionFigure"/>
+  <connections
+      name="IncludeConnection"
+      figure="IncludeConnectionFigure"/>
+  <labels
+      name="AssociateConnectionName"
+      figure="AssociateConnectionFigure"
+      accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+  <labels
+      name="PriorConnectionName"
+      figure="PriorConnectionFigure"
+      accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels
+      name="ExcludeConnectionName"
+      figure="ExcludeConnectionFigure"
+      accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels
+      name="IncludeConnectionName"
+      figure="IncludeConnectionFigure"
+      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
   <labels
       name="ContextName"
       figure="ContextFigure"
       accessor="//@figures.0/@descriptors.0/@accessors.0"/>
   <labels
-      name="PriorConnectionType"
-      figure="PriorConnectionFigure"
-      accessor="//@figures.0/@descriptors.1/@accessors.0"/>
-  <labels
-      name="ExcludeConnectionType"
-      figure="ExcludeConnectionFigure"
-      accessor="//@figures.0/@descriptors.2/@accessors.0"/>
-  <labels
-      name="AssociateConnectionType"
-      figure="AssociateConnectionFigure"
-      accessor="//@figures.0/@descriptors.3/@accessors.0"/>
-  <labels
       name="RuntimeConfigName"
-      figure="RuntimeConfigFigure"
-      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
-  <labels
-      name="IncludeConnectionType"
-      figure="IncludeConnectionFigure"
       accessor="//@figures.0/@descriptors.4/@accessors.0"/>
 </gmfgraph:Canvas>

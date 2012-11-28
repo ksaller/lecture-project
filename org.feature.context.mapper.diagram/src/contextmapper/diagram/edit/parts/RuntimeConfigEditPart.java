@@ -109,56 +109,6 @@ public class RuntimeConfigEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof RuntimeConfigNameEditPart) {
-			((RuntimeConfigNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureRuntimeConfigNameFigure());
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof RuntimeConfigNameEditPart) {
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void removeChildVisual(EditPart childEditPart) {
-		if (removeFixedChild(childEditPart)) {
-			return;
-		}
-		super.removeChildVisual(childEditPart);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		return getContentPane();
-	}
-
-	/**
-	 * @generated
-	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
@@ -308,6 +258,7 @@ public class RuntimeConfigEditPart extends ShapeNodeEditPart {
 
 			this.setLayoutManager(layoutThis);
 
+			this.setLineWidth(2);
 			createContents();
 		}
 
@@ -318,7 +269,7 @@ public class RuntimeConfigEditPart extends ShapeNodeEditPart {
 
 			fFigureRuntimeConfigNameFigure = new WrappingLabel();
 
-			fFigureRuntimeConfigNameFigure.setText("<Runtime...>");
+			fFigureRuntimeConfigNameFigure.setText("<...>");
 
 			this.add(fFigureRuntimeConfigNameFigure);
 

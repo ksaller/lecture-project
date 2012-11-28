@@ -8,28 +8,6 @@
     xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
   <nodes>
     <containmentFeature
-        href="contextmapper.ecore#//ContextDiagram/containsContexts"/>
-    <ownedChild>
-      <domainMetaElement
-          href="contextmapper.ecore#//Context"/>
-      <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
-        <diagramLabel
-            href="contextmapper.gmfgraph#ContextName"/>
-        <features
-            href="contextmapper.ecore#//Context/name"/>
-        <editableFeatures
-            href="contextmapper.ecore#//Context/name"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="contextmapper.gmftool#//@palette/@tools.0/@tools.0"/>
-      <diagramNode
-          href="contextmapper.gmfgraph#Context"/>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
         href="contextmapper.ecore#//ContextDiagram/containsRuntimeConfigs"/>
     <ownedChild>
       <domainMetaElement
@@ -50,41 +28,36 @@
           href="contextmapper.gmfgraph#RuntimeConfig"/>
     </ownedChild>
   </nodes>
-  <links>
-    <domainMetaElement
-        href="contextmapper.ecore#//PriorConnection"/>
-    <labelMappings
-        xsi:type="gmfmap:FeatureLabelMapping"
-        readOnly="true">
-      <diagramLabel
-          href="contextmapper.gmfgraph#PriorConnectionType"/>
-      <features
-          href="contextmapper.ecore#//PriorConnection/type"/>
-    </labelMappings>
+  <nodes>
     <containmentFeature
-        href="contextmapper.ecore#//Context/sourceConnections"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="contextmapper.gmftool#//@palette/@tools.0/@tools.1"/>
-    <diagramLink
-        href="contextmapper.gmfgraph#PriorConnection"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="contextmapper.ecore#//Connection/source"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="contextmapper.ecore#//Connection/target"/>
-  </links>
+        href="contextmapper.ecore#//ContextDiagram/containsContexts"/>
+    <ownedChild>
+      <domainMetaElement
+          href="contextmapper.ecore#//Context"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="contextmapper.gmfgraph#ContextName"/>
+        <features
+            href="contextmapper.ecore#//Context/name"/>
+        <editableFeatures
+            href="contextmapper.ecore#//Context/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="contextmapper.gmftool#//@palette/@tools.0/@tools.0"/>
+      <diagramNode
+          href="contextmapper.gmfgraph#Context"/>
+    </ownedChild>
+  </nodes>
   <links>
     <domainMetaElement
         href="contextmapper.ecore#//ExcludeConnection"/>
     <labelMappings
-        xsi:type="gmfmap:FeatureLabelMapping"
+        xsi:type="gmfmap:DesignLabelMapping"
         readOnly="true">
       <diagramLabel
-          href="contextmapper.gmfgraph#ExcludeConnectionType"/>
-      <features
-          href="contextmapper.ecore#//ExcludeConnection/type"/>
+          href="contextmapper.gmfgraph#ExcludeConnectionName"/>
     </labelMappings>
     <containmentFeature
         href="contextmapper.ecore#//Context/sourceConnections"/>
@@ -102,14 +75,35 @@
   </links>
   <links>
     <domainMetaElement
-        href="contextmapper.ecore#//IncludeConnection"/>
+        href="contextmapper.ecore#//AssociateConnection"/>
     <labelMappings
-        xsi:type="gmfmap:FeatureLabelMapping"
+        xsi:type="gmfmap:DesignLabelMapping"
         readOnly="true">
       <diagramLabel
-          href="contextmapper.gmfgraph#IncludeConnectionType"/>
-      <features
-          href="contextmapper.ecore#//IncludeConnection/type"/>
+          href="contextmapper.gmfgraph#AssociateConnectionName"/>
+    </labelMappings>
+    <containmentFeature
+        href="contextmapper.ecore#//Context/sourceConnections"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="contextmapper.gmftool#//@palette/@tools.0/@tools.3"/>
+    <diagramLink
+        href="contextmapper.gmfgraph#AssociateConnection"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="contextmapper.ecore#//Connection/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="contextmapper.ecore#//Connection/target"/>
+  </links>
+  <links>
+    <domainMetaElement
+        href="contextmapper.ecore#//IncludeConnection"/>
+    <labelMappings
+        xsi:type="gmfmap:DesignLabelMapping"
+        readOnly="true">
+      <diagramLabel
+          href="contextmapper.gmfgraph#IncludeConnectionName"/>
     </labelMappings>
     <containmentFeature
         href="contextmapper.ecore#//RuntimeConfig/includes"/>
@@ -127,22 +121,20 @@
   </links>
   <links>
     <domainMetaElement
-        href="contextmapper.ecore#//AssociateConnection"/>
+        href="contextmapper.ecore#//PriorConnection"/>
     <labelMappings
-        xsi:type="gmfmap:FeatureLabelMapping"
+        xsi:type="gmfmap:DesignLabelMapping"
         readOnly="true">
       <diagramLabel
-          href="contextmapper.gmfgraph#AssociateConnectionType"/>
-      <features
-          href="contextmapper.ecore#//AssociateConnection/type"/>
+          href="contextmapper.gmfgraph#PriorConnectionName"/>
     </labelMappings>
     <containmentFeature
         href="contextmapper.ecore#//Context/sourceConnections"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="contextmapper.gmftool#//@palette/@tools.0/@tools.3"/>
+        href="contextmapper.gmftool#//@palette/@tools.0/@tools.1"/>
     <diagramLink
-        href="contextmapper.gmfgraph#AssociateConnection"/>
+        href="contextmapper.gmfgraph#PriorConnection"/>
     <sourceMetaFeature
         xsi:type="ecore:EReference"
         href="contextmapper.ecore#//Connection/source"/>

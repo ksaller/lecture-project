@@ -44,10 +44,9 @@ public class PriorConnectionEditPart extends ConnectionNodeEditPart implements
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof PriorConnectionTypeEditPart) {
-			((PriorConnectionTypeEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigurePriorConnectionTypeFigure());
+		if (childEditPart instanceof WrappingLabel4EditPart) {
+			((WrappingLabel4EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigurePriorConnectionNameFigure());
 			return true;
 		}
 		return false;
@@ -67,7 +66,7 @@ public class PriorConnectionEditPart extends ConnectionNodeEditPart implements
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof PriorConnectionTypeEditPart) {
+		if (childEditPart instanceof WrappingLabel4EditPart) {
 			return true;
 		}
 		return false;
@@ -111,7 +110,7 @@ public class PriorConnectionEditPart extends ConnectionNodeEditPart implements
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigurePriorConnectionTypeFigure;
+		private WrappingLabel fFigurePriorConnectionNameFigure;
 
 		/**
 		 * @generated
@@ -128,11 +127,11 @@ public class PriorConnectionEditPart extends ConnectionNodeEditPart implements
 		 */
 		private void createContents() {
 
-			fFigurePriorConnectionTypeFigure = new WrappingLabel();
+			fFigurePriorConnectionNameFigure = new WrappingLabel();
 
-			fFigurePriorConnectionTypeFigure.setText("priorize");
+			fFigurePriorConnectionNameFigure.setText("priorize");
 
-			this.add(fFigurePriorConnectionTypeFigure);
+			this.add(fFigurePriorConnectionNameFigure);
 
 		}
 
@@ -148,8 +147,8 @@ public class PriorConnectionEditPart extends ConnectionNodeEditPart implements
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigurePriorConnectionTypeFigure() {
-			return fFigurePriorConnectionTypeFigure;
+		public WrappingLabel getFigurePriorConnectionNameFigure() {
+			return fFigurePriorConnectionNameFigure;
 		}
 
 	}

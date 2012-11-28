@@ -42,10 +42,9 @@ public class AssociateConnectionEditPart extends ConnectionNodeEditPart
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof AssociateConnectionTypeEditPart) {
-			((AssociateConnectionTypeEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureAssociateConnectionTypeFigure());
+		if (childEditPart instanceof WrappingLabel2EditPart) {
+			((WrappingLabel2EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureAssociateConnectionNameFigure());
 			return true;
 		}
 		return false;
@@ -65,7 +64,7 @@ public class AssociateConnectionEditPart extends ConnectionNodeEditPart
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof AssociateConnectionTypeEditPart) {
+		if (childEditPart instanceof WrappingLabel2EditPart) {
 			return true;
 		}
 		return false;
@@ -109,7 +108,7 @@ public class AssociateConnectionEditPart extends ConnectionNodeEditPart
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureAssociateConnectionTypeFigure;
+		private WrappingLabel fFigureAssociateConnectionNameFigure;
 
 		/**
 		 * @generated
@@ -125,19 +124,19 @@ public class AssociateConnectionEditPart extends ConnectionNodeEditPart
 		 */
 		private void createContents() {
 
-			fFigureAssociateConnectionTypeFigure = new WrappingLabel();
+			fFigureAssociateConnectionNameFigure = new WrappingLabel();
 
-			fFigureAssociateConnectionTypeFigure.setText("associate");
+			fFigureAssociateConnectionNameFigure.setText("associate");
 
-			this.add(fFigureAssociateConnectionTypeFigure);
+			this.add(fFigureAssociateConnectionNameFigure);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureAssociateConnectionTypeFigure() {
-			return fFigureAssociateConnectionTypeFigure;
+		public WrappingLabel getFigureAssociateConnectionNameFigure() {
+			return fFigureAssociateConnectionNameFigure;
 		}
 
 	}

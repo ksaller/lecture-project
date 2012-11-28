@@ -3,7 +3,8 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="contextmapper" nsURI="http://org/feature/context/mapper/model/contextmapper.ecore"
     nsPrefix="org.feature.context.mapper.model">
   <eClassifiers xsi:type="ecore:EClass" name="Context">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classifies" upperBound="-1"
         eType="#//Classifier"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetConnections" upperBound="-1"
@@ -29,38 +30,25 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//Context" eOpposite="#//Context/sourceConnections"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PriorConnection" eSuperTypes="#//Connection">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" unique="false" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
-        defaultValueLiteral="priorize"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExcludeConnection" eSuperTypes="#//Connection">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" unique="false" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
-        defaultValueLiteral="exclude"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AssociateConnection" eSuperTypes="#//Connection">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" unique="false" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
-        defaultValueLiteral="associate"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PriorConnection" eSuperTypes="#//Connection"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExcludeConnection" eSuperTypes="#//Connection"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AssociateConnection" eSuperTypes="#//Connection"/>
   <eClassifiers xsi:type="ecore:EClass" name="RuntimeConfig">
     <eStructuralFeatures xsi:type="ecore:EReference" name="includes" upperBound="-1"
         eType="#//IncludeConnection" transient="true" derived="true" containment="true"
         eOpposite="#//IncludeConnection/source"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IncludeConnection">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         eType="#//RuntimeConfig" resolveProxies="false" eOpposite="#//RuntimeConfig/includes"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//Context" eOpposite="#//Context/included"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false" defaultValueLiteral="includes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContextDiagram">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mappingReference" lowerBound="1"
-        eType="ecore:EClass ../../org.feature.multi.perspective.mapping/model/viewmapping.ecore#//Mapping"/>
+        eType="ecore:EClass ../../org.feature.multi.perspective.mapping/model/viewmapping.ecore#//MappingModel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containsContexts" upperBound="-1"
         eType="#//Context" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containsRuntimeConfigs"

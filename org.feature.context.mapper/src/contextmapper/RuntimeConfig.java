@@ -53,7 +53,7 @@ public interface RuntimeConfig extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see contextmapper.ContextmapperPackage#getRuntimeConfig_Name()
-	 * @model
+	 * @model id="true"
 	 * @generated
 	 */
 	String getName();

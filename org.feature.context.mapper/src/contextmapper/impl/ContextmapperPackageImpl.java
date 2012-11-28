@@ -290,15 +290,6 @@ public class ContextmapperPackageImpl extends EPackageImpl implements Contextmap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPriorConnection_Type() {
-		return (EAttribute)priorConnectionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getExcludeConnection() {
 		return excludeConnectionEClass;
 	}
@@ -308,26 +299,8 @@ public class ContextmapperPackageImpl extends EPackageImpl implements Contextmap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExcludeConnection_Type() {
-		return (EAttribute)excludeConnectionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAssociateConnection() {
 		return associateConnectionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAssociateConnection_Type() {
-		return (EAttribute)associateConnectionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -382,15 +355,6 @@ public class ContextmapperPackageImpl extends EPackageImpl implements Contextmap
 	 */
 	public EReference getIncludeConnection_Target() {
 		return (EReference)includeConnectionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIncludeConnection_Type() {
-		return (EAttribute)includeConnectionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -482,13 +446,10 @@ public class ContextmapperPackageImpl extends EPackageImpl implements Contextmap
 		createEReference(connectionEClass, CONNECTION__TARGET);
 
 		priorConnectionEClass = createEClass(PRIOR_CONNECTION);
-		createEAttribute(priorConnectionEClass, PRIOR_CONNECTION__TYPE);
 
 		excludeConnectionEClass = createEClass(EXCLUDE_CONNECTION);
-		createEAttribute(excludeConnectionEClass, EXCLUDE_CONNECTION__TYPE);
 
 		associateConnectionEClass = createEClass(ASSOCIATE_CONNECTION);
-		createEAttribute(associateConnectionEClass, ASSOCIATE_CONNECTION__TYPE);
 
 		runtimeConfigEClass = createEClass(RUNTIME_CONFIG);
 		createEReference(runtimeConfigEClass, RUNTIME_CONFIG__INCLUDES);
@@ -497,7 +458,6 @@ public class ContextmapperPackageImpl extends EPackageImpl implements Contextmap
 		includeConnectionEClass = createEClass(INCLUDE_CONNECTION);
 		createEReference(includeConnectionEClass, INCLUDE_CONNECTION__SOURCE);
 		createEReference(includeConnectionEClass, INCLUDE_CONNECTION__TARGET);
-		createEAttribute(includeConnectionEClass, INCLUDE_CONNECTION__TYPE);
 
 		contextDiagramEClass = createEClass(CONTEXT_DIAGRAM);
 		createEReference(contextDiagramEClass, CONTEXT_DIAGRAM__MAPPING_REFERENCE);
@@ -546,7 +506,7 @@ public class ContextmapperPackageImpl extends EPackageImpl implements Contextmap
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getContext_Name(), ecorePackage.getEString(), "name", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContext_Name(), ecorePackage.getEString(), "name", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_Classifies(), this.getClassifier(), null, "classifies", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_TargetConnections(), this.getConnection(), this.getConnection_Source(), "targetConnections", null, 0, -1, Context.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getContext_Included(), this.getIncludeConnection(), this.getIncludeConnection_Target(), "included", null, 0, -1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -561,25 +521,21 @@ public class ContextmapperPackageImpl extends EPackageImpl implements Contextmap
 		initEReference(getConnection_Target(), this.getContext(), this.getContext_SourceConnections(), "target", null, 1, 1, Connection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(priorConnectionEClass, PriorConnection.class, "PriorConnection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPriorConnection_Type(), ecorePackage.getEString(), "type", "priorize", 1, 1, PriorConnection.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(excludeConnectionEClass, ExcludeConnection.class, "ExcludeConnection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExcludeConnection_Type(), ecorePackage.getEString(), "type", "exclude", 1, 1, ExcludeConnection.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(associateConnectionEClass, AssociateConnection.class, "AssociateConnection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAssociateConnection_Type(), ecorePackage.getEString(), "type", "associate", 1, 1, AssociateConnection.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(runtimeConfigEClass, RuntimeConfig.class, "RuntimeConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRuntimeConfig_Includes(), this.getIncludeConnection(), this.getIncludeConnection_Source(), "includes", null, 0, -1, RuntimeConfig.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRuntimeConfig_Name(), ecorePackage.getEString(), "name", null, 0, 1, RuntimeConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRuntimeConfig_Name(), ecorePackage.getEString(), "name", null, 0, 1, RuntimeConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(includeConnectionEClass, IncludeConnection.class, "IncludeConnection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIncludeConnection_Source(), this.getRuntimeConfig(), this.getRuntimeConfig_Includes(), "source", null, 1, 1, IncludeConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIncludeConnection_Target(), this.getContext(), this.getContext_Included(), "target", null, 1, 1, IncludeConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIncludeConnection_Type(), ecorePackage.getEString(), "type", "includes", 0, 1, IncludeConnection.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contextDiagramEClass, ContextDiagram.class, "ContextDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getContextDiagram_MappingReference(), theViewmappingPackage.getMapping(), null, "mappingReference", null, 1, 1, ContextDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContextDiagram_MappingReference(), theViewmappingPackage.getMappingModel(), null, "mappingReference", null, 1, 1, ContextDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContextDiagram_ContainsContexts(), this.getContext(), null, "containsContexts", null, 0, -1, ContextDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContextDiagram_ContainsRuntimeConfigs(), this.getRuntimeConfig(), null, "containsRuntimeConfigs", null, 0, -1, ContextDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

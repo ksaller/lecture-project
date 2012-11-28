@@ -21,14 +21,14 @@
       visualID="4001"
       queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://org/feature/context/mapper/model/contextmapper.ecore' and _eClass_.name = 'PriorConnection')">
     <linkLabelTraces
-        visualID="6001"
+        visualID="6004"
         queryText="true"/>
   </linkTraces>
   <linkTraces
       visualID="4002"
       queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://org/feature/context/mapper/model/contextmapper.ecore' and _eClass_.name = 'ExcludeConnection')">
     <linkLabelTraces
-        visualID="6002"
+        visualID="6001"
         queryText="true"/>
   </linkTraces>
   <linkTraces
@@ -42,7 +42,7 @@
       visualID="4004"
       queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://org/feature/context/mapper/model/contextmapper.ecore' and _eClass_.name = 'AssociateConnection')">
     <linkLabelTraces
-        visualID="6004"
+        visualID="6002"
         queryText="true"/>
   </linkTraces>
 </trace:TraceModel>

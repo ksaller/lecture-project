@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link contextmapper.impl.IncludeConnectionImpl#getSource <em>Source</em>}</li>
  *   <li>{@link contextmapper.impl.IncludeConnectionImpl#getTarget <em>Target</em>}</li>
- *   <li>{@link contextmapper.impl.IncludeConnectionImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,26 +42,6 @@ public class IncludeConnectionImpl extends EObjectImpl implements IncludeConnect
 	 * @ordered
 	 */
 	protected Context target;
-
-	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TYPE_EDEFAULT = "includes";
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected String type = TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,15 +168,6 @@ public class IncludeConnectionImpl extends EObjectImpl implements IncludeConnect
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -256,8 +226,6 @@ public class IncludeConnectionImpl extends EObjectImpl implements IncludeConnect
 			case ContextmapperPackage.INCLUDE_CONNECTION__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
-			case ContextmapperPackage.INCLUDE_CONNECTION__TYPE:
-				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -310,26 +278,8 @@ public class IncludeConnectionImpl extends EObjectImpl implements IncludeConnect
 				return getSource() != null;
 			case ContextmapperPackage.INCLUDE_CONNECTION__TARGET:
 				return target != null;
-			case ContextmapperPackage.INCLUDE_CONNECTION__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (type: ");
-		result.append(type);
-		result.append(')');
-		return result.toString();
 	}
 
 } //IncludeConnectionImpl

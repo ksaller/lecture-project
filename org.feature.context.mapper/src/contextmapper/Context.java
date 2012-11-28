@@ -38,7 +38,7 @@ public interface Context extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see contextmapper.ContextmapperPackage#getContext_Name()
-	 * @model
+	 * @model id="true"
 	 * @generated
 	 */
 	String getName();

@@ -223,22 +223,13 @@ public interface ContextmapperPackage extends EPackage {
 	int PRIOR_CONNECTION__TARGET = CONNECTION__TARGET;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIOR_CONNECTION__TYPE = CONNECTION_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Prior Connection</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIOR_CONNECTION_FEATURE_COUNT = CONNECTION_FEATURE_COUNT + 1;
+	int PRIOR_CONNECTION_FEATURE_COUNT = CONNECTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link contextmapper.impl.ExcludeConnectionImpl <em>Exclude Connection</em>}' class.
@@ -269,22 +260,13 @@ public interface ContextmapperPackage extends EPackage {
 	int EXCLUDE_CONNECTION__TARGET = CONNECTION__TARGET;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUDE_CONNECTION__TYPE = CONNECTION_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Exclude Connection</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUDE_CONNECTION_FEATURE_COUNT = CONNECTION_FEATURE_COUNT + 1;
+	int EXCLUDE_CONNECTION_FEATURE_COUNT = CONNECTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link contextmapper.impl.AssociateConnectionImpl <em>Associate Connection</em>}' class.
@@ -315,22 +297,13 @@ public interface ContextmapperPackage extends EPackage {
 	int ASSOCIATE_CONNECTION__TARGET = CONNECTION__TARGET;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSOCIATE_CONNECTION__TYPE = CONNECTION_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Associate Connection</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATE_CONNECTION_FEATURE_COUNT = CONNECTION_FEATURE_COUNT + 1;
+	int ASSOCIATE_CONNECTION_FEATURE_COUNT = CONNECTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link contextmapper.impl.RuntimeConfigImpl <em>Runtime Config</em>}' class.
@@ -398,22 +371,13 @@ public interface ContextmapperPackage extends EPackage {
 	int INCLUDE_CONNECTION__TARGET = 1;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INCLUDE_CONNECTION__TYPE = 2;
-
-	/**
 	 * The number of structural features of the '<em>Include Connection</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INCLUDE_CONNECTION_FEATURE_COUNT = 3;
+	int INCLUDE_CONNECTION_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link contextmapper.impl.ContextDiagramImpl <em>Context Diagram</em>}' class.
@@ -612,17 +576,6 @@ public interface ContextmapperPackage extends EPackage {
 	EClass getPriorConnection();
 
 	/**
-	 * Returns the meta object for the attribute '{@link contextmapper.PriorConnection#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see contextmapper.PriorConnection#getType()
-	 * @see #getPriorConnection()
-	 * @generated
-	 */
-	EAttribute getPriorConnection_Type();
-
-	/**
 	 * Returns the meta object for class '{@link contextmapper.ExcludeConnection <em>Exclude Connection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -633,17 +586,6 @@ public interface ContextmapperPackage extends EPackage {
 	EClass getExcludeConnection();
 
 	/**
-	 * Returns the meta object for the attribute '{@link contextmapper.ExcludeConnection#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see contextmapper.ExcludeConnection#getType()
-	 * @see #getExcludeConnection()
-	 * @generated
-	 */
-	EAttribute getExcludeConnection_Type();
-
-	/**
 	 * Returns the meta object for class '{@link contextmapper.AssociateConnection <em>Associate Connection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -652,17 +594,6 @@ public interface ContextmapperPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAssociateConnection();
-
-	/**
-	 * Returns the meta object for the attribute '{@link contextmapper.AssociateConnection#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see contextmapper.AssociateConnection#getType()
-	 * @see #getAssociateConnection()
-	 * @generated
-	 */
-	EAttribute getAssociateConnection_Type();
 
 	/**
 	 * Returns the meta object for class '{@link contextmapper.RuntimeConfig <em>Runtime Config</em>}'.
@@ -727,17 +658,6 @@ public interface ContextmapperPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getIncludeConnection_Target();
-
-	/**
-	 * Returns the meta object for the attribute '{@link contextmapper.IncludeConnection#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see contextmapper.IncludeConnection#getType()
-	 * @see #getIncludeConnection()
-	 * @generated
-	 */
-	EAttribute getIncludeConnection_Type();
 
 	/**
 	 * Returns the meta object for class '{@link contextmapper.ContextDiagram <em>Context Diagram</em>}'.
@@ -927,14 +847,6 @@ public interface ContextmapperPackage extends EPackage {
 		EClass PRIOR_CONNECTION = eINSTANCE.getPriorConnection();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PRIOR_CONNECTION__TYPE = eINSTANCE.getPriorConnection_Type();
-
-		/**
 		 * The meta object literal for the '{@link contextmapper.impl.ExcludeConnectionImpl <em>Exclude Connection</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -945,14 +857,6 @@ public interface ContextmapperPackage extends EPackage {
 		EClass EXCLUDE_CONNECTION = eINSTANCE.getExcludeConnection();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXCLUDE_CONNECTION__TYPE = eINSTANCE.getExcludeConnection_Type();
-
-		/**
 		 * The meta object literal for the '{@link contextmapper.impl.AssociateConnectionImpl <em>Associate Connection</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -961,14 +865,6 @@ public interface ContextmapperPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ASSOCIATE_CONNECTION = eINSTANCE.getAssociateConnection();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ASSOCIATE_CONNECTION__TYPE = eINSTANCE.getAssociateConnection_Type();
 
 		/**
 		 * The meta object literal for the '{@link contextmapper.impl.RuntimeConfigImpl <em>Runtime Config</em>}' class.
@@ -1021,14 +917,6 @@ public interface ContextmapperPackage extends EPackage {
 		 * @generated
 		 */
 		EReference INCLUDE_CONNECTION__TARGET = eINSTANCE.getIncludeConnection_Target();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INCLUDE_CONNECTION__TYPE = eINSTANCE.getIncludeConnection_Type();
 
 		/**
 		 * The meta object literal for the '{@link contextmapper.impl.ContextDiagramImpl <em>Context Diagram</em>}' class.

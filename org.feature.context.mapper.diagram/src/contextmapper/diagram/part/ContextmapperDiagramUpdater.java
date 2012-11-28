@@ -57,23 +57,23 @@ public class ContextmapperDiagramUpdater {
 		}
 		ContextDiagram modelElement = (ContextDiagram) view.getElement();
 		LinkedList<ContextmapperNodeDescriptor> result = new LinkedList<ContextmapperNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getContainsContexts().iterator(); it
-				.hasNext();) {
-			Context childElement = (Context) it.next();
-			int visualID = ContextmapperVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == ContextEditPart.VISUAL_ID) {
-				result.add(new ContextmapperNodeDescriptor(childElement,
-						visualID));
-				continue;
-			}
-		}
 		for (Iterator<?> it = modelElement.getContainsRuntimeConfigs()
 				.iterator(); it.hasNext();) {
 			RuntimeConfig childElement = (RuntimeConfig) it.next();
 			int visualID = ContextmapperVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == RuntimeConfigEditPart.VISUAL_ID) {
+				result.add(new ContextmapperNodeDescriptor(childElement,
+						visualID));
+				continue;
+			}
+		}
+		for (Iterator<?> it = modelElement.getContainsContexts().iterator(); it
+				.hasNext();) {
+			Context childElement = (Context) it.next();
+			int visualID = ContextmapperVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == ContextEditPart.VISUAL_ID) {
 				result.add(new ContextmapperNodeDescriptor(childElement,
 						visualID));
 				continue;
@@ -89,18 +89,18 @@ public class ContextmapperDiagramUpdater {
 		switch (ContextmapperVisualIDRegistry.getVisualID(view)) {
 		case ContextDiagramEditPart.VISUAL_ID:
 			return getContextDiagram_1000ContainedLinks(view);
-		case ContextEditPart.VISUAL_ID:
-			return getContext_2001ContainedLinks(view);
 		case RuntimeConfigEditPart.VISUAL_ID:
 			return getRuntimeConfig_2002ContainedLinks(view);
-		case PriorConnectionEditPart.VISUAL_ID:
-			return getPriorConnection_4001ContainedLinks(view);
+		case ContextEditPart.VISUAL_ID:
+			return getContext_2001ContainedLinks(view);
 		case ExcludeConnectionEditPart.VISUAL_ID:
 			return getExcludeConnection_4002ContainedLinks(view);
-		case IncludeConnectionEditPart.VISUAL_ID:
-			return getIncludeConnection_4003ContainedLinks(view);
 		case AssociateConnectionEditPart.VISUAL_ID:
 			return getAssociateConnection_4004ContainedLinks(view);
+		case IncludeConnectionEditPart.VISUAL_ID:
+			return getIncludeConnection_4003ContainedLinks(view);
+		case PriorConnectionEditPart.VISUAL_ID:
+			return getPriorConnection_4001ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -110,18 +110,18 @@ public class ContextmapperDiagramUpdater {
 	 */
 	public static List<ContextmapperLinkDescriptor> getIncomingLinks(View view) {
 		switch (ContextmapperVisualIDRegistry.getVisualID(view)) {
-		case ContextEditPart.VISUAL_ID:
-			return getContext_2001IncomingLinks(view);
 		case RuntimeConfigEditPart.VISUAL_ID:
 			return getRuntimeConfig_2002IncomingLinks(view);
-		case PriorConnectionEditPart.VISUAL_ID:
-			return getPriorConnection_4001IncomingLinks(view);
+		case ContextEditPart.VISUAL_ID:
+			return getContext_2001IncomingLinks(view);
 		case ExcludeConnectionEditPart.VISUAL_ID:
 			return getExcludeConnection_4002IncomingLinks(view);
-		case IncludeConnectionEditPart.VISUAL_ID:
-			return getIncludeConnection_4003IncomingLinks(view);
 		case AssociateConnectionEditPart.VISUAL_ID:
 			return getAssociateConnection_4004IncomingLinks(view);
+		case IncludeConnectionEditPart.VISUAL_ID:
+			return getIncludeConnection_4003IncomingLinks(view);
+		case PriorConnectionEditPart.VISUAL_ID:
+			return getPriorConnection_4001IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -131,18 +131,18 @@ public class ContextmapperDiagramUpdater {
 	 */
 	public static List<ContextmapperLinkDescriptor> getOutgoingLinks(View view) {
 		switch (ContextmapperVisualIDRegistry.getVisualID(view)) {
-		case ContextEditPart.VISUAL_ID:
-			return getContext_2001OutgoingLinks(view);
 		case RuntimeConfigEditPart.VISUAL_ID:
 			return getRuntimeConfig_2002OutgoingLinks(view);
-		case PriorConnectionEditPart.VISUAL_ID:
-			return getPriorConnection_4001OutgoingLinks(view);
+		case ContextEditPart.VISUAL_ID:
+			return getContext_2001OutgoingLinks(view);
 		case ExcludeConnectionEditPart.VISUAL_ID:
 			return getExcludeConnection_4002OutgoingLinks(view);
-		case IncludeConnectionEditPart.VISUAL_ID:
-			return getIncludeConnection_4003OutgoingLinks(view);
 		case AssociateConnectionEditPart.VISUAL_ID:
 			return getAssociateConnection_4004OutgoingLinks(view);
+		case IncludeConnectionEditPart.VISUAL_ID:
+			return getIncludeConnection_4003OutgoingLinks(view);
+		case PriorConnectionEditPart.VISUAL_ID:
+			return getPriorConnection_4001OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -153,19 +153,6 @@ public class ContextmapperDiagramUpdater {
 	public static List<ContextmapperLinkDescriptor> getContextDiagram_1000ContainedLinks(
 			View view) {
 		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<ContextmapperLinkDescriptor> getContext_2001ContainedLinks(
-			View view) {
-		Context modelElement = (Context) view.getElement();
-		LinkedList<ContextmapperLinkDescriptor> result = new LinkedList<ContextmapperLinkDescriptor>();
-		result.addAll(getContainedTypeModelFacetLinks_PriorConnection_4001(modelElement));
-		result.addAll(getContainedTypeModelFacetLinks_ExcludeConnection_4002(modelElement));
-		result.addAll(getContainedTypeModelFacetLinks_AssociateConnection_4004(modelElement));
-		return result;
 	}
 
 	/**
@@ -182,23 +169,20 @@ public class ContextmapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ContextmapperLinkDescriptor> getPriorConnection_4001ContainedLinks(
+	public static List<ContextmapperLinkDescriptor> getContext_2001ContainedLinks(
 			View view) {
-		return Collections.emptyList();
+		Context modelElement = (Context) view.getElement();
+		LinkedList<ContextmapperLinkDescriptor> result = new LinkedList<ContextmapperLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_ExcludeConnection_4002(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_AssociateConnection_4004(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_PriorConnection_4001(modelElement));
+		return result;
 	}
 
 	/**
 	 * @generated
 	 */
 	public static List<ContextmapperLinkDescriptor> getExcludeConnection_4002ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<ContextmapperLinkDescriptor> getIncludeConnection_4003ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -214,21 +198,17 @@ public class ContextmapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ContextmapperLinkDescriptor> getContext_2001IncomingLinks(
+	public static List<ContextmapperLinkDescriptor> getIncludeConnection_4003ContainedLinks(
 			View view) {
-		Context modelElement = (Context) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<ContextmapperLinkDescriptor> result = new LinkedList<ContextmapperLinkDescriptor>();
-		result.addAll(getIncomingTypeModelFacetLinks_PriorConnection_4001(
-				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_ExcludeConnection_4002(
-				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_IncludeConnection_4003(
-				modelElement, crossReferences));
-		result.addAll(getIncomingTypeModelFacetLinks_AssociateConnection_4004(
-				modelElement, crossReferences));
-		return result;
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ContextmapperLinkDescriptor> getPriorConnection_4001ContainedLinks(
+			View view) {
+		return Collections.emptyList();
 	}
 
 	/**
@@ -242,23 +222,27 @@ public class ContextmapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ContextmapperLinkDescriptor> getPriorConnection_4001IncomingLinks(
+	public static List<ContextmapperLinkDescriptor> getContext_2001IncomingLinks(
 			View view) {
-		return Collections.emptyList();
+		Context modelElement = (Context) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<ContextmapperLinkDescriptor> result = new LinkedList<ContextmapperLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_ExcludeConnection_4002(
+				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_AssociateConnection_4004(
+				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_IncludeConnection_4003(
+				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_PriorConnection_4001(
+				modelElement, crossReferences));
+		return result;
 	}
 
 	/**
 	 * @generated
 	 */
 	public static List<ContextmapperLinkDescriptor> getExcludeConnection_4002IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<ContextmapperLinkDescriptor> getIncludeConnection_4003IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -274,14 +258,17 @@ public class ContextmapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ContextmapperLinkDescriptor> getContext_2001OutgoingLinks(
+	public static List<ContextmapperLinkDescriptor> getIncludeConnection_4003IncomingLinks(
 			View view) {
-		Context modelElement = (Context) view.getElement();
-		LinkedList<ContextmapperLinkDescriptor> result = new LinkedList<ContextmapperLinkDescriptor>();
-		result.addAll(getOutgoingTypeModelFacetLinks_PriorConnection_4001(modelElement));
-		result.addAll(getOutgoingTypeModelFacetLinks_ExcludeConnection_4002(modelElement));
-		result.addAll(getOutgoingTypeModelFacetLinks_AssociateConnection_4004(modelElement));
-		return result;
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ContextmapperLinkDescriptor> getPriorConnection_4001IncomingLinks(
+			View view) {
+		return Collections.emptyList();
 	}
 
 	/**
@@ -298,23 +285,20 @@ public class ContextmapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<ContextmapperLinkDescriptor> getPriorConnection_4001OutgoingLinks(
+	public static List<ContextmapperLinkDescriptor> getContext_2001OutgoingLinks(
 			View view) {
-		return Collections.emptyList();
+		Context modelElement = (Context) view.getElement();
+		LinkedList<ContextmapperLinkDescriptor> result = new LinkedList<ContextmapperLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_ExcludeConnection_4002(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_AssociateConnection_4004(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_PriorConnection_4001(modelElement));
+		return result;
 	}
 
 	/**
 	 * @generated
 	 */
 	public static List<ContextmapperLinkDescriptor> getExcludeConnection_4002OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<ContextmapperLinkDescriptor> getIncludeConnection_4003OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -330,27 +314,17 @@ public class ContextmapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<ContextmapperLinkDescriptor> getContainedTypeModelFacetLinks_PriorConnection_4001(
-			Context container) {
-		LinkedList<ContextmapperLinkDescriptor> result = new LinkedList<ContextmapperLinkDescriptor>();
-		for (Iterator<?> links = container.getSourceConnections().iterator(); links
-				.hasNext();) {
-			EObject linkObject = (EObject) links.next();
-			if (false == linkObject instanceof PriorConnection) {
-				continue;
-			}
-			PriorConnection link = (PriorConnection) linkObject;
-			if (PriorConnectionEditPart.VISUAL_ID != ContextmapperVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			Context dst = link.getTarget();
-			Context src = link.getSource();
-			result.add(new ContextmapperLinkDescriptor(src, dst, link,
-					ContextmapperElementTypes.PriorConnection_4001,
-					PriorConnectionEditPart.VISUAL_ID));
-		}
-		return result;
+	public static List<ContextmapperLinkDescriptor> getIncludeConnection_4003OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ContextmapperLinkDescriptor> getPriorConnection_4001OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
 	}
 
 	/**
@@ -375,32 +349,6 @@ public class ContextmapperDiagramUpdater {
 			result.add(new ContextmapperLinkDescriptor(src, dst, link,
 					ContextmapperElementTypes.ExcludeConnection_4002,
 					ExcludeConnectionEditPart.VISUAL_ID));
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Collection<ContextmapperLinkDescriptor> getContainedTypeModelFacetLinks_IncludeConnection_4003(
-			RuntimeConfig container) {
-		LinkedList<ContextmapperLinkDescriptor> result = new LinkedList<ContextmapperLinkDescriptor>();
-		for (Iterator<?> links = container.getIncludes().iterator(); links
-				.hasNext();) {
-			EObject linkObject = (EObject) links.next();
-			if (false == linkObject instanceof IncludeConnection) {
-				continue;
-			}
-			IncludeConnection link = (IncludeConnection) linkObject;
-			if (IncludeConnectionEditPart.VISUAL_ID != ContextmapperVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			Context dst = link.getTarget();
-			RuntimeConfig src = link.getSource();
-			result.add(new ContextmapperLinkDescriptor(src, dst, link,
-					ContextmapperElementTypes.IncludeConnection_4003,
-					IncludeConnectionEditPart.VISUAL_ID));
 		}
 		return result;
 	}
@@ -434,25 +382,49 @@ public class ContextmapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<ContextmapperLinkDescriptor> getIncomingTypeModelFacetLinks_PriorConnection_4001(
-			Context target,
-			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+	private static Collection<ContextmapperLinkDescriptor> getContainedTypeModelFacetLinks_IncludeConnection_4003(
+			RuntimeConfig container) {
 		LinkedList<ContextmapperLinkDescriptor> result = new LinkedList<ContextmapperLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences
-				.get(target);
-		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() != ContextmapperPackage.eINSTANCE
-					.getConnection_Target()
-					|| false == setting.getEObject() instanceof PriorConnection) {
+		for (Iterator<?> links = container.getIncludes().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof IncludeConnection) {
 				continue;
 			}
-			PriorConnection link = (PriorConnection) setting.getEObject();
+			IncludeConnection link = (IncludeConnection) linkObject;
+			if (IncludeConnectionEditPart.VISUAL_ID != ContextmapperVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Context dst = link.getTarget();
+			RuntimeConfig src = link.getSource();
+			result.add(new ContextmapperLinkDescriptor(src, dst, link,
+					ContextmapperElementTypes.IncludeConnection_4003,
+					IncludeConnectionEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<ContextmapperLinkDescriptor> getContainedTypeModelFacetLinks_PriorConnection_4001(
+			Context container) {
+		LinkedList<ContextmapperLinkDescriptor> result = new LinkedList<ContextmapperLinkDescriptor>();
+		for (Iterator<?> links = container.getSourceConnections().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof PriorConnection) {
+				continue;
+			}
+			PriorConnection link = (PriorConnection) linkObject;
 			if (PriorConnectionEditPart.VISUAL_ID != ContextmapperVisualIDRegistry
 					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
+			Context dst = link.getTarget();
 			Context src = link.getSource();
-			result.add(new ContextmapperLinkDescriptor(src, target, link,
+			result.add(new ContextmapperLinkDescriptor(src, dst, link,
 					ContextmapperElementTypes.PriorConnection_4001,
 					PriorConnectionEditPart.VISUAL_ID));
 		}
@@ -490,34 +462,6 @@ public class ContextmapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<ContextmapperLinkDescriptor> getIncomingTypeModelFacetLinks_IncludeConnection_4003(
-			Context target,
-			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
-		LinkedList<ContextmapperLinkDescriptor> result = new LinkedList<ContextmapperLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences
-				.get(target);
-		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() != ContextmapperPackage.eINSTANCE
-					.getIncludeConnection_Target()
-					|| false == setting.getEObject() instanceof IncludeConnection) {
-				continue;
-			}
-			IncludeConnection link = (IncludeConnection) setting.getEObject();
-			if (IncludeConnectionEditPart.VISUAL_ID != ContextmapperVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			RuntimeConfig src = link.getSource();
-			result.add(new ContextmapperLinkDescriptor(src, target, link,
-					ContextmapperElementTypes.IncludeConnection_4003,
-					IncludeConnectionEditPart.VISUAL_ID));
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
 	private static Collection<ContextmapperLinkDescriptor> getIncomingTypeModelFacetLinks_AssociateConnection_4004(
 			Context target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
@@ -547,39 +491,53 @@ public class ContextmapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<ContextmapperLinkDescriptor> getOutgoingTypeModelFacetLinks_PriorConnection_4001(
-			Context source) {
-		Context container = null;
-		// Find container element for the link.
-		// Climb up by containment hierarchy starting from the source
-		// and return the first element that is instance of the container class.
-		for (EObject element = source; element != null && container == null; element = element
-				.eContainer()) {
-			if (element instanceof Context) {
-				container = (Context) element;
-			}
-		}
-		if (container == null) {
-			return Collections.emptyList();
-		}
+	private static Collection<ContextmapperLinkDescriptor> getIncomingTypeModelFacetLinks_IncludeConnection_4003(
+			Context target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<ContextmapperLinkDescriptor> result = new LinkedList<ContextmapperLinkDescriptor>();
-		for (Iterator<?> links = container.getSourceConnections().iterator(); links
-				.hasNext();) {
-			EObject linkObject = (EObject) links.next();
-			if (false == linkObject instanceof PriorConnection) {
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() != ContextmapperPackage.eINSTANCE
+					.getIncludeConnection_Target()
+					|| false == setting.getEObject() instanceof IncludeConnection) {
 				continue;
 			}
-			PriorConnection link = (PriorConnection) linkObject;
+			IncludeConnection link = (IncludeConnection) setting.getEObject();
+			if (IncludeConnectionEditPart.VISUAL_ID != ContextmapperVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			RuntimeConfig src = link.getSource();
+			result.add(new ContextmapperLinkDescriptor(src, target, link,
+					ContextmapperElementTypes.IncludeConnection_4003,
+					IncludeConnectionEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<ContextmapperLinkDescriptor> getIncomingTypeModelFacetLinks_PriorConnection_4001(
+			Context target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<ContextmapperLinkDescriptor> result = new LinkedList<ContextmapperLinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() != ContextmapperPackage.eINSTANCE
+					.getConnection_Target()
+					|| false == setting.getEObject() instanceof PriorConnection) {
+				continue;
+			}
+			PriorConnection link = (PriorConnection) setting.getEObject();
 			if (PriorConnectionEditPart.VISUAL_ID != ContextmapperVisualIDRegistry
 					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
-			Context dst = link.getTarget();
 			Context src = link.getSource();
-			if (src != source) {
-				continue;
-			}
-			result.add(new ContextmapperLinkDescriptor(src, dst, link,
+			result.add(new ContextmapperLinkDescriptor(src, target, link,
 					ContextmapperElementTypes.PriorConnection_4001,
 					PriorConnectionEditPart.VISUAL_ID));
 		}
@@ -631,6 +589,48 @@ public class ContextmapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	private static Collection<ContextmapperLinkDescriptor> getOutgoingTypeModelFacetLinks_AssociateConnection_4004(
+			Context source) {
+		Context container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
+			if (element instanceof Context) {
+				container = (Context) element;
+			}
+		}
+		if (container == null) {
+			return Collections.emptyList();
+		}
+		LinkedList<ContextmapperLinkDescriptor> result = new LinkedList<ContextmapperLinkDescriptor>();
+		for (Iterator<?> links = container.getSourceConnections().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof AssociateConnection) {
+				continue;
+			}
+			AssociateConnection link = (AssociateConnection) linkObject;
+			if (AssociateConnectionEditPart.VISUAL_ID != ContextmapperVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			Context dst = link.getTarget();
+			Context src = link.getSource();
+			if (src != source) {
+				continue;
+			}
+			result.add(new ContextmapperLinkDescriptor(src, dst, link,
+					ContextmapperElementTypes.AssociateConnection_4004,
+					AssociateConnectionEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	private static Collection<ContextmapperLinkDescriptor> getOutgoingTypeModelFacetLinks_IncludeConnection_4003(
 			RuntimeConfig source) {
 		RuntimeConfig container = null;
@@ -673,7 +673,7 @@ public class ContextmapperDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<ContextmapperLinkDescriptor> getOutgoingTypeModelFacetLinks_AssociateConnection_4004(
+	private static Collection<ContextmapperLinkDescriptor> getOutgoingTypeModelFacetLinks_PriorConnection_4001(
 			Context source) {
 		Context container = null;
 		// Find container element for the link.
@@ -692,11 +692,11 @@ public class ContextmapperDiagramUpdater {
 		for (Iterator<?> links = container.getSourceConnections().iterator(); links
 				.hasNext();) {
 			EObject linkObject = (EObject) links.next();
-			if (false == linkObject instanceof AssociateConnection) {
+			if (false == linkObject instanceof PriorConnection) {
 				continue;
 			}
-			AssociateConnection link = (AssociateConnection) linkObject;
-			if (AssociateConnectionEditPart.VISUAL_ID != ContextmapperVisualIDRegistry
+			PriorConnection link = (PriorConnection) linkObject;
+			if (PriorConnectionEditPart.VISUAL_ID != ContextmapperVisualIDRegistry
 					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
@@ -706,8 +706,8 @@ public class ContextmapperDiagramUpdater {
 				continue;
 			}
 			result.add(new ContextmapperLinkDescriptor(src, dst, link,
-					ContextmapperElementTypes.AssociateConnection_4004,
-					AssociateConnectionEditPart.VISUAL_ID));
+					ContextmapperElementTypes.PriorConnection_4001,
+					PriorConnectionEditPart.VISUAL_ID));
 		}
 		return result;
 	}

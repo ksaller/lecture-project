@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.feature.multi.perspective.mapping.viewmapping.Mapping;
+import org.feature.multi.perspective.mapping.viewmapping.MappingModel;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,7 +49,7 @@ public class ContextDiagramImpl extends EObjectImpl implements ContextDiagram {
 	 * @generated
 	 * @ordered
 	 */
-	protected Mapping mappingReference;
+	protected MappingModel mappingReference;
 
 	/**
 	 * The cached value of the '{@link #getContainsContexts() <em>Contains Contexts</em>}' containment reference list.
@@ -95,10 +95,10 @@ public class ContextDiagramImpl extends EObjectImpl implements ContextDiagram {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Mapping getMappingReference() {
+	public MappingModel getMappingReference() {
 		if (mappingReference != null && mappingReference.eIsProxy()) {
 			InternalEObject oldMappingReference = (InternalEObject)mappingReference;
-			mappingReference = (Mapping)eResolveProxy(oldMappingReference);
+			mappingReference = (MappingModel)eResolveProxy(oldMappingReference);
 			if (mappingReference != oldMappingReference) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ContextmapperPackage.CONTEXT_DIAGRAM__MAPPING_REFERENCE, oldMappingReference, mappingReference));
@@ -112,7 +112,7 @@ public class ContextDiagramImpl extends EObjectImpl implements ContextDiagram {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Mapping basicGetMappingReference() {
+	public MappingModel basicGetMappingReference() {
 		return mappingReference;
 	}
 
@@ -121,8 +121,8 @@ public class ContextDiagramImpl extends EObjectImpl implements ContextDiagram {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMappingReference(Mapping newMappingReference) {
-		Mapping oldMappingReference = mappingReference;
+	public void setMappingReference(MappingModel newMappingReference) {
+		MappingModel oldMappingReference = mappingReference;
 		mappingReference = newMappingReference;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ContextmapperPackage.CONTEXT_DIAGRAM__MAPPING_REFERENCE, oldMappingReference, mappingReference));
@@ -197,7 +197,7 @@ public class ContextDiagramImpl extends EObjectImpl implements ContextDiagram {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ContextmapperPackage.CONTEXT_DIAGRAM__MAPPING_REFERENCE:
-				setMappingReference((Mapping)newValue);
+				setMappingReference((MappingModel)newValue);
 				return;
 			case ContextmapperPackage.CONTEXT_DIAGRAM__CONTAINS_CONTEXTS:
 				getContainsContexts().clear();
@@ -220,7 +220,7 @@ public class ContextDiagramImpl extends EObjectImpl implements ContextDiagram {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ContextmapperPackage.CONTEXT_DIAGRAM__MAPPING_REFERENCE:
-				setMappingReference((Mapping)null);
+				setMappingReference((MappingModel)null);
 				return;
 			case ContextmapperPackage.CONTEXT_DIAGRAM__CONTAINS_CONTEXTS:
 				getContainsContexts().clear();

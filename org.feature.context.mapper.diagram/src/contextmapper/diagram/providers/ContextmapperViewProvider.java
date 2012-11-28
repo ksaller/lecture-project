@@ -43,18 +43,18 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
 import contextmapper.diagram.edit.parts.AssociateConnectionEditPart;
-import contextmapper.diagram.edit.parts.AssociateConnectionTypeEditPart;
 import contextmapper.diagram.edit.parts.ContextDiagramEditPart;
 import contextmapper.diagram.edit.parts.ContextEditPart;
 import contextmapper.diagram.edit.parts.ContextNameEditPart;
 import contextmapper.diagram.edit.parts.ExcludeConnectionEditPart;
-import contextmapper.diagram.edit.parts.ExcludeConnectionTypeEditPart;
 import contextmapper.diagram.edit.parts.IncludeConnectionEditPart;
-import contextmapper.diagram.edit.parts.IncludeConnectionTypeEditPart;
 import contextmapper.diagram.edit.parts.PriorConnectionEditPart;
-import contextmapper.diagram.edit.parts.PriorConnectionTypeEditPart;
 import contextmapper.diagram.edit.parts.RuntimeConfigEditPart;
 import contextmapper.diagram.edit.parts.RuntimeConfigNameEditPart;
+import contextmapper.diagram.edit.parts.WrappingLabel2EditPart;
+import contextmapper.diagram.edit.parts.WrappingLabel3EditPart;
+import contextmapper.diagram.edit.parts.WrappingLabel4EditPart;
+import contextmapper.diagram.edit.parts.WrappingLabelEditPart;
 import contextmapper.diagram.part.ContextmapperVisualIDRegistry;
 
 /**
@@ -150,8 +150,8 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 					return false; // foreign diagram
 				}
 				switch (visualID) {
-				case ContextEditPart.VISUAL_ID:
 				case RuntimeConfigEditPart.VISUAL_ID:
+				case ContextEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != ContextmapperVisualIDRegistry
 									.getNodeVisualID(op.getContainerView(),
@@ -164,8 +164,8 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 				}
 			}
 		}
-		return ContextEditPart.VISUAL_ID == visualID
-				|| RuntimeConfigEditPart.VISUAL_ID == visualID;
+		return RuntimeConfigEditPart.VISUAL_ID == visualID
+				|| ContextEditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -223,12 +223,12 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 			visualID = ContextmapperVisualIDRegistry.getVisualID(semanticHint);
 		}
 		switch (visualID) {
-		case ContextEditPart.VISUAL_ID:
-			return createContext_2001(domainElement, containerView, index,
-					persisted, preferencesHint);
 		case RuntimeConfigEditPart.VISUAL_ID:
 			return createRuntimeConfig_2002(domainElement, containerView,
 					index, persisted, preferencesHint);
+		case ContextEditPart.VISUAL_ID:
+			return createContext_2001(domainElement, containerView, index,
+					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
 		return null;
@@ -243,71 +243,25 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 		IElementType elementType = getSemanticElementType(semanticAdapter);
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (ContextmapperVisualIDRegistry.getVisualID(elementTypeHint)) {
-		case PriorConnectionEditPart.VISUAL_ID:
-			return createPriorConnection_4001(
-					getSemanticElement(semanticAdapter), containerView, index,
-					persisted, preferencesHint);
 		case ExcludeConnectionEditPart.VISUAL_ID:
 			return createExcludeConnection_4002(
-					getSemanticElement(semanticAdapter), containerView, index,
-					persisted, preferencesHint);
-		case IncludeConnectionEditPart.VISUAL_ID:
-			return createIncludeConnection_4003(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case AssociateConnectionEditPart.VISUAL_ID:
 			return createAssociateConnection_4004(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
+		case IncludeConnectionEditPart.VISUAL_ID:
+			return createIncludeConnection_4003(
+					getSemanticElement(semanticAdapter), containerView, index,
+					persisted, preferencesHint);
+		case PriorConnectionEditPart.VISUAL_ID:
+			return createPriorConnection_4001(
+					getSemanticElement(semanticAdapter), containerView, index,
+					persisted, preferencesHint);
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
 		return null;
-	}
-
-	/**
-	 * @generated
-	 */
-	public Node createContext_2001(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(ContextmapperVisualIDRegistry
-				.getType(ContextEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		stampShortcut(containerView, node);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
-				.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node,
-				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node
-				.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore,
-					IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
-					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
-					.intValue());
-		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node,
-				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5001 = createLabel(node,
-				ContextmapperVisualIDRegistry
-						.getType(ContextNameEditPart.VISUAL_ID));
-		return node;
 	}
 
 	/**
@@ -360,62 +314,47 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createPriorConnection_4001(EObject domainElement,
-			View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Connector edge = NotationFactory.eINSTANCE.createConnector();
-		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE
-				.createRelativeBendpoints();
-		ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(
-				2);
-		points.add(new RelativeBendpoint());
-		points.add(new RelativeBendpoint());
-		bendpoints.setPoints(points);
-		edge.setBendpoints(bendpoints);
-		ViewUtil.insertChildView(containerView, edge, index, persisted);
-		edge.setType(ContextmapperVisualIDRegistry
-				.getType(PriorConnectionEditPart.VISUAL_ID));
-		edge.setElement(domainElement);
-		// initializePreferences
+	public Node createContext_2001(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(ContextmapperVisualIDRegistry
+				.getType(ContextEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
 				.getPreferenceStore();
 
 		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
 				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(edge,
+		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
 				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle edgeFontStyle = (FontStyle) edge
+		FontStyle nodeFontStyle = (FontStyle) node
 				.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (edgeFontStyle != null) {
+		if (nodeFontStyle != null) {
 			FontData fontData = PreferenceConverter.getFontData(prefStore,
 					IPreferenceConstants.PREF_DEFAULT_FONT);
-			edgeFontStyle.setFontName(fontData.getName());
-			edgeFontStyle.setFontHeight(fontData.getHeight());
-			edgeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			edgeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
 			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
 					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
-			edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
-		Routing routing = Routing.get(prefStore
-				.getInt(IPreferenceConstants.PREF_LINE_STYLE));
-		if (routing != null) {
-			ViewUtil.setStructuralFeatureValue(edge,
-					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
-					routing);
-		}
-		Node label6001 = createLabel(edge,
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5001 = createLabel(node,
 				ContextmapperVisualIDRegistry
-						.getType(PriorConnectionTypeEditPart.VISUAL_ID));
-		label6001.setLayoutConstraint(NotationFactory.eINSTANCE
-				.createLocation());
-		Location location6001 = (Location) label6001.getLayoutConstraint();
-		location6001.setX(0);
-		location6001.setY(40);
-		return edge;
+						.getType(ContextNameEditPart.VISUAL_ID));
+		return node;
 	}
 
 	/**
@@ -468,9 +407,74 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
+		Node label6001 = createLabel(edge,
+				ContextmapperVisualIDRegistry
+						.getType(WrappingLabelEditPart.VISUAL_ID));
+		label6001.getStyles().add(
+				NotationFactory.eINSTANCE.createDescriptionStyle());
+		label6001.setLayoutConstraint(NotationFactory.eINSTANCE
+				.createLocation());
+		Location location6001 = (Location) label6001.getLayoutConstraint();
+		location6001.setX(0);
+		location6001.setY(40);
+		return edge;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Edge createAssociateConnection_4004(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Connector edge = NotationFactory.eINSTANCE.createConnector();
+		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE
+				.createRelativeBendpoints();
+		ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(
+				2);
+		points.add(new RelativeBendpoint());
+		points.add(new RelativeBendpoint());
+		bendpoints.setPoints(points);
+		edge.setBendpoints(bendpoints);
+		ViewUtil.insertChildView(containerView, edge, index, persisted);
+		edge.setType(ContextmapperVisualIDRegistry
+				.getType(AssociateConnectionEditPart.VISUAL_ID));
+		edge.setElement(domainElement);
+		// initializePreferences
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(edge,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle edgeFontStyle = (FontStyle) edge
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (edgeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			edgeFontStyle.setFontName(fontData.getName());
+			edgeFontStyle.setFontHeight(fontData.getHeight());
+			edgeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			edgeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Routing routing = Routing.get(prefStore
+				.getInt(IPreferenceConstants.PREF_LINE_STYLE));
+		if (routing != null) {
+			ViewUtil.setStructuralFeatureValue(edge,
+					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
+					routing);
+		}
 		Node label6002 = createLabel(edge,
 				ContextmapperVisualIDRegistry
-						.getType(ExcludeConnectionTypeEditPart.VISUAL_ID));
+						.getType(WrappingLabel2EditPart.VISUAL_ID));
+		label6002.getStyles().add(
+				NotationFactory.eINSTANCE.createDescriptionStyle());
 		label6002.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		Location location6002 = (Location) label6002.getLayoutConstraint();
@@ -531,7 +535,9 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 		}
 		Node label6003 = createLabel(edge,
 				ContextmapperVisualIDRegistry
-						.getType(IncludeConnectionTypeEditPart.VISUAL_ID));
+						.getType(WrappingLabel3EditPart.VISUAL_ID));
+		label6003.getStyles().add(
+				NotationFactory.eINSTANCE.createDescriptionStyle());
 		label6003.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		Location location6003 = (Location) label6003.getLayoutConstraint();
@@ -543,7 +549,7 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createAssociateConnection_4004(EObject domainElement,
+	public Edge createPriorConnection_4001(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -558,7 +564,7 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 		edge.setBendpoints(bendpoints);
 		ViewUtil.insertChildView(containerView, edge, index, persisted);
 		edge.setType(ContextmapperVisualIDRegistry
-				.getType(AssociateConnectionEditPart.VISUAL_ID));
+				.getType(PriorConnectionEditPart.VISUAL_ID));
 		edge.setElement(domainElement);
 		// initializePreferences
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
@@ -592,7 +598,9 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 		}
 		Node label6004 = createLabel(edge,
 				ContextmapperVisualIDRegistry
-						.getType(AssociateConnectionTypeEditPart.VISUAL_ID));
+						.getType(WrappingLabel4EditPart.VISUAL_ID));
+		label6004.getStyles().add(
+				NotationFactory.eINSTANCE.createDescriptionStyle());
 		label6004.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		Location location6004 = (Location) label6004.getLayoutConstraint();

@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link contextmapper.IncludeConnection#getSource <em>Source</em>}</li>
  *   <li>{@link contextmapper.IncludeConnection#getTarget <em>Target</em>}</li>
- *   <li>{@link contextmapper.IncludeConnection#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,21 +77,5 @@ public interface IncludeConnection extends EObject {
 	 * @generated
 	 */
 	void setTarget(Context value);
-
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * The default value is <code>"includes"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see contextmapper.ContextmapperPackage#getIncludeConnection_Type()
-	 * @model default="includes" changeable="false"
-	 * @generated
-	 */
-	String getType();
 
 } // IncludeConnection

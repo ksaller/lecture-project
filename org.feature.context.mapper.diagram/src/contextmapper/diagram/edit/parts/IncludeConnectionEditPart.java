@@ -45,10 +45,9 @@ public class IncludeConnectionEditPart extends ConnectionNodeEditPart implements
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof IncludeConnectionTypeEditPart) {
-			((IncludeConnectionTypeEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureIncludeConnectionTypeFigure());
+		if (childEditPart instanceof WrappingLabel3EditPart) {
+			((WrappingLabel3EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureIncludeConnectionNameFigure());
 			return true;
 		}
 		return false;
@@ -68,7 +67,7 @@ public class IncludeConnectionEditPart extends ConnectionNodeEditPart implements
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof IncludeConnectionTypeEditPart) {
+		if (childEditPart instanceof WrappingLabel3EditPart) {
 			return true;
 		}
 		return false;
@@ -112,7 +111,7 @@ public class IncludeConnectionEditPart extends ConnectionNodeEditPart implements
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureIncludeConnectionTypeFigure;
+		private WrappingLabel fFigureIncludeConnectionNameFigure;
 
 		/**
 		 * @generated
@@ -122,7 +121,7 @@ public class IncludeConnectionEditPart extends ConnectionNodeEditPart implements
 			this.setLineStyle(Graphics.LINE_DASH);
 
 			createContents();
-			setTargetDecoration(createTargetDecoration());
+			setSourceDecoration(createSourceDecoration());
 		}
 
 		/**
@@ -130,18 +129,18 @@ public class IncludeConnectionEditPart extends ConnectionNodeEditPart implements
 		 */
 		private void createContents() {
 
-			fFigureIncludeConnectionTypeFigure = new WrappingLabel();
+			fFigureIncludeConnectionNameFigure = new WrappingLabel();
 
-			fFigureIncludeConnectionTypeFigure.setText("<...>");
+			fFigureIncludeConnectionNameFigure.setText("include");
 
-			this.add(fFigureIncludeConnectionTypeFigure);
+			this.add(fFigureIncludeConnectionNameFigure);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		private RotatableDecoration createTargetDecoration() {
+		private RotatableDecoration createSourceDecoration() {
 			PolylineDecoration df = new PolylineDecoration();
 			df.setLineWidth(2);
 			return df;
@@ -150,8 +149,8 @@ public class IncludeConnectionEditPart extends ConnectionNodeEditPart implements
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureIncludeConnectionTypeFigure() {
-			return fFigureIncludeConnectionTypeFigure;
+		public WrappingLabel getFigureIncludeConnectionNameFigure() {
+			return fFigureIncludeConnectionNameFigure;
 		}
 
 	}

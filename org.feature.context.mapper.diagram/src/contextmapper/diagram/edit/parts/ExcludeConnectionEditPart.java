@@ -44,10 +44,9 @@ public class ExcludeConnectionEditPart extends ConnectionNodeEditPart implements
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ExcludeConnectionTypeEditPart) {
-			((ExcludeConnectionTypeEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureExcludeConnectionTypeFigure());
+		if (childEditPart instanceof WrappingLabelEditPart) {
+			((WrappingLabelEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureExcludeConnectionNameFigure());
 			return true;
 		}
 		return false;
@@ -67,7 +66,7 @@ public class ExcludeConnectionEditPart extends ConnectionNodeEditPart implements
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ExcludeConnectionTypeEditPart) {
+		if (childEditPart instanceof WrappingLabelEditPart) {
 			return true;
 		}
 		return false;
@@ -111,7 +110,7 @@ public class ExcludeConnectionEditPart extends ConnectionNodeEditPart implements
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureExcludeConnectionTypeFigure;
+		private WrappingLabel fFigureExcludeConnectionNameFigure;
 
 		/**
 		 * @generated
@@ -129,11 +128,11 @@ public class ExcludeConnectionEditPart extends ConnectionNodeEditPart implements
 		 */
 		private void createContents() {
 
-			fFigureExcludeConnectionTypeFigure = new WrappingLabel();
+			fFigureExcludeConnectionNameFigure = new WrappingLabel();
 
-			fFigureExcludeConnectionTypeFigure.setText("exclude");
+			fFigureExcludeConnectionNameFigure.setText("exclude");
 
-			this.add(fFigureExcludeConnectionTypeFigure);
+			this.add(fFigureExcludeConnectionNameFigure);
 
 		}
 
@@ -158,8 +157,8 @@ public class ExcludeConnectionEditPart extends ConnectionNodeEditPart implements
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureExcludeConnectionTypeFigure() {
-			return fFigureExcludeConnectionTypeFigure;
+		public WrappingLabel getFigureExcludeConnectionNameFigure() {
+			return fFigureExcludeConnectionNameFigure;
 		}
 
 	}
