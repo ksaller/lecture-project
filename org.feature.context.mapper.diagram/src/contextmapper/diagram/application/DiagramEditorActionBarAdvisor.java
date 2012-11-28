@@ -2,15 +2,26 @@ package contextmapper.diagram.application;
 
 import java.io.File;
 import java.util.Iterator;
+import java.util.Map;
+
+import javax.swing.JOptionPane;
 
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.ui.action.WorkbenchWindowActionDelegate;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.GroupMarker;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.ICoolBarManager;
+import org.eclipse.jface.action.IMenuCreator;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
@@ -19,10 +30,14 @@ import org.eclipse.jface.action.ToolBarContributionItem;
 import org.eclipse.jface.action.ToolBarManager;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.HelpListener;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.IEditorDescriptor;
 import org.eclipse.ui.IWorkbench;
@@ -33,6 +48,12 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
+import org.feature.multi.perspective.mapping.viewmapping.MappingModel;
+import org.feature.multi.perspective.mapping.viewmapping.ViewmappingFactory;
+import org.feature.multi.perspective.mapping.viewmapping.impl.ViewmappingFactoryImpl;
+import org.feature.multi.perspective.mapping.viewmapping.util.ViewmappingAdapterFactory;
+import org.featuremapper.models.feature.FeatureModel;
+import org.featuremapper.models.feature.FeaturePackage;
 
 import contextmapper.diagram.part.ContextmapperCreationWizard;
 import contextmapper.diagram.part.Messages;
@@ -51,6 +72,7 @@ public class DiagramEditorActionBarAdvisor extends ActionBarAdvisor {
 	 * @generated
 	 */
 	private ActionFactory.IWorkbenchAction toggleCoolbarAction;
+	
 
 	/**
 	 * @generated
@@ -67,13 +89,14 @@ public class DiagramEditorActionBarAdvisor extends ActionBarAdvisor {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void makeActions(IWorkbenchWindow window) {
 		toggleCoolbarAction = ActionFactory.TOGGLE_COOLBAR.create(window);
 		register(toggleCoolbarAction);
 		lockToolBarAction = ActionFactory.LOCK_TOOL_BAR.create(window);
 		register(lockToolBarAction);
+		
 
 		register(ActionFactory.CLOSE.create(window));
 
@@ -104,6 +127,7 @@ public class DiagramEditorActionBarAdvisor extends ActionBarAdvisor {
 		register(ActionFactory.OPEN_NEW_WINDOW.create(window));
 
 		register(ActionFactory.PRINT.create(window));
+		
 	}
 
 	/**
@@ -136,6 +160,7 @@ public class DiagramEditorActionBarAdvisor extends ActionBarAdvisor {
 			menuX.add(getAction(ActionFactory.CLOSE.getId()));
 
 			menuX.add(getAction(ActionFactory.CLOSE_ALL.getId()));
+			
 
 			menuX.add(new Separator());
 
@@ -363,6 +388,81 @@ public class DiagramEditorActionBarAdvisor extends ActionBarAdvisor {
 		}
 	}
 
+	/**
+	 * 
+	 * Action, that allows the User to load a .viewmapping file 
+	 * @author Stefan
+	 * @generated NOT
+	 */
+	public static class LoadViewMappingAction extends WorkbenchWindowActionDelegate {
+
+		public void run(IAction action) {
+			FileDialog fileDialog = new FileDialog(getWindow().getShell(),
+					SWT.OPEN);
+			String[] extensions = {"*.viewmapping", "*.*"};
+			fileDialog.setFilterExtensions(extensions);
+			fileDialog.open();
+			if (fileDialog.getFileName() != null
+					&& fileDialog.getFileName().length() > 0) {
+				
+				//TODO: complete code!!!!
+				MappingModel fm = (MappingModel) loadModel(URI.createFileURI(fileDialog.getFilterPath() + 
+			    		File.separator + fileDialog.getFileName()), null);
+								
+			    MessageDialog.openInformation(getWindow().getShell(),"Test","1. Feature des Mapping-Model: " + fm.getMappings().get(0).getFeatures().get(0).getName());		
+			}
+		}
+	}
+
+	private static EObject loadModel(EPackage ePackage, String path,
+			ResourceSet resourceSet) {
+		initEMF(ePackage);
+
+		return loadModel(createFileURI(path, true), resourceSet);
+	}
+
+	private static EObject loadModel(URI uri, ResourceSet resourceSet) {
+		// Obtain a new resource set if necessary
+		if (resourceSet == null)
+			resourceSet = new ResourceSetImpl();
+
+		// Get the resource
+		Resource resource = resourceSet.getResource(uri, true);
+
+		// Add adapter for reverse navigation along unidirectional links
+		ECrossReferenceAdapter adapter = ECrossReferenceAdapter
+				.getCrossReferenceAdapter(resourceSet);
+		if (adapter == null)
+			resourceSet.eAdapters().add(new ECrossReferenceAdapter());
+
+		// Return root model element
+		return resource.getContents().get(0);
+	}
+
+	private static URI createFileURI(String path, boolean mustExist) {
+		File filePath = new File(path);
+		if (!filePath.exists() && mustExist)
+			throw new IllegalArgumentException(path + " does not exist.");
+
+		return URI.createFileURI(filePath.getAbsolutePath());
+	}
+
+	private static void registerXMIFactoryAsDefault() {
+		// Add XMI factory to registry
+		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+		Map<String, Object> m = reg.getExtensionToFactoryMap();
+		m.put("*", new XMIResourceFactoryImpl());
+	}
+
+	private static void initEMF(EPackage ePackage) {
+		// Initialize the model
+		// logger.debug("Initializing " + ePackage.getName());
+
+		ePackage.getName();
+		registerXMIFactoryAsDefault();
+	}	
+	
+	
 	/**
 	 * @generated
 	 */
