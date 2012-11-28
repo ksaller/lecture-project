@@ -17,6 +17,9 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
+import org.eclipse.gmf.runtime.emf.core.GMFEditingDomainFactory;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.GroupMarker;
 import org.eclipse.jface.action.IAction;
@@ -40,6 +43,7 @@ import org.eclipse.swt.events.HelpListener;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.IEditorDescriptor;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.IWorkbenchPage;
@@ -48,6 +52,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
+import org.eclipse.ui.part.Page;
 import org.feature.multi.perspective.mapping.viewmapping.MappingModel;
 import org.feature.multi.perspective.mapping.viewmapping.ViewmappingFactory;
 import org.feature.multi.perspective.mapping.viewmapping.impl.ViewmappingFactoryImpl;
@@ -55,7 +60,10 @@ import org.feature.multi.perspective.mapping.viewmapping.util.ViewmappingAdapter
 import org.featuremapper.models.feature.FeatureModel;
 import org.featuremapper.models.feature.FeaturePackage;
 
+import contextmapper.ContextDiagram;
+import contextmapper.diagram.edit.commands.MappingCommand;
 import contextmapper.diagram.part.ContextmapperCreationWizard;
+import contextmapper.diagram.part.ContextmapperDiagramEditorPlugin;
 import contextmapper.diagram.part.Messages;
 
 /**
@@ -392,6 +400,7 @@ public class DiagramEditorActionBarAdvisor extends ActionBarAdvisor {
 	 * 
 	 * Action, that allows the User to load a .viewmapping file 
 	 * @author Stefan
+	 * @author Daniel
 	 * @generated NOT
 	 */
 	public static class LoadViewMappingAction extends WorkbenchWindowActionDelegate {
@@ -408,8 +417,23 @@ public class DiagramEditorActionBarAdvisor extends ActionBarAdvisor {
 				//TODO: complete code!!!!
 				MappingModel fm = (MappingModel) loadModel(URI.createFileURI(fileDialog.getFilterPath() + 
 			    		File.separator + fileDialog.getFileName()), null);
+
+				MessageDialog.openInformation(getWindow().getShell(),"Test","1. Feature des Mapping-Model: " + fm.getMappings().get(0).getFeatures().get(0).getName());
+				
+				// Ab hier neuer Code:
+				
+				IWorkbench workbench = getWindow().getWorkbench();
+				
+				DiagramEditor editor = (DiagramEditor) workbench.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+				
+				EObject element = editor.getDiagram().getElement();
+				ContextDiagram cd = (ContextDiagram) element.eResource().getContents().get(0);
+
+				ICommandProxy a = new ICommandProxy(new MappingCommand(editor.getEditingDomain(),fm));
+				a.execute();
 								
-			    MessageDialog.openInformation(getWindow().getShell(),"Test","1. Feature des Mapping-Model: " + fm.getMappings().get(0).getFeatures().get(0).getName());		
+				MessageDialog.openInformation(getWindow().getShell(),"Test","1. Feature des Mapping-Model: " + cd.getMappingReference().getMappings().get(0).getFeatures().get(0).getName());	
+						
 			}
 		}
 	}
