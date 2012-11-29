@@ -61,6 +61,7 @@ import org.featuremapper.models.feature.FeatureModel;
 import org.featuremapper.models.feature.FeaturePackage;
 
 import contextmapper.ContextDiagram;
+import contextmapper.diagram.customized.GlobalObjectGetter;
 import contextmapper.diagram.customized.MappingCommand;
 import contextmapper.diagram.part.ContextmapperCreationWizard;
 import contextmapper.diagram.part.ContextmapperDiagramEditorPlugin;
@@ -421,9 +422,7 @@ public class DiagramEditorActionBarAdvisor extends ActionBarAdvisor {
 						fileDialog.getFilterPath() + File.separator + fileDialog.getFileName()), null);
 				
 				// MappingModel an ContextDiagram zuweisen:
-				IWorkbench workbench = getWindow().getWorkbench();
-				DiagramEditor editor = (DiagramEditor) workbench.getActiveWorkbenchWindow()
-						.getActivePage().getActiveEditor();
+				DiagramEditor editor = GlobalObjectGetter.getDiagramEditor();
 				ICommandProxy setMappingCommand = new ICommandProxy(
 						new MappingCommand(editor.getEditingDomain(),mappingModel));
 				setMappingCommand.execute();
