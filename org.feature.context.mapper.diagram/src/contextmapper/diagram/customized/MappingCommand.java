@@ -15,7 +15,7 @@ import contextmapper.ContextDiagram;
 import contextmapper.diagram.part.ContextmapperDiagramEditorPlugin;
 
 /**
- * Command for setting MappingModel
+ * Command, um dem ContextDiagram das MappingModel zuzuweisen
  * 
  * @author Daniel
  */
@@ -32,10 +32,7 @@ public class MappingCommand extends AbstractTransactionalCommand {
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		
 		// Aktuelles ContextDiagram holen:
-		IWorkbench workbench = ContextmapperDiagramEditorPlugin.getInstance().getWorkbench();
-		DiagramEditor editor = (DiagramEditor) workbench.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		EObject element = editor.getDiagram().getElement();
-		ContextDiagram contextDiagram = (ContextDiagram) element.eResource().getContents().get(0);
+		ContextDiagram contextDiagram = GlobalObjectGetter.getContextDiagram();
 		
 		// TODO: Den nachfolgenden Befehl über execute (wie unten auskommentiert) ausführen. Nur wie?
 		contextDiagram.setMappingReference(mappingModel);
