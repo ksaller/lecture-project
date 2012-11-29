@@ -1,4 +1,4 @@
-package contextmapper.diagram.edit.commands;
+package contextmapper.diagram.customized;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
@@ -15,10 +15,9 @@ import contextmapper.ContextDiagram;
 import contextmapper.diagram.part.ContextmapperDiagramEditorPlugin;
 
 /**
- * Command for setting ViewMapping
- * @generated NOT
- * @author dath
- *
+ * Command for setting MappingModel
+ * 
+ * @author Daniel
  */
 public class MappingCommand extends AbstractTransactionalCommand {
 
@@ -32,14 +31,14 @@ public class MappingCommand extends AbstractTransactionalCommand {
 	@Override
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		
-		IWorkbench workbench = ContextmapperDiagramEditorPlugin.getInstance().getWorkbench(); //getWindow().getWorkbench();
+		// Aktuelles ContextDiagram holen:
+		IWorkbench workbench = ContextmapperDiagramEditorPlugin.getInstance().getWorkbench();
 		DiagramEditor editor = (DiagramEditor) workbench.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		
 		EObject element = editor.getDiagram().getElement();
-		ContextDiagram cd = (ContextDiagram) element.eResource().getContents().get(0);
+		ContextDiagram contextDiagram = (ContextDiagram) element.eResource().getContents().get(0);
 		
 		// TODO: Den nachfolgenden Befehl über execute (wie unten auskommentiert) ausführen. Nur wie?
-		cd.setMappingReference(mappingModel);
+		contextDiagram.setMappingReference(mappingModel);
 		
 		//getEditingDomain().getCommandStack().execute(SetCommand.create(getEditingDomain(), myElement, ContextmapperDiagramEditorPlugin.getInstance(), 'New name'));
 		//getEditingDomain().getCommandStack().execute(SetCommand.create(getEditingDomain(), myElement, XXXPackage.eINSTANCE.getElemenet_name(), 'New name'));

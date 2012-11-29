@@ -61,7 +61,7 @@ import org.featuremapper.models.feature.FeatureModel;
 import org.featuremapper.models.feature.FeaturePackage;
 
 import contextmapper.ContextDiagram;
-import contextmapper.diagram.edit.commands.MappingCommand;
+import contextmapper.diagram.customized.MappingCommand;
 import contextmapper.diagram.part.ContextmapperCreationWizard;
 import contextmapper.diagram.part.ContextmapperDiagramEditorPlugin;
 import contextmapper.diagram.part.Messages;
@@ -397,8 +397,8 @@ public class DiagramEditorActionBarAdvisor extends ActionBarAdvisor {
 	}
 
 	/**
-	 * 
 	 * Action, that allows the User to load a .viewmapping file 
+	 * 
 	 * @author Stefan
 	 * @author Daniel
 	 * @generated NOT
@@ -406,43 +406,30 @@ public class DiagramEditorActionBarAdvisor extends ActionBarAdvisor {
 	public static class LoadViewMappingAction extends WorkbenchWindowActionDelegate {
 
 		public void run(IAction action) {
-			FileDialog fileDialog = new FileDialog(getWindow().getShell(),
-					SWT.OPEN);
+			
+			// Dialog zum Laden eines MappingModels anzeigen:
+			FileDialog fileDialog = new FileDialog(getWindow().getShell(), SWT.OPEN);
 			String[] extensions = {"*.viewmapping", "*.*"};
 			fileDialog.setFilterExtensions(extensions);
 			fileDialog.open();
+			
 			if (fileDialog.getFileName() != null
 					&& fileDialog.getFileName().length() > 0) {
 				
-				//TODO: complete code!!!!
-				MappingModel fm = (MappingModel) loadModel(URI.createFileURI(fileDialog.getFilterPath() + 
-			    		File.separator + fileDialog.getFileName()), null);
-
-				MessageDialog.openInformation(getWindow().getShell(),"Test","1. Feature des Mapping-Model: " + fm.getMappings().get(0).getFeatures().get(0).getName());
+				// MappingModel aus viewmapping-Datei laden:
+				MappingModel mappingModel = (MappingModel) loadModel(URI.createFileURI(
+						fileDialog.getFilterPath() + File.separator + fileDialog.getFileName()), null);
 				
-				// Ab hier neuer Code:
-				
+				// MappingModel an ContextDiagram zuweisen:
 				IWorkbench workbench = getWindow().getWorkbench();
-				
-				DiagramEditor editor = (DiagramEditor) workbench.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-				
-				EObject element = editor.getDiagram().getElement();
-				ContextDiagram cd = (ContextDiagram) element.eResource().getContents().get(0);
-
-				ICommandProxy a = new ICommandProxy(new MappingCommand(editor.getEditingDomain(),fm));
-				a.execute();
-								
-				MessageDialog.openInformation(getWindow().getShell(),"Test","1. Feature des Mapping-Model: " + cd.getMappingReference().getMappings().get(0).getFeatures().get(0).getName());	
-						
+				DiagramEditor editor = (DiagramEditor) workbench.getActiveWorkbenchWindow()
+						.getActivePage().getActiveEditor();
+				ICommandProxy setMappingCommand = new ICommandProxy(
+						new MappingCommand(editor.getEditingDomain(),mappingModel));
+				setMappingCommand.execute();
+		
 			}
 		}
-	}
-
-	private static EObject loadModel(EPackage ePackage, String path,
-			ResourceSet resourceSet) {
-		initEMF(ePackage);
-
-		return loadModel(createFileURI(path, true), resourceSet);
 	}
 
 	private static EObject loadModel(URI uri, ResourceSet resourceSet) {
