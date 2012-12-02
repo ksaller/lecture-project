@@ -15,14 +15,15 @@
         eType="#//Connection" containment="true" eOpposite="#//Connection/target"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Classifier">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="feature" eType="#//Classification"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureReference" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="featureClassification"
+        eType="#//Classification"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" lowerBound="1"
         eType="ecore:EClass platform:/plugin/org.featuremapper.models.feature/model/feature.ecore#//Feature"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Classification">
     <eLiterals name="dead"/>
-    <eLiterals name="alive"/>
-    <eLiterals name="unbound"/>
+    <eLiterals name="alive" value="1"/>
+    <eLiterals name="unbound" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connection" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
