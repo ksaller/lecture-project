@@ -41,8 +41,8 @@ public class ContextmapperModelingAssistantProvider extends
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof ContextDiagramEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-			types.add(ContextmapperElementTypes.RuntimeConfig_2002);
-			types.add(ContextmapperElementTypes.Context_2001);
+			types.add(ContextmapperElementTypes.RuntimeConfig_2001);
+			types.add(ContextmapperElementTypes.Context_2002);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

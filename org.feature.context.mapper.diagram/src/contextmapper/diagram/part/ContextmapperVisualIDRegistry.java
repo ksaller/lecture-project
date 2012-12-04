@@ -9,19 +9,15 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 import contextmapper.ContextDiagram;
 import contextmapper.ContextmapperPackage;
-import contextmapper.diagram.edit.parts.AssociateConnectionEditPart;
 import contextmapper.diagram.edit.parts.ContextDiagramEditPart;
 import contextmapper.diagram.edit.parts.ContextEditPart;
 import contextmapper.diagram.edit.parts.ContextNameEditPart;
 import contextmapper.diagram.edit.parts.ExcludeConnectionEditPart;
+import contextmapper.diagram.edit.parts.ExtendConnectionEditPart;
 import contextmapper.diagram.edit.parts.IncludeConnectionEditPart;
 import contextmapper.diagram.edit.parts.PriorConnectionEditPart;
 import contextmapper.diagram.edit.parts.RuntimeConfigEditPart;
 import contextmapper.diagram.edit.parts.RuntimeConfigNameEditPart;
-import contextmapper.diagram.edit.parts.WrappingLabel2EditPart;
-import contextmapper.diagram.edit.parts.WrappingLabel3EditPart;
-import contextmapper.diagram.edit.parts.WrappingLabel4EditPart;
-import contextmapper.diagram.edit.parts.WrappingLabelEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -183,26 +179,6 @@ public class ContextmapperVisualIDRegistry {
 				return true;
 			}
 			break;
-		case ExcludeConnectionEditPart.VISUAL_ID:
-			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case AssociateConnectionEditPart.VISUAL_ID:
-			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case IncludeConnectionEditPart.VISUAL_ID:
-			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case PriorConnectionEditPart.VISUAL_ID:
-			if (WrappingLabel4EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		}
 		return false;
 	}
@@ -214,21 +190,21 @@ public class ContextmapperVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
+		if (ContextmapperPackage.eINSTANCE.getExtendConnection().isSuperTypeOf(
+				domainElement.eClass())) {
+			return ExtendConnectionEditPart.VISUAL_ID;
+		}
 		if (ContextmapperPackage.eINSTANCE.getExcludeConnection()
 				.isSuperTypeOf(domainElement.eClass())) {
 			return ExcludeConnectionEditPart.VISUAL_ID;
 		}
-		if (ContextmapperPackage.eINSTANCE.getAssociateConnection()
-				.isSuperTypeOf(domainElement.eClass())) {
-			return AssociateConnectionEditPart.VISUAL_ID;
+		if (ContextmapperPackage.eINSTANCE.getPriorConnection().isSuperTypeOf(
+				domainElement.eClass())) {
+			return PriorConnectionEditPart.VISUAL_ID;
 		}
 		if (ContextmapperPackage.eINSTANCE.getIncludeConnection()
 				.isSuperTypeOf(domainElement.eClass())) {
 			return IncludeConnectionEditPart.VISUAL_ID;
-		}
-		if (ContextmapperPackage.eINSTANCE.getPriorConnection().isSuperTypeOf(
-				domainElement.eClass())) {
-			return PriorConnectionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}
@@ -270,8 +246,8 @@ public class ContextmapperVisualIDRegistry {
 		switch (visualID) {
 		case ContextDiagramEditPart.VISUAL_ID:
 			return false;
-		case ContextEditPart.VISUAL_ID:
 		case RuntimeConfigEditPart.VISUAL_ID:
+		case ContextEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

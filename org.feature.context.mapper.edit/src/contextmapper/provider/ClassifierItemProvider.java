@@ -61,10 +61,32 @@ public class ClassifierItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addFeatureClassificationPropertyDescriptor(object);
 			addFeaturePropertyDescriptor(object);
-			addFeatureReferencePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Feature Classification feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFeatureClassificationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Classifier_featureClassification_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Classifier_featureClassification_feature", "_UI_Classifier_type"),
+				 ContextmapperPackage.Literals.CLASSIFIER__FEATURE_CLASSIFICATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -81,28 +103,6 @@ public class ClassifierItemProvider
 				 getString("_UI_Classifier_feature_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Classifier_feature_feature", "_UI_Classifier_type"),
 				 ContextmapperPackage.Literals.CLASSIFIER__FEATURE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Feature Reference feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFeatureReferencePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Classifier_featureReference_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Classifier_featureReference_feature", "_UI_Classifier_type"),
-				 ContextmapperPackage.Literals.CLASSIFIER__FEATURE_REFERENCE,
 				 true,
 				 false,
 				 true,
@@ -130,7 +130,7 @@ public class ClassifierItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Classification labelValue = ((Classifier)object).getFeature();
+		Classification labelValue = ((Classifier)object).getFeatureClassification();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Classifier_type") :
@@ -149,7 +149,7 @@ public class ClassifierItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Classifier.class)) {
-			case ContextmapperPackage.CLASSIFIER__FEATURE:
+			case ContextmapperPackage.CLASSIFIER__FEATURE_CLASSIFICATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

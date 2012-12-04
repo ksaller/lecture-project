@@ -69,7 +69,7 @@ public class ExcludeConnectionCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return ContextmapperBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateExcludeConnection_4002(getContainer(), getSource(),
+				.canCreateExcludeConnection_4004(getContainer(), getSource(),
 						getTarget());
 	}
 
@@ -85,7 +85,7 @@ public class ExcludeConnectionCreateCommand extends EditElementCommand {
 
 		ExcludeConnection newElement = ContextmapperFactory.eINSTANCE
 				.createExcludeConnection();
-		getContainer().getSourceConnections().add(newElement);
+		getContainer().getExclude().add(newElement);
 		newElement.setSource(getSource());
 		newElement.setTarget(getTarget());
 		doConfigure(newElement, monitor, info);

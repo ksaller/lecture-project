@@ -5,54 +5,65 @@
   <eClassifiers xsi:type="ecore:EClass" name="Context">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="classifies" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classifier" upperBound="-1"
         eType="#//Classifier"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="targetConnections" upperBound="-1"
-        eType="#//Connection" transient="true" derived="true" eOpposite="#//Connection/source"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="included" upperBound="-1"
-        eType="#//IncludeConnection" eOpposite="#//IncludeConnection/target"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceConnections" upperBound="-1"
-        eType="#//Connection" containment="true" eOpposite="#//Connection/target"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="priorize" upperBound="-1"
+        eType="#//PriorConnection" containment="true" eOpposite="#//PriorConnection/source"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extend" upperBound="-1"
+        eType="#//ExtendConnection" containment="true" eOpposite="#//ExtendConnection/source"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exclude" upperBound="-1"
+        eType="#//ExcludeConnection" containment="true" eOpposite="#//ExcludeConnection/source"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="excluded" upperBound="-1"
+        eType="#//ExcludeConnection" eOpposite="#//ExcludeConnection/target"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Classifier">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="featureClassification"
         eType="#//Classification"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="feature" lowerBound="1"
-        eType="ecore:EClass platform:/plugin/org.featuremapper.models.feature/model/feature.ecore#//Feature"/>
+        eType="ecore:EClass platform:/plugin/org.featuremapper.models.feature/model/feature.ecore#//Feature"
+        derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Classification">
     <eLiterals name="dead"/>
     <eLiterals name="alive" value="1"/>
     <eLiterals name="unbound" value="2"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Connection" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
-        eType="#//Context" resolveProxies="false" eOpposite="#//Context/targetConnections"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-        eType="#//Context" eOpposite="#//Context/sourceConnections"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PriorConnection" eSuperTypes="#//Connection"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ExcludeConnection" eSuperTypes="#//Connection"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AssociateConnection" eSuperTypes="#//Connection"/>
   <eClassifiers xsi:type="ecore:EClass" name="RuntimeConfig">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="includes" upperBound="-1"
-        eType="#//IncludeConnection" transient="true" derived="true" containment="true"
-        eOpposite="#//IncludeConnection/source"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IncludeConnection">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
-        eType="#//RuntimeConfig" resolveProxies="false" eOpposite="#//RuntimeConfig/includes"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-        eType="#//Context" eOpposite="#//Context/included"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="include" upperBound="-1"
+        eType="#//IncludeConnection" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContextDiagram">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mappingReference" lowerBound="1"
         eType="ecore:EClass ../../org.feature.multi.perspective.mapping/model/viewmapping.ecore#//MappingModel"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="containsContexts" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="context" upperBound="-1"
         eType="#//Context" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="containsRuntimeConfigs"
-        upperBound="-1" eType="#//RuntimeConfig" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="runtimeconfig" upperBound="-1"
+        eType="#//RuntimeConfig" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExcludeConnection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//Context" resolveProxies="false" eOpposite="#//Context/exclude"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//Context" resolveProxies="false" eOpposite="#//Context/excluded"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IncludeConnection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//RuntimeConfig"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//Context"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PriorConnection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//Context"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//Context" eOpposite="#//Context/priorize"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtendConnection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//Context"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//Context" eOpposite="#//Context/extend"/>
   </eClassifiers>
 </ecore:EPackage>

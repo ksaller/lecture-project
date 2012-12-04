@@ -57,7 +57,7 @@ public class ContextCreateCommand extends EditElementCommand {
 		Context newElement = ContextmapperFactory.eINSTANCE.createContext();
 
 		ContextDiagram owner = (ContextDiagram) getElementToEdit();
-		owner.getContainsContexts().add(newElement);
+		owner.getContext().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

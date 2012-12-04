@@ -102,7 +102,7 @@ public class RuntimeConfigItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContextmapperPackage.Literals.RUNTIME_CONFIG__INCLUDES);
+			childrenFeatures.add(ContextmapperPackage.Literals.RUNTIME_CONFIG__INCLUDE);
 		}
 		return childrenFeatures;
 	}
@@ -160,7 +160,7 @@ public class RuntimeConfigItemProvider
 			case ContextmapperPackage.RUNTIME_CONFIG__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ContextmapperPackage.RUNTIME_CONFIG__INCLUDES:
+			case ContextmapperPackage.RUNTIME_CONFIG__INCLUDE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -180,7 +180,7 @@ public class RuntimeConfigItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContextmapperPackage.Literals.RUNTIME_CONFIG__INCLUDES,
+				(ContextmapperPackage.Literals.RUNTIME_CONFIG__INCLUDE,
 				 ContextmapperFactory.eINSTANCE.createIncludeConnection()));
 	}
 

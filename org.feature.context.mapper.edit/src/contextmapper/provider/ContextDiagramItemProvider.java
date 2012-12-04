@@ -101,8 +101,8 @@ public class ContextDiagramItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContextmapperPackage.Literals.CONTEXT_DIAGRAM__CONTAINS_CONTEXTS);
-			childrenFeatures.add(ContextmapperPackage.Literals.CONTEXT_DIAGRAM__CONTAINS_RUNTIME_CONFIGS);
+			childrenFeatures.add(ContextmapperPackage.Literals.CONTEXT_DIAGRAM__CONTEXT);
+			childrenFeatures.add(ContextmapperPackage.Literals.CONTEXT_DIAGRAM__RUNTIMECONFIG);
 		}
 		return childrenFeatures;
 	}
@@ -154,8 +154,8 @@ public class ContextDiagramItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ContextDiagram.class)) {
-			case ContextmapperPackage.CONTEXT_DIAGRAM__CONTAINS_CONTEXTS:
-			case ContextmapperPackage.CONTEXT_DIAGRAM__CONTAINS_RUNTIME_CONFIGS:
+			case ContextmapperPackage.CONTEXT_DIAGRAM__CONTEXT:
+			case ContextmapperPackage.CONTEXT_DIAGRAM__RUNTIMECONFIG:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -175,12 +175,12 @@ public class ContextDiagramItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContextmapperPackage.Literals.CONTEXT_DIAGRAM__CONTAINS_CONTEXTS,
+				(ContextmapperPackage.Literals.CONTEXT_DIAGRAM__CONTEXT,
 				 ContextmapperFactory.eINSTANCE.createContext()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContextmapperPackage.Literals.CONTEXT_DIAGRAM__CONTAINS_RUNTIME_CONFIGS,
+				(ContextmapperPackage.Literals.CONTEXT_DIAGRAM__RUNTIMECONFIG,
 				 ContextmapperFactory.eINSTANCE.createRuntimeConfig()));
 	}
 

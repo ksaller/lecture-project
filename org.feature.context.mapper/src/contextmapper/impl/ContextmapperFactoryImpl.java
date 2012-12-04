@@ -57,14 +57,14 @@ public class ContextmapperFactoryImpl extends EFactoryImpl implements Contextmap
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ContextmapperPackage.CONTEXT: return createContext();
-			case ContextmapperPackage.CLASSIFIER: return createClassifier();
-			case ContextmapperPackage.PRIOR_CONNECTION: return createPriorConnection();
-			case ContextmapperPackage.EXCLUDE_CONNECTION: return createExcludeConnection();
-			case ContextmapperPackage.ASSOCIATE_CONNECTION: return createAssociateConnection();
-			case ContextmapperPackage.RUNTIME_CONFIG: return createRuntimeConfig();
-			case ContextmapperPackage.INCLUDE_CONNECTION: return createIncludeConnection();
-			case ContextmapperPackage.CONTEXT_DIAGRAM: return createContextDiagram();
+			case ContextmapperPackage.CONTEXT: return (EObject)createContext();
+			case ContextmapperPackage.CLASSIFIER: return (EObject)createClassifier();
+			case ContextmapperPackage.RUNTIME_CONFIG: return (EObject)createRuntimeConfig();
+			case ContextmapperPackage.CONTEXT_DIAGRAM: return (EObject)createContextDiagram();
+			case ContextmapperPackage.EXCLUDE_CONNECTION: return (EObject)createExcludeConnection();
+			case ContextmapperPackage.INCLUDE_CONNECTION: return (EObject)createIncludeConnection();
+			case ContextmapperPackage.PRIOR_CONNECTION: return (EObject)createPriorConnection();
+			case ContextmapperPackage.EXTEND_CONNECTION: return (EObject)createExtendConnection();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -125,9 +125,19 @@ public class ContextmapperFactoryImpl extends EFactoryImpl implements Contextmap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PriorConnection createPriorConnection() {
-		PriorConnectionImpl priorConnection = new PriorConnectionImpl();
-		return priorConnection;
+	public RuntimeConfig createRuntimeConfig() {
+		RuntimeConfigImpl runtimeConfig = new RuntimeConfigImpl();
+		return runtimeConfig;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ContextDiagram createContextDiagram() {
+		ContextDiagramImpl contextDiagram = new ContextDiagramImpl();
+		return contextDiagram;
 	}
 
 	/**
@@ -145,26 +155,6 @@ public class ContextmapperFactoryImpl extends EFactoryImpl implements Contextmap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssociateConnection createAssociateConnection() {
-		AssociateConnectionImpl associateConnection = new AssociateConnectionImpl();
-		return associateConnection;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RuntimeConfig createRuntimeConfig() {
-		RuntimeConfigImpl runtimeConfig = new RuntimeConfigImpl();
-		return runtimeConfig;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public IncludeConnection createIncludeConnection() {
 		IncludeConnectionImpl includeConnection = new IncludeConnectionImpl();
 		return includeConnection;
@@ -175,9 +165,19 @@ public class ContextmapperFactoryImpl extends EFactoryImpl implements Contextmap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ContextDiagram createContextDiagram() {
-		ContextDiagramImpl contextDiagram = new ContextDiagramImpl();
-		return contextDiagram;
+	public PriorConnection createPriorConnection() {
+		PriorConnectionImpl priorConnection = new PriorConnectionImpl();
+		return priorConnection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExtendConnection createExtendConnection() {
+		ExtendConnectionImpl extendConnection = new ExtendConnectionImpl();
+		return extendConnection;
 	}
 
 	/**

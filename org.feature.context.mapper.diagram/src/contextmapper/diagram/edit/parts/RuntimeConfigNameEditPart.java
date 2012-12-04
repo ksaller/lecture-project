@@ -58,7 +58,7 @@ public class RuntimeConfigNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5002;
+	public static final int VISUAL_ID = 5001;
 
 	/**
 	 * @generated
@@ -162,7 +162,7 @@ public class RuntimeConfigNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public void setLabel(IFigure figure) {
+	public void setLabel(WrappingLabel figure) {
 		unregisterVisuals();
 		setFigure(figure);
 		defaultText = getLabelTextHelper(figure);
@@ -196,11 +196,7 @@ public class RuntimeConfigNameEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return ContextmapperElementTypes.getImage(parserElement.eClass());
+		return null;
 	}
 
 	/**
@@ -308,7 +304,7 @@ public class RuntimeConfigNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = ContextmapperParserProvider
 					.getParser(
-							ContextmapperElementTypes.RuntimeConfig_2002,
+							ContextmapperElementTypes.RuntimeConfig_2001,
 							getParserElement(),
 							ContextmapperVisualIDRegistry
 									.getType(contextmapper.diagram.edit.parts.RuntimeConfigNameEditPart.VISUAL_ID));
@@ -623,16 +619,8 @@ public class RuntimeConfigNameEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected IFigure createFigure() {
-		IFigure label = createFigurePrim();
-		defaultText = getLabelTextHelper(label);
-		return label;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IFigure createFigurePrim() {
-		return new Label();
+		// Parent should assign one using setLabel() method
+		return null;
 	}
 
 }

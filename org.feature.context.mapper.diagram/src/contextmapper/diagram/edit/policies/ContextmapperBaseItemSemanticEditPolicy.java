@@ -32,9 +32,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
-import contextmapper.AssociateConnection;
 import contextmapper.Context;
 import contextmapper.ExcludeConnection;
+import contextmapper.ExtendConnection;
 import contextmapper.IncludeConnection;
 import contextmapper.PriorConnection;
 import contextmapper.RuntimeConfig;
@@ -328,27 +328,18 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		/**
 		 * @generated
 		 */
-		public boolean canCreateExcludeConnection_4002(Context container,
+		public boolean canCreateExtendConnection_4002(Context container,
 				Context source, Context target) {
-			return canExistExcludeConnection_4002(container, null, source,
+			return canExistExtendConnection_4002(container, null, source,
 					target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canCreateAssociateConnection_4004(Context container,
+		public boolean canCreateExcludeConnection_4004(Context container,
 				Context source, Context target) {
-			return canExistAssociateConnection_4004(container, null, source,
-					target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateIncludeConnection_4003(RuntimeConfig container,
-				RuntimeConfig source, Context target) {
-			return canExistIncludeConnection_4003(container, null, source,
+			return canExistExcludeConnection_4004(container, null, source,
 					target);
 		}
 
@@ -363,7 +354,24 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		/**
 		 * @generated
 		 */
-		public boolean canExistExcludeConnection_4002(Context container,
+		public boolean canCreateIncludeConnection_4003(RuntimeConfig container,
+				RuntimeConfig source, Context target) {
+			return canExistIncludeConnection_4003(container, null, source,
+					target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistExtendConnection_4002(Context container,
+				ExtendConnection linkInstance, Context source, Context target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistExcludeConnection_4004(Context container,
 				ExcludeConnection linkInstance, Context source, Context target) {
 			return true;
 		}
@@ -371,8 +379,8 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		/**
 		 * @generated
 		 */
-		public boolean canExistAssociateConnection_4004(Context container,
-				AssociateConnection linkInstance, Context source, Context target) {
+		public boolean canExistPriorConnection_4001(Context container,
+				PriorConnection linkInstance, Context source, Context target) {
 			return true;
 		}
 
@@ -382,14 +390,6 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		public boolean canExistIncludeConnection_4003(RuntimeConfig container,
 				IncludeConnection linkInstance, RuntimeConfig source,
 				Context target) {
-			return true;
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canExistPriorConnection_4001(Context container,
-				PriorConnection linkInstance, Context source, Context target) {
 			return true;
 		}
 	}

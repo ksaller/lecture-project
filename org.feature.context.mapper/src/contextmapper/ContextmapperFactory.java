@@ -40,13 +40,22 @@ public interface ContextmapperFactory extends EFactory {
 	Classifier createClassifier();
 
 	/**
-	 * Returns a new object of class '<em>Prior Connection</em>'.
+	 * Returns a new object of class '<em>Runtime Config</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Prior Connection</em>'.
+	 * @return a new object of class '<em>Runtime Config</em>'.
 	 * @generated
 	 */
-	PriorConnection createPriorConnection();
+	RuntimeConfig createRuntimeConfig();
+
+	/**
+	 * Returns a new object of class '<em>Context Diagram</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Context Diagram</em>'.
+	 * @generated
+	 */
+	ContextDiagram createContextDiagram();
 
 	/**
 	 * Returns a new object of class '<em>Exclude Connection</em>'.
@@ -58,24 +67,6 @@ public interface ContextmapperFactory extends EFactory {
 	ExcludeConnection createExcludeConnection();
 
 	/**
-	 * Returns a new object of class '<em>Associate Connection</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Associate Connection</em>'.
-	 * @generated
-	 */
-	AssociateConnection createAssociateConnection();
-
-	/**
-	 * Returns a new object of class '<em>Runtime Config</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Runtime Config</em>'.
-	 * @generated
-	 */
-	RuntimeConfig createRuntimeConfig();
-
-	/**
 	 * Returns a new object of class '<em>Include Connection</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -85,13 +76,22 @@ public interface ContextmapperFactory extends EFactory {
 	IncludeConnection createIncludeConnection();
 
 	/**
-	 * Returns a new object of class '<em>Context Diagram</em>'.
+	 * Returns a new object of class '<em>Prior Connection</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Context Diagram</em>'.
+	 * @return a new object of class '<em>Prior Connection</em>'.
 	 * @generated
 	 */
-	ContextDiagram createContextDiagram();
+	PriorConnection createPriorConnection();
+
+	/**
+	 * Returns a new object of class '<em>Extend Connection</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Extend Connection</em>'.
+	 * @generated
+	 */
+	ExtendConnection createExtendConnection();
 
 	/**
 	 * Returns the package supported by this factory.

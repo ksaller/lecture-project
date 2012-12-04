@@ -6,13 +6,9 @@ import contextmapper.Classification;
 import contextmapper.Classifier;
 import contextmapper.ContextmapperPackage;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import org.featuremapper.models.feature.Feature;
 
@@ -23,44 +19,14 @@ import org.featuremapper.models.feature.Feature;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link contextmapper.impl.ClassifierImpl#getFeatureClassification <em>Feature Classification</em>}</li>
  *   <li>{@link contextmapper.impl.ClassifierImpl#getFeature <em>Feature</em>}</li>
- *   <li>{@link contextmapper.impl.ClassifierImpl#getFeatureReference <em>Feature Reference</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ClassifierImpl extends EObjectImpl implements Classifier {
-	/**
-	 * The default value of the '{@link #getFeature() <em>Feature</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFeature()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Classification FEATURE_EDEFAULT = Classification.DEAD;
-
-	/**
-	 * The cached value of the '{@link #getFeature() <em>Feature</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFeature()
-	 * @generated
-	 * @ordered
-	 */
-	protected Classification feature = FEATURE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getFeatureReference() <em>Feature Reference</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFeatureReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected Feature featureReference;
-
+public class ClassifierImpl extends CDOObjectImpl implements Classifier {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -85,75 +51,9 @@ public class ClassifierImpl extends EObjectImpl implements Classifier {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Classification getFeature() {
-		return feature;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFeature(Classification newFeature) {
-		Classification oldFeature = feature;
-		feature = newFeature == null ? FEATURE_EDEFAULT : newFeature;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContextmapperPackage.CLASSIFIER__FEATURE, oldFeature, feature));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Feature getFeatureReference() {
-		if (featureReference != null && featureReference.eIsProxy()) {
-			InternalEObject oldFeatureReference = (InternalEObject)featureReference;
-			featureReference = (Feature)eResolveProxy(oldFeatureReference);
-			if (featureReference != oldFeatureReference) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ContextmapperPackage.CLASSIFIER__FEATURE_REFERENCE, oldFeatureReference, featureReference));
-			}
-		}
-		return featureReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Feature basicGetFeatureReference() {
-		return featureReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFeatureReference(Feature newFeatureReference) {
-		Feature oldFeatureReference = featureReference;
-		featureReference = newFeatureReference;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContextmapperPackage.CLASSIFIER__FEATURE_REFERENCE, oldFeatureReference, featureReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case ContextmapperPackage.CLASSIFIER__FEATURE:
-				return getFeature();
-			case ContextmapperPackage.CLASSIFIER__FEATURE_REFERENCE:
-				if (resolve) return getFeatureReference();
-				return basicGetFeatureReference();
-		}
-		return super.eGet(featureID, resolve, coreType);
+	protected int eStaticFeatureCount() {
+		return 0;
 	}
 
 	/**
@@ -161,17 +61,8 @@ public class ClassifierImpl extends EObjectImpl implements Classifier {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case ContextmapperPackage.CLASSIFIER__FEATURE:
-				setFeature((Classification)newValue);
-				return;
-			case ContextmapperPackage.CLASSIFIER__FEATURE_REFERENCE:
-				setFeatureReference((Feature)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
+	public Classification getFeatureClassification() {
+		return (Classification)eGet(ContextmapperPackage.Literals.CLASSIFIER__FEATURE_CLASSIFICATION, true);
 	}
 
 	/**
@@ -179,17 +70,8 @@ public class ClassifierImpl extends EObjectImpl implements Classifier {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case ContextmapperPackage.CLASSIFIER__FEATURE:
-				setFeature(FEATURE_EDEFAULT);
-				return;
-			case ContextmapperPackage.CLASSIFIER__FEATURE_REFERENCE:
-				setFeatureReference((Feature)null);
-				return;
-		}
-		super.eUnset(featureID);
+	public void setFeatureClassification(Classification newFeatureClassification) {
+		eSet(ContextmapperPackage.Literals.CLASSIFIER__FEATURE_CLASSIFICATION, newFeatureClassification);
 	}
 
 	/**
@@ -197,15 +79,8 @@ public class ClassifierImpl extends EObjectImpl implements Classifier {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case ContextmapperPackage.CLASSIFIER__FEATURE:
-				return feature != FEATURE_EDEFAULT;
-			case ContextmapperPackage.CLASSIFIER__FEATURE_REFERENCE:
-				return featureReference != null;
-		}
-		return super.eIsSet(featureID);
+	public Feature getFeature() {
+		return (Feature)eGet(ContextmapperPackage.Literals.CLASSIFIER__FEATURE, true);
 	}
 
 	/**
@@ -213,15 +88,8 @@ public class ClassifierImpl extends EObjectImpl implements Classifier {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (feature: ");
-		result.append(feature);
-		result.append(')');
-		return result.toString();
+	public void setFeature(Feature newFeature) {
+		eSet(ContextmapperPackage.Literals.CLASSIFIER__FEATURE, newFeature);
 	}
 
 } //ClassifierImpl

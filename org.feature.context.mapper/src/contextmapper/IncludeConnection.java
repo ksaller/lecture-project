@@ -2,7 +2,7 @@
  */
 package contextmapper;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,32 +19,31 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see contextmapper.ContextmapperPackage#getIncludeConnection()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface IncludeConnection extends EObject {
+public interface IncludeConnection extends CDOObject {
 	/**
-	 * Returns the value of the '<em><b>Source</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link contextmapper.RuntimeConfig#getIncludes <em>Includes</em>}'.
+	 * Returns the value of the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source</em>' container reference isn't clear,
+	 * If the meaning of the '<em>Source</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Source</em>' container reference.
+	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(RuntimeConfig)
 	 * @see contextmapper.ContextmapperPackage#getIncludeConnection_Source()
-	 * @see contextmapper.RuntimeConfig#getIncludes
-	 * @model opposite="includes" resolveProxies="false" required="true" transient="false"
+	 * @model required="true"
 	 * @generated
 	 */
 	RuntimeConfig getSource();
 
 	/**
-	 * Sets the value of the '{@link contextmapper.IncludeConnection#getSource <em>Source</em>}' container reference.
+	 * Sets the value of the '{@link contextmapper.IncludeConnection#getSource <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source</em>' container reference.
+	 * @param value the new value of the '<em>Source</em>' reference.
 	 * @see #getSource()
 	 * @generated
 	 */
@@ -52,7 +51,6 @@ public interface IncludeConnection extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link contextmapper.Context#getIncluded <em>Included</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Target</em>' reference isn't clear,
@@ -62,8 +60,7 @@ public interface IncludeConnection extends EObject {
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(Context)
 	 * @see contextmapper.ContextmapperPackage#getIncludeConnection_Target()
-	 * @see contextmapper.Context#getIncluded
-	 * @model opposite="included" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	Context getTarget();

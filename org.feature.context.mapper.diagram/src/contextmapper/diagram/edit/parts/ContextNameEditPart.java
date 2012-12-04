@@ -58,7 +58,7 @@ public class ContextNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5001;
+	public static final int VISUAL_ID = 5002;
 
 	/**
 	 * @generated
@@ -196,11 +196,7 @@ public class ContextNameEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return ContextmapperElementTypes.getImage(parserElement.eClass());
+		return null;
 	}
 
 	/**
@@ -308,7 +304,7 @@ public class ContextNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = ContextmapperParserProvider
 					.getParser(
-							ContextmapperElementTypes.Context_2001,
+							ContextmapperElementTypes.Context_2002,
 							getParserElement(),
 							ContextmapperVisualIDRegistry
 									.getType(contextmapper.diagram.edit.parts.ContextNameEditPart.VISUAL_ID));

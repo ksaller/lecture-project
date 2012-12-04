@@ -35,11 +35,11 @@ public class ContextmapperPaletteFactory {
 				Messages.Contextmapper1Group_title);
 		paletteContainer.setId("createContextmapper1Group"); //$NON-NLS-1$
 		paletteContainer.add(createContext1CreationTool());
-		paletteContainer.add(createPriorConnection2CreationTool());
+		paletteContainer.add(createRuntimeConfig2CreationTool());
 		paletteContainer.add(createExcludeConnection3CreationTool());
-		paletteContainer.add(createAssociateConnection4CreationTool());
-		paletteContainer.add(createRuntimeConfig5CreationTool());
-		paletteContainer.add(createIncludeConnection6CreationTool());
+		paletteContainer.add(createIncludeConnection4CreationTool());
+		paletteContainer.add(createPriorConnection5CreationTool());
+		paletteContainer.add(createExtendConnection6CreationTool());
 		return paletteContainer;
 	}
 
@@ -51,10 +51,10 @@ public class ContextmapperPaletteFactory {
 				Messages.Context1CreationTool_title,
 				Messages.Context1CreationTool_desc,
 				Collections
-						.singletonList(ContextmapperElementTypes.Context_2001));
+						.singletonList(ContextmapperElementTypes.Context_2002));
 		entry.setId("createContext1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ContextmapperElementTypes
-				.getImageDescriptor(ContextmapperElementTypes.Context_2001));
+				.getImageDescriptor(ContextmapperElementTypes.Context_2002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -62,15 +62,15 @@ public class ContextmapperPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createPriorConnection2CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.PriorConnection2CreationTool_title,
-				Messages.PriorConnection2CreationTool_desc,
+	private ToolEntry createRuntimeConfig2CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.RuntimeConfig2CreationTool_title,
+				Messages.RuntimeConfig2CreationTool_desc,
 				Collections
-						.singletonList(ContextmapperElementTypes.PriorConnection_4001));
-		entry.setId("createPriorConnection2CreationTool"); //$NON-NLS-1$
+						.singletonList(ContextmapperElementTypes.RuntimeConfig_2001));
+		entry.setId("createRuntimeConfig2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ContextmapperElementTypes
-				.getImageDescriptor(ContextmapperElementTypes.PriorConnection_4001));
+				.getImageDescriptor(ContextmapperElementTypes.RuntimeConfig_2001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -83,10 +83,10 @@ public class ContextmapperPaletteFactory {
 				Messages.ExcludeConnection3CreationTool_title,
 				Messages.ExcludeConnection3CreationTool_desc,
 				Collections
-						.singletonList(ContextmapperElementTypes.ExcludeConnection_4002));
+						.singletonList(ContextmapperElementTypes.ExcludeConnection_4004));
 		entry.setId("createExcludeConnection3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ContextmapperElementTypes
-				.getImageDescriptor(ContextmapperElementTypes.ExcludeConnection_4002));
+				.getImageDescriptor(ContextmapperElementTypes.ExcludeConnection_4004));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -94,47 +94,47 @@ public class ContextmapperPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createAssociateConnection4CreationTool() {
+	private ToolEntry createIncludeConnection4CreationTool() {
 		LinkToolEntry entry = new LinkToolEntry(
-				Messages.AssociateConnection4CreationTool_title,
-				Messages.AssociateConnection4CreationTool_desc,
-				Collections
-						.singletonList(ContextmapperElementTypes.AssociateConnection_4004));
-		entry.setId("createAssociateConnection4CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(ContextmapperElementTypes
-				.getImageDescriptor(ContextmapperElementTypes.AssociateConnection_4004));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createRuntimeConfig5CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
-				Messages.RuntimeConfig5CreationTool_title,
-				Messages.RuntimeConfig5CreationTool_desc,
-				Collections
-						.singletonList(ContextmapperElementTypes.RuntimeConfig_2002));
-		entry.setId("createRuntimeConfig5CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(ContextmapperElementTypes
-				.getImageDescriptor(ContextmapperElementTypes.RuntimeConfig_2002));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createIncludeConnection6CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.IncludeConnection6CreationTool_title,
-				Messages.IncludeConnection6CreationTool_desc,
+				Messages.IncludeConnection4CreationTool_title,
+				Messages.IncludeConnection4CreationTool_desc,
 				Collections
 						.singletonList(ContextmapperElementTypes.IncludeConnection_4003));
-		entry.setId("createIncludeConnection6CreationTool"); //$NON-NLS-1$
+		entry.setId("createIncludeConnection4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ContextmapperElementTypes
 				.getImageDescriptor(ContextmapperElementTypes.IncludeConnection_4003));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createPriorConnection5CreationTool() {
+		LinkToolEntry entry = new LinkToolEntry(
+				Messages.PriorConnection5CreationTool_title,
+				Messages.PriorConnection5CreationTool_desc,
+				Collections
+						.singletonList(ContextmapperElementTypes.PriorConnection_4001));
+		entry.setId("createPriorConnection5CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(ContextmapperElementTypes
+				.getImageDescriptor(ContextmapperElementTypes.PriorConnection_4001));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createExtendConnection6CreationTool() {
+		LinkToolEntry entry = new LinkToolEntry(
+				Messages.ExtendConnection6CreationTool_title,
+				Messages.ExtendConnection6CreationTool_desc,
+				Collections
+						.singletonList(ContextmapperElementTypes.ExtendConnection_4002));
+		entry.setId("createExtendConnection6CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(ContextmapperElementTypes
+				.getImageDescriptor(ContextmapperElementTypes.ExtendConnection_4002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

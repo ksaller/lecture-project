@@ -36,7 +36,7 @@ public enum Classification implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ALIVE(0, "alive", "alive"),
+	ALIVE(1, "alive", "alive"),
 
 	/**
 	 * The '<em><b>Unbound</b></em>' literal object.
@@ -46,7 +46,7 @@ public enum Classification implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNBOUND(0, "unbound", "unbound");
+	UNBOUND(2, "unbound", "unbound");
 
 	/**
 	 * The '<em><b>Dead</b></em>' literal value.
@@ -76,7 +76,7 @@ public enum Classification implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ALIVE_VALUE = 0;
+	public static final int ALIVE_VALUE = 1;
 
 	/**
 	 * The '<em><b>Unbound</b></em>' literal value.
@@ -91,7 +91,7 @@ public enum Classification implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int UNBOUND_VALUE = 0;
+	public static final int UNBOUND_VALUE = 2;
 
 	/**
 	 * An array of all the '<em><b>Classification</b></em>' enumerators.
@@ -155,6 +155,8 @@ public enum Classification implements Enumerator {
 	public static Classification get(int value) {
 		switch (value) {
 			case DEAD_VALUE: return DEAD;
+			case ALIVE_VALUE: return ALIVE;
+			case UNBOUND_VALUE: return UNBOUND;
 		}
 		return null;
 	}

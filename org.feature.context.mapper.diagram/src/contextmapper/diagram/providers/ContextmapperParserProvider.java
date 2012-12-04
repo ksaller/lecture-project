@@ -28,43 +28,43 @@ public class ContextmapperParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser runtimeConfigName_5002Parser;
+	private IParser runtimeConfigName_5001Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getRuntimeConfigName_5002Parser() {
-		if (runtimeConfigName_5002Parser == null) {
+	private IParser getRuntimeConfigName_5001Parser() {
+		if (runtimeConfigName_5001Parser == null) {
 			EAttribute[] features = new EAttribute[] { ContextmapperPackage.eINSTANCE
 					.getRuntimeConfig_Name() };
 			EAttribute[] editableFeatures = new EAttribute[] { ContextmapperPackage.eINSTANCE
 					.getRuntimeConfig_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features,
 					editableFeatures);
-			runtimeConfigName_5002Parser = parser;
+			runtimeConfigName_5001Parser = parser;
 		}
-		return runtimeConfigName_5002Parser;
+		return runtimeConfigName_5001Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser contextName_5001Parser;
+	private IParser contextName_5002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getContextName_5001Parser() {
-		if (contextName_5001Parser == null) {
+	private IParser getContextName_5002Parser() {
+		if (contextName_5002Parser == null) {
 			EAttribute[] features = new EAttribute[] { ContextmapperPackage.eINSTANCE
 					.getContext_Name() };
 			EAttribute[] editableFeatures = new EAttribute[] { ContextmapperPackage.eINSTANCE
 					.getContext_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features,
 					editableFeatures);
-			contextName_5001Parser = parser;
+			contextName_5002Parser = parser;
 		}
-		return contextName_5001Parser;
+		return contextName_5002Parser;
 	}
 
 	/**
@@ -73,9 +73,9 @@ public class ContextmapperParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case RuntimeConfigNameEditPart.VISUAL_ID:
-			return getRuntimeConfigName_5002Parser();
+			return getRuntimeConfigName_5001Parser();
 		case ContextNameEditPart.VISUAL_ID:
-			return getContextName_5001Parser();
+			return getContextName_5002Parser();
 		}
 		return null;
 	}

@@ -58,7 +58,7 @@ public class RuntimeConfigCreateCommand extends EditElementCommand {
 				.createRuntimeConfig();
 
 		ContextDiagram owner = (ContextDiagram) getElementToEdit();
-		owner.getContainsRuntimeConfigs().add(newElement);
+		owner.getRuntimeconfig().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

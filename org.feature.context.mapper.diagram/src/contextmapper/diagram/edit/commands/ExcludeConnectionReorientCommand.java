@@ -71,7 +71,7 @@ public class ExcludeConnectionReorientCommand extends EditElementCommand {
 		}
 		Context container = (Context) getLink().eContainer();
 		return ContextmapperBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistExcludeConnection_4002(container, getLink(),
+				.canExistExcludeConnection_4004(container, getLink(),
 						getNewSource(), target);
 	}
 
@@ -88,7 +88,7 @@ public class ExcludeConnectionReorientCommand extends EditElementCommand {
 		}
 		Context container = (Context) getLink().eContainer();
 		return ContextmapperBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistExcludeConnection_4002(container, getLink(), source,
+				.canExistExcludeConnection_4004(container, getLink(), source,
 						getNewTarget());
 	}
 

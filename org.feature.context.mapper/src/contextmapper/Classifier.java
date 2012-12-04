@@ -2,7 +2,7 @@
  */
 package contextmapper;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 import org.featuremapper.models.feature.Feature;
 
@@ -14,69 +14,70 @@ import org.featuremapper.models.feature.Feature;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link contextmapper.Classifier#getFeatureClassification <em>Feature Classification</em>}</li>
  *   <li>{@link contextmapper.Classifier#getFeature <em>Feature</em>}</li>
- *   <li>{@link contextmapper.Classifier#getFeatureReference <em>Feature Reference</em>}</li>
  * </ul>
  * </p>
  *
  * @see contextmapper.ContextmapperPackage#getClassifier()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface Classifier extends EObject {
+public interface Classifier extends CDOObject {
 	/**
-	 * Returns the value of the '<em><b>Feature</b></em>' attribute.
+	 * Returns the value of the '<em><b>Feature Classification</b></em>' attribute.
 	 * The literals are from the enumeration {@link contextmapper.Classification}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Feature Classification</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature</em>' attribute.
+	 * @return the value of the '<em>Feature Classification</em>' attribute.
 	 * @see contextmapper.Classification
-	 * @see #setFeature(Classification)
-	 * @see contextmapper.ContextmapperPackage#getClassifier_Feature()
+	 * @see #setFeatureClassification(Classification)
+	 * @see contextmapper.ContextmapperPackage#getClassifier_FeatureClassification()
 	 * @model
 	 * @generated
 	 */
-	Classification getFeature();
+	Classification getFeatureClassification();
 
 	/**
-	 * Sets the value of the '{@link contextmapper.Classifier#getFeature <em>Feature</em>}' attribute.
+	 * Sets the value of the '{@link contextmapper.Classifier#getFeatureClassification <em>Feature Classification</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature</em>' attribute.
+	 * @param value the new value of the '<em>Feature Classification</em>' attribute.
 	 * @see contextmapper.Classification
-	 * @see #getFeature()
+	 * @see #getFeatureClassification()
 	 * @generated
 	 */
-	void setFeature(Classification value);
+	void setFeatureClassification(Classification value);
 
 	/**
-	 * Returns the value of the '<em><b>Feature Reference</b></em>' reference.
+	 * Returns the value of the '<em><b>Feature</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Feature Reference</em>' reference isn't clear,
+	 * If the meaning of the '<em>Feature</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Feature Reference</em>' reference.
-	 * @see #setFeatureReference(Feature)
-	 * @see contextmapper.ContextmapperPackage#getClassifier_FeatureReference()
-	 * @model required="true"
+	 * @return the value of the '<em>Feature</em>' reference.
+	 * @see #setFeature(Feature)
+	 * @see contextmapper.ContextmapperPackage#getClassifier_Feature()
+	 * @model required="true" derived="true"
 	 * @generated
 	 */
-	Feature getFeatureReference();
+	Feature getFeature();
 
 	/**
-	 * Sets the value of the '{@link contextmapper.Classifier#getFeatureReference <em>Feature Reference</em>}' reference.
+	 * Sets the value of the '{@link contextmapper.Classifier#getFeature <em>Feature</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Feature Reference</em>' reference.
-	 * @see #getFeatureReference()
+	 * @param value the new value of the '<em>Feature</em>' reference.
+	 * @see #getFeature()
 	 * @generated
 	 */
-	void setFeatureReference(Feature value);
+	void setFeature(Feature value);
 
 } // Classifier

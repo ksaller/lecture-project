@@ -78,36 +78,21 @@ public class ContextmapperSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ContextmapperPackage.CONNECTION: {
-				Connection connection = (Connection)theEObject;
-				T result = caseConnection(connection);
+			case ContextmapperPackage.RUNTIME_CONFIG: {
+				RuntimeConfig runtimeConfig = (RuntimeConfig)theEObject;
+				T result = caseRuntimeConfig(runtimeConfig);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ContextmapperPackage.PRIOR_CONNECTION: {
-				PriorConnection priorConnection = (PriorConnection)theEObject;
-				T result = casePriorConnection(priorConnection);
-				if (result == null) result = caseConnection(priorConnection);
+			case ContextmapperPackage.CONTEXT_DIAGRAM: {
+				ContextDiagram contextDiagram = (ContextDiagram)theEObject;
+				T result = caseContextDiagram(contextDiagram);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ContextmapperPackage.EXCLUDE_CONNECTION: {
 				ExcludeConnection excludeConnection = (ExcludeConnection)theEObject;
 				T result = caseExcludeConnection(excludeConnection);
-				if (result == null) result = caseConnection(excludeConnection);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ContextmapperPackage.ASSOCIATE_CONNECTION: {
-				AssociateConnection associateConnection = (AssociateConnection)theEObject;
-				T result = caseAssociateConnection(associateConnection);
-				if (result == null) result = caseConnection(associateConnection);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ContextmapperPackage.RUNTIME_CONFIG: {
-				RuntimeConfig runtimeConfig = (RuntimeConfig)theEObject;
-				T result = caseRuntimeConfig(runtimeConfig);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -117,9 +102,15 @@ public class ContextmapperSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ContextmapperPackage.CONTEXT_DIAGRAM: {
-				ContextDiagram contextDiagram = (ContextDiagram)theEObject;
-				T result = caseContextDiagram(contextDiagram);
+			case ContextmapperPackage.PRIOR_CONNECTION: {
+				PriorConnection priorConnection = (PriorConnection)theEObject;
+				T result = casePriorConnection(priorConnection);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ContextmapperPackage.EXTEND_CONNECTION: {
+				ExtendConnection extendConnection = (ExtendConnection)theEObject;
+				T result = caseExtendConnection(extendConnection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -158,32 +149,32 @@ public class ContextmapperSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Connection</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Runtime Config</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Connection</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Runtime Config</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseConnection(Connection object) {
+	public T caseRuntimeConfig(RuntimeConfig object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Prior Connection</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Context Diagram</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Prior Connection</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Context Diagram</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePriorConnection(PriorConnection object) {
+	public T caseContextDiagram(ContextDiagram object) {
 		return null;
 	}
 
@@ -203,36 +194,6 @@ public class ContextmapperSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Associate Connection</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Associate Connection</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAssociateConnection(AssociateConnection object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Runtime Config</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Runtime Config</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRuntimeConfig(RuntimeConfig object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Include Connection</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -248,17 +209,32 @@ public class ContextmapperSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Context Diagram</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Prior Connection</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Context Diagram</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Prior Connection</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseContextDiagram(ContextDiagram object) {
+	public T casePriorConnection(PriorConnection object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Extend Connection</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Extend Connection</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExtendConnection(ExtendConnection object) {
 		return null;
 	}
 

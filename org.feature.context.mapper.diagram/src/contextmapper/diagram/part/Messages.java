@@ -56,16 +56,6 @@ public class Messages extends NLS {
 	public static String ContextmapperCreationWizard_DomainModelFilePageDescription;
 
 	/**
-	 * @generated NOT
-	 */
-	public static String ContextmapperCreationWizard_ViewMappingFilePageTitle;
-	
-	/**
-	 * @generated NOT
-	 */
-	public static String ContextmapperCreationWizard_ViewMappingFilePageDescription;
-	
-	/**
 	 * @generated
 	 */
 	public static String ContextmapperCreationWizardOpenEditorError;
@@ -194,7 +184,7 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String ContextmapperNewDiagramFileWizard_RootSelectionPageDescription;
-	
+
 	/**
 	 * @generated
 	 */
@@ -308,12 +298,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String PriorConnection2CreationTool_title;
+	public static String RuntimeConfig2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PriorConnection2CreationTool_desc;
+	public static String RuntimeConfig2CreationTool_desc;
 
 	/**
 	 * @generated
@@ -328,32 +318,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String AssociateConnection4CreationTool_title;
+	public static String IncludeConnection4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String AssociateConnection4CreationTool_desc;
+	public static String IncludeConnection4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String RuntimeConfig5CreationTool_title;
+	public static String PriorConnection5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String RuntimeConfig5CreationTool_desc;
+	public static String PriorConnection5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String IncludeConnection6CreationTool_title;
+	public static String ExtendConnection6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String IncludeConnection6CreationTool_desc;
+	public static String ExtendConnection6CreationTool_desc;
 
 	/**
 	 * @generated

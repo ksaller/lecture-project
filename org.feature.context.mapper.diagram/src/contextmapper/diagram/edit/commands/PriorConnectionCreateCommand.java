@@ -85,7 +85,7 @@ public class PriorConnectionCreateCommand extends EditElementCommand {
 
 		PriorConnection newElement = ContextmapperFactory.eINSTANCE
 				.createPriorConnection();
-		getContainer().getSourceConnections().add(newElement);
+		getContainer().getPriorize().add(newElement);
 		newElement.setSource(getSource());
 		newElement.setTarget(getTarget());
 		doConfigure(newElement, monitor, info);

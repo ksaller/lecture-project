@@ -17,10 +17,10 @@ import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
 import contextmapper.ContextmapperPackage;
-import contextmapper.diagram.edit.parts.AssociateConnectionEditPart;
 import contextmapper.diagram.edit.parts.ContextDiagramEditPart;
 import contextmapper.diagram.edit.parts.ContextEditPart;
 import contextmapper.diagram.edit.parts.ExcludeConnectionEditPart;
+import contextmapper.diagram.edit.parts.ExtendConnectionEditPart;
 import contextmapper.diagram.edit.parts.IncludeConnectionEditPart;
 import contextmapper.diagram.edit.parts.PriorConnectionEditPart;
 import contextmapper.diagram.edit.parts.RuntimeConfigEditPart;
@@ -59,27 +59,27 @@ public class ContextmapperElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType RuntimeConfig_2002 = getElementType("org.feature.context.mapper.diagram.RuntimeConfig_2002"); //$NON-NLS-1$
+	public static final IElementType RuntimeConfig_2001 = getElementType("org.feature.context.mapper.diagram.RuntimeConfig_2001"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType Context_2001 = getElementType("org.feature.context.mapper.diagram.Context_2001"); //$NON-NLS-1$
+	public static final IElementType Context_2002 = getElementType("org.feature.context.mapper.diagram.Context_2002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ExcludeConnection_4002 = getElementType("org.feature.context.mapper.diagram.ExcludeConnection_4002"); //$NON-NLS-1$
+	public static final IElementType ExtendConnection_4002 = getElementType("org.feature.context.mapper.diagram.ExtendConnection_4002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType AssociateConnection_4004 = getElementType("org.feature.context.mapper.diagram.AssociateConnection_4004"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType IncludeConnection_4003 = getElementType("org.feature.context.mapper.diagram.IncludeConnection_4003"); //$NON-NLS-1$
+	public static final IElementType ExcludeConnection_4004 = getElementType("org.feature.context.mapper.diagram.ExcludeConnection_4004"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
 	public static final IElementType PriorConnection_4001 = getElementType("org.feature.context.mapper.diagram.PriorConnection_4001"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType IncludeConnection_4003 = getElementType("org.feature.context.mapper.diagram.IncludeConnection_4003"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -195,23 +195,23 @@ public class ContextmapperElementTypes {
 			elements.put(ContextDiagram_1000,
 					ContextmapperPackage.eINSTANCE.getContextDiagram());
 
-			elements.put(RuntimeConfig_2002,
+			elements.put(RuntimeConfig_2001,
 					ContextmapperPackage.eINSTANCE.getRuntimeConfig());
 
-			elements.put(Context_2001,
+			elements.put(Context_2002,
 					ContextmapperPackage.eINSTANCE.getContext());
 
-			elements.put(ExcludeConnection_4002,
+			elements.put(ExtendConnection_4002,
+					ContextmapperPackage.eINSTANCE.getExtendConnection());
+
+			elements.put(ExcludeConnection_4004,
 					ContextmapperPackage.eINSTANCE.getExcludeConnection());
-
-			elements.put(AssociateConnection_4004,
-					ContextmapperPackage.eINSTANCE.getAssociateConnection());
-
-			elements.put(IncludeConnection_4003,
-					ContextmapperPackage.eINSTANCE.getIncludeConnection());
 
 			elements.put(PriorConnection_4001,
 					ContextmapperPackage.eINSTANCE.getPriorConnection());
+
+			elements.put(IncludeConnection_4003,
+					ContextmapperPackage.eINSTANCE.getIncludeConnection());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -230,12 +230,12 @@ public class ContextmapperElementTypes {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(ContextDiagram_1000);
-			KNOWN_ELEMENT_TYPES.add(RuntimeConfig_2002);
-			KNOWN_ELEMENT_TYPES.add(Context_2001);
-			KNOWN_ELEMENT_TYPES.add(ExcludeConnection_4002);
-			KNOWN_ELEMENT_TYPES.add(AssociateConnection_4004);
-			KNOWN_ELEMENT_TYPES.add(IncludeConnection_4003);
+			KNOWN_ELEMENT_TYPES.add(RuntimeConfig_2001);
+			KNOWN_ELEMENT_TYPES.add(Context_2002);
+			KNOWN_ELEMENT_TYPES.add(ExtendConnection_4002);
+			KNOWN_ELEMENT_TYPES.add(ExcludeConnection_4004);
 			KNOWN_ELEMENT_TYPES.add(PriorConnection_4001);
+			KNOWN_ELEMENT_TYPES.add(IncludeConnection_4003);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -248,17 +248,17 @@ public class ContextmapperElementTypes {
 		case ContextDiagramEditPart.VISUAL_ID:
 			return ContextDiagram_1000;
 		case RuntimeConfigEditPart.VISUAL_ID:
-			return RuntimeConfig_2002;
+			return RuntimeConfig_2001;
 		case ContextEditPart.VISUAL_ID:
-			return Context_2001;
+			return Context_2002;
+		case ExtendConnectionEditPart.VISUAL_ID:
+			return ExtendConnection_4002;
 		case ExcludeConnectionEditPart.VISUAL_ID:
-			return ExcludeConnection_4002;
-		case AssociateConnectionEditPart.VISUAL_ID:
-			return AssociateConnection_4004;
-		case IncludeConnectionEditPart.VISUAL_ID:
-			return IncludeConnection_4003;
+			return ExcludeConnection_4004;
 		case PriorConnectionEditPart.VISUAL_ID:
 			return PriorConnection_4001;
+		case IncludeConnectionEditPart.VISUAL_ID:
+			return IncludeConnection_4003;
 		}
 		return null;
 	}

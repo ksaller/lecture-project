@@ -32,10 +32,10 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 
 import contextmapper.ContextmapperPackage;
-import contextmapper.diagram.edit.parts.AssociateConnectionEditPart;
 import contextmapper.diagram.edit.parts.ContextDiagramEditPart;
 import contextmapper.diagram.edit.parts.ContextEditPart;
 import contextmapper.diagram.edit.parts.ExcludeConnectionEditPart;
+import contextmapper.diagram.edit.parts.ExtendConnectionEditPart;
 import contextmapper.diagram.edit.parts.IncludeConnectionEditPart;
 import contextmapper.diagram.edit.parts.PriorConnectionEditPart;
 import contextmapper.diagram.edit.parts.RuntimeConfigEditPart;
@@ -73,9 +73,9 @@ public class ContextDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
 			myFeaturesToSynchronize.add(ContextmapperPackage.eINSTANCE
-					.getContextDiagram_ContainsRuntimeConfigs());
+					.getContextDiagram_Runtimeconfig());
 			myFeaturesToSynchronize.add(ContextmapperPackage.eINSTANCE
-					.getContextDiagram_ContainsContexts());
+					.getContextDiagram_Context());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -272,7 +272,7 @@ public class ContextDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 		case RuntimeConfigEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(ContextmapperDiagramUpdater
-						.getRuntimeConfig_2002ContainedLinks(view));
+						.getRuntimeConfig_2001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -280,7 +280,15 @@ public class ContextDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 		case ContextEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(ContextmapperDiagramUpdater
-						.getContext_2001ContainedLinks(view));
+						.getContext_2002ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case ExtendConnectionEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(ContextmapperDiagramUpdater
+						.getExtendConnection_4002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -288,23 +296,7 @@ public class ContextDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 		case ExcludeConnectionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(ContextmapperDiagramUpdater
-						.getExcludeConnection_4002ContainedLinks(view));
-			}
-			domain2NotationMap.putView(view.getElement(), view);
-			break;
-		}
-		case AssociateConnectionEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(ContextmapperDiagramUpdater
-						.getAssociateConnection_4004ContainedLinks(view));
-			}
-			domain2NotationMap.putView(view.getElement(), view);
-			break;
-		}
-		case IncludeConnectionEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(ContextmapperDiagramUpdater
-						.getIncludeConnection_4003ContainedLinks(view));
+						.getExcludeConnection_4004ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -313,6 +305,14 @@ public class ContextDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(ContextmapperDiagramUpdater
 						.getPriorConnection_4001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case IncludeConnectionEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(ContextmapperDiagramUpdater
+						.getIncludeConnection_4003ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

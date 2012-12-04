@@ -29,7 +29,7 @@ public class RuntimeConfigItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public RuntimeConfigItemSemanticEditPolicy() {
-		super(ContextmapperElementTypes.RuntimeConfig_2002);
+		super(ContextmapperElementTypes.RuntimeConfig_2001);
 	}
 
 	/**

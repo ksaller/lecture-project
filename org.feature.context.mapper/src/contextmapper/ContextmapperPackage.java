@@ -76,40 +76,49 @@ public interface ContextmapperPackage extends EPackage {
 	int CONTEXT__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Classifies</b></em>' reference list.
+	 * The feature id for the '<em><b>Classifier</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT__CLASSIFIES = 1;
+	int CONTEXT__CLASSIFIER = 1;
 
 	/**
-	 * The feature id for the '<em><b>Target Connections</b></em>' reference list.
+	 * The feature id for the '<em><b>Priorize</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT__TARGET_CONNECTIONS = 2;
+	int CONTEXT__PRIORIZE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Included</b></em>' reference list.
+	 * The feature id for the '<em><b>Extend</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT__INCLUDED = 3;
+	int CONTEXT__EXTEND = 3;
 
 	/**
-	 * The feature id for the '<em><b>Source Connections</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Exclude</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT__SOURCE_CONNECTIONS = 4;
+	int CONTEXT__EXCLUDE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Excluded</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT__EXCLUDED = 5;
 
 	/**
 	 * The number of structural features of the '<em>Context</em>' class.
@@ -118,7 +127,7 @@ public interface ContextmapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_FEATURE_COUNT = 5;
+	int CONTEXT_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link contextmapper.impl.ClassifierImpl <em>Classifier</em>}' class.
@@ -131,22 +140,22 @@ public interface ContextmapperPackage extends EPackage {
 	int CLASSIFIER = 1;
 
 	/**
-	 * The feature id for the '<em><b>Feature</b></em>' attribute.
+	 * The feature id for the '<em><b>Feature Classification</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSIFIER__FEATURE = 0;
+	int CLASSIFIER__FEATURE_CLASSIFICATION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Feature Reference</b></em>' reference.
+	 * The feature id for the '<em><b>Feature</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASSIFIER__FEATURE_REFERENCE = 1;
+	int CLASSIFIER__FEATURE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Classifier</em>' class.
@@ -158,78 +167,87 @@ public interface ContextmapperPackage extends EPackage {
 	int CLASSIFIER_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link contextmapper.impl.ConnectionImpl <em>Connection</em>}' class.
+	 * The meta object id for the '{@link contextmapper.impl.RuntimeConfigImpl <em>Runtime Config</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see contextmapper.impl.ConnectionImpl
-	 * @see contextmapper.impl.ContextmapperPackageImpl#getConnection()
+	 * @see contextmapper.impl.RuntimeConfigImpl
+	 * @see contextmapper.impl.ContextmapperPackageImpl#getRuntimeConfig()
 	 * @generated
 	 */
-	int CONNECTION = 2;
+	int RUNTIME_CONFIG = 2;
 
 	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTION__SOURCE = 0;
+	int RUNTIME_CONFIG__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Target</b></em>' container reference.
+	 * The feature id for the '<em><b>Include</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTION__TARGET = 1;
+	int RUNTIME_CONFIG__INCLUDE = 1;
 
 	/**
-	 * The number of structural features of the '<em>Connection</em>' class.
+	 * The number of structural features of the '<em>Runtime Config</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTION_FEATURE_COUNT = 2;
+	int RUNTIME_CONFIG_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link contextmapper.impl.PriorConnectionImpl <em>Prior Connection</em>}' class.
+	 * The meta object id for the '{@link contextmapper.impl.ContextDiagramImpl <em>Context Diagram</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see contextmapper.impl.PriorConnectionImpl
-	 * @see contextmapper.impl.ContextmapperPackageImpl#getPriorConnection()
+	 * @see contextmapper.impl.ContextDiagramImpl
+	 * @see contextmapper.impl.ContextmapperPackageImpl#getContextDiagram()
 	 * @generated
 	 */
-	int PRIOR_CONNECTION = 3;
+	int CONTEXT_DIAGRAM = 3;
 
 	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIOR_CONNECTION__SOURCE = CONNECTION__SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' container reference.
+	 * The feature id for the '<em><b>Mapping Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIOR_CONNECTION__TARGET = CONNECTION__TARGET;
+	int CONTEXT_DIAGRAM__MAPPING_REFERENCE = 0;
 
 	/**
-	 * The number of structural features of the '<em>Prior Connection</em>' class.
+	 * The feature id for the '<em><b>Context</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIOR_CONNECTION_FEATURE_COUNT = CONNECTION_FEATURE_COUNT + 0;
+	int CONTEXT_DIAGRAM__CONTEXT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Runtimeconfig</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT_DIAGRAM__RUNTIMECONFIG = 2;
+
+	/**
+	 * The number of structural features of the '<em>Context Diagram</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT_DIAGRAM_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link contextmapper.impl.ExcludeConnectionImpl <em>Exclude Connection</em>}' class.
@@ -242,22 +260,22 @@ public interface ContextmapperPackage extends EPackage {
 	int EXCLUDE_CONNECTION = 4;
 
 	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * The feature id for the '<em><b>Source</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUDE_CONNECTION__SOURCE = CONNECTION__SOURCE;
+	int EXCLUDE_CONNECTION__SOURCE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Target</b></em>' container reference.
+	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUDE_CONNECTION__TARGET = CONNECTION__TARGET;
+	int EXCLUDE_CONNECTION__TARGET = 1;
 
 	/**
 	 * The number of structural features of the '<em>Exclude Connection</em>' class.
@@ -266,81 +284,7 @@ public interface ContextmapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUDE_CONNECTION_FEATURE_COUNT = CONNECTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link contextmapper.impl.AssociateConnectionImpl <em>Associate Connection</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see contextmapper.impl.AssociateConnectionImpl
-	 * @see contextmapper.impl.ContextmapperPackageImpl#getAssociateConnection()
-	 * @generated
-	 */
-	int ASSOCIATE_CONNECTION = 5;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSOCIATE_CONNECTION__SOURCE = CONNECTION__SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSOCIATE_CONNECTION__TARGET = CONNECTION__TARGET;
-
-	/**
-	 * The number of structural features of the '<em>Associate Connection</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSOCIATE_CONNECTION_FEATURE_COUNT = CONNECTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link contextmapper.impl.RuntimeConfigImpl <em>Runtime Config</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see contextmapper.impl.RuntimeConfigImpl
-	 * @see contextmapper.impl.ContextmapperPackageImpl#getRuntimeConfig()
-	 * @generated
-	 */
-	int RUNTIME_CONFIG = 6;
-
-	/**
-	 * The feature id for the '<em><b>Includes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RUNTIME_CONFIG__INCLUDES = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RUNTIME_CONFIG__NAME = 1;
-
-	/**
-	 * The number of structural features of the '<em>Runtime Config</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RUNTIME_CONFIG_FEATURE_COUNT = 2;
+	int EXCLUDE_CONNECTION_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link contextmapper.impl.IncludeConnectionImpl <em>Include Connection</em>}' class.
@@ -350,10 +294,10 @@ public interface ContextmapperPackage extends EPackage {
 	 * @see contextmapper.impl.ContextmapperPackageImpl#getIncludeConnection()
 	 * @generated
 	 */
-	int INCLUDE_CONNECTION = 7;
+	int INCLUDE_CONNECTION = 5;
 
 	/**
-	 * The feature id for the '<em><b>Source</b></em>' container reference.
+	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -380,50 +324,78 @@ public interface ContextmapperPackage extends EPackage {
 	int INCLUDE_CONNECTION_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link contextmapper.impl.ContextDiagramImpl <em>Context Diagram</em>}' class.
+	 * The meta object id for the '{@link contextmapper.impl.PriorConnectionImpl <em>Prior Connection</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see contextmapper.impl.ContextDiagramImpl
-	 * @see contextmapper.impl.ContextmapperPackageImpl#getContextDiagram()
+	 * @see contextmapper.impl.PriorConnectionImpl
+	 * @see contextmapper.impl.ContextmapperPackageImpl#getPriorConnection()
 	 * @generated
 	 */
-	int CONTEXT_DIAGRAM = 8;
+	int PRIOR_CONNECTION = 6;
 
 	/**
-	 * The feature id for the '<em><b>Mapping Reference</b></em>' reference.
+	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_DIAGRAM__MAPPING_REFERENCE = 0;
+	int PRIOR_CONNECTION__TARGET = 0;
 
 	/**
-	 * The feature id for the '<em><b>Contains Contexts</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Source</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_DIAGRAM__CONTAINS_CONTEXTS = 1;
+	int PRIOR_CONNECTION__SOURCE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Contains Runtime Configs</b></em>' containment reference list.
+	 * The number of structural features of the '<em>Prior Connection</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_DIAGRAM__CONTAINS_RUNTIME_CONFIGS = 2;
+	int PRIOR_CONNECTION_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of structural features of the '<em>Context Diagram</em>' class.
+	 * The meta object id for the '{@link contextmapper.impl.ExtendConnectionImpl <em>Extend Connection</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see contextmapper.impl.ExtendConnectionImpl
+	 * @see contextmapper.impl.ContextmapperPackageImpl#getExtendConnection()
+	 * @generated
+	 */
+	int EXTEND_CONNECTION = 7;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_DIAGRAM_FEATURE_COUNT = 3;
+	int EXTEND_CONNECTION__TARGET = 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTEND_CONNECTION__SOURCE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Extend Connection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTEND_CONNECTION_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link contextmapper.Classification <em>Classification</em>}' enum.
@@ -433,7 +405,7 @@ public interface ContextmapperPackage extends EPackage {
 	 * @see contextmapper.impl.ContextmapperPackageImpl#getClassification()
 	 * @generated
 	 */
-	int CLASSIFICATION = 9;
+	int CLASSIFICATION = 8;
 
 
 	/**
@@ -458,48 +430,59 @@ public interface ContextmapperPackage extends EPackage {
 	EAttribute getContext_Name();
 
 	/**
-	 * Returns the meta object for the reference list '{@link contextmapper.Context#getClassifies <em>Classifies</em>}'.
+	 * Returns the meta object for the reference list '{@link contextmapper.Context#getClassifier <em>Classifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Classifies</em>'.
-	 * @see contextmapper.Context#getClassifies()
+	 * @return the meta object for the reference list '<em>Classifier</em>'.
+	 * @see contextmapper.Context#getClassifier()
 	 * @see #getContext()
 	 * @generated
 	 */
-	EReference getContext_Classifies();
+	EReference getContext_Classifier();
 
 	/**
-	 * Returns the meta object for the reference list '{@link contextmapper.Context#getTargetConnections <em>Target Connections</em>}'.
+	 * Returns the meta object for the containment reference list '{@link contextmapper.Context#getPriorize <em>Priorize</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Target Connections</em>'.
-	 * @see contextmapper.Context#getTargetConnections()
+	 * @return the meta object for the containment reference list '<em>Priorize</em>'.
+	 * @see contextmapper.Context#getPriorize()
 	 * @see #getContext()
 	 * @generated
 	 */
-	EReference getContext_TargetConnections();
+	EReference getContext_Priorize();
 
 	/**
-	 * Returns the meta object for the reference list '{@link contextmapper.Context#getIncluded <em>Included</em>}'.
+	 * Returns the meta object for the containment reference list '{@link contextmapper.Context#getExtend <em>Extend</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Included</em>'.
-	 * @see contextmapper.Context#getIncluded()
+	 * @return the meta object for the containment reference list '<em>Extend</em>'.
+	 * @see contextmapper.Context#getExtend()
 	 * @see #getContext()
 	 * @generated
 	 */
-	EReference getContext_Included();
+	EReference getContext_Extend();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link contextmapper.Context#getSourceConnections <em>Source Connections</em>}'.
+	 * Returns the meta object for the containment reference list '{@link contextmapper.Context#getExclude <em>Exclude</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Source Connections</em>'.
-	 * @see contextmapper.Context#getSourceConnections()
+	 * @return the meta object for the containment reference list '<em>Exclude</em>'.
+	 * @see contextmapper.Context#getExclude()
 	 * @see #getContext()
 	 * @generated
 	 */
-	EReference getContext_SourceConnections();
+	EReference getContext_Exclude();
+
+	/**
+	 * Returns the meta object for the reference list '{@link contextmapper.Context#getExcluded <em>Excluded</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Excluded</em>'.
+	 * @see contextmapper.Context#getExcluded()
+	 * @see #getContext()
+	 * @generated
+	 */
+	EReference getContext_Excluded();
 
 	/**
 	 * Returns the meta object for class '{@link contextmapper.Classifier <em>Classifier</em>}'.
@@ -512,88 +495,26 @@ public interface ContextmapperPackage extends EPackage {
 	EClass getClassifier();
 
 	/**
-	 * Returns the meta object for the attribute '{@link contextmapper.Classifier#getFeature <em>Feature</em>}'.
+	 * Returns the meta object for the attribute '{@link contextmapper.Classifier#getFeatureClassification <em>Feature Classification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Feature</em>'.
+	 * @return the meta object for the attribute '<em>Feature Classification</em>'.
+	 * @see contextmapper.Classifier#getFeatureClassification()
+	 * @see #getClassifier()
+	 * @generated
+	 */
+	EAttribute getClassifier_FeatureClassification();
+
+	/**
+	 * Returns the meta object for the reference '{@link contextmapper.Classifier#getFeature <em>Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Feature</em>'.
 	 * @see contextmapper.Classifier#getFeature()
 	 * @see #getClassifier()
 	 * @generated
 	 */
-	EAttribute getClassifier_Feature();
-
-	/**
-	 * Returns the meta object for the reference '{@link contextmapper.Classifier#getFeatureReference <em>Feature Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Feature Reference</em>'.
-	 * @see contextmapper.Classifier#getFeatureReference()
-	 * @see #getClassifier()
-	 * @generated
-	 */
-	EReference getClassifier_FeatureReference();
-
-	/**
-	 * Returns the meta object for class '{@link contextmapper.Connection <em>Connection</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Connection</em>'.
-	 * @see contextmapper.Connection
-	 * @generated
-	 */
-	EClass getConnection();
-
-	/**
-	 * Returns the meta object for the reference '{@link contextmapper.Connection#getSource <em>Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see contextmapper.Connection#getSource()
-	 * @see #getConnection()
-	 * @generated
-	 */
-	EReference getConnection_Source();
-
-	/**
-	 * Returns the meta object for the container reference '{@link contextmapper.Connection#getTarget <em>Target</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Target</em>'.
-	 * @see contextmapper.Connection#getTarget()
-	 * @see #getConnection()
-	 * @generated
-	 */
-	EReference getConnection_Target();
-
-	/**
-	 * Returns the meta object for class '{@link contextmapper.PriorConnection <em>Prior Connection</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Prior Connection</em>'.
-	 * @see contextmapper.PriorConnection
-	 * @generated
-	 */
-	EClass getPriorConnection();
-
-	/**
-	 * Returns the meta object for class '{@link contextmapper.ExcludeConnection <em>Exclude Connection</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Exclude Connection</em>'.
-	 * @see contextmapper.ExcludeConnection
-	 * @generated
-	 */
-	EClass getExcludeConnection();
-
-	/**
-	 * Returns the meta object for class '{@link contextmapper.AssociateConnection <em>Associate Connection</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Associate Connection</em>'.
-	 * @see contextmapper.AssociateConnection
-	 * @generated
-	 */
-	EClass getAssociateConnection();
+	EReference getClassifier_Feature();
 
 	/**
 	 * Returns the meta object for class '{@link contextmapper.RuntimeConfig <em>Runtime Config</em>}'.
@@ -604,17 +525,6 @@ public interface ContextmapperPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRuntimeConfig();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link contextmapper.RuntimeConfig#getIncludes <em>Includes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Includes</em>'.
-	 * @see contextmapper.RuntimeConfig#getIncludes()
-	 * @see #getRuntimeConfig()
-	 * @generated
-	 */
-	EReference getRuntimeConfig_Includes();
 
 	/**
 	 * Returns the meta object for the attribute '{@link contextmapper.RuntimeConfig#getName <em>Name</em>}'.
@@ -628,36 +538,15 @@ public interface ContextmapperPackage extends EPackage {
 	EAttribute getRuntimeConfig_Name();
 
 	/**
-	 * Returns the meta object for class '{@link contextmapper.IncludeConnection <em>Include Connection</em>}'.
+	 * Returns the meta object for the containment reference list '{@link contextmapper.RuntimeConfig#getInclude <em>Include</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Include Connection</em>'.
-	 * @see contextmapper.IncludeConnection
+	 * @return the meta object for the containment reference list '<em>Include</em>'.
+	 * @see contextmapper.RuntimeConfig#getInclude()
+	 * @see #getRuntimeConfig()
 	 * @generated
 	 */
-	EClass getIncludeConnection();
-
-	/**
-	 * Returns the meta object for the container reference '{@link contextmapper.IncludeConnection#getSource <em>Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Source</em>'.
-	 * @see contextmapper.IncludeConnection#getSource()
-	 * @see #getIncludeConnection()
-	 * @generated
-	 */
-	EReference getIncludeConnection_Source();
-
-	/**
-	 * Returns the meta object for the reference '{@link contextmapper.IncludeConnection#getTarget <em>Target</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target</em>'.
-	 * @see contextmapper.IncludeConnection#getTarget()
-	 * @see #getIncludeConnection()
-	 * @generated
-	 */
-	EReference getIncludeConnection_Target();
+	EReference getRuntimeConfig_Include();
 
 	/**
 	 * Returns the meta object for class '{@link contextmapper.ContextDiagram <em>Context Diagram</em>}'.
@@ -681,26 +570,154 @@ public interface ContextmapperPackage extends EPackage {
 	EReference getContextDiagram_MappingReference();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link contextmapper.ContextDiagram#getContainsContexts <em>Contains Contexts</em>}'.
+	 * Returns the meta object for the containment reference list '{@link contextmapper.ContextDiagram#getContext <em>Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Contains Contexts</em>'.
-	 * @see contextmapper.ContextDiagram#getContainsContexts()
+	 * @return the meta object for the containment reference list '<em>Context</em>'.
+	 * @see contextmapper.ContextDiagram#getContext()
 	 * @see #getContextDiagram()
 	 * @generated
 	 */
-	EReference getContextDiagram_ContainsContexts();
+	EReference getContextDiagram_Context();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link contextmapper.ContextDiagram#getContainsRuntimeConfigs <em>Contains Runtime Configs</em>}'.
+	 * Returns the meta object for the containment reference list '{@link contextmapper.ContextDiagram#getRuntimeconfig <em>Runtimeconfig</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Contains Runtime Configs</em>'.
-	 * @see contextmapper.ContextDiagram#getContainsRuntimeConfigs()
+	 * @return the meta object for the containment reference list '<em>Runtimeconfig</em>'.
+	 * @see contextmapper.ContextDiagram#getRuntimeconfig()
 	 * @see #getContextDiagram()
 	 * @generated
 	 */
-	EReference getContextDiagram_ContainsRuntimeConfigs();
+	EReference getContextDiagram_Runtimeconfig();
+
+	/**
+	 * Returns the meta object for class '{@link contextmapper.ExcludeConnection <em>Exclude Connection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Exclude Connection</em>'.
+	 * @see contextmapper.ExcludeConnection
+	 * @generated
+	 */
+	EClass getExcludeConnection();
+
+	/**
+	 * Returns the meta object for the container reference '{@link contextmapper.ExcludeConnection#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Source</em>'.
+	 * @see contextmapper.ExcludeConnection#getSource()
+	 * @see #getExcludeConnection()
+	 * @generated
+	 */
+	EReference getExcludeConnection_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link contextmapper.ExcludeConnection#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see contextmapper.ExcludeConnection#getTarget()
+	 * @see #getExcludeConnection()
+	 * @generated
+	 */
+	EReference getExcludeConnection_Target();
+
+	/**
+	 * Returns the meta object for class '{@link contextmapper.IncludeConnection <em>Include Connection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Include Connection</em>'.
+	 * @see contextmapper.IncludeConnection
+	 * @generated
+	 */
+	EClass getIncludeConnection();
+
+	/**
+	 * Returns the meta object for the reference '{@link contextmapper.IncludeConnection#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see contextmapper.IncludeConnection#getSource()
+	 * @see #getIncludeConnection()
+	 * @generated
+	 */
+	EReference getIncludeConnection_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link contextmapper.IncludeConnection#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see contextmapper.IncludeConnection#getTarget()
+	 * @see #getIncludeConnection()
+	 * @generated
+	 */
+	EReference getIncludeConnection_Target();
+
+	/**
+	 * Returns the meta object for class '{@link contextmapper.PriorConnection <em>Prior Connection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Prior Connection</em>'.
+	 * @see contextmapper.PriorConnection
+	 * @generated
+	 */
+	EClass getPriorConnection();
+
+	/**
+	 * Returns the meta object for the reference '{@link contextmapper.PriorConnection#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see contextmapper.PriorConnection#getTarget()
+	 * @see #getPriorConnection()
+	 * @generated
+	 */
+	EReference getPriorConnection_Target();
+
+	/**
+	 * Returns the meta object for the container reference '{@link contextmapper.PriorConnection#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Source</em>'.
+	 * @see contextmapper.PriorConnection#getSource()
+	 * @see #getPriorConnection()
+	 * @generated
+	 */
+	EReference getPriorConnection_Source();
+
+	/**
+	 * Returns the meta object for class '{@link contextmapper.ExtendConnection <em>Extend Connection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Extend Connection</em>'.
+	 * @see contextmapper.ExtendConnection
+	 * @generated
+	 */
+	EClass getExtendConnection();
+
+	/**
+	 * Returns the meta object for the reference '{@link contextmapper.ExtendConnection#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see contextmapper.ExtendConnection#getTarget()
+	 * @see #getExtendConnection()
+	 * @generated
+	 */
+	EReference getExtendConnection_Target();
+
+	/**
+	 * Returns the meta object for the container reference '{@link contextmapper.ExtendConnection#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Source</em>'.
+	 * @see contextmapper.ExtendConnection#getSource()
+	 * @see #getExtendConnection()
+	 * @generated
+	 */
+	EReference getExtendConnection_Source();
 
 	/**
 	 * Returns the meta object for enum '{@link contextmapper.Classification <em>Classification</em>}'.
@@ -753,36 +770,44 @@ public interface ContextmapperPackage extends EPackage {
 		EAttribute CONTEXT__NAME = eINSTANCE.getContext_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Classifies</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Classifier</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONTEXT__CLASSIFIES = eINSTANCE.getContext_Classifies();
+		EReference CONTEXT__CLASSIFIER = eINSTANCE.getContext_Classifier();
 
 		/**
-		 * The meta object literal for the '<em><b>Target Connections</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Priorize</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONTEXT__TARGET_CONNECTIONS = eINSTANCE.getContext_TargetConnections();
+		EReference CONTEXT__PRIORIZE = eINSTANCE.getContext_Priorize();
 
 		/**
-		 * The meta object literal for the '<em><b>Included</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Extend</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONTEXT__INCLUDED = eINSTANCE.getContext_Included();
+		EReference CONTEXT__EXTEND = eINSTANCE.getContext_Extend();
 
 		/**
-		 * The meta object literal for the '<em><b>Source Connections</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Exclude</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONTEXT__SOURCE_CONNECTIONS = eINSTANCE.getContext_SourceConnections();
+		EReference CONTEXT__EXCLUDE = eINSTANCE.getContext_Exclude();
+
+		/**
+		 * The meta object literal for the '<em><b>Excluded</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTEXT__EXCLUDED = eINSTANCE.getContext_Excluded();
 
 		/**
 		 * The meta object literal for the '{@link contextmapper.impl.ClassifierImpl <em>Classifier</em>}' class.
@@ -795,76 +820,20 @@ public interface ContextmapperPackage extends EPackage {
 		EClass CLASSIFIER = eINSTANCE.getClassifier();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Feature Classification</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CLASSIFIER__FEATURE = eINSTANCE.getClassifier_Feature();
+		EAttribute CLASSIFIER__FEATURE_CLASSIFICATION = eINSTANCE.getClassifier_FeatureClassification();
 
 		/**
-		 * The meta object literal for the '<em><b>Feature Reference</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Feature</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CLASSIFIER__FEATURE_REFERENCE = eINSTANCE.getClassifier_FeatureReference();
-
-		/**
-		 * The meta object literal for the '{@link contextmapper.impl.ConnectionImpl <em>Connection</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see contextmapper.impl.ConnectionImpl
-		 * @see contextmapper.impl.ContextmapperPackageImpl#getConnection()
-		 * @generated
-		 */
-		EClass CONNECTION = eINSTANCE.getConnection();
-
-		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONNECTION__SOURCE = eINSTANCE.getConnection_Source();
-
-		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONNECTION__TARGET = eINSTANCE.getConnection_Target();
-
-		/**
-		 * The meta object literal for the '{@link contextmapper.impl.PriorConnectionImpl <em>Prior Connection</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see contextmapper.impl.PriorConnectionImpl
-		 * @see contextmapper.impl.ContextmapperPackageImpl#getPriorConnection()
-		 * @generated
-		 */
-		EClass PRIOR_CONNECTION = eINSTANCE.getPriorConnection();
-
-		/**
-		 * The meta object literal for the '{@link contextmapper.impl.ExcludeConnectionImpl <em>Exclude Connection</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see contextmapper.impl.ExcludeConnectionImpl
-		 * @see contextmapper.impl.ContextmapperPackageImpl#getExcludeConnection()
-		 * @generated
-		 */
-		EClass EXCLUDE_CONNECTION = eINSTANCE.getExcludeConnection();
-
-		/**
-		 * The meta object literal for the '{@link contextmapper.impl.AssociateConnectionImpl <em>Associate Connection</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see contextmapper.impl.AssociateConnectionImpl
-		 * @see contextmapper.impl.ContextmapperPackageImpl#getAssociateConnection()
-		 * @generated
-		 */
-		EClass ASSOCIATE_CONNECTION = eINSTANCE.getAssociateConnection();
+		EReference CLASSIFIER__FEATURE = eINSTANCE.getClassifier_Feature();
 
 		/**
 		 * The meta object literal for the '{@link contextmapper.impl.RuntimeConfigImpl <em>Runtime Config</em>}' class.
@@ -877,14 +846,6 @@ public interface ContextmapperPackage extends EPackage {
 		EClass RUNTIME_CONFIG = eINSTANCE.getRuntimeConfig();
 
 		/**
-		 * The meta object literal for the '<em><b>Includes</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RUNTIME_CONFIG__INCLUDES = eINSTANCE.getRuntimeConfig_Includes();
-
-		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -893,30 +854,12 @@ public interface ContextmapperPackage extends EPackage {
 		EAttribute RUNTIME_CONFIG__NAME = eINSTANCE.getRuntimeConfig_Name();
 
 		/**
-		 * The meta object literal for the '{@link contextmapper.impl.IncludeConnectionImpl <em>Include Connection</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see contextmapper.impl.IncludeConnectionImpl
-		 * @see contextmapper.impl.ContextmapperPackageImpl#getIncludeConnection()
-		 * @generated
-		 */
-		EClass INCLUDE_CONNECTION = eINSTANCE.getIncludeConnection();
-
-		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Include</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INCLUDE_CONNECTION__SOURCE = eINSTANCE.getIncludeConnection_Source();
-
-		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INCLUDE_CONNECTION__TARGET = eINSTANCE.getIncludeConnection_Target();
+		EReference RUNTIME_CONFIG__INCLUDE = eINSTANCE.getRuntimeConfig_Include();
 
 		/**
 		 * The meta object literal for the '{@link contextmapper.impl.ContextDiagramImpl <em>Context Diagram</em>}' class.
@@ -937,20 +880,124 @@ public interface ContextmapperPackage extends EPackage {
 		EReference CONTEXT_DIAGRAM__MAPPING_REFERENCE = eINSTANCE.getContextDiagram_MappingReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Contains Contexts</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Context</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONTEXT_DIAGRAM__CONTAINS_CONTEXTS = eINSTANCE.getContextDiagram_ContainsContexts();
+		EReference CONTEXT_DIAGRAM__CONTEXT = eINSTANCE.getContextDiagram_Context();
 
 		/**
-		 * The meta object literal for the '<em><b>Contains Runtime Configs</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Runtimeconfig</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONTEXT_DIAGRAM__CONTAINS_RUNTIME_CONFIGS = eINSTANCE.getContextDiagram_ContainsRuntimeConfigs();
+		EReference CONTEXT_DIAGRAM__RUNTIMECONFIG = eINSTANCE.getContextDiagram_Runtimeconfig();
+
+		/**
+		 * The meta object literal for the '{@link contextmapper.impl.ExcludeConnectionImpl <em>Exclude Connection</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see contextmapper.impl.ExcludeConnectionImpl
+		 * @see contextmapper.impl.ContextmapperPackageImpl#getExcludeConnection()
+		 * @generated
+		 */
+		EClass EXCLUDE_CONNECTION = eINSTANCE.getExcludeConnection();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXCLUDE_CONNECTION__SOURCE = eINSTANCE.getExcludeConnection_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXCLUDE_CONNECTION__TARGET = eINSTANCE.getExcludeConnection_Target();
+
+		/**
+		 * The meta object literal for the '{@link contextmapper.impl.IncludeConnectionImpl <em>Include Connection</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see contextmapper.impl.IncludeConnectionImpl
+		 * @see contextmapper.impl.ContextmapperPackageImpl#getIncludeConnection()
+		 * @generated
+		 */
+		EClass INCLUDE_CONNECTION = eINSTANCE.getIncludeConnection();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INCLUDE_CONNECTION__SOURCE = eINSTANCE.getIncludeConnection_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INCLUDE_CONNECTION__TARGET = eINSTANCE.getIncludeConnection_Target();
+
+		/**
+		 * The meta object literal for the '{@link contextmapper.impl.PriorConnectionImpl <em>Prior Connection</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see contextmapper.impl.PriorConnectionImpl
+		 * @see contextmapper.impl.ContextmapperPackageImpl#getPriorConnection()
+		 * @generated
+		 */
+		EClass PRIOR_CONNECTION = eINSTANCE.getPriorConnection();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRIOR_CONNECTION__TARGET = eINSTANCE.getPriorConnection_Target();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRIOR_CONNECTION__SOURCE = eINSTANCE.getPriorConnection_Source();
+
+		/**
+		 * The meta object literal for the '{@link contextmapper.impl.ExtendConnectionImpl <em>Extend Connection</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see contextmapper.impl.ExtendConnectionImpl
+		 * @see contextmapper.impl.ContextmapperPackageImpl#getExtendConnection()
+		 * @generated
+		 */
+		EClass EXTEND_CONNECTION = eINSTANCE.getExtendConnection();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTEND_CONNECTION__TARGET = eINSTANCE.getExtendConnection_Target();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTEND_CONNECTION__SOURCE = eINSTANCE.getExtendConnection_Source();
 
 		/**
 		 * The meta object literal for the '{@link contextmapper.Classification <em>Classification</em>}' enum.

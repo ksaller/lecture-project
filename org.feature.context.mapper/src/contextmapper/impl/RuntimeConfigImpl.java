@@ -6,21 +6,11 @@ import contextmapper.ContextmapperPackage;
 import contextmapper.IncludeConnection;
 import contextmapper.RuntimeConfig;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,44 +19,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link contextmapper.impl.RuntimeConfigImpl#getIncludes <em>Includes</em>}</li>
  *   <li>{@link contextmapper.impl.RuntimeConfigImpl#getName <em>Name</em>}</li>
+ *   <li>{@link contextmapper.impl.RuntimeConfigImpl#getInclude <em>Include</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class RuntimeConfigImpl extends EObjectImpl implements RuntimeConfig {
-	/**
-	 * The cached value of the '{@link #getIncludes() <em>Includes</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIncludes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<IncludeConnection> includes;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
+public class RuntimeConfigImpl extends CDOObjectImpl implements RuntimeConfig {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,11 +51,9 @@ public class RuntimeConfigImpl extends EObjectImpl implements RuntimeConfig {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<IncludeConnection> getIncludes() {
-		if (includes == null) {
-			includes = new EObjectContainmentWithInverseEList<IncludeConnection>(IncludeConnection.class, this, ContextmapperPackage.RUNTIME_CONFIG__INCLUDES, ContextmapperPackage.INCLUDE_CONNECTION__SOURCE);
-		}
-		return includes;
+	@Override
+	protected int eStaticFeatureCount() {
+		return 0;
 	}
 
 	/**
@@ -104,7 +62,7 @@ public class RuntimeConfigImpl extends EObjectImpl implements RuntimeConfig {
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+		return (String)eGet(ContextmapperPackage.Literals.RUNTIME_CONFIG__NAME, true);
 	}
 
 	/**
@@ -113,10 +71,7 @@ public class RuntimeConfigImpl extends EObjectImpl implements RuntimeConfig {
 	 * @generated
 	 */
 	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContextmapperPackage.RUNTIME_CONFIG__NAME, oldName, name));
+		eSet(ContextmapperPackage.Literals.RUNTIME_CONFIG__NAME, newName);
 	}
 
 	/**
@@ -125,113 +80,8 @@ public class RuntimeConfigImpl extends EObjectImpl implements RuntimeConfig {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ContextmapperPackage.RUNTIME_CONFIG__INCLUDES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIncludes()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ContextmapperPackage.RUNTIME_CONFIG__INCLUDES:
-				return ((InternalEList<?>)getIncludes()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case ContextmapperPackage.RUNTIME_CONFIG__INCLUDES:
-				return getIncludes();
-			case ContextmapperPackage.RUNTIME_CONFIG__NAME:
-				return getName();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case ContextmapperPackage.RUNTIME_CONFIG__INCLUDES:
-				getIncludes().clear();
-				getIncludes().addAll((Collection<? extends IncludeConnection>)newValue);
-				return;
-			case ContextmapperPackage.RUNTIME_CONFIG__NAME:
-				setName((String)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case ContextmapperPackage.RUNTIME_CONFIG__INCLUDES:
-				getIncludes().clear();
-				return;
-			case ContextmapperPackage.RUNTIME_CONFIG__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case ContextmapperPackage.RUNTIME_CONFIG__INCLUDES:
-				return includes != null && !includes.isEmpty();
-			case ContextmapperPackage.RUNTIME_CONFIG__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-		}
-		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
+	public EList<IncludeConnection> getInclude() {
+		return (EList<IncludeConnection>)eGet(ContextmapperPackage.Literals.RUNTIME_CONFIG__INCLUDE, true);
 	}
 
 } //RuntimeConfigImpl

@@ -16,7 +16,7 @@ public class ExcludeConnectionItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ExcludeConnectionItemSemanticEditPolicy() {
-		super(ContextmapperElementTypes.ExcludeConnection_4002);
+		super(ContextmapperElementTypes.ExcludeConnection_4004);
 	}
 
 	/**

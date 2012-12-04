@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.feature.context.mapper/src" modelPluginID="org.feature.context.mapper"
-    modelName="Contextmapper" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
+    modelName="Contextmapper" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject"
+    rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl" reflectiveDelegation="true"
+    importerID="org.eclipse.emf.importer.cdo" featureDelegation="Reflective" complianceLevel="7.0"
     copyrightFields="false" usedGenPackages="platform:/plugin/org.featuremapper.models.feature/model/feature.genmodel#//feature ../../org.feature.multi.perspective.mapping/model/viewmapping.genmodel#//viewmapping platform:/plugin/org.feature.multi.perspective.model/model/viewmodel.genmodel#//viewmodel">
   <foreignModel>contextmapper.ecore</foreignModel>
+  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Contextmapper" disposableProviderFactory="true" ecorePackage="contextmapper.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="contextmapper.ecore#//Classification">
       <genEnumLiterals ecoreEnumLiteral="contextmapper.ecore#//Classification/dead"/>
@@ -12,34 +15,40 @@
     </genEnums>
     <genClasses ecoreClass="contextmapper.ecore#//Context">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contextmapper.ecore#//Context/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextmapper.ecore#//Context/classifies"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextmapper.ecore#//Context/targetConnections"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextmapper.ecore#//Context/included"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contextmapper.ecore#//Context/sourceConnections"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextmapper.ecore#//Context/classifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contextmapper.ecore#//Context/priorize"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contextmapper.ecore#//Context/extend"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contextmapper.ecore#//Context/exclude"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextmapper.ecore#//Context/excluded"/>
     </genClasses>
     <genClasses ecoreClass="contextmapper.ecore#//Classifier">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contextmapper.ecore#//Classifier/feature"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextmapper.ecore#//Classifier/featureReference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contextmapper.ecore#//Classifier/featureClassification"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextmapper.ecore#//Classifier/feature"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="contextmapper.ecore#//Connection">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextmapper.ecore#//Connection/source"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference contextmapper.ecore#//Connection/target"/>
-    </genClasses>
-    <genClasses ecoreClass="contextmapper.ecore#//PriorConnection"/>
-    <genClasses ecoreClass="contextmapper.ecore#//ExcludeConnection"/>
-    <genClasses ecoreClass="contextmapper.ecore#//AssociateConnection"/>
     <genClasses ecoreClass="contextmapper.ecore#//RuntimeConfig">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contextmapper.ecore#//RuntimeConfig/includes"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute contextmapper.ecore#//RuntimeConfig/name"/>
-    </genClasses>
-    <genClasses ecoreClass="contextmapper.ecore#//IncludeConnection">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference contextmapper.ecore#//IncludeConnection/source"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextmapper.ecore#//IncludeConnection/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contextmapper.ecore#//RuntimeConfig/include"/>
     </genClasses>
     <genClasses ecoreClass="contextmapper.ecore#//ContextDiagram">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextmapper.ecore#//ContextDiagram/mappingReference"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contextmapper.ecore#//ContextDiagram/containsContexts"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contextmapper.ecore#//ContextDiagram/containsRuntimeConfigs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contextmapper.ecore#//ContextDiagram/context"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference contextmapper.ecore#//ContextDiagram/runtimeconfig"/>
+    </genClasses>
+    <genClasses ecoreClass="contextmapper.ecore#//ExcludeConnection">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference contextmapper.ecore#//ExcludeConnection/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextmapper.ecore#//ExcludeConnection/target"/>
+    </genClasses>
+    <genClasses ecoreClass="contextmapper.ecore#//IncludeConnection">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextmapper.ecore#//IncludeConnection/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextmapper.ecore#//IncludeConnection/target"/>
+    </genClasses>
+    <genClasses ecoreClass="contextmapper.ecore#//PriorConnection">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextmapper.ecore#//PriorConnection/target"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference contextmapper.ecore#//PriorConnection/source"/>
+    </genClasses>
+    <genClasses ecoreClass="contextmapper.ecore#//ExtendConnection">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference contextmapper.ecore#//ExtendConnection/target"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference contextmapper.ecore#//ExtendConnection/source"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

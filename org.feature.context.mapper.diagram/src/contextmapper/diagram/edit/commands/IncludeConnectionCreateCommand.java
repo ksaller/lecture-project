@@ -86,7 +86,7 @@ public class IncludeConnectionCreateCommand extends EditElementCommand {
 
 		IncludeConnection newElement = ContextmapperFactory.eINSTANCE
 				.createIncludeConnection();
-		getContainer().getIncludes().add(newElement);
+		getContainer().getInclude().add(newElement);
 		newElement.setSource(getSource());
 		newElement.setTarget(getTarget());
 		doConfigure(newElement, monitor, info);

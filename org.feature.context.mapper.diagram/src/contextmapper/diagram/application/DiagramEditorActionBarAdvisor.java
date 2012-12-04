@@ -2,29 +2,15 @@ package contextmapper.diagram.application;
 
 import java.io.File;
 import java.util.Iterator;
-import java.util.Map;
-
-import javax.swing.JOptionPane;
 
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.ui.action.WorkbenchWindowActionDelegate;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
-import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
-import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
-import org.eclipse.gmf.runtime.emf.core.GMFEditingDomainFactory;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.GroupMarker;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.ICoolBarManager;
-import org.eclipse.jface.action.IMenuCreator;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
@@ -33,17 +19,12 @@ import org.eclipse.jface.action.ToolBarContributionItem;
 import org.eclipse.jface.action.ToolBarManager;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.HelpListener;
-import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.IEditorDescriptor;
-import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.IWorkbenchPage;
@@ -52,19 +33,8 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
-import org.eclipse.ui.part.Page;
-import org.feature.multi.perspective.mapping.viewmapping.MappingModel;
-import org.feature.multi.perspective.mapping.viewmapping.ViewmappingFactory;
-import org.feature.multi.perspective.mapping.viewmapping.impl.ViewmappingFactoryImpl;
-import org.feature.multi.perspective.mapping.viewmapping.util.ViewmappingAdapterFactory;
-import org.featuremapper.models.feature.FeatureModel;
-import org.featuremapper.models.feature.FeaturePackage;
 
-import contextmapper.ContextDiagram;
-import contextmapper.diagram.customized.GlobalObjectGetter;
-import contextmapper.diagram.customized.MappingCommand;
 import contextmapper.diagram.part.ContextmapperCreationWizard;
-import contextmapper.diagram.part.ContextmapperDiagramEditorPlugin;
 import contextmapper.diagram.part.Messages;
 
 /**
@@ -81,7 +51,6 @@ public class DiagramEditorActionBarAdvisor extends ActionBarAdvisor {
 	 * @generated
 	 */
 	private ActionFactory.IWorkbenchAction toggleCoolbarAction;
-	
 
 	/**
 	 * @generated
@@ -98,14 +67,13 @@ public class DiagramEditorActionBarAdvisor extends ActionBarAdvisor {
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected void makeActions(IWorkbenchWindow window) {
 		toggleCoolbarAction = ActionFactory.TOGGLE_COOLBAR.create(window);
 		register(toggleCoolbarAction);
 		lockToolBarAction = ActionFactory.LOCK_TOOL_BAR.create(window);
 		register(lockToolBarAction);
-		
 
 		register(ActionFactory.CLOSE.create(window));
 
@@ -136,7 +104,6 @@ public class DiagramEditorActionBarAdvisor extends ActionBarAdvisor {
 		register(ActionFactory.OPEN_NEW_WINDOW.create(window));
 
 		register(ActionFactory.PRINT.create(window));
-		
 	}
 
 	/**
@@ -169,7 +136,6 @@ public class DiagramEditorActionBarAdvisor extends ActionBarAdvisor {
 			menuX.add(getAction(ActionFactory.CLOSE.getId()));
 
 			menuX.add(getAction(ActionFactory.CLOSE_ALL.getId()));
-			
 
 			menuX.add(new Separator());
 
@@ -397,7 +363,6 @@ public class DiagramEditorActionBarAdvisor extends ActionBarAdvisor {
 		}
 	}
 
-	
 	/**
 	 * @generated
 	 */

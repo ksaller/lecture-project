@@ -64,9 +64,8 @@ public class ContextItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addClassifiesPropertyDescriptor(object);
-			addTargetConnectionsPropertyDescriptor(object);
-			addIncludedPropertyDescriptor(object);
+			addClassifierPropertyDescriptor(object);
+			addExcludedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -94,19 +93,19 @@ public class ContextItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Classifies feature.
+	 * This adds a property descriptor for the Classifier feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addClassifiesPropertyDescriptor(Object object) {
+	protected void addClassifierPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Context_classifies_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Context_classifies_feature", "_UI_Context_type"),
-				 ContextmapperPackage.Literals.CONTEXT__CLASSIFIES,
+				 getString("_UI_Context_classifier_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Context_classifier_feature", "_UI_Context_type"),
+				 ContextmapperPackage.Literals.CONTEXT__CLASSIFIER,
 				 true,
 				 false,
 				 true,
@@ -116,41 +115,19 @@ public class ContextItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Target Connections feature.
+	 * This adds a property descriptor for the Excluded feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTargetConnectionsPropertyDescriptor(Object object) {
+	protected void addExcludedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Context_targetConnections_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Context_targetConnections_feature", "_UI_Context_type"),
-				 ContextmapperPackage.Literals.CONTEXT__TARGET_CONNECTIONS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Included feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIncludedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Context_included_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Context_included_feature", "_UI_Context_type"),
-				 ContextmapperPackage.Literals.CONTEXT__INCLUDED,
+				 getString("_UI_Context_excluded_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Context_excluded_feature", "_UI_Context_type"),
+				 ContextmapperPackage.Literals.CONTEXT__EXCLUDED,
 				 true,
 				 false,
 				 true,
@@ -171,7 +148,9 @@ public class ContextItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContextmapperPackage.Literals.CONTEXT__SOURCE_CONNECTIONS);
+			childrenFeatures.add(ContextmapperPackage.Literals.CONTEXT__PRIORIZE);
+			childrenFeatures.add(ContextmapperPackage.Literals.CONTEXT__EXTEND);
+			childrenFeatures.add(ContextmapperPackage.Literals.CONTEXT__EXCLUDE);
 		}
 		return childrenFeatures;
 	}
@@ -229,7 +208,9 @@ public class ContextItemProvider
 			case ContextmapperPackage.CONTEXT__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ContextmapperPackage.CONTEXT__SOURCE_CONNECTIONS:
+			case ContextmapperPackage.CONTEXT__PRIORIZE:
+			case ContextmapperPackage.CONTEXT__EXTEND:
+			case ContextmapperPackage.CONTEXT__EXCLUDE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -249,18 +230,18 @@ public class ContextItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContextmapperPackage.Literals.CONTEXT__SOURCE_CONNECTIONS,
+				(ContextmapperPackage.Literals.CONTEXT__PRIORIZE,
 				 ContextmapperFactory.eINSTANCE.createPriorConnection()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContextmapperPackage.Literals.CONTEXT__SOURCE_CONNECTIONS,
-				 ContextmapperFactory.eINSTANCE.createExcludeConnection()));
+				(ContextmapperPackage.Literals.CONTEXT__EXTEND,
+				 ContextmapperFactory.eINSTANCE.createExtendConnection()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContextmapperPackage.Literals.CONTEXT__SOURCE_CONNECTIONS,
-				 ContextmapperFactory.eINSTANCE.createAssociateConnection()));
+				(ContextmapperPackage.Literals.CONTEXT__EXCLUDE,
+				 ContextmapperFactory.eINSTANCE.createExcludeConnection()));
 	}
 
 	/**

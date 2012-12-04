@@ -118,26 +118,49 @@ public class ContextmapperItemProviderAdapterFactory extends ContextmapperAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link contextmapper.PriorConnection} instances.
+	 * This keeps track of the one adapter used for all {@link contextmapper.RuntimeConfig} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PriorConnectionItemProvider priorConnectionItemProvider;
+	protected RuntimeConfigItemProvider runtimeConfigItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link contextmapper.PriorConnection}.
+	 * This creates an adapter for a {@link contextmapper.RuntimeConfig}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPriorConnectionAdapter() {
-		if (priorConnectionItemProvider == null) {
-			priorConnectionItemProvider = new PriorConnectionItemProvider(this);
+	public Adapter createRuntimeConfigAdapter() {
+		if (runtimeConfigItemProvider == null) {
+			runtimeConfigItemProvider = new RuntimeConfigItemProvider(this);
 		}
 
-		return priorConnectionItemProvider;
+		return runtimeConfigItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link contextmapper.ContextDiagram} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContextDiagramItemProvider contextDiagramItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link contextmapper.ContextDiagram}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContextDiagramAdapter() {
+		if (contextDiagramItemProvider == null) {
+			contextDiagramItemProvider = new ContextDiagramItemProvider(this);
+		}
+
+		return contextDiagramItemProvider;
 	}
 
 	/**
@@ -164,52 +187,6 @@ public class ContextmapperItemProviderAdapterFactory extends ContextmapperAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link contextmapper.AssociateConnection} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AssociateConnectionItemProvider associateConnectionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link contextmapper.AssociateConnection}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAssociateConnectionAdapter() {
-		if (associateConnectionItemProvider == null) {
-			associateConnectionItemProvider = new AssociateConnectionItemProvider(this);
-		}
-
-		return associateConnectionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link contextmapper.RuntimeConfig} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RuntimeConfigItemProvider runtimeConfigItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link contextmapper.RuntimeConfig}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRuntimeConfigAdapter() {
-		if (runtimeConfigItemProvider == null) {
-			runtimeConfigItemProvider = new RuntimeConfigItemProvider(this);
-		}
-
-		return runtimeConfigItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link contextmapper.IncludeConnection} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -233,26 +210,49 @@ public class ContextmapperItemProviderAdapterFactory extends ContextmapperAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link contextmapper.ContextDiagram} instances.
+	 * This keeps track of the one adapter used for all {@link contextmapper.PriorConnection} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ContextDiagramItemProvider contextDiagramItemProvider;
+	protected PriorConnectionItemProvider priorConnectionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link contextmapper.ContextDiagram}.
+	 * This creates an adapter for a {@link contextmapper.PriorConnection}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createContextDiagramAdapter() {
-		if (contextDiagramItemProvider == null) {
-			contextDiagramItemProvider = new ContextDiagramItemProvider(this);
+	public Adapter createPriorConnectionAdapter() {
+		if (priorConnectionItemProvider == null) {
+			priorConnectionItemProvider = new PriorConnectionItemProvider(this);
 		}
 
-		return contextDiagramItemProvider;
+		return priorConnectionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link contextmapper.ExtendConnection} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExtendConnectionItemProvider extendConnectionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link contextmapper.ExtendConnection}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExtendConnectionAdapter() {
+		if (extendConnectionItemProvider == null) {
+			extendConnectionItemProvider = new ExtendConnectionItemProvider(this);
+		}
+
+		return extendConnectionItemProvider;
 	}
 
 	/**
@@ -356,12 +356,12 @@ public class ContextmapperItemProviderAdapterFactory extends ContextmapperAdapte
 	public void dispose() {
 		if (contextItemProvider != null) contextItemProvider.dispose();
 		if (classifierItemProvider != null) classifierItemProvider.dispose();
-		if (priorConnectionItemProvider != null) priorConnectionItemProvider.dispose();
-		if (excludeConnectionItemProvider != null) excludeConnectionItemProvider.dispose();
-		if (associateConnectionItemProvider != null) associateConnectionItemProvider.dispose();
 		if (runtimeConfigItemProvider != null) runtimeConfigItemProvider.dispose();
-		if (includeConnectionItemProvider != null) includeConnectionItemProvider.dispose();
 		if (contextDiagramItemProvider != null) contextDiagramItemProvider.dispose();
+		if (excludeConnectionItemProvider != null) excludeConnectionItemProvider.dispose();
+		if (includeConnectionItemProvider != null) includeConnectionItemProvider.dispose();
+		if (priorConnectionItemProvider != null) priorConnectionItemProvider.dispose();
+		if (extendConnectionItemProvider != null) extendConnectionItemProvider.dispose();
 	}
 
 }

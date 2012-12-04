@@ -76,32 +76,28 @@ public class ContextmapperAdapterFactory extends AdapterFactoryImpl {
 				return createClassifierAdapter();
 			}
 			@Override
-			public Adapter caseConnection(Connection object) {
-				return createConnectionAdapter();
+			public Adapter caseRuntimeConfig(RuntimeConfig object) {
+				return createRuntimeConfigAdapter();
 			}
 			@Override
-			public Adapter casePriorConnection(PriorConnection object) {
-				return createPriorConnectionAdapter();
+			public Adapter caseContextDiagram(ContextDiagram object) {
+				return createContextDiagramAdapter();
 			}
 			@Override
 			public Adapter caseExcludeConnection(ExcludeConnection object) {
 				return createExcludeConnectionAdapter();
 			}
 			@Override
-			public Adapter caseAssociateConnection(AssociateConnection object) {
-				return createAssociateConnectionAdapter();
-			}
-			@Override
-			public Adapter caseRuntimeConfig(RuntimeConfig object) {
-				return createRuntimeConfigAdapter();
-			}
-			@Override
 			public Adapter caseIncludeConnection(IncludeConnection object) {
 				return createIncludeConnectionAdapter();
 			}
 			@Override
-			public Adapter caseContextDiagram(ContextDiagram object) {
-				return createContextDiagramAdapter();
+			public Adapter casePriorConnection(PriorConnection object) {
+				return createPriorConnectionAdapter();
+			}
+			@Override
+			public Adapter caseExtendConnection(ExtendConnection object) {
+				return createExtendConnectionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -152,30 +148,30 @@ public class ContextmapperAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link contextmapper.Connection <em>Connection</em>}'.
+	 * Creates a new adapter for an object of class '{@link contextmapper.RuntimeConfig <em>Runtime Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see contextmapper.Connection
+	 * @see contextmapper.RuntimeConfig
 	 * @generated
 	 */
-	public Adapter createConnectionAdapter() {
+	public Adapter createRuntimeConfigAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link contextmapper.PriorConnection <em>Prior Connection</em>}'.
+	 * Creates a new adapter for an object of class '{@link contextmapper.ContextDiagram <em>Context Diagram</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see contextmapper.PriorConnection
+	 * @see contextmapper.ContextDiagram
 	 * @generated
 	 */
-	public Adapter createPriorConnectionAdapter() {
+	public Adapter createContextDiagramAdapter() {
 		return null;
 	}
 
@@ -194,34 +190,6 @@ public class ContextmapperAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link contextmapper.AssociateConnection <em>Associate Connection</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see contextmapper.AssociateConnection
-	 * @generated
-	 */
-	public Adapter createAssociateConnectionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link contextmapper.RuntimeConfig <em>Runtime Config</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see contextmapper.RuntimeConfig
-	 * @generated
-	 */
-	public Adapter createRuntimeConfigAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link contextmapper.IncludeConnection <em>Include Connection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -236,16 +204,30 @@ public class ContextmapperAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link contextmapper.ContextDiagram <em>Context Diagram</em>}'.
+	 * Creates a new adapter for an object of class '{@link contextmapper.PriorConnection <em>Prior Connection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see contextmapper.ContextDiagram
+	 * @see contextmapper.PriorConnection
 	 * @generated
 	 */
-	public Adapter createContextDiagramAdapter() {
+	public Adapter createPriorConnectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link contextmapper.ExtendConnection <em>Extend Connection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see contextmapper.ExtendConnection
+	 * @generated
+	 */
+	public Adapter createExtendConnectionAdapter() {
 		return null;
 	}
 
