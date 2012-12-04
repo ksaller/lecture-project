@@ -5,6 +5,8 @@ import java.lang.reflect.InvocationTargetException;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -12,6 +14,10 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PartInitException;
+import org.feature.multi.perspective.mapping.viewmapping.MappingModel;
+
+import contextmapper.diagram.customized.GlobalObjectGetter;
+import contextmapper.diagram.customized.MappingCommand;
 
 /**
  * @generated
@@ -38,6 +44,12 @@ public class ContextmapperCreationWizard extends Wizard implements INewWizard {
 	 */
 	protected ContextmapperCreationWizardPage domainModelFilePage;
 
+	/**
+	 * @author Stefan 
+	 * @generated NOT
+	 */
+	protected ContextmapperCreationWizardPage viewMappingFilePage;
+	
 	/**
 	 * @generated
 	 */
@@ -97,7 +109,7 @@ public class ContextmapperCreationWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public void addPages() {
 		diagramModelFilePage = new ContextmapperCreationWizardPage(
@@ -128,10 +140,26 @@ public class ContextmapperCreationWizard extends Wizard implements INewWizard {
 		domainModelFilePage
 				.setDescription(Messages.ContextmapperCreationWizard_DomainModelFilePageDescription);
 		addPage(domainModelFilePage);
+
+		// Erstellt eine neue Wizard-Page, auf die eine *.viewmapping-Datei ausgewählt werden muss
+		viewMappingFilePage = new ContextmapperCreationWizardPage(
+				"ViewMappingFile", getSelection(), "viewmapping"){
+			public void setVisible(boolean visible) {
+				if (visible) {
+					setFileName("");
+				}
+				super.setVisible(visible);
+			}};
+		// Legt Titel und Beschreibung der Seite fest und fügt sie dem Wizard hinzu
+		viewMappingFilePage
+				.setTitle(Messages.ContextmapperCreationWizard_ViewMappingFilePageTitle);
+		viewMappingFilePage
+				.setDescription(Messages.ContextmapperCreationWizard_ViewMappingFilePageDescription);
+		addPage(viewMappingFilePage);
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean performFinish() {
 		IRunnableWithProgress op = new IRunnableWithProgress() {
@@ -170,6 +198,17 @@ public class ContextmapperCreationWizard extends Wizard implements INewWizard {
 			}
 			return false;
 		}
+		
+		// MappingModel aus viewmapping-Datei laden:
+		MappingModel mappingModel = (MappingModel) contextmapper.diagram.customized
+				.GlobalObjectGetter.loadModel(viewMappingFilePage.getURI(), null);
+		
+		// MappingModel an ContextDiagram zuweisen:
+		DiagramEditor editor = GlobalObjectGetter.getDiagramEditor();
+		ICommandProxy setMappingCommand = new ICommandProxy(
+				new MappingCommand(editor.getEditingDomain(),mappingModel));
+		setMappingCommand.execute();
 		return diagram != null;
 	}
+
 }

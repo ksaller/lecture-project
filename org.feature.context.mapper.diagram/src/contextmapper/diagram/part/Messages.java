@@ -54,6 +54,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String ContextmapperCreationWizard_DomainModelFilePageDescription;
+	
+	/**
+	 * @generated NOT
+	 */
+	public static String ContextmapperCreationWizard_ViewMappingFilePageTitle;
+	
+	/**
+	 * @generated NOT
+	 */
+	public static String ContextmapperCreationWizard_ViewMappingFilePageDescription;
 
 	/**
 	 * @generated
