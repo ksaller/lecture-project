@@ -1,7 +1,0 @@
-# Tracing options for the bp.contexteditor.diagram plug-in
-
-# Common issues
-bp.contexteditor.diagram/debug=false
-
-# Visual IDs
-bp.contexteditor.diagram/debug/visualID=false
