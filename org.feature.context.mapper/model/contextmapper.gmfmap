@@ -53,6 +53,12 @@
   <links>
     <domainMetaElement
         href="contextmapper.ecore#//ExtendConnection"/>
+    <labelMappings
+        xsi:type="gmfmap:DesignLabelMapping"
+        readOnly="true">
+      <diagramLabel
+          href="contextmapper.gmfgraph#ExtendConnectionName"/>
+    </labelMappings>
     <containmentFeature
         href="contextmapper.ecore#//Context/extend"/>
     <tool
@@ -70,6 +76,12 @@
   <links>
     <domainMetaElement
         href="contextmapper.ecore#//ExcludeConnection"/>
+    <labelMappings
+        xsi:type="gmfmap:DesignLabelMapping"
+        readOnly="true">
+      <diagramLabel
+          href="contextmapper.gmfgraph#ExcludeConnectionName"/>
+    </labelMappings>
     <containmentFeature
         href="contextmapper.ecore#//Context/exclude"/>
     <tool
@@ -87,6 +99,12 @@
   <links>
     <domainMetaElement
         href="contextmapper.ecore#//PriorConnection"/>
+    <labelMappings
+        xsi:type="gmfmap:DesignLabelMapping"
+        readOnly="true">
+      <diagramLabel
+          href="contextmapper.gmfgraph#PriorConnectionName"/>
+    </labelMappings>
     <containmentFeature
         href="contextmapper.ecore#//Context/priorize"/>
     <tool
@@ -104,6 +122,12 @@
   <links>
     <domainMetaElement
         href="contextmapper.ecore#//IncludeConnection"/>
+    <labelMappings
+        xsi:type="gmfmap:DesignLabelMapping"
+        readOnly="true">
+      <diagramLabel
+          href="contextmapper.gmfgraph#IncludeConnectionName"/>
+    </labelMappings>
     <containmentFeature
         href="contextmapper.ecore#//RuntimeConfig/include"/>
     <tool
