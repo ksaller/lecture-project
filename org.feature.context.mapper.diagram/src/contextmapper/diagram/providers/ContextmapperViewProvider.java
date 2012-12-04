@@ -27,6 +27,7 @@ import org.eclipse.gmf.runtime.notation.DecorationNode;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.FontStyle;
+import org.eclipse.gmf.runtime.notation.Location;
 import org.eclipse.gmf.runtime.notation.MeasurementUnit;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
@@ -50,6 +51,10 @@ import contextmapper.diagram.edit.parts.IncludeConnectionEditPart;
 import contextmapper.diagram.edit.parts.PriorConnectionEditPart;
 import contextmapper.diagram.edit.parts.RuntimeConfigEditPart;
 import contextmapper.diagram.edit.parts.RuntimeConfigNameEditPart;
+import contextmapper.diagram.edit.parts.WrappingLabel2EditPart;
+import contextmapper.diagram.edit.parts.WrappingLabel3EditPart;
+import contextmapper.diagram.edit.parts.WrappingLabel4EditPart;
+import contextmapper.diagram.edit.parts.WrappingLabelEditPart;
 import contextmapper.diagram.part.ContextmapperVisualIDRegistry;
 
 /**
@@ -402,6 +407,16 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
+		Node label6001 = createLabel(edge,
+				ContextmapperVisualIDRegistry
+						.getType(WrappingLabelEditPart.VISUAL_ID));
+		label6001.getStyles().add(
+				NotationFactory.eINSTANCE.createDescriptionStyle());
+		label6001.setLayoutConstraint(NotationFactory.eINSTANCE
+				.createLocation());
+		Location location6001 = (Location) label6001.getLayoutConstraint();
+		location6001.setX(0);
+		location6001.setY(40);
 		return edge;
 	}
 
@@ -455,6 +470,16 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
+		Node label6002 = createLabel(edge,
+				ContextmapperVisualIDRegistry
+						.getType(WrappingLabel2EditPart.VISUAL_ID));
+		label6002.getStyles().add(
+				NotationFactory.eINSTANCE.createDescriptionStyle());
+		label6002.setLayoutConstraint(NotationFactory.eINSTANCE
+				.createLocation());
+		Location location6002 = (Location) label6002.getLayoutConstraint();
+		location6002.setX(0);
+		location6002.setY(40);
 		return edge;
 	}
 
@@ -508,6 +533,16 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
+		Node label6003 = createLabel(edge,
+				ContextmapperVisualIDRegistry
+						.getType(WrappingLabel3EditPart.VISUAL_ID));
+		label6003.getStyles().add(
+				NotationFactory.eINSTANCE.createDescriptionStyle());
+		label6003.setLayoutConstraint(NotationFactory.eINSTANCE
+				.createLocation());
+		Location location6003 = (Location) label6003.getLayoutConstraint();
+		location6003.setX(0);
+		location6003.setY(40);
 		return edge;
 	}
 
@@ -561,6 +596,16 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
+		Node label6004 = createLabel(edge,
+				ContextmapperVisualIDRegistry
+						.getType(WrappingLabel4EditPart.VISUAL_ID));
+		label6004.getStyles().add(
+				NotationFactory.eINSTANCE.createDescriptionStyle());
+		label6004.setLayoutConstraint(NotationFactory.eINSTANCE
+				.createLocation());
+		Location location6004 = (Location) label6004.getLayoutConstraint();
+		location6004.setX(0);
+		location6004.setY(40);
 		return edge;
 	}
 

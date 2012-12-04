@@ -18,6 +18,10 @@ import contextmapper.diagram.edit.parts.IncludeConnectionEditPart;
 import contextmapper.diagram.edit.parts.PriorConnectionEditPart;
 import contextmapper.diagram.edit.parts.RuntimeConfigEditPart;
 import contextmapper.diagram.edit.parts.RuntimeConfigNameEditPart;
+import contextmapper.diagram.edit.parts.WrappingLabel2EditPart;
+import contextmapper.diagram.edit.parts.WrappingLabel3EditPart;
+import contextmapper.diagram.edit.parts.WrappingLabel4EditPart;
+import contextmapper.diagram.edit.parts.WrappingLabelEditPart;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -176,6 +180,26 @@ public class ContextmapperVisualIDRegistry {
 			break;
 		case ContextEditPart.VISUAL_ID:
 			if (ContextNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ExtendConnectionEditPart.VISUAL_ID:
+			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ExcludeConnectionEditPart.VISUAL_ID:
+			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case PriorConnectionEditPart.VISUAL_ID:
+			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case IncludeConnectionEditPart.VISUAL_ID:
+			if (WrappingLabel4EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
