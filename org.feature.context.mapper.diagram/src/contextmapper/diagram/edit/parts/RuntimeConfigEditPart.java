@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.Ellipse;
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -300,7 +302,12 @@ public class RuntimeConfigEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public RuntimeConfigFigure() {
-			this.setLayoutManager(new CenterLayout());
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			this.setLayoutManager(layoutThis);
+
 			this.setLineWidth(2);
 			createContents();
 		}
@@ -314,7 +321,16 @@ public class RuntimeConfigEditPart extends ShapeNodeEditPart {
 
 			fFigureRuntimeConfigNameFigure.setText("");
 
-			this.add(fFigureRuntimeConfigNameFigure);
+			GridData constraintFFigureRuntimeConfigNameFigure = new GridData();
+			constraintFFigureRuntimeConfigNameFigure.verticalAlignment = GridData.CENTER;
+			constraintFFigureRuntimeConfigNameFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureRuntimeConfigNameFigure.horizontalIndent = 0;
+			constraintFFigureRuntimeConfigNameFigure.horizontalSpan = 1;
+			constraintFFigureRuntimeConfigNameFigure.verticalSpan = 1;
+			constraintFFigureRuntimeConfigNameFigure.grabExcessHorizontalSpace = true;
+			constraintFFigureRuntimeConfigNameFigure.grabExcessVerticalSpace = true;
+			this.add(fFigureRuntimeConfigNameFigure,
+					constraintFFigureRuntimeConfigNameFigure);
 
 		}
 

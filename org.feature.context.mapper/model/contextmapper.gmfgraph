@@ -23,11 +23,16 @@
           name="ContextFigure"
           lineWidth="2">
         <layout
-            xsi:type="gmfgraph:CenterLayout"/>
+            xsi:type="gmfgraph:GridLayout"/>
         <children
             xsi:type="gmfgraph:Label"
             name="ContextNameFigure"
-            text="&lt;...>"/>
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
@@ -39,10 +44,15 @@
           name="RuntimeConfigFigure"
           lineWidth="2">
         <layout
-            xsi:type="gmfgraph:CenterLayout"/>
+            xsi:type="gmfgraph:GridLayout"/>
         <children
             xsi:type="gmfgraph:Label"
-            name="RuntimeConfigNameFigure"/>
+            name="RuntimeConfigNameFigure">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"/>
+        </children>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>

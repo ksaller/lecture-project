@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
@@ -340,7 +342,12 @@ public class ContextEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public ContextFigure() {
-			this.setLayoutManager(new CenterLayout());
+
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			this.setLayoutManager(layoutThis);
+
 			this.setLineWidth(2);
 			createContents();
 		}
@@ -354,7 +361,16 @@ public class ContextEditPart extends ShapeNodeEditPart {
 
 			fFigureContextNameFigure.setText("<...>");
 
-			this.add(fFigureContextNameFigure);
+			GridData constraintFFigureContextNameFigure = new GridData();
+			constraintFFigureContextNameFigure.verticalAlignment = GridData.CENTER;
+			constraintFFigureContextNameFigure.horizontalAlignment = GridData.CENTER;
+			constraintFFigureContextNameFigure.horizontalIndent = 0;
+			constraintFFigureContextNameFigure.horizontalSpan = 1;
+			constraintFFigureContextNameFigure.verticalSpan = 1;
+			constraintFFigureContextNameFigure.grabExcessHorizontalSpace = true;
+			constraintFFigureContextNameFigure.grabExcessVerticalSpace = true;
+			this.add(fFigureContextNameFigure,
+					constraintFFigureContextNameFigure);
 
 		}
 

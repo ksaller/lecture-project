@@ -49,7 +49,7 @@ public class ContextmapperCreationWizard extends Wizard implements INewWizard {
 	 * @generated NOT
 	 */
 	protected ContextmapperCreationWizardPage viewMappingFilePage;
-	
+
 	/**
 	 * @generated
 	 */
@@ -143,13 +143,14 @@ public class ContextmapperCreationWizard extends Wizard implements INewWizard {
 
 		// Erstellt eine neue Wizard-Page, auf die eine *.viewmapping-Datei ausgewählt werden muss
 		viewMappingFilePage = new ContextmapperCreationWizardPage(
-				"ViewMappingFile", getSelection(), "viewmapping"){
+				"ViewMappingFile", getSelection(), "viewmapping") {
 			public void setVisible(boolean visible) {
 				if (visible) {
 					setFileName("");
 				}
 				super.setVisible(visible);
-			}};
+			}
+		};
 		// Legt Titel und Beschreibung der Seite fest und fügt sie dem Wizard hinzu
 		viewMappingFilePage
 				.setTitle(Messages.ContextmapperCreationWizard_ViewMappingFilePageTitle);
@@ -198,15 +199,15 @@ public class ContextmapperCreationWizard extends Wizard implements INewWizard {
 			}
 			return false;
 		}
-		
+
 		// MappingModel aus viewmapping-Datei laden:
-		MappingModel mappingModel = (MappingModel) contextmapper.diagram.customized
-				.GlobalObjectGetter.loadModel(viewMappingFilePage.getURI(), null);
-		
+		MappingModel mappingModel = (MappingModel) contextmapper.diagram.customized.GlobalObjectGetter
+				.loadModel(viewMappingFilePage.getURI(), null);
+
 		// MappingModel an ContextDiagram zuweisen:
 		DiagramEditor editor = GlobalObjectGetter.getDiagramEditor();
-		ICommandProxy setMappingCommand = new ICommandProxy(
-				new MappingCommand(editor.getEditingDomain(),mappingModel));
+		ICommandProxy setMappingCommand = new ICommandProxy(new MappingCommand(
+				editor.getEditingDomain(), mappingModel));
 		setMappingCommand.execute();
 		return diagram != null;
 	}
