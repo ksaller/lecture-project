@@ -71,7 +71,7 @@
         href="contextmapper.ecore#//ExtendConnection/source"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
-        href="contextmapper.ecore#//ExtendConnection/source"/>
+        href="contextmapper.ecore#//ExtendConnection/target"/>
     <creationConstraints>
       <sourceEnd
           body="self &lt;> oppositeEnd"/>

@@ -87,7 +87,7 @@ public class ExtendConnectionCreateCommand extends EditElementCommand {
 				.createExtendConnection();
 		getContainer().getExtend().add(newElement);
 		newElement.setSource(getSource());
-		newElement.setSource(getTarget());
+		newElement.setTarget(getTarget());
 		doConfigure(newElement, monitor, info);
 		((CreateElementRequest) getRequest()).setNewElement(newElement);
 		return CommandResult.newOKCommandResult(newElement);

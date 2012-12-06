@@ -344,7 +344,7 @@ public class ContextmapperDiagramUpdater {
 					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
-			Context dst = link.getSource();
+			Context dst = link.getTarget();
 			Context src = link.getSource();
 			result.add(new ContextmapperLinkDescriptor(src, dst, link,
 					ContextmapperElementTypes.ExtendConnection_4002,
@@ -442,7 +442,7 @@ public class ContextmapperDiagramUpdater {
 				.get(target);
 		for (EStructuralFeature.Setting setting : settings) {
 			if (setting.getEStructuralFeature() != ContextmapperPackage.eINSTANCE
-					.getExtendConnection_Source()
+					.getExtendConnection_Target()
 					|| false == setting.getEObject() instanceof ExtendConnection) {
 				continue;
 			}
@@ -573,7 +573,7 @@ public class ContextmapperDiagramUpdater {
 					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
-			Context dst = link.getSource();
+			Context dst = link.getTarget();
 			Context src = link.getSource();
 			if (src != source) {
 				continue;
