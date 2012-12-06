@@ -65,7 +65,7 @@ public class ExtendConnectionReorientCommand extends EditElementCommand {
 		if (!(oldEnd instanceof Context && newEnd instanceof Context)) {
 			return false;
 		}
-		Context target = getLink().getSource();
+		Context target = getLink().getTarget();
 		if (!(getLink().eContainer() instanceof Context)) {
 			return false;
 		}
@@ -122,7 +122,7 @@ public class ExtendConnectionReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected CommandResult reorientTarget() throws ExecutionException {
-		getLink().setSource(getNewTarget());
+		getLink().setTarget(getNewTarget());
 		return CommandResult.newOKCommandResult(getLink());
 	}
 

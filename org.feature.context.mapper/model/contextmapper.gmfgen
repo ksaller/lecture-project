@@ -140,7 +140,7 @@
         <sourceMetaFeature
             href="contextmapper.genmodel#//contextmapper/ExtendConnection/source"/>
         <targetMetaFeature
-            href="contextmapper.genmodel#//contextmapper/ExtendConnection/source"/>
+            href="contextmapper.genmodel#//contextmapper/ExtendConnection/target"/>
       </modelFacet>
       <labels
           visualID="6001"
