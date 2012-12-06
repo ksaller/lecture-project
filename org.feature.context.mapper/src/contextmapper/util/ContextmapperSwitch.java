@@ -90,15 +90,15 @@ public class ContextmapperSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ContextmapperPackage.EXCLUDE_CONNECTION: {
-				ExcludeConnection excludeConnection = (ExcludeConnection)theEObject;
-				T result = caseExcludeConnection(excludeConnection);
+			case ContextmapperPackage.EXTEND_CONNECTION: {
+				ExtendConnection extendConnection = (ExtendConnection)theEObject;
+				T result = caseExtendConnection(extendConnection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ContextmapperPackage.INCLUDE_CONNECTION: {
-				IncludeConnection includeConnection = (IncludeConnection)theEObject;
-				T result = caseIncludeConnection(includeConnection);
+			case ContextmapperPackage.EXCLUDE_CONNECTION: {
+				ExcludeConnection excludeConnection = (ExcludeConnection)theEObject;
+				T result = caseExcludeConnection(excludeConnection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -108,9 +108,9 @@ public class ContextmapperSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ContextmapperPackage.EXTEND_CONNECTION: {
-				ExtendConnection extendConnection = (ExtendConnection)theEObject;
-				T result = caseExtendConnection(extendConnection);
+			case ContextmapperPackage.INCLUDE_CONNECTION: {
+				IncludeConnection includeConnection = (IncludeConnection)theEObject;
+				T result = caseIncludeConnection(includeConnection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

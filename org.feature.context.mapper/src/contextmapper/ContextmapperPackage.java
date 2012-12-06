@@ -76,22 +76,22 @@ public interface ContextmapperPackage extends EPackage {
 	int CONTEXT__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Mapping</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT__MAPPING = 1;
+
+	/**
 	 * The feature id for the '<em><b>Classifier</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT__CLASSIFIER = 1;
-
-	/**
-	 * The feature id for the '<em><b>Priorize</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTEXT__PRIORIZE = 2;
+	int CONTEXT__CLASSIFIER = 2;
 
 	/**
 	 * The feature id for the '<em><b>Extend</b></em>' containment reference list.
@@ -121,13 +121,22 @@ public interface ContextmapperPackage extends EPackage {
 	int CONTEXT__EXCLUDED = 5;
 
 	/**
+	 * The feature id for the '<em><b>Priorize</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT__PRIORIZE = 6;
+
+	/**
 	 * The number of structural features of the '<em>Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEXT_FEATURE_COUNT = 6;
+	int CONTEXT_FEATURE_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link contextmapper.impl.ClassifierImpl <em>Classifier</em>}' class.
@@ -257,7 +266,64 @@ public interface ContextmapperPackage extends EPackage {
 	 * @see contextmapper.impl.ContextmapperPackageImpl#getExcludeConnection()
 	 * @generated
 	 */
-	int EXCLUDE_CONNECTION = 4;
+	int EXCLUDE_CONNECTION = 5;
+
+	/**
+	 * The meta object id for the '{@link contextmapper.impl.IncludeConnectionImpl <em>Include Connection</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see contextmapper.impl.IncludeConnectionImpl
+	 * @see contextmapper.impl.ContextmapperPackageImpl#getIncludeConnection()
+	 * @generated
+	 */
+	int INCLUDE_CONNECTION = 7;
+
+	/**
+	 * The meta object id for the '{@link contextmapper.impl.PriorConnectionImpl <em>Prior Connection</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see contextmapper.impl.PriorConnectionImpl
+	 * @see contextmapper.impl.ContextmapperPackageImpl#getPriorConnection()
+	 * @generated
+	 */
+	int PRIOR_CONNECTION = 6;
+
+	/**
+	 * The meta object id for the '{@link contextmapper.impl.ExtendConnectionImpl <em>Extend Connection</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see contextmapper.impl.ExtendConnectionImpl
+	 * @see contextmapper.impl.ContextmapperPackageImpl#getExtendConnection()
+	 * @generated
+	 */
+	int EXTEND_CONNECTION = 4;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTEND_CONNECTION__TARGET = 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTEND_CONNECTION__SOURCE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Extend Connection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTEND_CONNECTION_FEATURE_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' container reference.
@@ -287,53 +353,6 @@ public interface ContextmapperPackage extends EPackage {
 	int EXCLUDE_CONNECTION_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link contextmapper.impl.IncludeConnectionImpl <em>Include Connection</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see contextmapper.impl.IncludeConnectionImpl
-	 * @see contextmapper.impl.ContextmapperPackageImpl#getIncludeConnection()
-	 * @generated
-	 */
-	int INCLUDE_CONNECTION = 5;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INCLUDE_CONNECTION__SOURCE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INCLUDE_CONNECTION__TARGET = 1;
-
-	/**
-	 * The number of structural features of the '<em>Include Connection</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INCLUDE_CONNECTION_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link contextmapper.impl.PriorConnectionImpl <em>Prior Connection</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see contextmapper.impl.PriorConnectionImpl
-	 * @see contextmapper.impl.ContextmapperPackageImpl#getPriorConnection()
-	 * @generated
-	 */
-	int PRIOR_CONNECTION = 6;
-
-	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -361,14 +380,13 @@ public interface ContextmapperPackage extends EPackage {
 	int PRIOR_CONNECTION_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link contextmapper.impl.ExtendConnectionImpl <em>Extend Connection</em>}' class.
+	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see contextmapper.impl.ExtendConnectionImpl
-	 * @see contextmapper.impl.ContextmapperPackageImpl#getExtendConnection()
 	 * @generated
+	 * @ordered
 	 */
-	int EXTEND_CONNECTION = 7;
+	int INCLUDE_CONNECTION__SOURCE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -377,25 +395,16 @@ public interface ContextmapperPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTEND_CONNECTION__TARGET = 0;
+	int INCLUDE_CONNECTION__TARGET = 1;
 
 	/**
-	 * The feature id for the '<em><b>Source</b></em>' container reference.
+	 * The number of structural features of the '<em>Include Connection</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTEND_CONNECTION__SOURCE = 1;
-
-	/**
-	 * The number of structural features of the '<em>Extend Connection</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTEND_CONNECTION_FEATURE_COUNT = 2;
+	int INCLUDE_CONNECTION_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link contextmapper.Classification <em>Classification</em>}' enum.
@@ -428,6 +437,17 @@ public interface ContextmapperPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getContext_Name();
+
+	/**
+	 * Returns the meta object for the reference '{@link contextmapper.Context#getMapping <em>Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Mapping</em>'.
+	 * @see contextmapper.Context#getMapping()
+	 * @see #getContext()
+	 * @generated
+	 */
+	EReference getContext_Mapping();
 
 	/**
 	 * Returns the meta object for the reference list '{@link contextmapper.Context#getClassifier <em>Classifier</em>}'.
@@ -768,6 +788,14 @@ public interface ContextmapperPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONTEXT__NAME = eINSTANCE.getContext_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Mapping</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTEXT__MAPPING = eINSTANCE.getContext_Mapping();
 
 		/**
 		 * The meta object literal for the '<em><b>Classifier</b></em>' reference list feature.

@@ -135,17 +135,17 @@
       name="RuntimeConfig"
       figure="RuntimeConfigFigure"/>
   <connections
+      name="ExtendConnection"
+      figure="ExtendConnectionFigure"/>
+  <connections
       name="ExcludeConnection"
       figure="ExcludeConnectionFigure"/>
-  <connections
-      name="IncludeConnection"
-      figure="IncludeConnectionFigure"/>
   <connections
       name="PriorConnection"
       figure="PriorConnectionFigure"/>
   <connections
-      name="ExtendConnection"
-      figure="ExtendConnectionFigure"/>
+      name="IncludeConnection"
+      figure="IncludeConnectionFigure"/>
   <labels
       name="ExcludeConnectionName"
       figure="ExcludeConnectionFigure"

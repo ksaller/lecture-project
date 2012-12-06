@@ -24,6 +24,7 @@ import org.featuremapper.models.feature.provider.FeatureItemProviderAdapterFacto
 import org.osgi.framework.BundleContext;
 
 import contextmapper.diagram.edit.policies.ContextmapperBaseItemSemanticEditPolicy;
+import contextmapper.diagram.expressions.ContextmapperOCLFactory;
 import contextmapper.diagram.providers.ElementInitializers;
 import contextmapper.provider.ContextmapperItemProviderAdapterFactory;
 
@@ -71,6 +72,11 @@ public class ContextmapperDiagramEditorPlugin extends AbstractUIPlugin {
 	/**
 	 * @generated
 	 */
+	private ContextmapperOCLFactory oclFactory;
+
+	/**
+	 * @generated
+	 */
 	public ContextmapperDiagramEditorPlugin() {
 	}
 
@@ -93,6 +99,7 @@ public class ContextmapperDiagramEditorPlugin extends AbstractUIPlugin {
 		adapterFactory = null;
 		linkConstraints = null;
 		initializers = null;
+		oclFactory = null;
 		instance = null;
 		super.stop(context);
 	}
@@ -239,6 +246,20 @@ public class ContextmapperDiagramEditorPlugin extends AbstractUIPlugin {
 	 */
 	public void setElementInitializers(ElementInitializers i) {
 		this.initializers = i;
+	}
+
+	/**
+	 * @generated
+	 */
+	public ContextmapperOCLFactory getContextmapperOCLFactory() {
+		return oclFactory;
+	}
+
+	/**
+	 * @generated
+	 */
+	public void setContextmapperOCLFactory(ContextmapperOCLFactory f) {
+		this.oclFactory = f;
 	}
 
 	/**

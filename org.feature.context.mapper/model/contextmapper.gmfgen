@@ -140,7 +140,7 @@
         <sourceMetaFeature
             href="contextmapper.genmodel#//contextmapper/ExtendConnection/source"/>
         <targetMetaFeature
-            href="contextmapper.genmodel#//contextmapper/ExtendConnection/target"/>
+            href="contextmapper.genmodel#//contextmapper/ExtendConnection/source"/>
       </modelFacet>
       <labels
           visualID="6001"
@@ -162,6 +162,8 @@
             xsi:type="gmfgen:DesignLabelModelFacet"
             parser="//@labelParsers/@implementations.1"/>
       </labels>
+      <creationConstraints
+          sourceEnd="//@expressionProviders/@providers.0/@expressions.0"/>
     </links>
     <links
         visualID="4004"
@@ -212,6 +214,8 @@
             xsi:type="gmfgen:DesignLabelModelFacet"
             parser="//@labelParsers/@implementations.1"/>
       </labels>
+      <creationConstraints
+          sourceEnd="//@expressionProviders/@providers.0/@expressions.1"/>
     </links>
     <links
         visualID="4001"
@@ -262,6 +266,8 @@
             xsi:type="gmfgen:DesignLabelModelFacet"
             parser="//@labelParsers/@implementations.1"/>
       </labels>
+      <creationConstraints
+          sourceEnd="//@expressionProviders/@providers.0/@expressions.2"/>
     </links>
     <links
         visualID="4003"
@@ -312,6 +318,8 @@
             xsi:type="gmfgen:DesignLabelModelFacet"
             parser="//@labelParsers/@implementations.1"/>
       </labels>
+      <creationConstraints
+          sourceEnd="//@expressionProviders/@providers.0/@expressions.3"/>
     </links>
     <palette>
       <groups
@@ -323,9 +331,9 @@
             genNodes="//@diagram/@topLevelNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="RuntimeConfig"
-            description="Create new RuntimeConfig"
-            genNodes="//@diagram/@topLevelNodes.0"/>
+            title="ExtendConnection"
+            description="Create new ExtendConnection"
+            genLinks="//@diagram/@links.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="ExcludeConnection"
@@ -333,19 +341,21 @@
             genLinks="//@diagram/@links.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="IncludeConnection"
-            description="Create new IncludeConnection"
-            genLinks="//@diagram/@links.3"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="PriorConnection"
             description="Create new PriorConnection"
             genLinks="//@diagram/@links.2"/>
         <entries
+            xsi:type="gmfgen:Separator"/>
+        <entries
             xsi:type="gmfgen:ToolEntry"
-            title="ExtendConnection"
-            description="Create new ExtendConnection"
-            genLinks="//@diagram/@links.0"/>
+            title="RuntimeConfig"
+            description="Create new RuntimeConfig"
+            genNodes="//@diagram/@topLevelNodes.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="IncludeConnection"
+            description="Create new IncludeConnection"
+            genLinks="//@diagram/@links.3"/>
       </groups>
     </palette>
     <preferencePages
@@ -631,6 +641,23 @@
   </application>
   <domainGenModel
       href="contextmapper.genmodel#/"/>
+  <expressionProviders>
+    <providers
+        xsi:type="gmfgen:GenExpressionInterpreter">
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="self &lt;> oppositeEnd"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="self &lt;> oppositeEnd"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="self &lt;> oppositeEnd"/>
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="self &lt;> oppositeEnd"/>
+    </providers>
+  </expressionProviders>
   <labelParsers
       extensibleViaService="true">
     <implementations

@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
+import org.feature.multi.perspective.mapping.viewmapping.Mapping;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,11 +24,12 @@ import org.eclipse.emf.internal.cdo.CDOObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link contextmapper.impl.ContextImpl#getName <em>Name</em>}</li>
+ *   <li>{@link contextmapper.impl.ContextImpl#getMapping <em>Mapping</em>}</li>
  *   <li>{@link contextmapper.impl.ContextImpl#getClassifier <em>Classifier</em>}</li>
- *   <li>{@link contextmapper.impl.ContextImpl#getPriorize <em>Priorize</em>}</li>
  *   <li>{@link contextmapper.impl.ContextImpl#getExtend <em>Extend</em>}</li>
  *   <li>{@link contextmapper.impl.ContextImpl#getExclude <em>Exclude</em>}</li>
  *   <li>{@link contextmapper.impl.ContextImpl#getExcluded <em>Excluded</em>}</li>
+ *   <li>{@link contextmapper.impl.ContextImpl#getPriorize <em>Priorize</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,6 +81,24 @@ public class ContextImpl extends CDOObjectImpl implements Context {
 	 */
 	public void setName(String newName) {
 		eSet(ContextmapperPackage.Literals.CONTEXT__NAME, newName);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Mapping getMapping() {
+		return (Mapping)eGet(ContextmapperPackage.Literals.CONTEXT__MAPPING, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMapping(Mapping newMapping) {
+		eSet(ContextmapperPackage.Literals.CONTEXT__MAPPING, newMapping);
 	}
 
 	/**

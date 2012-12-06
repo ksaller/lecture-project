@@ -1,7 +1,10 @@
 package contextmapper.diagram.edit.policies;
 
+import java.util.Collections;
 import java.util.Iterator;
 
+import java.util.Map;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
@@ -33,11 +36,13 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
 import contextmapper.Context;
+import contextmapper.ContextmapperPackage;
 import contextmapper.ExcludeConnection;
 import contextmapper.ExtendConnection;
 import contextmapper.IncludeConnection;
 import contextmapper.PriorConnection;
 import contextmapper.RuntimeConfig;
+import contextmapper.diagram.expressions.ContextmapperOCLFactory;
 import contextmapper.diagram.part.ContextmapperDiagramEditorPlugin;
 import contextmapper.diagram.part.ContextmapperVisualIDRegistry;
 import contextmapper.diagram.providers.ContextmapperElementTypes;
@@ -365,7 +370,30 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		 */
 		public boolean canExistExtendConnection_4002(Context container,
 				ExtendConnection linkInstance, Context source, Context target) {
-			return true;
+			try {
+				if (source == null) {
+					return true;
+				} else {
+					Map<String, EClassifier> env = Collections
+							.<String, EClassifier> singletonMap(
+									"oppositeEnd", ContextmapperPackage.eINSTANCE.getContext()); //$NON-NLS-1$
+					Object sourceVal = ContextmapperOCLFactory.getExpression(0,
+							ContextmapperPackage.eINSTANCE.getContext(), env)
+							.evaluate(
+									source,
+									Collections.singletonMap(
+											"oppositeEnd", target)); //$NON-NLS-1$
+					if (false == sourceVal instanceof Boolean
+							|| !((Boolean) sourceVal).booleanValue()) {
+						return false;
+					} // else fall-through
+				}
+				return true;
+			} catch (Exception e) {
+				ContextmapperDiagramEditorPlugin.getInstance().logError(
+						"Link constraint evaluation error", e); //$NON-NLS-1$
+				return false;
+			}
 		}
 
 		/**
@@ -373,7 +401,30 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		 */
 		public boolean canExistExcludeConnection_4004(Context container,
 				ExcludeConnection linkInstance, Context source, Context target) {
-			return true;
+			try {
+				if (source == null) {
+					return true;
+				} else {
+					Map<String, EClassifier> env = Collections
+							.<String, EClassifier> singletonMap(
+									"oppositeEnd", ContextmapperPackage.eINSTANCE.getContext()); //$NON-NLS-1$
+					Object sourceVal = ContextmapperOCLFactory.getExpression(1,
+							ContextmapperPackage.eINSTANCE.getContext(), env)
+							.evaluate(
+									source,
+									Collections.singletonMap(
+											"oppositeEnd", target)); //$NON-NLS-1$
+					if (false == sourceVal instanceof Boolean
+							|| !((Boolean) sourceVal).booleanValue()) {
+						return false;
+					} // else fall-through
+				}
+				return true;
+			} catch (Exception e) {
+				ContextmapperDiagramEditorPlugin.getInstance().logError(
+						"Link constraint evaluation error", e); //$NON-NLS-1$
+				return false;
+			}
 		}
 
 		/**
@@ -381,7 +432,30 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		 */
 		public boolean canExistPriorConnection_4001(Context container,
 				PriorConnection linkInstance, Context source, Context target) {
-			return true;
+			try {
+				if (source == null) {
+					return true;
+				} else {
+					Map<String, EClassifier> env = Collections
+							.<String, EClassifier> singletonMap(
+									"oppositeEnd", ContextmapperPackage.eINSTANCE.getContext()); //$NON-NLS-1$
+					Object sourceVal = ContextmapperOCLFactory.getExpression(2,
+							ContextmapperPackage.eINSTANCE.getContext(), env)
+							.evaluate(
+									source,
+									Collections.singletonMap(
+											"oppositeEnd", target)); //$NON-NLS-1$
+					if (false == sourceVal instanceof Boolean
+							|| !((Boolean) sourceVal).booleanValue()) {
+						return false;
+					} // else fall-through
+				}
+				return true;
+			} catch (Exception e) {
+				ContextmapperDiagramEditorPlugin.getInstance().logError(
+						"Link constraint evaluation error", e); //$NON-NLS-1$
+				return false;
+			}
 		}
 
 		/**
@@ -390,7 +464,28 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		public boolean canExistIncludeConnection_4003(RuntimeConfig container,
 				IncludeConnection linkInstance, RuntimeConfig source,
 				Context target) {
-			return true;
+			try {
+				if (source == null) {
+					return true;
+				} else {
+					Map<String, EClassifier> env = Collections
+							.<String, EClassifier> singletonMap(
+									"oppositeEnd", ContextmapperPackage.eINSTANCE.getContext()); //$NON-NLS-1$
+					Object sourceVal = ContextmapperOCLFactory.getExpression(3,
+							ContextmapperPackage.eINSTANCE.getRuntimeConfig(),
+							env).evaluate(source,
+							Collections.singletonMap("oppositeEnd", target)); //$NON-NLS-1$
+					if (false == sourceVal instanceof Boolean
+							|| !((Boolean) sourceVal).booleanValue()) {
+						return false;
+					} // else fall-through
+				}
+				return true;
+			} catch (Exception e) {
+				ContextmapperDiagramEditorPlugin.getInstance().logError(
+						"Link constraint evaluation error", e); //$NON-NLS-1$
+				return false;
+			}
 		}
 	}
 

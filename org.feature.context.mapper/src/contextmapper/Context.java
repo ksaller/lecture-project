@@ -5,6 +5,7 @@ package contextmapper;
 import org.eclipse.emf.cdo.CDOObject;
 
 import org.eclipse.emf.common.util.EList;
+import org.feature.multi.perspective.mapping.viewmapping.Mapping;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,11 +16,12 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link contextmapper.Context#getName <em>Name</em>}</li>
+ *   <li>{@link contextmapper.Context#getMapping <em>Mapping</em>}</li>
  *   <li>{@link contextmapper.Context#getClassifier <em>Classifier</em>}</li>
- *   <li>{@link contextmapper.Context#getPriorize <em>Priorize</em>}</li>
  *   <li>{@link contextmapper.Context#getExtend <em>Extend</em>}</li>
  *   <li>{@link contextmapper.Context#getExclude <em>Exclude</em>}</li>
  *   <li>{@link contextmapper.Context#getExcluded <em>Excluded</em>}</li>
+ *   <li>{@link contextmapper.Context#getPriorize <em>Priorize</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,6 +56,32 @@ public interface Context extends CDOObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Mapping</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mapping</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mapping</em>' reference.
+	 * @see #setMapping(Mapping)
+	 * @see contextmapper.ContextmapperPackage#getContext_Mapping()
+	 * @model
+	 * @generated
+	 */
+	Mapping getMapping();
+
+	/**
+	 * Sets the value of the '{@link contextmapper.Context#getMapping <em>Mapping</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Mapping</em>' reference.
+	 * @see #getMapping()
+	 * @generated
+	 */
+	void setMapping(Mapping value);
 
 	/**
 	 * Returns the value of the '<em><b>Classifier</b></em>' reference list.

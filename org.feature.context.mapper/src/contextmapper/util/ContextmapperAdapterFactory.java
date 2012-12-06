@@ -84,20 +84,20 @@ public class ContextmapperAdapterFactory extends AdapterFactoryImpl {
 				return createContextDiagramAdapter();
 			}
 			@Override
-			public Adapter caseExcludeConnection(ExcludeConnection object) {
-				return createExcludeConnectionAdapter();
+			public Adapter caseExtendConnection(ExtendConnection object) {
+				return createExtendConnectionAdapter();
 			}
 			@Override
-			public Adapter caseIncludeConnection(IncludeConnection object) {
-				return createIncludeConnectionAdapter();
+			public Adapter caseExcludeConnection(ExcludeConnection object) {
+				return createExcludeConnectionAdapter();
 			}
 			@Override
 			public Adapter casePriorConnection(PriorConnection object) {
 				return createPriorConnectionAdapter();
 			}
 			@Override
-			public Adapter caseExtendConnection(ExtendConnection object) {
-				return createExtendConnectionAdapter();
+			public Adapter caseIncludeConnection(IncludeConnection object) {
+				return createIncludeConnectionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {

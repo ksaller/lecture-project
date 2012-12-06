@@ -358,10 +358,10 @@ public class ContextmapperItemProviderAdapterFactory extends ContextmapperAdapte
 		if (classifierItemProvider != null) classifierItemProvider.dispose();
 		if (runtimeConfigItemProvider != null) runtimeConfigItemProvider.dispose();
 		if (contextDiagramItemProvider != null) contextDiagramItemProvider.dispose();
-		if (excludeConnectionItemProvider != null) excludeConnectionItemProvider.dispose();
-		if (includeConnectionItemProvider != null) includeConnectionItemProvider.dispose();
-		if (priorConnectionItemProvider != null) priorConnectionItemProvider.dispose();
 		if (extendConnectionItemProvider != null) extendConnectionItemProvider.dispose();
+		if (excludeConnectionItemProvider != null) excludeConnectionItemProvider.dispose();
+		if (priorConnectionItemProvider != null) priorConnectionItemProvider.dispose();
+		if (includeConnectionItemProvider != null) includeConnectionItemProvider.dispose();
 	}
 
 }

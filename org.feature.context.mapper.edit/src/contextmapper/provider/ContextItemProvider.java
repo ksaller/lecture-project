@@ -64,6 +64,7 @@ public class ContextItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addMappingPropertyDescriptor(object);
 			addClassifierPropertyDescriptor(object);
 			addExcludedPropertyDescriptor(object);
 		}
@@ -88,6 +89,28 @@ public class ContextItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Mapping feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMappingPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Context_mapping_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Context_mapping_feature", "_UI_Context_type"),
+				 ContextmapperPackage.Literals.CONTEXT__MAPPING,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -148,9 +171,9 @@ public class ContextItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContextmapperPackage.Literals.CONTEXT__PRIORIZE);
 			childrenFeatures.add(ContextmapperPackage.Literals.CONTEXT__EXTEND);
 			childrenFeatures.add(ContextmapperPackage.Literals.CONTEXT__EXCLUDE);
+			childrenFeatures.add(ContextmapperPackage.Literals.CONTEXT__PRIORIZE);
 		}
 		return childrenFeatures;
 	}
@@ -208,9 +231,9 @@ public class ContextItemProvider
 			case ContextmapperPackage.CONTEXT__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ContextmapperPackage.CONTEXT__PRIORIZE:
 			case ContextmapperPackage.CONTEXT__EXTEND:
 			case ContextmapperPackage.CONTEXT__EXCLUDE:
+			case ContextmapperPackage.CONTEXT__PRIORIZE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -230,11 +253,6 @@ public class ContextItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContextmapperPackage.Literals.CONTEXT__PRIORIZE,
-				 ContextmapperFactory.eINSTANCE.createPriorConnection()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(ContextmapperPackage.Literals.CONTEXT__EXTEND,
 				 ContextmapperFactory.eINSTANCE.createExtendConnection()));
 
@@ -242,6 +260,11 @@ public class ContextItemProvider
 			(createChildParameter
 				(ContextmapperPackage.Literals.CONTEXT__EXCLUDE,
 				 ContextmapperFactory.eINSTANCE.createExcludeConnection()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContextmapperPackage.Literals.CONTEXT__PRIORIZE,
+				 ContextmapperFactory.eINSTANCE.createPriorConnection()));
 	}
 
 	/**

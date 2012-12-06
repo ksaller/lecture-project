@@ -63,7 +63,7 @@
         href="contextmapper.ecore#//Context/extend"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="contextmapper.gmftool#//@palette/@tools.0/@tools.2"/>
+        href="contextmapper.gmftool#//@palette/@tools.0/@tools.5"/>
     <diagramLink
         href="contextmapper.gmfgraph#ExtendConnection"/>
     <sourceMetaFeature
@@ -71,7 +71,7 @@
         href="contextmapper.ecore#//ExtendConnection/source"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
-        href="contextmapper.ecore#//ExtendConnection/source"/>
+        href="contextmapper.ecore#//ExtendConnection/target"/>
     <creationConstraints>
       <sourceEnd
           body="self &lt;> oppositeEnd"/>
@@ -90,7 +90,7 @@
         href="contextmapper.ecore#//Context/exclude"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="contextmapper.gmftool#//@palette/@tools.0/@tools.3"/>
+        href="contextmapper.gmftool#//@palette/@tools.0/@tools.2"/>
     <diagramLink
         href="contextmapper.gmfgraph#ExcludeConnection"/>
     <sourceMetaFeature
@@ -144,7 +144,7 @@
         href="contextmapper.ecore#//RuntimeConfig/include"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="contextmapper.gmftool#//@palette/@tools.0/@tools.5"/>
+        href="contextmapper.gmftool#//@palette/@tools.0/@tools.3"/>
     <diagramLink
         href="contextmapper.gmfgraph#IncludeConnection"/>
     <sourceMetaFeature

@@ -308,12 +308,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String RuntimeConfig2CreationTool_title;
+	public static String ExtendConnection2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String RuntimeConfig2CreationTool_desc;
+	public static String ExtendConnection2CreationTool_desc;
 
 	/**
 	 * @generated
@@ -328,32 +328,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String IncludeConnection4CreationTool_title;
+	public static String PriorConnection4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String IncludeConnection4CreationTool_desc;
+	public static String PriorConnection4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String PriorConnection5CreationTool_title;
+	public static String RuntimeConfig6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PriorConnection5CreationTool_desc;
+	public static String RuntimeConfig6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ExtendConnection6CreationTool_title;
+	public static String IncludeConnection7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ExtendConnection6CreationTool_desc;
+	public static String IncludeConnection7CreationTool_desc;
 
 	/**
 	 * @generated

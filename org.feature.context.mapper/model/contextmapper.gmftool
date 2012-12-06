@@ -29,8 +29,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="ExcludeConnection"
-          description="Create new ExcludeConnection">
+          title="ExtendConnection"
+          description="Create new ExtendConnection">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -38,8 +38,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="IncludeConnection"
-          description="Create new IncludeConnection">
+          title="ExcludeConnection"
+          description="Create new ExcludeConnection">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -56,8 +56,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="ExtendConnection"
-          description="Create new ExtendConnection">
+          title="IncludeConnection"
+          description="Create new IncludeConnection">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
