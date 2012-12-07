@@ -155,7 +155,7 @@ public class WizardNewFileCreationPage extends WizardPage {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public void createControl(Composite parent) {
 		Composite plate = new Composite(parent, SWT.NONE);
