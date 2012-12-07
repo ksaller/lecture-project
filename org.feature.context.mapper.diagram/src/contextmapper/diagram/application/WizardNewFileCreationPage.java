@@ -185,6 +185,7 @@ public class WizardNewFileCreationPage extends WizardPage {
 				FileDialog dialog = new FileDialog(getShell(), SWT.SAVE);
 				dialog.setText(Messages.WizardNewFileCreationPage_SelectNewFileDialog);
 				dialog.setFileName(getFileName());
+				dialog.setFilterExtensions(new String[] {"*.viewmapping"});
 				String fileName = dialog.open();
 				if (fileName != null) {
 					fileNameEditor.setText(fileName);
