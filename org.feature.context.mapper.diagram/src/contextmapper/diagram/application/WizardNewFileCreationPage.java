@@ -47,6 +47,19 @@ public class WizardNewFileCreationPage extends WizardPage {
 	/**
 	 * @generated
 	 */
+	
+	private String[] filterExtensions;
+	
+	
+	
+	public String[] getFilterExtensions() {
+		return filterExtensions;
+	}
+
+	public void setFilterExtensions(String[] filterExtensions) {
+		this.filterExtensions = filterExtensions;
+	}
+
 	public WizardNewFileCreationPage(String name,
 			IStructuredSelection currentSelection) {
 		super(name);
@@ -185,7 +198,7 @@ public class WizardNewFileCreationPage extends WizardPage {
 				FileDialog dialog = new FileDialog(getShell(), SWT.SAVE);
 				dialog.setText(Messages.WizardNewFileCreationPage_SelectNewFileDialog);
 				dialog.setFileName(getFileName());
-				dialog.setFilterExtensions(new String[] {"*.viewmapping"});
+				dialog.setFilterExtensions(filterExtensions);
 				String fileName = dialog.open();
 				if (fileName != null) {
 					fileNameEditor.setText(fileName);
@@ -218,4 +231,5 @@ public class WizardNewFileCreationPage extends WizardPage {
 		setErrorMessage(null);
 		return true;
 	}
+
 }
