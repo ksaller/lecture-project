@@ -1,5 +1,6 @@
 package contextmapper.diagram.part;
 
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.palette.PaletteRoot;
@@ -9,6 +10,7 @@ import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocu
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.ui.IEditorInput;
 
 /**
@@ -75,11 +77,9 @@ public class ContextmapperDiagramEditor extends DiagramDocumentEditor {
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	public TransactionalEditingDomain getEditingDomain() {
-		ValidateAction.runValidation(getDiagram());	// bei jeder Änderung validieren
-		
 		IDocument document = getEditorInput() != null ? getDocumentProvider()
 				.getDocument(getEditorInput()) : null;
 		if (document instanceof IDiagramDocument) {
@@ -110,6 +110,15 @@ public class ContextmapperDiagramEditor extends DiagramDocumentEditor {
 		getDiagramGraphicalViewer().setContextMenu(provider);
 		getSite().registerContextMenu(ActionIds.DIAGRAM_EDITOR_CONTEXT_MENU,
 				provider, getDiagramGraphicalViewer());
+	}
+	
+	/**
+	 * @generated NOT
+	 * @author Patrick
+	 */
+	public void doSave(IProgressMonitor m){
+		ValidateAction.runValidation(getDiagram());	// validate on save
+		super.doSave(m);
 	}
 
 }
