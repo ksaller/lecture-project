@@ -168,4 +168,24 @@
     <palette
         href="contextmapper.gmftool#//@palette"/>
   </diagram>
+  <audits
+      id="ContextDiagramAudits"
+      name="ContextDiagramAudits"
+      description="Context Diagram Audits">
+    <audits
+        name="ContextUniqueNameCheck"
+        description="Context Unique Name Check"
+        id="ContextUniqueNameCheck"
+        useInLiveMode="true"
+        message="Two Contexts have the same name.">
+      <rule
+          body="self.context->forAll(c1, c2  | c1.name&lt;>c2.name)"
+          language="java"/>
+      <target
+          xsi:type="gmfmap:DomainElementTarget">
+        <element
+            href="contextmapper.ecore#//ContextDiagram"/>
+      </target>
+    </audits>
+  </audits>
 </gmfmap:Mapping>

@@ -4,13 +4,41 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel">
+  <audits>
+    <categories
+        id="ContextDiagramAudits"
+        name="ContextDiagramAudits"
+        description="Context Diagram Audits"
+        path="//@audits/@categories.0"
+        audits="//@audits/@rules.0"/>
+    <rules
+        name="ContextUniqueNameCheck"
+        description="Context Unique Name Check"
+        id="ContextUniqueNameCheck"
+        rule="//@expressionProviders/@providers.1/@expressions.0"
+        message="Two Contexts have the same name."
+        useInLiveMode="true"
+        category="//@audits/@categories.0">
+      <target
+          xsi:type="gmfgen:GenDomainElementTarget"
+          contextSelector="//@audits/@clientContexts.0">
+        <element
+            href="contextmapper.genmodel#//contextmapper/ContextDiagram"/>
+      </target>
+    </rules>
+    <clientContexts
+        ruleTargets="//@audits/@rules.0/@target"/>
+  </audits>
   <diagram
       visualID="1000"
       editPartClassName="ContextDiagramEditPart"
       itemSemanticEditPolicyClassName="ContextDiagramItemSemanticEditPolicy"
       canonicalEditPolicyClassName="ContextDiagramCanonicalEditPolicy"
       iconProviderPriority="Low"
-      validationProviderPriority="Low">
+      validationProviderPriority="Low"
+      validationEnabled="true"
+      validationDecorators="true"
+      liveValidationUIFeedback="true">
     <diagramRunTimeClass
         href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
     <elementType
@@ -656,6 +684,12 @@
       <expressions
           xsi:type="gmfgen:GenConstraint"
           body="self &lt;> oppositeEnd"/>
+    </providers>
+    <providers
+        xsi:type="gmfgen:GenJavaExpressionProvider">
+      <expressions
+          xsi:type="gmfgen:GenConstraint"
+          body="self.context->forAll(c1, c2  | c1.name&lt;>c2.name)"/>
     </providers>
   </expressionProviders>
   <labelParsers
