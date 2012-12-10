@@ -352,7 +352,8 @@ public class DiagramEditorActionBarAdvisor extends ActionBarAdvisor {
 		public void run(IAction action) {
 			FileDialog fileDialog = new FileDialog(getWindow().getShell(),
 					SWT.OPEN);
-			fileDialog.setFilterExtensions(new String[] {"*.contextmapper_diagram"});
+			fileDialog
+					.setFilterExtensions(new String[] { "*.contextmapper_diagram" });
 			fileDialog.open();
 			if (fileDialog.getFileName() != null
 					&& fileDialog.getFileName().length() > 0) {

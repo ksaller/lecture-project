@@ -75,9 +75,11 @@ public class ContextmapperDiagramEditor extends DiagramDocumentEditor {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public TransactionalEditingDomain getEditingDomain() {
+		ValidateAction.runValidation(getDiagram());	// bei jeder Änderung validieren
+		
 		IDocument document = getEditorInput() != null ? getDocumentProvider()
 				.getDocument(getEditorInput()) : null;
 		if (document instanceof IDiagramDocument) {

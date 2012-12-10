@@ -36,6 +36,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.feature.multi.perspective.model;visibility:=reexport,
  org.feature.multi.perspective.model.edit;visibility:=reexport,
  org.eclipse.gef;visibility:=reexport,
- org.eclipse.ocl.ecore;visibility:=reexport
+ org.eclipse.ocl.ecore;visibility:=reexport,
+ org.eclipse.emf.validation;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

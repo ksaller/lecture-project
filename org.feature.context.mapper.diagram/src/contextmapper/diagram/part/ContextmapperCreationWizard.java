@@ -114,7 +114,8 @@ public class ContextmapperCreationWizard extends Wizard implements INewWizard {
 	public void addPages() {
 		diagramModelFilePage = new ContextmapperCreationWizardPage(
 				"DiagramModelFile", getSelection(), "contextmapper_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
-		diagramModelFilePage.setFilterExtensions(new String[]{"*.contextmapper_diagram"});
+		diagramModelFilePage
+				.setFilterExtensions(new String[] { "*.contextmapper_diagram" });
 		diagramModelFilePage
 				.setTitle(Messages.ContextmapperCreationWizard_DiagramModelFilePageTitle);
 		diagramModelFilePage
@@ -123,7 +124,7 @@ public class ContextmapperCreationWizard extends Wizard implements INewWizard {
 
 		domainModelFilePage = new ContextmapperCreationWizardPage(
 				"DomainModelFile", getSelection(), "contextmapper") { //$NON-NLS-1$ //$NON-NLS-2$
-			
+
 			public void setVisible(boolean visible) {
 				if (visible) {
 					String fileName = diagramModelFilePage.getFileName();
@@ -136,7 +137,8 @@ public class ContextmapperCreationWizard extends Wizard implements INewWizard {
 				super.setVisible(visible);
 			}
 		};
-		domainModelFilePage.setFilterExtensions(new String[]{"*.contextmapper"});
+		domainModelFilePage
+				.setFilterExtensions(new String[] { "*.contextmapper" });
 		domainModelFilePage
 				.setTitle(Messages.ContextmapperCreationWizard_DomainModelFilePageTitle);
 		domainModelFilePage
@@ -154,7 +156,8 @@ public class ContextmapperCreationWizard extends Wizard implements INewWizard {
 			}
 		};
 		// Legt Titel und Beschreibung der Seite fest und fügt sie dem Wizard hinzu
-		viewMappingFilePage.setFilterExtensions(new String[]{"*.viewmapping"});
+		viewMappingFilePage
+				.setFilterExtensions(new String[] { "*.viewmapping" });
 		viewMappingFilePage
 				.setTitle(Messages.ContextmapperCreationWizard_ViewMappingFilePageTitle);
 		viewMappingFilePage

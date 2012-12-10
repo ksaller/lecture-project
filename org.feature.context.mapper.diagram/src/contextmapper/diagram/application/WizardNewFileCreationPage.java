@@ -44,14 +44,8 @@ public class WizardNewFileCreationPage extends WizardPage {
 	 */
 	private Text fileNameEditor;
 
-	/**
-	 * @generated
-	 */
-	
 	private String[] filterExtensions;
-	
-	
-	
+
 	public String[] getFilterExtensions() {
 		return filterExtensions;
 	}
