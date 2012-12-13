@@ -13,6 +13,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -27,6 +28,8 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.feature.multi.perspective.mapping.viewmapping.Mapping;
+import org.featuremapper.models.feature.Feature;
 
 /**
  * This is the item provider adapter for a {@link contextmapper.Context} object.
@@ -97,22 +100,66 @@ public class ContextItemProvider
 	 * This adds a property descriptor for the Mapping feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addMappingPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+				(new ItemPropertyDescriptor
+						(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+						 getResourceLocator(),
+						 getString("_UI_Context_mapping_feature"),
+						 getString("_UI_PropertyDescriptor_description", "_UI_Context_mapping_feature", "_UI_Context_type"),
+						 ContextmapperPackage.Literals.CONTEXT__MAPPING,
+						 true,
+						 false,
+						 false,
+						 null,
+						 null,
+						 null){
+							@Override
+							public IItemLabelProvider getLabelProvider(Object object){
+								final IItemLabelProvider defaultLabelProvider = super.getLabelProvider(object);
+								return new IItemLabelProvider() {
+									
+									@Override
+									public String getText(Object object) {
+										if (object instanceof Mapping) {
+											Mapping mapping = (Mapping) object;
+											
+											// Der Text, der bei der Auswahl eines Mappings angezeigt wird,
+											// entspricht der Featuremenge Des Mappings in der Form (feature1, feature2, ...)
+											String result = "(";
+											EList<Feature> features = mapping.getFeatures();
+											for(Feature f : features){
+												result += f.getName();
+												if (features.indexOf(f) != features.size() - 1)
+													result += ", ";
+											}
+											return result + ")";
+										}
+										return defaultLabelProvider.getText(object);
+									}
+									
+									@Override
+									public Object getImage(Object object) {
+										return defaultLabelProvider.getImage(object);
+									}
+								};
+							}
+						}
+					);
+			/*	(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_Context_mapping_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Context_mapping_feature", "_UI_Context_type"),
 				 ContextmapperPackage.Literals.CONTEXT__MAPPING,
 				 true,
-				 false,
+				 true,
 				 true,
 				 null,
 				 null,
-				 null));
+				 null));*/
 	}
 
 	/**
