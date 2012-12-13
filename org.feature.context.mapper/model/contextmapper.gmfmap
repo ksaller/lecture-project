@@ -52,33 +52,6 @@
   </nodes>
   <links>
     <domainMetaElement
-        href="contextmapper.ecore#//ExtendConnection"/>
-    <labelMappings
-        xsi:type="gmfmap:DesignLabelMapping"
-        readOnly="true">
-      <diagramLabel
-          href="contextmapper.gmfgraph#ExtendConnectionName"/>
-    </labelMappings>
-    <containmentFeature
-        href="contextmapper.ecore#//Context/extend"/>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="contextmapper.gmftool#//@palette/@tools.0/@tools.2"/>
-    <diagramLink
-        href="contextmapper.gmfgraph#ExtendConnection"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="contextmapper.ecore#//ExtendConnection/source"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="contextmapper.ecore#//ExtendConnection/target"/>
-    <creationConstraints>
-      <sourceEnd
-          body="self &lt;> oppositeEnd"/>
-    </creationConstraints>
-  </links>
-  <links>
-    <domainMetaElement
         href="contextmapper.ecore#//ExcludeConnection"/>
     <labelMappings
         xsi:type="gmfmap:DesignLabelMapping"
@@ -106,26 +79,26 @@
   </links>
   <links>
     <domainMetaElement
-        href="contextmapper.ecore#//PriorConnection"/>
+        href="contextmapper.ecore#//ExtendConnection"/>
     <labelMappings
         xsi:type="gmfmap:DesignLabelMapping"
         readOnly="true">
       <diagramLabel
-          href="contextmapper.gmfgraph#PriorConnectionName"/>
+          href="contextmapper.gmfgraph#ExtendConnectionName"/>
     </labelMappings>
     <containmentFeature
-        href="contextmapper.ecore#//Context/priorize"/>
+        href="contextmapper.ecore#//Context/extend"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="contextmapper.gmftool#//@palette/@tools.0/@tools.4"/>
+        href="contextmapper.gmftool#//@palette/@tools.0/@tools.2"/>
     <diagramLink
-        href="contextmapper.gmfgraph#PriorConnection"/>
+        href="contextmapper.gmfgraph#ExtendConnection"/>
     <sourceMetaFeature
         xsi:type="ecore:EReference"
-        href="contextmapper.ecore#//PriorConnection/source"/>
+        href="contextmapper.ecore#//ExtendConnection/source"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
-        href="contextmapper.ecore#//PriorConnection/target"/>
+        href="contextmapper.ecore#//ExtendConnection/target"/>
     <creationConstraints>
       <sourceEnd
           body="self &lt;> oppositeEnd"/>
@@ -158,6 +131,33 @@
           body="self &lt;> oppositeEnd"/>
     </creationConstraints>
   </links>
+  <links>
+    <domainMetaElement
+        href="contextmapper.ecore#//PriorConnection"/>
+    <labelMappings
+        xsi:type="gmfmap:DesignLabelMapping"
+        readOnly="true">
+      <diagramLabel
+          href="contextmapper.gmfgraph#PriorConnectionName"/>
+    </labelMappings>
+    <containmentFeature
+        href="contextmapper.ecore#//Context/priorize"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="contextmapper.gmftool#//@palette/@tools.0/@tools.4"/>
+    <diagramLink
+        href="contextmapper.gmfgraph#PriorConnection"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="contextmapper.ecore#//PriorConnection/source"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="contextmapper.ecore#//PriorConnection/target"/>
+    <creationConstraints>
+      <sourceEnd
+          body="self &lt;> oppositeEnd"/>
+    </creationConstraints>
+  </links>
   <diagram>
     <diagramCanvas
         href="contextmapper.gmfgraph#contextmapper"/>
@@ -168,24 +168,4 @@
     <palette
         href="contextmapper.gmftool#//@palette"/>
   </diagram>
-  <audits
-      id="ContextDiagramAudits"
-      name="ContextDiagramAudits"
-      description="Context Diagram Audits">
-    <audits
-        name="ContextUniqueNameCheck"
-        description="Context Unique Name Check"
-        id="ContextUniqueNameCheck"
-        useInLiveMode="true"
-        message="Two Contexts have the same name.">
-      <rule
-          body="self.context->forAll(c1, c2  | c1.name&lt;>c2.name)"
-          language="java"/>
-      <target
-          xsi:type="gmfmap:DomainElementTarget">
-        <element
-            href="contextmapper.ecore#//ContextDiagram"/>
-      </target>
-    </audits>
-  </audits>
 </gmfmap:Mapping>

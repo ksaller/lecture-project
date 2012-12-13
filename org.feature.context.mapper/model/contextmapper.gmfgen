@@ -4,31 +4,6 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:gmfgen="http://www.eclipse.org/gmf/2009/GenModel">
-  <audits>
-    <categories
-        id="ContextDiagramAudits"
-        name="ContextDiagramAudits"
-        description="Context Diagram Audits"
-        path="//@audits/@categories.0"
-        audits="//@audits/@rules.0"/>
-    <rules
-        name="ContextUniqueNameCheck"
-        description="Context Unique Name Check"
-        id="ContextUniqueNameCheck"
-        rule="//@expressionProviders/@providers.1/@expressions.0"
-        message="Two Contexts have the same name."
-        useInLiveMode="true"
-        category="//@audits/@categories.0">
-      <target
-          xsi:type="gmfgen:GenDomainElementTarget"
-          contextSelector="//@audits/@clientContexts.0">
-        <element
-            href="contextmapper.genmodel#//contextmapper/ContextDiagram"/>
-      </target>
-    </rules>
-    <clientContexts
-        ruleTargets="//@audits/@rules.0/@target"/>
-  </audits>
   <diagram
       visualID="1000"
       editPartClassName="ContextDiagramEditPart"
@@ -38,6 +13,7 @@
       validationProviderPriority="Low"
       validationEnabled="true"
       validationDecorators="true"
+      validationDecoratorProviderPriority="Medium"
       liveValidationUIFeedback="true">
     <diagramRunTimeClass
         href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
@@ -142,58 +118,6 @@
       </labels>
     </topLevelNodes>
     <links
-        visualID="4002"
-        editPartClassName="ExtendConnectionEditPart"
-        itemSemanticEditPolicyClassName="ExtendConnectionItemSemanticEditPolicy"
-        notationViewFactoryClassName="ExtendConnectionViewFactory"
-        createCommandClassName="ExtendConnectionCreateCommand"
-        reorientCommandClassName="ExtendConnectionReorientCommand">
-      <diagramRunTimeClass
-          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="ExtendConnectionEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:InnerClassViewmap"
-          className="ExtendConnectionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ExtendConnectionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureExtendConnectionNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ExtendConnectionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureExtendConnectionNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureExtendConnectionNameFigure.setText(&quot;extend&quot;);&#xA;&#xA;this.add(fFigureExtendConnectionNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;df.setLineWidth(2);&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureExtendConnectionNameFigure() {&#xA;&#x9;&#x9;return fFigureExtendConnectionNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <modelFacet
-          xsi:type="gmfgen:TypeLinkModelFacet">
-        <metaClass
-            href="contextmapper.genmodel#//contextmapper/ExtendConnection"/>
-        <containmentMetaFeature
-            href="contextmapper.genmodel#//contextmapper/Context/extend"/>
-        <childMetaFeature
-            href="contextmapper.genmodel#//contextmapper/Context/extend"/>
-        <sourceMetaFeature
-            href="contextmapper.genmodel#//contextmapper/ExtendConnection/source"/>
-        <targetMetaFeature
-            href="contextmapper.genmodel#//contextmapper/ExtendConnection/target"/>
-      </modelFacet>
-      <labels
-          visualID="6001"
-          editPartClassName="WrappingLabelEditPart"
-          itemSemanticEditPolicyClassName="WrappingLabelItemSemanticEditPolicy"
-          notationViewFactoryClassName="ExtendConnectionLabelViewFactory"
-          readOnly="true">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureExtendConnectionNameFigure"
-            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
-          <attributes
-              xsi:type="gmfgen:LabelOffsetAttributes"
-              y="40"/>
-        </viewmap>
-        <modelFacet
-            xsi:type="gmfgen:DesignLabelModelFacet"
-            parser="//@labelParsers/@implementations.1"/>
-      </labels>
-      <creationConstraints
-          sourceEnd="//@expressionProviders/@providers.0/@expressions.0"/>
-    </links>
-    <links
         visualID="4004"
         editPartClassName="ExcludeConnectionEditPart"
         itemSemanticEditPolicyClassName="ExcludeConnectionItemSemanticEditPolicy"
@@ -243,48 +167,48 @@
             parser="//@labelParsers/@implementations.1"/>
       </labels>
       <creationConstraints
-          sourceEnd="//@expressionProviders/@providers.0/@expressions.1"/>
+          sourceEnd="//@expressionProviders/@providers.0/@expressions.0"/>
     </links>
     <links
-        visualID="4001"
-        editPartClassName="PriorConnectionEditPart"
-        itemSemanticEditPolicyClassName="PriorConnectionItemSemanticEditPolicy"
-        notationViewFactoryClassName="PriorConnectionViewFactory"
-        createCommandClassName="PriorConnectionCreateCommand"
-        reorientCommandClassName="PriorConnectionReorientCommand">
+        visualID="4002"
+        editPartClassName="ExtendConnectionEditPart"
+        itemSemanticEditPolicyClassName="ExtendConnectionItemSemanticEditPolicy"
+        notationViewFactoryClassName="ExtendConnectionViewFactory"
+        createCommandClassName="ExtendConnectionCreateCommand"
+        reorientCommandClassName="ExtendConnectionReorientCommand">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="PriorConnectionEditHelper"/>
+          editHelperClassName="ExtendConnectionEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
-          className="PriorConnectionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PriorConnectionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePriorConnectionNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PriorConnectionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePriorConnectionNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePriorConnectionNameFigure.setText(&quot;priorize&quot;);&#xA;&#xA;this.add(fFigurePriorConnectionNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;df.setFill(false);&#xA;df.setLineWidth(2);&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePriorConnectionNameFigure() {&#xA;&#x9;&#x9;return fFigurePriorConnectionNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          className="ExtendConnectionFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ExtendConnectionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureExtendConnectionNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ExtendConnectionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureExtendConnectionNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureExtendConnectionNameFigure.setText(&quot;extend&quot;);&#xA;&#xA;this.add(fFigureExtendConnectionNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;df.setLineWidth(2);&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureExtendConnectionNameFigure() {&#xA;&#x9;&#x9;return fFigureExtendConnectionNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet
           xsi:type="gmfgen:TypeLinkModelFacet">
         <metaClass
-            href="contextmapper.genmodel#//contextmapper/PriorConnection"/>
+            href="contextmapper.genmodel#//contextmapper/ExtendConnection"/>
         <containmentMetaFeature
-            href="contextmapper.genmodel#//contextmapper/Context/priorize"/>
+            href="contextmapper.genmodel#//contextmapper/Context/extend"/>
         <childMetaFeature
-            href="contextmapper.genmodel#//contextmapper/Context/priorize"/>
+            href="contextmapper.genmodel#//contextmapper/Context/extend"/>
         <sourceMetaFeature
-            href="contextmapper.genmodel#//contextmapper/PriorConnection/source"/>
+            href="contextmapper.genmodel#//contextmapper/ExtendConnection/source"/>
         <targetMetaFeature
-            href="contextmapper.genmodel#//contextmapper/PriorConnection/target"/>
+            href="contextmapper.genmodel#//contextmapper/ExtendConnection/target"/>
       </modelFacet>
       <labels
-          visualID="6003"
-          editPartClassName="WrappingLabel3EditPart"
-          itemSemanticEditPolicyClassName="WrappingLabel3ItemSemanticEditPolicy"
-          notationViewFactoryClassName="PriorConnectionLabelViewFactory"
+          visualID="6001"
+          editPartClassName="WrappingLabelEditPart"
+          itemSemanticEditPolicyClassName="WrappingLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="ExtendConnectionLabelViewFactory"
           readOnly="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigurePriorConnectionNameFigure"
+            getterName="getFigureExtendConnectionNameFigure"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes
               xsi:type="gmfgen:LabelOffsetAttributes"
@@ -295,7 +219,7 @@
             parser="//@labelParsers/@implementations.1"/>
       </labels>
       <creationConstraints
-          sourceEnd="//@expressionProviders/@providers.0/@expressions.2"/>
+          sourceEnd="//@expressionProviders/@providers.0/@expressions.1"/>
     </links>
     <links
         visualID="4003"
@@ -347,6 +271,58 @@
             parser="//@labelParsers/@implementations.1"/>
       </labels>
       <creationConstraints
+          sourceEnd="//@expressionProviders/@providers.0/@expressions.2"/>
+    </links>
+    <links
+        visualID="4001"
+        editPartClassName="PriorConnectionEditPart"
+        itemSemanticEditPolicyClassName="PriorConnectionItemSemanticEditPolicy"
+        notationViewFactoryClassName="PriorConnectionViewFactory"
+        createCommandClassName="PriorConnectionCreateCommand"
+        reorientCommandClassName="PriorConnectionReorientCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="PriorConnectionEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="PriorConnectionFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PriorConnectionFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePriorConnectionNameFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PriorConnectionFigure() {&#xA;&#x9;&#x9;this.setLineWidth(2);&#xA;&#xA;&#x9;&#x9;createContents();&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePriorConnectionNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePriorConnectionNameFigure.setText(&quot;priorize&quot;);&#xA;&#xA;this.add(fFigurePriorConnectionNameFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;df.setFill(false);&#xA;df.setLineWidth(2);&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePriorConnectionNameFigure() {&#xA;&#x9;&#x9;return fFigurePriorConnectionNameFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet
+          xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass
+            href="contextmapper.genmodel#//contextmapper/PriorConnection"/>
+        <containmentMetaFeature
+            href="contextmapper.genmodel#//contextmapper/Context/priorize"/>
+        <childMetaFeature
+            href="contextmapper.genmodel#//contextmapper/Context/priorize"/>
+        <sourceMetaFeature
+            href="contextmapper.genmodel#//contextmapper/PriorConnection/source"/>
+        <targetMetaFeature
+            href="contextmapper.genmodel#//contextmapper/PriorConnection/target"/>
+      </modelFacet>
+      <labels
+          visualID="6003"
+          editPartClassName="WrappingLabel3EditPart"
+          itemSemanticEditPolicyClassName="WrappingLabel3ItemSemanticEditPolicy"
+          notationViewFactoryClassName="PriorConnectionLabelViewFactory"
+          readOnly="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigurePriorConnectionNameFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
+          <attributes
+              xsi:type="gmfgen:LabelOffsetAttributes"
+              y="40"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:DesignLabelModelFacet"
+            parser="//@labelParsers/@implementations.1"/>
+      </labels>
+      <creationConstraints
           sourceEnd="//@expressionProviders/@providers.0/@expressions.3"/>
     </links>
     <palette>
@@ -361,17 +337,17 @@
             xsi:type="gmfgen:ToolEntry"
             title="ExtendConnection"
             description="Create new ExtendConnection"
-            genLinks="//@diagram/@links.0"/>
+            genLinks="//@diagram/@links.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="ExcludeConnection"
             description="Create new ExcludeConnection"
-            genLinks="//@diagram/@links.1"/>
+            genLinks="//@diagram/@links.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="PriorConnection"
             description="Create new PriorConnection"
-            genLinks="//@diagram/@links.2"/>
+            genLinks="//@diagram/@links.3"/>
         <entries
             xsi:type="gmfgen:Separator"/>
         <entries
@@ -383,7 +359,7 @@
             xsi:type="gmfgen:ToolEntry"
             title="IncludeConnection"
             description="Create new IncludeConnection"
-            genLinks="//@diagram/@links.3"/>
+            genLinks="//@diagram/@links.2"/>
       </groups>
     </palette>
     <preferencePages
@@ -430,6 +406,17 @@
         xsi:type="gmfgen:GenCustomPropertyTab"
         iD="domain"
         label="Core">
+      <filter
+          xsi:type="gmfgen:TypeTabFilter">
+        <types>org.eclipse.gmf.runtime.notation.View</types>
+        <types>org.eclipse.gef.EditPart</types>
+      </filter>
+    </tabs>
+    <tabs
+        xsi:type="gmfgen:GenCustomPropertyTab"
+        iD="custom"
+        label="Custom"
+        className="ContextmapperPropertySectionCustom">
       <filter
           xsi:type="gmfgen:TypeTabFilter">
         <types>org.eclipse.gmf.runtime.notation.View</types>
@@ -684,12 +671,6 @@
       <expressions
           xsi:type="gmfgen:GenConstraint"
           body="self &lt;> oppositeEnd"/>
-    </providers>
-    <providers
-        xsi:type="gmfgen:GenJavaExpressionProvider">
-      <expressions
-          xsi:type="gmfgen:GenConstraint"
-          body="self.context->forAll(c1, c2  | c1.name&lt;>c2.name)"/>
     </providers>
   </expressionProviders>
   <labelParsers

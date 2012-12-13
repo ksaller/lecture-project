@@ -589,6 +589,32 @@ public class ContextmapperPackageImpl extends EPackageImpl implements Contextmap
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/Ecore
+		createEcoreAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEcoreAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore";		
+		addAnnotation
+		  (contextEClass, 
+		   source, 
+		   new String[] {
+			 "constraint", "self.mapping <> null"
+		   });		
+		addAnnotation
+		  (contextDiagramEClass, 
+		   source, 
+		   new String[] {
+			 "constraint", "self.context->forAll(c1, c2  | c1.name<>c2.name)"
+		   });
 	}
 
 } //ContextmapperPackageImpl

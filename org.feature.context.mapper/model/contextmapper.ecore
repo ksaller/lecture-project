@@ -3,6 +3,9 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="contextmapper" nsURI="http://org/feature/context/mapper/model/contextmapper.ecore"
     nsPrefix="org.feature.context.mapper.model">
   <eClassifiers xsi:type="ecore:EClass" name="Context">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraint" value="self.mapping &lt;> null"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mapping" eType="ecore:EClass ../../org.feature.multi.perspective.mapping/model/viewmapping.ecore#//Mapping"/>
@@ -36,6 +39,9 @@
         eType="#//IncludeConnection" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContextDiagram">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraint" value="self.context->forAll(c1, c2  | c1.name&lt;>c2.name)"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mappingReference" lowerBound="1"
         eType="ecore:EClass ../../org.feature.multi.perspective.mapping/model/viewmapping.ecore#//MappingModel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="context" upperBound="-1"

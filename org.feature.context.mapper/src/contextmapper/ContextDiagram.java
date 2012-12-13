@@ -23,7 +23,7 @@ import org.feature.multi.perspective.mapping.viewmapping.MappingModel;
  * </p>
  *
  * @see contextmapper.ContextmapperPackage#getContextDiagram()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraint='self.context->forAll(c1, c2  | c1.name<>c2.name)'"
  * @extends CDOObject
  * @generated
  */

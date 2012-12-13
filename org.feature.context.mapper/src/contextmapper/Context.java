@@ -26,7 +26,7 @@ import org.feature.multi.perspective.mapping.viewmapping.Mapping;
  * </p>
  *
  * @see contextmapper.ContextmapperPackage#getContext()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraint='self.mapping <> null'"
  * @extends CDOObject
  * @generated
  */
