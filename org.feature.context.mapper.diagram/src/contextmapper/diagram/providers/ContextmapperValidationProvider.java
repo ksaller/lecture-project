@@ -75,44 +75,4 @@ public class ContextmapperValidationProvider {
 		return true;
 	}
 
-	/**
-	 * @generated
-	 */
-	public static class DefaultCtx implements IClientSelector {
-
-		/**
-		 * @generated
-		 */
-		public boolean selects(Object object) {
-			return isInDefaultEditorContext(object);
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	public static class Adapter1 extends AbstractModelConstraint {
-
-		/**
-		 * @generated
-		 */
-		public IStatus validate(IValidationContext ctx) {
-			ContextDiagram context = (ContextDiagram) ctx.getTarget();
-			// TODO: put validation code here
-			// Ensure that you remove @generated tag or use @generated NOT
-			//
-			// To construct approprate return value, use ctx.createSuccessStatus()
-			// or ctx.createFailureStatus(...)
-			throw new UnsupportedOperationException(
-					"No user java implementation provided for #validate(IValidationContext) operation"); //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	static String formatElement(EObject object) {
-		return EMFCoreUtil.getQualifiedName(object, true);
-	}
-
 }

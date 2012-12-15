@@ -51,13 +51,6 @@ public class ContextItemSemanticEditPolicy extends
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
-			if (ContextmapperVisualIDRegistry.getVisualID(incomingLink) == ExtendConnectionEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(
-						incomingLink.getElement(), false);
-				cmd.add(new DestroyElementCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-				continue;
-			}
 			if (ContextmapperVisualIDRegistry.getVisualID(incomingLink) == ExcludeConnectionEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						incomingLink.getElement(), false);
@@ -65,7 +58,7 @@ public class ContextItemSemanticEditPolicy extends
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 				continue;
 			}
-			if (ContextmapperVisualIDRegistry.getVisualID(incomingLink) == PriorConnectionEditPart.VISUAL_ID) {
+			if (ContextmapperVisualIDRegistry.getVisualID(incomingLink) == ExtendConnectionEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						incomingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
@@ -79,17 +72,24 @@ public class ContextItemSemanticEditPolicy extends
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 				continue;
 			}
+			if (ContextmapperVisualIDRegistry.getVisualID(incomingLink) == PriorConnectionEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						incomingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+				continue;
+			}
 		}
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
-			if (ContextmapperVisualIDRegistry.getVisualID(outgoingLink) == ExtendConnectionEditPart.VISUAL_ID) {
+			if (ContextmapperVisualIDRegistry.getVisualID(outgoingLink) == ExcludeConnectionEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						outgoingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
 				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
 				continue;
 			}
-			if (ContextmapperVisualIDRegistry.getVisualID(outgoingLink) == ExcludeConnectionEditPart.VISUAL_ID) {
+			if (ContextmapperVisualIDRegistry.getVisualID(outgoingLink) == ExtendConnectionEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						outgoingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
@@ -131,24 +131,24 @@ public class ContextItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (ContextmapperElementTypes.ExtendConnection_4002 == req
-				.getElementType()) {
-			return getGEFWrapper(new ExtendConnectionCreateCommand(req,
-					req.getSource(), req.getTarget()));
-		}
 		if (ContextmapperElementTypes.ExcludeConnection_4004 == req
 				.getElementType()) {
 			return getGEFWrapper(new ExcludeConnectionCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
-		if (ContextmapperElementTypes.PriorConnection_4001 == req
+		if (ContextmapperElementTypes.ExtendConnection_4002 == req
 				.getElementType()) {
-			return getGEFWrapper(new PriorConnectionCreateCommand(req,
+			return getGEFWrapper(new ExtendConnectionCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
 		if (ContextmapperElementTypes.IncludeConnection_4003 == req
 				.getElementType()) {
 			return null;
+		}
+		if (ContextmapperElementTypes.PriorConnection_4001 == req
+				.getElementType()) {
+			return getGEFWrapper(new PriorConnectionCreateCommand(req,
+					req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -158,24 +158,24 @@ public class ContextItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (ContextmapperElementTypes.ExtendConnection_4002 == req
-				.getElementType()) {
-			return getGEFWrapper(new ExtendConnectionCreateCommand(req,
-					req.getSource(), req.getTarget()));
-		}
 		if (ContextmapperElementTypes.ExcludeConnection_4004 == req
 				.getElementType()) {
 			return getGEFWrapper(new ExcludeConnectionCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
-		if (ContextmapperElementTypes.PriorConnection_4001 == req
+		if (ContextmapperElementTypes.ExtendConnection_4002 == req
 				.getElementType()) {
-			return getGEFWrapper(new PriorConnectionCreateCommand(req,
+			return getGEFWrapper(new ExtendConnectionCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
 		if (ContextmapperElementTypes.IncludeConnection_4003 == req
 				.getElementType()) {
 			return getGEFWrapper(new IncludeConnectionCreateCommand(req,
+					req.getSource(), req.getTarget()));
+		}
+		if (ContextmapperElementTypes.PriorConnection_4001 == req
+				.getElementType()) {
+			return getGEFWrapper(new PriorConnectionCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -190,14 +190,14 @@ public class ContextItemSemanticEditPolicy extends
 	protected Command getReorientRelationshipCommand(
 			ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
-		case ExtendConnectionEditPart.VISUAL_ID:
-			return getGEFWrapper(new ExtendConnectionReorientCommand(req));
 		case ExcludeConnectionEditPart.VISUAL_ID:
 			return getGEFWrapper(new ExcludeConnectionReorientCommand(req));
-		case PriorConnectionEditPart.VISUAL_ID:
-			return getGEFWrapper(new PriorConnectionReorientCommand(req));
+		case ExtendConnectionEditPart.VISUAL_ID:
+			return getGEFWrapper(new ExtendConnectionReorientCommand(req));
 		case IncludeConnectionEditPart.VISUAL_ID:
 			return getGEFWrapper(new IncludeConnectionReorientCommand(req));
+		case PriorConnectionEditPart.VISUAL_ID:
+			return getGEFWrapper(new PriorConnectionReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}

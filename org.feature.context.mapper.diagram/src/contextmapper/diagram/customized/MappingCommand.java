@@ -29,7 +29,6 @@ public class MappingCommand extends AbstractTransactionalCommand {
 
 		// Aktuelles ContextDiagram holen:
 		ContextDiagram contextDiagram = GlobalObjectGetter.getContextDiagram();
-		
 		contextDiagram.setMappingReference(mappingModel);
 
 		return CommandResult.newOKCommandResult();

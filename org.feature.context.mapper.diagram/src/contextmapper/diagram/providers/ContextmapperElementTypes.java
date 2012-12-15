@@ -201,17 +201,17 @@ public class ContextmapperElementTypes {
 			elements.put(Context_2002,
 					ContextmapperPackage.eINSTANCE.getContext());
 
-			elements.put(ExtendConnection_4002,
-					ContextmapperPackage.eINSTANCE.getExtendConnection());
-
 			elements.put(ExcludeConnection_4004,
 					ContextmapperPackage.eINSTANCE.getExcludeConnection());
 
-			elements.put(PriorConnection_4001,
-					ContextmapperPackage.eINSTANCE.getPriorConnection());
+			elements.put(ExtendConnection_4002,
+					ContextmapperPackage.eINSTANCE.getExtendConnection());
 
 			elements.put(IncludeConnection_4003,
 					ContextmapperPackage.eINSTANCE.getIncludeConnection());
+
+			elements.put(PriorConnection_4001,
+					ContextmapperPackage.eINSTANCE.getPriorConnection());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -232,10 +232,10 @@ public class ContextmapperElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ContextDiagram_1000);
 			KNOWN_ELEMENT_TYPES.add(RuntimeConfig_2001);
 			KNOWN_ELEMENT_TYPES.add(Context_2002);
-			KNOWN_ELEMENT_TYPES.add(ExtendConnection_4002);
 			KNOWN_ELEMENT_TYPES.add(ExcludeConnection_4004);
-			KNOWN_ELEMENT_TYPES.add(PriorConnection_4001);
+			KNOWN_ELEMENT_TYPES.add(ExtendConnection_4002);
 			KNOWN_ELEMENT_TYPES.add(IncludeConnection_4003);
+			KNOWN_ELEMENT_TYPES.add(PriorConnection_4001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -251,14 +251,14 @@ public class ContextmapperElementTypes {
 			return RuntimeConfig_2001;
 		case ContextEditPart.VISUAL_ID:
 			return Context_2002;
-		case ExtendConnectionEditPart.VISUAL_ID:
-			return ExtendConnection_4002;
 		case ExcludeConnectionEditPart.VISUAL_ID:
 			return ExcludeConnection_4004;
-		case PriorConnectionEditPart.VISUAL_ID:
-			return PriorConnection_4001;
+		case ExtendConnectionEditPart.VISUAL_ID:
+			return ExtendConnection_4002;
 		case IncludeConnectionEditPart.VISUAL_ID:
 			return IncludeConnection_4003;
+		case PriorConnectionEditPart.VISUAL_ID:
+			return PriorConnection_4001;
 		}
 		return null;
 	}

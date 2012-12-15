@@ -260,8 +260,8 @@ public class ContextEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(3);
-		types.add(ContextmapperElementTypes.ExtendConnection_4002);
 		types.add(ContextmapperElementTypes.ExcludeConnection_4004);
+		types.add(ContextmapperElementTypes.ExtendConnection_4002);
 		types.add(ContextmapperElementTypes.PriorConnection_4001);
 		return types;
 	}
@@ -273,10 +273,10 @@ public class ContextEditPart extends ShapeNodeEditPart {
 			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof contextmapper.diagram.edit.parts.ContextEditPart) {
-			types.add(ContextmapperElementTypes.ExtendConnection_4002);
+			types.add(ContextmapperElementTypes.ExcludeConnection_4004);
 		}
 		if (targetEditPart instanceof contextmapper.diagram.edit.parts.ContextEditPart) {
-			types.add(ContextmapperElementTypes.ExcludeConnection_4004);
+			types.add(ContextmapperElementTypes.ExtendConnection_4002);
 		}
 		if (targetEditPart instanceof contextmapper.diagram.edit.parts.ContextEditPart) {
 			types.add(ContextmapperElementTypes.PriorConnection_4001);
@@ -289,9 +289,9 @@ public class ContextEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == ContextmapperElementTypes.ExtendConnection_4002) {
+		if (relationshipType == ContextmapperElementTypes.ExcludeConnection_4004) {
 			types.add(ContextmapperElementTypes.Context_2002);
-		} else if (relationshipType == ContextmapperElementTypes.ExcludeConnection_4004) {
+		} else if (relationshipType == ContextmapperElementTypes.ExtendConnection_4002) {
 			types.add(ContextmapperElementTypes.Context_2002);
 		} else if (relationshipType == ContextmapperElementTypes.PriorConnection_4001) {
 			types.add(ContextmapperElementTypes.Context_2002);
@@ -304,10 +304,10 @@ public class ContextEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(4);
-		types.add(ContextmapperElementTypes.ExtendConnection_4002);
 		types.add(ContextmapperElementTypes.ExcludeConnection_4004);
-		types.add(ContextmapperElementTypes.PriorConnection_4001);
+		types.add(ContextmapperElementTypes.ExtendConnection_4002);
 		types.add(ContextmapperElementTypes.IncludeConnection_4003);
+		types.add(ContextmapperElementTypes.PriorConnection_4001);
 		return types;
 	}
 
@@ -316,14 +316,14 @@ public class ContextEditPart extends ShapeNodeEditPart {
 	 */
 	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == ContextmapperElementTypes.ExtendConnection_4002) {
+		if (relationshipType == ContextmapperElementTypes.ExcludeConnection_4004) {
 			types.add(ContextmapperElementTypes.Context_2002);
-		} else if (relationshipType == ContextmapperElementTypes.ExcludeConnection_4004) {
-			types.add(ContextmapperElementTypes.Context_2002);
-		} else if (relationshipType == ContextmapperElementTypes.PriorConnection_4001) {
+		} else if (relationshipType == ContextmapperElementTypes.ExtendConnection_4002) {
 			types.add(ContextmapperElementTypes.Context_2002);
 		} else if (relationshipType == ContextmapperElementTypes.IncludeConnection_4003) {
 			types.add(ContextmapperElementTypes.RuntimeConfig_2001);
+		} else if (relationshipType == ContextmapperElementTypes.PriorConnection_4001) {
+			types.add(ContextmapperElementTypes.Context_2002);
 		}
 		return types;
 	}

@@ -111,13 +111,13 @@ public class ContextmapperDiagramEditor extends DiagramDocumentEditor {
 		getSite().registerContextMenu(ActionIds.DIAGRAM_EDITOR_CONTEXT_MENU,
 				provider, getDiagramGraphicalViewer());
 	}
-	
+
 	/**
 	 * @generated NOT
 	 * @author Patrick
 	 */
-	public void doSave(IProgressMonitor m){
-		ValidateAction.runValidation(getDiagram());	// validate on save
+	public void doSave(IProgressMonitor m) {
+		ValidateAction.runValidation(getDiagram()); // validate on save
 		super.doSave(m);
 	}
 

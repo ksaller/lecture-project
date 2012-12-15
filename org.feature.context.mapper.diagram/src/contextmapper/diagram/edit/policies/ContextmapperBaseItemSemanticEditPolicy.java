@@ -377,7 +377,7 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 					Map<String, EClassifier> env = Collections
 							.<String, EClassifier> singletonMap(
 									"oppositeEnd", ContextmapperPackage.eINSTANCE.getContext()); //$NON-NLS-1$
-					Object sourceVal = ContextmapperOCLFactory.getExpression(0,
+					Object sourceVal = ContextmapperOCLFactory.getExpression(1,
 							ContextmapperPackage.eINSTANCE.getContext(), env)
 							.evaluate(
 									source,
@@ -408,7 +408,7 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 					Map<String, EClassifier> env = Collections
 							.<String, EClassifier> singletonMap(
 									"oppositeEnd", ContextmapperPackage.eINSTANCE.getContext()); //$NON-NLS-1$
-					Object sourceVal = ContextmapperOCLFactory.getExpression(1,
+					Object sourceVal = ContextmapperOCLFactory.getExpression(0,
 							ContextmapperPackage.eINSTANCE.getContext(), env)
 							.evaluate(
 									source,
@@ -439,7 +439,7 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 					Map<String, EClassifier> env = Collections
 							.<String, EClassifier> singletonMap(
 									"oppositeEnd", ContextmapperPackage.eINSTANCE.getContext()); //$NON-NLS-1$
-					Object sourceVal = ContextmapperOCLFactory.getExpression(2,
+					Object sourceVal = ContextmapperOCLFactory.getExpression(3,
 							ContextmapperPackage.eINSTANCE.getContext(), env)
 							.evaluate(
 									source,
@@ -471,7 +471,7 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 					Map<String, EClassifier> env = Collections
 							.<String, EClassifier> singletonMap(
 									"oppositeEnd", ContextmapperPackage.eINSTANCE.getContext()); //$NON-NLS-1$
-					Object sourceVal = ContextmapperOCLFactory.getExpression(3,
+					Object sourceVal = ContextmapperOCLFactory.getExpression(2,
 							ContextmapperPackage.eINSTANCE.getRuntimeConfig(),
 							env).evaluate(source,
 							Collections.singletonMap("oppositeEnd", target)); //$NON-NLS-1$

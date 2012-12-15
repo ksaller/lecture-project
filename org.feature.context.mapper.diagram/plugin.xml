@@ -164,6 +164,10 @@
              category="domain"
              id="property.tab.domain"
              label="%tab.domain"/>
+          <propertyTab
+             category="extra"
+             id="property.tab.custom"
+             label="%tab.custom"/>
       </propertyTabs>
    </extension>
 
@@ -197,6 +201,13 @@
             <input type="org.eclipse.gmf.runtime.notation.View"/>
             <input type="org.eclipse.gef.EditPart"/>
          </propertySection>
+         <propertySection
+            id="property.section.custom" 
+            tab="property.tab.custom"
+            class="contextmapper.diagram.sheet.ContextmapperPropertySectionCustom">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+         </propertySection>
       </propertySections>
    </extension>
 
@@ -206,7 +217,7 @@
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Contextmapper"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4002,4004,4001,4003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4004,4002,4003,4001"/>
       </viewProvider>
    </extension>
 
@@ -221,7 +232,7 @@
             <method name="getType()" value="2001,2002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4002,4004,4001,4003"/>
+            <method name="getType()" value="4004,4002,4003,4001"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="5001,5002"/>
@@ -292,16 +303,6 @@
       </metamodel>
       <metamodel nsURI="http://org/feature/context/mapper/model/contextmapper.ecore">
          <metamodelType
-               id="org.feature.context.mapper.diagram.ExtendConnection_4002"
-               name="%metatype.name.ExtendConnection_4002"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="ExtendConnection"
-               edithelper="contextmapper.diagram.edit.helpers.ExtendConnectionEditHelper">
-            <param name="semanticHint" value="4002"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="http://org/feature/context/mapper/model/contextmapper.ecore">
-         <metamodelType
                id="org.feature.context.mapper.diagram.ExcludeConnection_4004"
                name="%metatype.name.ExcludeConnection_4004"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -312,12 +313,12 @@
       </metamodel>
       <metamodel nsURI="http://org/feature/context/mapper/model/contextmapper.ecore">
          <metamodelType
-               id="org.feature.context.mapper.diagram.PriorConnection_4001"
-               name="%metatype.name.PriorConnection_4001"
+               id="org.feature.context.mapper.diagram.ExtendConnection_4002"
+               name="%metatype.name.ExtendConnection_4002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="PriorConnection"
-               edithelper="contextmapper.diagram.edit.helpers.PriorConnectionEditHelper">
-            <param name="semanticHint" value="4001"/>
+               eclass="ExtendConnection"
+               edithelper="contextmapper.diagram.edit.helpers.ExtendConnectionEditHelper">
+            <param name="semanticHint" value="4002"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://org/feature/context/mapper/model/contextmapper.ecore">
@@ -328,6 +329,16 @@
                eclass="IncludeConnection"
                edithelper="contextmapper.diagram.edit.helpers.IncludeConnectionEditHelper">
             <param name="semanticHint" value="4003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org/feature/context/mapper/model/contextmapper.ecore">
+         <metamodelType
+               id="org.feature.context.mapper.diagram.PriorConnection_4001"
+               name="%metatype.name.PriorConnection_4001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="PriorConnection"
+               edithelper="contextmapper.diagram.edit.helpers.PriorConnectionEditHelper">
+            <param name="semanticHint" value="4001"/>
          </metamodelType>
       </metamodel>
    </extension>
@@ -345,10 +356,10 @@
          <elementType ref="org.feature.context.mapper.diagram.ContextDiagram_1000"/>
          <elementType ref="org.feature.context.mapper.diagram.RuntimeConfig_2001"/>
          <elementType ref="org.feature.context.mapper.diagram.Context_2002"/>
-         <elementType ref="org.feature.context.mapper.diagram.ExtendConnection_4002"/>
          <elementType ref="org.feature.context.mapper.diagram.ExcludeConnection_4004"/>
-         <elementType ref="org.feature.context.mapper.diagram.PriorConnection_4001"/>
+         <elementType ref="org.feature.context.mapper.diagram.ExtendConnection_4002"/>
          <elementType ref="org.feature.context.mapper.diagram.IncludeConnection_4003"/>
+         <elementType ref="org.feature.context.mapper.diagram.PriorConnection_4001"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>
@@ -483,49 +494,14 @@
 <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
       <?gmfgen generated="true"?>
       <decoratorProvider class="contextmapper.diagram.providers.ContextmapperValidationDecoratorProvider">
-         <Priority name="Lowest"/>
+         <Priority name="Medium"/>
          <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
          <context decoratorTargets="PRIMARY_VIEW"/>
       </decoratorProvider>
    </extension>
 
-<extension point="org.eclipse.emf.validation.constraintProviders">
-      <?gmfgen generated="true"?>
-            <category id="ContextDiagramAudits" mandatory="false" name="ContextDiagramAudits">
-         <![CDATA[Context Diagram Audits]]>
-      </category>
-      <constraintProvider cache="true">
-         <package namespaceUri="http://org/feature/context/mapper/model/contextmapper.ecore"/>
-               <constraints categories="ContextDiagramAudits">
-                  <constraint id="ContextUniqueNameCheck"
-            lang="Java" class="contextmapper.diagram.providers.ContextmapperValidationProvider$Adapter1"
-            name="ContextUniqueNameCheck"
-            mode="Live"
-            severity="ERROR" statusCode="200">
-            
-            <description><![CDATA[Context Unique Name Check]]></description>
-            <message><![CDATA[Two Contexts have the same name.]]></message>
-            <target class="contextmapper.ContextDiagram"/>
-         </constraint>
-                  </constraints>
-      </constraintProvider>
-   </extension>
 
-<extension point="org.eclipse.emf.validation.constraintBindings">
-      <?gmfgen generated="true"?>
-      <clientContext default="false" id="org.feature.context.mapper.diagramDefaultCtx">
-         <selector class="contextmapper.diagram.providers.ContextmapperValidationProvider$DefaultCtx"/>
-      </clientContext>
-      <binding context="org.feature.context.mapper.diagramDefaultCtx">
-                  <constraint ref="org.feature.context.mapper.diagram.ContextUniqueNameCheck"/>
-               </binding>
 
-   </extension>
-
-<extension point="org.eclipse.emf.validation.ui.UIRegisteredClientContext">
-      <?gmfgen generated="true"?>
-      <clientContext id="org.feature.context.mapper.diagramDefaultCtx"/>
-   </extension>
 
 
    <!-- optionally, specify keybindings -->

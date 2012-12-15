@@ -243,20 +243,20 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 		IElementType elementType = getSemanticElementType(semanticAdapter);
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (ContextmapperVisualIDRegistry.getVisualID(elementTypeHint)) {
-		case ExtendConnectionEditPart.VISUAL_ID:
-			return createExtendConnection_4002(
-					getSemanticElement(semanticAdapter), containerView, index,
-					persisted, preferencesHint);
 		case ExcludeConnectionEditPart.VISUAL_ID:
 			return createExcludeConnection_4004(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
-		case PriorConnectionEditPart.VISUAL_ID:
-			return createPriorConnection_4001(
+		case ExtendConnectionEditPart.VISUAL_ID:
+			return createExtendConnection_4002(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case IncludeConnectionEditPart.VISUAL_ID:
 			return createIncludeConnection_4003(
+					getSemanticElement(semanticAdapter), containerView, index,
+					persisted, preferencesHint);
+		case PriorConnectionEditPart.VISUAL_ID:
+			return createPriorConnection_4001(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		}
