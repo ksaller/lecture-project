@@ -125,17 +125,7 @@ public class ContextItemProvider
 									public String getText(Object object) {
 										if (object instanceof Mapping) {
 											Mapping mapping = (Mapping) object;
-											
-											// Der Text, der bei der Auswahl eines Mappings angezeigt wird,
-											// entspricht der Featuremenge Des Mappings in der Form (feature1, feature2, ...)
-											String result = "(";
-											EList<Feature> features = mapping.getFeatures();
-											for(Feature f : features){
-												result += f.getName();
-												if (features.indexOf(f) != features.size() - 1)
-													result += ", ";
-											}
-											return result + ")";
+											return mapping.getViewgroup().getName();
 										}
 										return defaultLabelProvider.getText(object);
 									}
