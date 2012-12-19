@@ -41,12 +41,16 @@
 
    <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
       <?gmfgen generated="true"?>
+       <category
+            id="org.feature.context.mapper.category.ID"
+            name="Feature-Context Project"/>
   	  <wizard
-  	     name="%newWizardName"
-  	     icon="icons/obj16/ContextmapperDiagramFile.gif"
-  	     category="org.eclipse.ui.Examples"
-  	     class="contextmapper.diagram.part.ContextmapperCreationWizard"
-  	     id="contextmapper.diagram.part.ContextmapperCreationWizardID">
+           category="org.feature.context.mapper.category.ID"
+           class="contextmapper.diagram.part.ContextmapperCreationWizard"
+           icon="icons/obj16/ContextmapperDiagramFile.gif"
+           id="contextmapper.diagram.part.ContextmapperCreationWizardID"
+           name="%newWizardName"
+           project="true">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
    </extension>
