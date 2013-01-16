@@ -1,22 +1,42 @@
 package contextmapper.diagram.sheet;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 
+import org.eclipse.core.commands.Command;
 import org.eclipse.core.commands.operations.OperationHistoryFactory;
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.emf.cdo.CDOLock;
+import org.eclipse.emf.cdo.CDOState;
+import org.eclipse.emf.cdo.common.id.CDOID;
+import org.eclipse.emf.cdo.common.lock.CDOLockState;
+import org.eclipse.emf.cdo.common.revision.CDORevision;
+import org.eclipse.emf.cdo.eresource.CDOResource;
+import org.eclipse.emf.cdo.view.CDOView;
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.ui.provider.PropertySource;
 import org.eclipse.emf.transaction.NotificationFilter;
+import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.properties.sections.AbstractModelerPropertySection;
 import org.eclipse.gmf.runtime.emf.ui.properties.sections.UndoableModelPropertySheetEntry;
 import org.eclipse.gmf.runtime.notation.View;
@@ -24,12 +44,18 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.custom.CLabel;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GCData;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchPart;
@@ -37,7 +63,20 @@ import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.feature.multi.perspective.mapping.viewmapping.Mapping;
+import org.featuremapper.models.feature.Feature;
+
+import contextmapper.Classification;
+import contextmapper.Classifier;
+import contextmapper.Context;
+import contextmapper.ContextmapperFactory;
+import contextmapper.ExcludeConnection;
+import contextmapper.ExtendConnection;
+import contextmapper.PriorConnection;
+import contextmapper.diagram.customized.ClassifierCommand;
+import contextmapper.diagram.customized.GlobalObjectGetter;
 //import org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection;; DiagramGeneralSection;
+import contextmapper.impl.ContextmapperFactoryImpl;
 
 /**
  * @generated NOT
@@ -50,59 +89,153 @@ public class ContextmapperPropertySectionCustom extends AbstractModelerPropertyS
      * the property sheet page for this section
      */
     protected PropertySheetPage page;
-    
   
     /* (non-Javadoc)
      * @see org.eclipse.ui.views.properties.tabbed.ISection#createControls(org.eclipse.swt.widgets.Composite, org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage)
      */
     // Verantwortlich für die graphische Darstellung der Properties-View
-    public void createControls(final Composite parent,
+    public void createControls(Composite parent,
             TabbedPropertySheetPage aTabbedPropertySheetPage) {
-        super.createControls(parent, aTabbedPropertySheetPage);
+        super.createControls(parent, aTabbedPropertySheetPage);       
+        
+   
         parent.setLayout(new FillLayout(SWT.VERTICAL));
         Composite composite = getWidgetFactory()
                 .createFlatFormComposite(parent);
+        composite.setLayout(new GridLayout(1, true));
         
+//        getWidgetFactory().createCompositeSeparator(parent);
 //        Composite composite2 = getWidgetFactory()
 //                .createFlatFormComposite(parent);
+//        composite2.setLayout(new GridLayout(3, true));
 //        getWidgetFactory().createText(composite2, "Hello World!");
         
-        FormData data = null;
+//        EList<Feature> l = GlobalObjectGetter.getContextDiagram().getContext().get(0).getMapping().getFeatures();
+        
+//        Mapping m = GlobalObjectGetter.getContextDiagram().getMappingReference().getMappings().get(0);
+//        Context c = ContextmapperFactory.eINSTANCE.createContext();
+//        
+//        c.setName("Test");
+//        Classifier classf = ContextmapperFactory.eINSTANCE.createClassifier();
+//        classf.setFeature(c.getMapping().getFeatures().get(0));
+//        classf.setFeatureClassification(Classification.ALIVE);
+//        c.getClassifier().add(classf);
+//        c.setMapping(m);
+        
+        Context c2 = GlobalObjectGetter.getContextDiagram().getContext().get(0);
+        EList<Feature> features = c2.getMapping().getFeatures();
+        
 
-        String tableLabelStr = getTableLabel();
-        CLabel tableLabel = null;
-        if (tableLabelStr != null && tableLabelStr.length() > 0) {
-            tableLabel = getWidgetFactory().createCLabel(composite,
-                    tableLabelStr);
-            data = new FormData();
-            data.left = new FormAttachment(0, 0);
-            data.top = new FormAttachment(0, 0);
-            tableLabel.setLayoutData(data);
-        }
+        SelectionListener sl = new SelectionListener() {
+			
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				CCombo cc = (CCombo) e.widget;
+				
+				Feature f = (Feature) cc.getData("f");
+				Context c = (Context) cc.getData("c");
+				
+				System.err.println(c.getName() + " - " + f.getName() + ": " + cc.getSelectionIndex());
+				
+				
+				Classifier classf = ContextmapperFactory.eINSTANCE.createClassifier();
+				classf.setFeature(f);
+		        Classification clf = Classification.UNBOUND;
+				switch (cc.getSelectionIndex()) {
+					case 1:
+						clf = Classification.DEAD;
+						break;
+					case 2:
+						clf = Classification.ALIVE;
+						break;
+					case 3:
+						clf = Classification.UNBOUND;
+						break;
+	
+					default:
+						break;
+				}
+				
+		        classf.setFeatureClassification(clf);
+//		        c2.getClassifier().add(classf);
+	
+		        ICommandProxy addClassifierCommand = new ICommandProxy(new ClassifierCommand(
+		        		getEditingDomain(), c, classf));
+		        addClassifierCommand.execute();
+
+			}
+			
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+        for (Iterator iterator = features.iterator(); iterator.hasNext();) {
+			Feature feature = (Feature) iterator.next();
+			Composite comp = getWidgetFactory().createFlatFormComposite(composite);
+			comp.setLayout(new GridLayout(2,true));
+			getWidgetFactory().createCLabel(comp, feature.getName());
+			CCombo cc = getWidgetFactory().createCCombo(comp);
+			cc.add("", 0);
+			cc.add("DEAD", 1);
+			cc.add("ALIVE", 2);
+			cc.add("UNBOUND", 3);
+//			cc.select(2);
+			cc.addSelectionListener(sl);
+			cc.setData("c", c2);
+			cc.setData("f", feature);
+		}
+     
+        
+//        getWidgetFactory().createLabel(composite, c2.getName());
+//        for (Iterator iterator = l.iterator(); iterator.hasNext();) {
+//			Feature feature = (Feature) iterator.next();
+//			System.err.println(feature.getName());
+//			getWidgetFactory().createText(composite, feature.getName());
+//		}
+        
+
+//        FormData data = null;
+//
+//        String tableLabelStr = getTableLabel();
+//        CLabel tableLabel = null;
+//        if (tableLabelStr != null && tableLabelStr.length() > 0) {
+//            tableLabel = getWidgetFactory().createCLabel(composite,
+//                    tableLabelStr);
+//            data = new FormData();
+//            data.left = new FormAttachment(0, 0);
+//            data.top = new FormAttachment(0, 0);
+//            tableLabel.setLayoutData(data);
+//        }
 
         page = new PropertySheetPage();
-        UndoableModelPropertySheetEntry root = new UndoableModelPropertySheetEntry(
-            OperationHistoryFactory.getOperationHistory());
+//        UndoableModelPropertySheetEntry root = new UndoableModelPropertySheetEntry(
+//            OperationHistoryFactory.getOperationHistory());
         
         // Inhalt der Properties-Table bestimmen/zuweisen
-        root.setPropertySourceProvider(getPropertySourceProvider());
-        page.setRootEntry(root);
-
-        page.createControl(composite);
-        data = new FormData();
-        data.left = new FormAttachment(0, 0);
-        data.right = new FormAttachment(100, 0);
-        if (tableLabel == null) {
-            data.top = new FormAttachment(0, 0);
-        } else {
-            data.top = new FormAttachment(tableLabel, 0, SWT.BOTTOM);
-        }
-        data.bottom = new FormAttachment(100, 0);
-        data.height = 100;
-        data.width = 100;
-        page.getControl().setLayoutData(data);
-        setActionBars(aTabbedPropertySheetPage.getSite().getActionBars());
+//        root.setPropertySourceProvider(getPropertySourceProvider());
+//        page.setRootEntry(root);
         
+//        page.createControl(composite);
+//        data = new FormData();
+//        data.left = new FormAttachment(0, 0);
+//        data.right = new FormAttachment(100, 0);
+//        if (tableLabel == null) {
+//            data.top = new FormAttachment(0, 0);
+//        } else {
+//            data.top = new FormAttachment(tableLabel, 0, SWT.BOTTOM);
+//        }
+//        data.bottom = new FormAttachment(100, 0);
+//        data.height = 100;
+//        data.width = 100;
+//        page.getControl().setLayoutData(data);
+//        setActionBars(aTabbedPropertySheetPage.getSite().getActionBars());
+        
+    }
+    
+    public void setClassf(Context c, Classifier cl) {
+    	c.getClassifier().add(cl);
     }
 
     /**
