@@ -122,9 +122,11 @@ public class ContextmapperPropertySectionCustom extends AbstractModelerPropertyS
 //        c.getClassifier().add(classf);
 //        c.setMapping(m);
         
+//        Context c1 = ((Context)((EditPart)((StructuredSelection)getSelection()).
+//        		getFirstElement()).getAdapter(Context.class));
+        
         Context c2 = GlobalObjectGetter.getContextDiagram().getContext().get(0);
         EList<Feature> features = c2.getMapping().getFeatures();
-        
 
         SelectionListener sl = new SelectionListener() {
 			
@@ -140,23 +142,25 @@ public class ContextmapperPropertySectionCustom extends AbstractModelerPropertyS
 				
 				Classifier classf = ContextmapperFactory.eINSTANCE.createClassifier();
 				classf.setFeature(f);
-		        Classification clf = Classification.UNBOUND;
-				switch (cc.getSelectionIndex()) {
-					case 1:
-						clf = Classification.DEAD;
-						break;
-					case 2:
-						clf = Classification.ALIVE;
-						break;
-					case 3:
-						clf = Classification.UNBOUND;
-						break;
-	
-					default:
-						break;
-				}
+//		        Classification clf = Classification.UNBOUND;
 				
-		        classf.setFeatureClassification(clf);
+//				
+//		        switch (cc.getSelectionIndex()) {
+//					case 1:
+//						clf = Classification.DEAD;
+//						break;
+//					case 2:
+//						clf = Classification.ALIVE;
+//						break;
+//					case 3:
+//						clf = Classification.UNBOUND;
+//						break;
+//	// TODO: Unclassified behandeln!!!
+//					default:
+//						break;
+//				}
+				
+		        classf.setFeatureClassification(Classification.get(cc.getSelectionIndex()-1));
 //		        c2.getClassifier().add(classf);
 	
 		        ICommandProxy addClassifierCommand = new ICommandProxy(new ClassifierCommand(

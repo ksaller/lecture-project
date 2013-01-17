@@ -18,6 +18,13 @@ import org.eclipse.emf.common.util.Enumerator;
  * @generated
  */
 public enum Classification implements Enumerator {
+	
+	/**
+	 * @see #UNCLASSIFIED_VALUE
+	 * @generated NOT
+	 */
+	UNCLASSIFIED(-1, "unclassified", "unclassified"),
+	
 	/**
 	 * The '<em><b>Dead</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -48,6 +55,13 @@ public enum Classification implements Enumerator {
 	 */
 	UNBOUND(2, "unbound", "unbound");
 
+	/**
+	 * @see #UNCLASSIFIED
+	 * @generated NOT
+	 */
+	public static final int UNCLASSIFIED_VALUE = -1;
+	
+	
 	/**
 	 * The '<em><b>Dead</b></em>' literal value.
 	 * <!-- begin-user-doc -->
@@ -97,10 +111,11 @@ public enum Classification implements Enumerator {
 	 * An array of all the '<em><b>Classification</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	private static final Classification[] VALUES_ARRAY =
 		new Classification[] {
+			UNCLASSIFIED,
 			DEAD,
 			ALIVE,
 			UNBOUND,
@@ -150,10 +165,11 @@ public enum Classification implements Enumerator {
 	 * Returns the '<em><b>Classification</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public static Classification get(int value) {
 		switch (value) {
+			case UNCLASSIFIED_VALUE: return UNCLASSIFIED;
 			case DEAD_VALUE: return DEAD;
 			case ALIVE_VALUE: return ALIVE;
 			case UNBOUND_VALUE: return UNBOUND;

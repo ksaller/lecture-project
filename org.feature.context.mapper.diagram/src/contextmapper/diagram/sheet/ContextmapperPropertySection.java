@@ -26,7 +26,7 @@ public class ContextmapperPropertySection extends AdvancedPropertySection
 		implements IPropertySourceProvider {
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public IPropertySource getPropertySource(Object object) {
 		if (object instanceof IPropertySource) {
@@ -38,6 +38,7 @@ public class ContextmapperPropertySection extends AdvancedPropertySection
 					IItemPropertySource.class);
 			if (ips != null) {
 				return new PropertySource(object, ips);
+//				return new ContextPropertySource(object, ips);
 			}
 		}
 		if (object instanceof IAdaptable) {
