@@ -25,29 +25,17 @@ public class ContextmapperEditPartFactory implements EditPartFactory {
 			case ContextDiagramEditPart.VISUAL_ID:
 				return new ContextDiagramEditPart(view);
 
-			case RuntimeConfigEditPart.VISUAL_ID:
-				return new RuntimeConfigEditPart(view);
-
-			case RuntimeConfigNameEditPart.VISUAL_ID:
-				return new RuntimeConfigNameEditPart(view);
-
 			case ContextEditPart.VISUAL_ID:
 				return new ContextEditPart(view);
 
 			case ContextNameEditPart.VISUAL_ID:
 				return new ContextNameEditPart(view);
 
-			case ExcludeConnectionEditPart.VISUAL_ID:
-				return new ExcludeConnectionEditPart(view);
+			case RuntimeConfigEditPart.VISUAL_ID:
+				return new RuntimeConfigEditPart(view);
 
-			case WrappingLabel2EditPart.VISUAL_ID:
-				return new WrappingLabel2EditPart(view);
-
-			case ExtendConnectionEditPart.VISUAL_ID:
-				return new ExtendConnectionEditPart(view);
-
-			case WrappingLabelEditPart.VISUAL_ID:
-				return new WrappingLabelEditPart(view);
+			case RuntimeConfigNameEditPart.VISUAL_ID:
+				return new RuntimeConfigNameEditPart(view);
 
 			case IncludeConnectionEditPart.VISUAL_ID:
 				return new IncludeConnectionEditPart(view);
@@ -60,6 +48,18 @@ public class ContextmapperEditPartFactory implements EditPartFactory {
 
 			case WrappingLabel3EditPart.VISUAL_ID:
 				return new WrappingLabel3EditPart(view);
+
+			case ExcludeConnectionEditPart.VISUAL_ID:
+				return new ExcludeConnectionEditPart(view);
+
+			case WrappingLabel2EditPart.VISUAL_ID:
+				return new WrappingLabel2EditPart(view);
+
+			case ExtendConnectionEditPart.VISUAL_ID:
+				return new ExtendConnectionEditPart(view);
+
+			case WrappingLabelEditPart.VISUAL_ID:
+				return new WrappingLabelEditPart(view);
 
 			}
 		}

@@ -150,8 +150,8 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 					return false; // foreign diagram
 				}
 				switch (visualID) {
-				case RuntimeConfigEditPart.VISUAL_ID:
 				case ContextEditPart.VISUAL_ID:
+				case RuntimeConfigEditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != ContextmapperVisualIDRegistry
 									.getNodeVisualID(op.getContainerView(),
@@ -164,8 +164,8 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 				}
 			}
 		}
-		return RuntimeConfigEditPart.VISUAL_ID == visualID
-				|| ContextEditPart.VISUAL_ID == visualID;
+		return ContextEditPart.VISUAL_ID == visualID
+				|| RuntimeConfigEditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -223,12 +223,12 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 			visualID = ContextmapperVisualIDRegistry.getVisualID(semanticHint);
 		}
 		switch (visualID) {
-		case RuntimeConfigEditPart.VISUAL_ID:
-			return createRuntimeConfig_2001(domainElement, containerView,
-					index, persisted, preferencesHint);
 		case ContextEditPart.VISUAL_ID:
 			return createContext_2002(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case RuntimeConfigEditPart.VISUAL_ID:
+			return createRuntimeConfig_2001(domainElement, containerView,
+					index, persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
 		return null;
@@ -243,20 +243,20 @@ public class ContextmapperViewProvider extends AbstractProvider implements
 		IElementType elementType = getSemanticElementType(semanticAdapter);
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (ContextmapperVisualIDRegistry.getVisualID(elementTypeHint)) {
-		case ExcludeConnectionEditPart.VISUAL_ID:
-			return createExcludeConnection_4004(
-					getSemanticElement(semanticAdapter), containerView, index,
-					persisted, preferencesHint);
-		case ExtendConnectionEditPart.VISUAL_ID:
-			return createExtendConnection_4002(
-					getSemanticElement(semanticAdapter), containerView, index,
-					persisted, preferencesHint);
 		case IncludeConnectionEditPart.VISUAL_ID:
 			return createIncludeConnection_4003(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		case PriorConnectionEditPart.VISUAL_ID:
 			return createPriorConnection_4001(
+					getSemanticElement(semanticAdapter), containerView, index,
+					persisted, preferencesHint);
+		case ExcludeConnectionEditPart.VISUAL_ID:
+			return createExcludeConnection_4004(
+					getSemanticElement(semanticAdapter), containerView, index,
+					persisted, preferencesHint);
+		case ExtendConnectionEditPart.VISUAL_ID:
+			return createExtendConnection_4002(
 					getSemanticElement(semanticAdapter), containerView, index,
 					persisted, preferencesHint);
 		}

@@ -131,13 +131,13 @@ public class ContextmapperVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case ContextDiagramEditPart.VISUAL_ID:
-			if (ContextmapperPackage.eINSTANCE.getRuntimeConfig()
-					.isSuperTypeOf(domainElement.eClass())) {
-				return RuntimeConfigEditPart.VISUAL_ID;
-			}
 			if (ContextmapperPackage.eINSTANCE.getContext().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ContextEditPart.VISUAL_ID;
+			}
+			if (ContextmapperPackage.eINSTANCE.getRuntimeConfig()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return RuntimeConfigEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -166,15 +166,10 @@ public class ContextmapperVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case ContextDiagramEditPart.VISUAL_ID:
-			if (RuntimeConfigEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (ContextEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			break;
-		case RuntimeConfigEditPart.VISUAL_ID:
-			if (RuntimeConfigNameEditPart.VISUAL_ID == nodeVisualID) {
+			if (RuntimeConfigEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -183,13 +178,8 @@ public class ContextmapperVisualIDRegistry {
 				return true;
 			}
 			break;
-		case ExcludeConnectionEditPart.VISUAL_ID:
-			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case ExtendConnectionEditPart.VISUAL_ID:
-			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
+		case RuntimeConfigEditPart.VISUAL_ID:
+			if (RuntimeConfigNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -200,6 +190,16 @@ public class ContextmapperVisualIDRegistry {
 			break;
 		case PriorConnectionEditPart.VISUAL_ID:
 			if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ExcludeConnectionEditPart.VISUAL_ID:
+			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ExtendConnectionEditPart.VISUAL_ID:
+			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -214,14 +214,6 @@ public class ContextmapperVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		if (ContextmapperPackage.eINSTANCE.getExcludeConnection()
-				.isSuperTypeOf(domainElement.eClass())) {
-			return ExcludeConnectionEditPart.VISUAL_ID;
-		}
-		if (ContextmapperPackage.eINSTANCE.getExtendConnection().isSuperTypeOf(
-				domainElement.eClass())) {
-			return ExtendConnectionEditPart.VISUAL_ID;
-		}
 		if (ContextmapperPackage.eINSTANCE.getIncludeConnection()
 				.isSuperTypeOf(domainElement.eClass())) {
 			return IncludeConnectionEditPart.VISUAL_ID;
@@ -229,6 +221,14 @@ public class ContextmapperVisualIDRegistry {
 		if (ContextmapperPackage.eINSTANCE.getPriorConnection().isSuperTypeOf(
 				domainElement.eClass())) {
 			return PriorConnectionEditPart.VISUAL_ID;
+		}
+		if (ContextmapperPackage.eINSTANCE.getExcludeConnection()
+				.isSuperTypeOf(domainElement.eClass())) {
+			return ExcludeConnectionEditPart.VISUAL_ID;
+		}
+		if (ContextmapperPackage.eINSTANCE.getExtendConnection().isSuperTypeOf(
+				domainElement.eClass())) {
+			return ExtendConnectionEditPart.VISUAL_ID;
 		}
 		return -1;
 	}

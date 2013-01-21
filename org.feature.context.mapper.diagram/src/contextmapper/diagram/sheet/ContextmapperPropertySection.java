@@ -38,7 +38,7 @@ public class ContextmapperPropertySection extends AdvancedPropertySection
 					IItemPropertySource.class);
 			if (ips != null) {
 				return new PropertySource(object, ips);
-//				return new ContextPropertySource(object, ips);
+				//				return new ContextPropertySource(object, ips);
 			}
 		}
 		if (object instanceof IAdaptable) {

@@ -20,12 +20,14 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -77,350 +79,174 @@ import contextmapper.diagram.customized.ClassifierCommand;
 import contextmapper.diagram.customized.GlobalObjectGetter;
 //import org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection;; DiagramGeneralSection;
 import contextmapper.impl.ContextmapperFactoryImpl;
+import contextmapper.diagram.part.ContextmapperDiagramEditor;
 
 /**
  * @generated NOT
  * @author Daniel
  * adapted from AdvancedPropertySection (GMF)
  */
-public class ContextmapperPropertySectionCustom extends AbstractModelerPropertySection {
+public class ContextmapperPropertySectionCustom extends
+		AbstractModelerPropertySection {
 
 	/**
-     * the property sheet page for this section
-     */
-    protected PropertySheetPage page;
-  
-    /* (non-Javadoc)
-     * @see org.eclipse.ui.views.properties.tabbed.ISection#createControls(org.eclipse.swt.widgets.Composite, org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage)
-     */
-    // Verantwortlich für die graphische Darstellung der Properties-View
-    public void createControls(Composite parent,
-            TabbedPropertySheetPage aTabbedPropertySheetPage) {
-        super.createControls(parent, aTabbedPropertySheetPage);       
-        
-   
-        parent.setLayout(new FillLayout(SWT.VERTICAL));
-        Composite composite = getWidgetFactory()
-                .createFlatFormComposite(parent);
-        composite.setLayout(new GridLayout(1, true));
-        
-//        getWidgetFactory().createCompositeSeparator(parent);
-//        Composite composite2 = getWidgetFactory()
-//                .createFlatFormComposite(parent);
-//        composite2.setLayout(new GridLayout(3, true));
-//        getWidgetFactory().createText(composite2, "Hello World!");
-        
-//        EList<Feature> l = GlobalObjectGetter.getContextDiagram().getContext().get(0).getMapping().getFeatures();
-        
-//        Mapping m = GlobalObjectGetter.getContextDiagram().getMappingReference().getMappings().get(0);
-//        Context c = ContextmapperFactory.eINSTANCE.createContext();
-//        
-//        c.setName("Test");
-//        Classifier classf = ContextmapperFactory.eINSTANCE.createClassifier();
-//        classf.setFeature(c.getMapping().getFeatures().get(0));
-//        classf.setFeatureClassification(Classification.ALIVE);
-//        c.getClassifier().add(classf);
-//        c.setMapping(m);
-        
-//        Context c1 = ((Context)((EditPart)((StructuredSelection)getSelection()).
-//        		getFirstElement()).getAdapter(Context.class));
-        
-        Context c2 = GlobalObjectGetter.getContextDiagram().getContext().get(0);
-        EList<Feature> features = c2.getMapping().getFeatures();
+	 * the property sheet page for this section
+	 */
+	protected PropertySheetPage page;
 
-        SelectionListener sl = new SelectionListener() {
-			
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.views.properties.tabbed.ISection#createControls(org.eclipse.swt.widgets.Composite, org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage)
+	 */
+	// Verantwortlich für die graphische Darstellung der Properties-View
+	public void createControls(Composite parent,
+			TabbedPropertySheetPage aTabbedPropertySheetPage) {
+		super.createControls(parent, aTabbedPropertySheetPage);
+
+		parent.setLayout(new FillLayout(SWT.VERTICAL));
+		Composite composite = getWidgetFactory()
+				.createFlatFormComposite(parent);
+		composite.setLayout(new GridLayout(1, true));
+
+		Context c2 = GlobalObjectGetter.getContextDiagram().getContext().get(0);
+		EList<Feature> features = c2.getMapping().getFeatures();
+
+		SelectionListener sl = new SelectionListener() {
+
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				CCombo cc = (CCombo) e.widget;
-				
+
 				Feature f = (Feature) cc.getData("f");
-				Context c = (Context) cc.getData("c");
-				
-				System.err.println(c.getName() + " - " + f.getName() + ": " + cc.getSelectionIndex());
-				
-				
-				Classifier classf = ContextmapperFactory.eINSTANCE.createClassifier();
+
+				Classifier classf = ContextmapperFactory.eINSTANCE
+						.createClassifier();
 				classf.setFeature(f);
-//		        Classification clf = Classification.UNBOUND;
 				
-//				
-//		        switch (cc.getSelectionIndex()) {
-//					case 1:
-//						clf = Classification.DEAD;
-//						break;
-//					case 2:
-//						clf = Classification.ALIVE;
-//						break;
-//					case 3:
-//						clf = Classification.UNBOUND;
-//						break;
-//	// TODO: Unclassified behandeln!!!
-//					default:
-//						break;
-//				}
-				
-		        classf.setFeatureClassification(Classification.get(cc.getSelectionIndex()-1));
-//		        c2.getClassifier().add(classf);
-	
-		        ICommandProxy addClassifierCommand = new ICommandProxy(new ClassifierCommand(
-		        		getEditingDomain(), c, classf));
-		        addClassifierCommand.execute();
+				// Hier wird der zur Zeit ausgewählte Context ausgelesen:
+				StructuredSelection ss = (StructuredSelection) getSelection();
+				EObject eObjectSelected = (EObject) ss.getFirstElement();
+
+
+				// From the editing domain a create a Set Command
+				//				editingDomain.getCommandStack().execute(
+				//				SetCommand.create(editingDomain, eObjectSelected, reference , classf));
+				classf.setFeatureClassification(Classification.get(cc
+						.getSelectionIndex() - 1));
+
+				ICommandProxy addClassifierCommand = new ICommandProxy(
+						new ClassifierCommand(getEditingDomain(),
+								(Context) eObjectSelected, classf));
+				addClassifierCommand.execute();
 
 			}
-			
+
 			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		};
-        for (Iterator iterator = features.iterator(); iterator.hasNext();) {
+		for (Iterator<Feature> iterator = features.iterator(); iterator.hasNext();) {
 			Feature feature = (Feature) iterator.next();
-			Composite comp = getWidgetFactory().createFlatFormComposite(composite);
-			comp.setLayout(new GridLayout(2,true));
+			Composite comp = getWidgetFactory().createFlatFormComposite(
+					composite);
+			comp.setLayout(new GridLayout(2, true));
 			getWidgetFactory().createCLabel(comp, feature.getName());
 			CCombo cc = getWidgetFactory().createCCombo(comp);
 			cc.add("", 0);
 			cc.add("DEAD", 1);
 			cc.add("ALIVE", 2);
 			cc.add("UNBOUND", 3);
-//			cc.select(2);
 			cc.addSelectionListener(sl);
 			cc.setData("c", c2);
 			cc.setData("f", feature);
 		}
-     
-        
-//        getWidgetFactory().createLabel(composite, c2.getName());
-//        for (Iterator iterator = l.iterator(); iterator.hasNext();) {
-//			Feature feature = (Feature) iterator.next();
-//			System.err.println(feature.getName());
-//			getWidgetFactory().createText(composite, feature.getName());
-//		}
-        
 
-//        FormData data = null;
-//
-//        String tableLabelStr = getTableLabel();
-//        CLabel tableLabel = null;
-//        if (tableLabelStr != null && tableLabelStr.length() > 0) {
-//            tableLabel = getWidgetFactory().createCLabel(composite,
-//                    tableLabelStr);
-//            data = new FormData();
-//            data.left = new FormAttachment(0, 0);
-//            data.top = new FormAttachment(0, 0);
-//            tableLabel.setLayoutData(data);
-//        }
+		page = new PropertySheetPage();
 
-        page = new PropertySheetPage();
-//        UndoableModelPropertySheetEntry root = new UndoableModelPropertySheetEntry(
-//            OperationHistoryFactory.getOperationHistory());
-        
-        // Inhalt der Properties-Table bestimmen/zuweisen
-//        root.setPropertySourceProvider(getPropertySourceProvider());
-//        page.setRootEntry(root);
-        
-//        page.createControl(composite);
-//        data = new FormData();
-//        data.left = new FormAttachment(0, 0);
-//        data.right = new FormAttachment(100, 0);
-//        if (tableLabel == null) {
-//            data.top = new FormAttachment(0, 0);
-//        } else {
-//            data.top = new FormAttachment(tableLabel, 0, SWT.BOTTOM);
-//        }
-//        data.bottom = new FormAttachment(100, 0);
-//        data.height = 100;
-//        data.width = 100;
-//        page.getControl().setLayoutData(data);
-//        setActionBars(aTabbedPropertySheetPage.getSite().getActionBars());
-        
-    }
-    
-    public void setClassf(Context c, Classifier cl) {
-    	c.getClassifier().add(cl);
-    }
-
-    /**
-     * Sets and prepares the actionBars for this section
-     *  
-     * @param actionBars the action bars for this page
-     * @see org.eclipse.gmf.runtime.common.ui.properties.TabbedPropertySheetPage#setActionBars(org.eclipse.ui.IActionBars)
-     */   
-    public void setActionBars(IActionBars actionBars) {
-        if (actionBars != null) {
-        	actionBars.getMenuManager().removeAll();
-        	actionBars.getToolBarManager().removeAll();
-        	actionBars.getStatusLineManager().removeAll();
-
-        	page.makeContributions(actionBars.getMenuManager(), actionBars
-        			.getToolBarManager(), actionBars.getStatusLineManager());
-        
-        	actionBars.getToolBarManager().update(true);
-        }
-
-    }
-
-    /**
-     * Returns the PropertySource provider. The default implementation returns
-     * static adapter factory for the properties services. If the extending
-     * class needs to use a different provider then this method has to be
-     * overwriten.
-     * 
-     * @return The PropertySource provider
-     */
-    protected IPropertySourceProvider getPropertySourceProvider() {
-    	return new IPropertySourceProvider() {	
-
-    		public IPropertySource getPropertySource(Object object) {
-    			if (object instanceof IPropertySource) {
-    				return (IPropertySource) object;
-    			}
-    			AdapterFactory af = getAdapterFactory(object);
-    			if (af != null) {
-    				IItemPropertySource ips = (IItemPropertySource) af.adapt(object,
-    						IItemPropertySource.class);
-    				if (ips != null) {
-    					return new PropertySource(object, ips);
-    				}
-    			}
-    			if (object instanceof IAdaptable) {
-    				return (IPropertySource) ((IAdaptable) object)
-    						.getAdapter(IPropertySource.class);
-    			}
-    			return null;
-    		}
-    	};
-    }
-
-    /**
-     * Returns the label for the table. The default implementation returns null,
-     * that is, there is no label.
-     * 
-     * @return The label for the table
-     */
-    protected String getTableLabel() {
-        return null;
-    }
-
-   
-    /* (non-Javadoc)
-     * @see org.eclipse.ui.views.properties.tabbed.ISection#setInput(org.eclipse.ui.IWorkbenchPart, org.eclipse.jface.viewers.ISelection)
-     */
-    public void setInputSuper(IWorkbenchPart part, ISelection selection) {
-        IEditingDomainProvider provider = (IEditingDomainProvider) part
-            .getAdapter(IEditingDomainProvider.class);
-        if (provider != null) {
-            EditingDomain theEditingDomain = provider.getEditingDomain();
-            if (theEditingDomain instanceof TransactionalEditingDomain) {
-                setEditingDomain((TransactionalEditingDomain) theEditingDomain);
-            }
-        }
-        
-        // Set the eObject for the section, too. The workbench part may not
-		// adapt to IEditingDomainProvider, in which case the selected EObject
-		// will be used to derive the editing domain.
-		if (!selection.isEmpty() && selection instanceof IStructuredSelection) {
-            Object firstElement = ((IStructuredSelection) selection)
-                .getFirstElement();
-            
-            if (firstElement != null) {
-            	EObject adapted = unwrap(firstElement);
-            	
-	            if (adapted != null) {
-	                setEObject(adapted);
-	            }
-            }
-        }
-        
-        page.selectionChanged(part, selection);
-    }
-
-    /* (non-Javadoc)
-     * @see org.eclipse.ui.views.properties.tabbed.ISection#dispose()
-     */
-    public void dispose() {
-        super.dispose();
-
-        if (page != null) {
-            page.dispose();
-            page = null;
-        }
-
-    }
-
- 
-    /* (non-Javadoc)
-     * @see org.eclipse.ui.views.properties.tabbed.ISection#refresh()
-     */
-    public void refresh() {
-
-        page.refresh();
-    }
-
-   
-    /* (non-Javadoc)
-     * @see org.eclipse.ui.views.properties.tabbed.ISection#shouldUseExtraSpace()
-     */
-    public boolean shouldUseExtraSpace() {
-        return true;
-    }
-
-    /**
-     * Update if nessesary, upon receiving the model event.
-     * 
-     * @see #aboutToBeShown()
-     * @see #aboutToBeHidden()
-     * @param notification -
-     *            even notification
-     * @param element -
-     *            element that has changed
-     */
-    public void update(final Notification notification, EObject element) {
-    	if (!isDisposed()) {
-			postUpdateRequest(new Runnable() {
-
-				public void run() {
-					if (!isDisposed() && !isNotifierDeleted(notification))
-						refresh();
-				}
-			});
-		}
 	}
-   
-    /* (non-Javadoc)
-     * @see org.eclipse.gmf.runtime.emf.core.edit.IDemuxedMListener#getFilter()
-     */
-    public NotificationFilter getFilter() {
-        return NotificationFilter.createEventTypeFilter(Notification.SET).or(
-            NotificationFilter.createEventTypeFilter(Notification.UNSET)).or(
-            NotificationFilter.createEventTypeFilter(Notification.ADD)).or(
-            NotificationFilter.createEventTypeFilter(Notification.ADD_MANY))
-            .or(NotificationFilter.createEventTypeFilter(Notification.REMOVE))
-            .or(
-                NotificationFilter
-                    .createEventTypeFilter(Notification.REMOVE_MANY)).and(
-                NotificationFilter.createNotifierTypeFilter(EObject.class));
-    }
 
-   
-    /*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.gmf.runtime.diagram.ui.properties.sections.AbstractModelerPropertySection#addToEObjectList(java.lang.Object)
+	public void setClassf(Context c, Classifier cl) {
+		c.getClassifier().add(cl);
+	}
+
+	/**
+	 * Sets and prepares the actionBars for this section
+	 *  
+	 * @param actionBars the action bars for this page
+	 * @see org.eclipse.gmf.runtime.common.ui.properties.TabbedPropertySheetPage#setActionBars(org.eclipse.ui.IActionBars)
 	 */
-    protected boolean addToEObjectList(Object object) {
-        /* not implemented */
-    	return true;
-    }
+	public void setActionBars(IActionBars actionBars) {
+		if (actionBars != null) {
+			actionBars.getMenuManager().removeAll();
+			actionBars.getToolBarManager().removeAll();
+			actionBars.getStatusLineManager().removeAll();
 
-    
-/////////////////////////////////////////////////////////////////   
-// The following code is like in ContextmapperPropertySection. //
-/////////////////////////////////////////////////////////////////
-    
-    /**
+			page.makeContributions(actionBars.getMenuManager(),
+					actionBars.getToolBarManager(),
+					actionBars.getStatusLineManager());
+
+			actionBars.getToolBarManager().update(true);
+		}
+
+	}
+
+	/**
+	 * Returns the PropertySource provider. The default implementation returns
+	 * static adapter factory for the properties services. If the extending
+	 * class needs to use a different provider then this method has to be
+	 * overwriten.
+	 * 
+	 * @return The PropertySource provider
+	 */
+	protected IPropertySourceProvider getPropertySourceProvider() {
+		return new IPropertySourceProvider() {
+
+			public IPropertySource getPropertySource(Object object) {
+				if (object instanceof IPropertySource) {
+					return (IPropertySource) object;
+				}
+				AdapterFactory af = getAdapterFactory(object);
+				if (af != null) {
+					IItemPropertySource ips = (IItemPropertySource) af.adapt(
+							object, IItemPropertySource.class);
+					if (ips != null) {
+						return new PropertySource(object, ips);
+					}
+				}
+				if (object instanceof IAdaptable) {
+					return (IPropertySource) ((IAdaptable) object)
+							.getAdapter(IPropertySource.class);
+				}
+				return null;
+			}
+		};
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	public IPropertySource getPropertySource(Object object) {
+		if (object instanceof IPropertySource) {
+			return (IPropertySource) object;
+		}
+		AdapterFactory af = getAdapterFactory(object);
+		if (af != null) {
+			IItemPropertySource ips = (IItemPropertySource) af.adapt(object,
+					IItemPropertySource.class);
+			if (ips != null) {
+				return new PropertySource(object, ips);
+				//				return new ContextPropertySource(object, ips);
+			}
+		}
+		if (object instanceof IAdaptable) {
+			return (IPropertySource) ((IAdaptable) object)
+					.getAdapter(IPropertySource.class);
+		}
+		return null;
+	}
+
+	/**
 	 * Modify/unwrap selection.
 	 * @generated
 	 */
@@ -443,13 +269,12 @@ public class ContextmapperPropertySectionCustom extends AbstractModelerPropertyS
 	}
 
 	/**
-	 * @generated NOT
-	 * (changed super.setInput() to setInputSuper() that is implemented in this class)
+	 * @generated
 	 */
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		if (selection.isEmpty()
 				|| false == selection instanceof StructuredSelection) {
-			setInputSuper(part, selection);
+			super.setInput(part, selection);
 			return;
 		}
 		final StructuredSelection structuredSelection = ((StructuredSelection) selection);
@@ -461,7 +286,7 @@ public class ContextmapperPropertySectionCustom extends AbstractModelerPropertyS
 				transformedSelection.add(r);
 			}
 		}
-		setInputSuper(part, new StructuredSelection(transformedSelection));
+		super.setInput(part, new StructuredSelection(transformedSelection));
 	}
 
 	/**

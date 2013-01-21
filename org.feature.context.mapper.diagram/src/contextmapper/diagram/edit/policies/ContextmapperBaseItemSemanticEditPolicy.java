@@ -377,7 +377,7 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 					Map<String, EClassifier> env = Collections
 							.<String, EClassifier> singletonMap(
 									"oppositeEnd", ContextmapperPackage.eINSTANCE.getContext()); //$NON-NLS-1$
-					Object sourceVal = ContextmapperOCLFactory.getExpression(1,
+					Object sourceVal = ContextmapperOCLFactory.getExpression(3,
 							ContextmapperPackage.eINSTANCE.getContext(), env)
 							.evaluate(
 									source,
@@ -408,7 +408,7 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 					Map<String, EClassifier> env = Collections
 							.<String, EClassifier> singletonMap(
 									"oppositeEnd", ContextmapperPackage.eINSTANCE.getContext()); //$NON-NLS-1$
-					Object sourceVal = ContextmapperOCLFactory.getExpression(0,
+					Object sourceVal = ContextmapperOCLFactory.getExpression(2,
 							ContextmapperPackage.eINSTANCE.getContext(), env)
 							.evaluate(
 									source,
@@ -439,7 +439,7 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 					Map<String, EClassifier> env = Collections
 							.<String, EClassifier> singletonMap(
 									"oppositeEnd", ContextmapperPackage.eINSTANCE.getContext()); //$NON-NLS-1$
-					Object sourceVal = ContextmapperOCLFactory.getExpression(3,
+					Object sourceVal = ContextmapperOCLFactory.getExpression(1,
 							ContextmapperPackage.eINSTANCE.getContext(), env)
 							.evaluate(
 									source,
@@ -465,18 +465,20 @@ public class ContextmapperBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 				IncludeConnection linkInstance, RuntimeConfig source,
 				Context target) {
 			try {
-				if (source == null) {
+				if (target == null) {
 					return true;
 				} else {
 					Map<String, EClassifier> env = Collections
 							.<String, EClassifier> singletonMap(
-									"oppositeEnd", ContextmapperPackage.eINSTANCE.getContext()); //$NON-NLS-1$
-					Object sourceVal = ContextmapperOCLFactory.getExpression(2,
-							ContextmapperPackage.eINSTANCE.getRuntimeConfig(),
-							env).evaluate(source,
-							Collections.singletonMap("oppositeEnd", target)); //$NON-NLS-1$
-					if (false == sourceVal instanceof Boolean
-							|| !((Boolean) sourceVal).booleanValue()) {
+									"oppositeEnd", ContextmapperPackage.eINSTANCE.getRuntimeConfig()); //$NON-NLS-1$
+					Object targetVal = ContextmapperOCLFactory.getExpression(0,
+							ContextmapperPackage.eINSTANCE.getContext(), env)
+							.evaluate(
+									target,
+									Collections.singletonMap(
+											"oppositeEnd", source)); //$NON-NLS-1$
+					if (false == targetVal instanceof Boolean
+							|| !((Boolean) targetVal).booleanValue()) {
 						return false;
 					} // else fall-through
 				}

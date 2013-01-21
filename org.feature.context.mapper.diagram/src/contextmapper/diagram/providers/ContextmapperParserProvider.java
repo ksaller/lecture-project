@@ -72,10 +72,10 @@ public class ContextmapperParserProvider extends AbstractProvider implements
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
-		case RuntimeConfigNameEditPart.VISUAL_ID:
-			return getRuntimeConfigName_5001Parser();
 		case ContextNameEditPart.VISUAL_ID:
 			return getContextName_5002Parser();
+		case RuntimeConfigNameEditPart.VISUAL_ID:
+			return getRuntimeConfigName_5001Parser();
 		}
 		return null;
 	}
