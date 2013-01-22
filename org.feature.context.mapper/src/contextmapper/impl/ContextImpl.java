@@ -194,6 +194,7 @@ public class ContextImpl extends EObjectImpl implements Context {
 	public void setMapping(Mapping newMapping) {
 		Mapping oldMapping = mapping;
 		mapping = newMapping;
+		classifier.clear();
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ContextmapperPackage.CONTEXT__MAPPING, oldMapping, mapping));
 	}

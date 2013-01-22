@@ -13,7 +13,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -29,7 +28,6 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.feature.multi.perspective.mapping.viewmapping.Mapping;
-import org.featuremapper.models.feature.Feature;
 
 /**
  * This is the item provider adapter for a {@link contextmapper.Context} object.
@@ -59,7 +57,7 @@ public class ContextItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
@@ -68,8 +66,8 @@ public class ContextItemProvider
 
 			addNamePropertyDescriptor(object);
 			addMappingPropertyDescriptor(object);
-			addClassifierPropertyDescriptor(object);
-			addExcludedPropertyDescriptor(object);
+			//addClassifierPropertyDescriptor(object);
+			//addExcludedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -138,18 +136,6 @@ public class ContextItemProvider
 							}
 						}
 					);
-			/*	(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Context_mapping_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Context_mapping_feature", "_UI_Context_type"),
-				 ContextmapperPackage.Literals.CONTEXT__MAPPING,
-				 true,
-				 true,
-				 true,
-				 null,
-				 null,
-				 null));*/
 	}
 
 	/**

@@ -67,7 +67,7 @@ public class ContextmapperPropertySectionCustom extends
 		
 		comp = getWidgetFactory().createFlatFormComposite(wrap);
 		comp.setLayout(new GridLayout(1, true));
-
+		
 		page = new PropertySheetPage();
 
 	}
@@ -234,7 +234,10 @@ public class ContextmapperPropertySectionCustom extends
 		 
 		comp = getWidgetFactory().createFlatFormComposite(wrap);
 		comp.setLayout(new GridLayout(1, true));
-
+		if(context.getMapping() == null) {
+			getWidgetFactory().createLabel(comp, "No Mapping selected!");
+			return;
+			}
 		getWidgetFactory().createLabel(comp, "Classifiers for "+context.getName());
 		
 //		Context c2 = GlobalObjectGetter.getContextDiagram().getContext().get(0);//(Context) eObjectSelected; 
