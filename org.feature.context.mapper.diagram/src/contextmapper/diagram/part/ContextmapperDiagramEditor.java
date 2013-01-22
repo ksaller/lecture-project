@@ -10,7 +10,6 @@ import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocu
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor;
-import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.ui.IEditorInput;
 
 /**
@@ -120,5 +119,5 @@ public class ContextmapperDiagramEditor extends DiagramDocumentEditor {
 		ValidateAction.runValidation(getDiagram()); // validate on save
 		super.doSave(m);
 	}
-
+	
 }

@@ -36,10 +36,10 @@ public class ClassifierImpl extends EObjectImpl implements Classifier {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFeatureClassification()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final Classification FEATURE_CLASSIFICATION_EDEFAULT = Classification.DEAD;
+	protected static final Classification FEATURE_CLASSIFICATION_EDEFAULT = Classification.UNCLASSIFIED; //Classification.DEAD;
 	/**
 	 * The cached value of the '{@link #getFeatureClassification() <em>Feature Classification</em>}' attribute.
 	 * <!-- begin-user-doc -->
