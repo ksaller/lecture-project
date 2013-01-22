@@ -6,8 +6,14 @@ import contextmapper.Context;
 import contextmapper.ContextmapperPackage;
 import contextmapper.ExtendConnection;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 /**
@@ -24,7 +30,17 @@ import org.eclipse.emf.internal.cdo.CDOObjectImpl;
  *
  * @generated
  */
-public class ExtendConnectionImpl extends CDOObjectImpl implements ExtendConnection {
+public class ExtendConnectionImpl extends EObjectImpl implements ExtendConnection {
+	/**
+	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTarget()
+	 * @generated
+	 * @ordered
+	 */
+	protected Context target;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,9 +65,16 @@ public class ExtendConnectionImpl extends CDOObjectImpl implements ExtendConnect
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
+	public Context getTarget() {
+		if (target != null && target.eIsProxy()) {
+			InternalEObject oldTarget = (InternalEObject)target;
+			target = (Context)eResolveProxy(oldTarget);
+			if (target != oldTarget) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ContextmapperPackage.EXTEND_CONNECTION__TARGET, oldTarget, target));
+			}
+		}
+		return target;
 	}
 
 	/**
@@ -59,8 +82,8 @@ public class ExtendConnectionImpl extends CDOObjectImpl implements ExtendConnect
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Context getTarget() {
-		return (Context)eGet(ContextmapperPackage.Literals.EXTEND_CONNECTION__TARGET, true);
+	public Context basicGetTarget() {
+		return target;
 	}
 
 	/**
@@ -69,7 +92,10 @@ public class ExtendConnectionImpl extends CDOObjectImpl implements ExtendConnect
 	 * @generated
 	 */
 	public void setTarget(Context newTarget) {
-		eSet(ContextmapperPackage.Literals.EXTEND_CONNECTION__TARGET, newTarget);
+		Context oldTarget = target;
+		target = newTarget;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContextmapperPackage.EXTEND_CONNECTION__TARGET, oldTarget, target));
 	}
 
 	/**
@@ -78,7 +104,18 @@ public class ExtendConnectionImpl extends CDOObjectImpl implements ExtendConnect
 	 * @generated
 	 */
 	public Context getSource() {
-		return (Context)eGet(ContextmapperPackage.Literals.EXTEND_CONNECTION__SOURCE, true);
+		if (eContainerFeatureID() != ContextmapperPackage.EXTEND_CONNECTION__SOURCE) return null;
+		return (Context)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSource(Context newSource, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newSource, ContextmapperPackage.EXTEND_CONNECTION__SOURCE, msgs);
+		return msgs;
 	}
 
 	/**
@@ -87,7 +124,132 @@ public class ExtendConnectionImpl extends CDOObjectImpl implements ExtendConnect
 	 * @generated
 	 */
 	public void setSource(Context newSource) {
-		eSet(ContextmapperPackage.Literals.EXTEND_CONNECTION__SOURCE, newSource);
+		if (newSource != eInternalContainer() || (eContainerFeatureID() != ContextmapperPackage.EXTEND_CONNECTION__SOURCE && newSource != null)) {
+			if (EcoreUtil.isAncestor(this, newSource))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newSource != null)
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, ContextmapperPackage.CONTEXT__EXTEND, Context.class, msgs);
+			msgs = basicSetSource(newSource, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContextmapperPackage.EXTEND_CONNECTION__SOURCE, newSource, newSource));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ContextmapperPackage.EXTEND_CONNECTION__SOURCE:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetSource((Context)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ContextmapperPackage.EXTEND_CONNECTION__SOURCE:
+				return basicSetSource(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case ContextmapperPackage.EXTEND_CONNECTION__SOURCE:
+				return eInternalContainer().eInverseRemove(this, ContextmapperPackage.CONTEXT__EXTEND, Context.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case ContextmapperPackage.EXTEND_CONNECTION__TARGET:
+				if (resolve) return getTarget();
+				return basicGetTarget();
+			case ContextmapperPackage.EXTEND_CONNECTION__SOURCE:
+				return getSource();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case ContextmapperPackage.EXTEND_CONNECTION__TARGET:
+				setTarget((Context)newValue);
+				return;
+			case ContextmapperPackage.EXTEND_CONNECTION__SOURCE:
+				setSource((Context)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case ContextmapperPackage.EXTEND_CONNECTION__TARGET:
+				setTarget((Context)null);
+				return;
+			case ContextmapperPackage.EXTEND_CONNECTION__SOURCE:
+				setSource((Context)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case ContextmapperPackage.EXTEND_CONNECTION__TARGET:
+				return target != null;
+			case ContextmapperPackage.EXTEND_CONNECTION__SOURCE:
+				return getSource() != null;
+		}
+		return super.eIsSet(featureID);
 	}
 
 } //ExtendConnectionImpl

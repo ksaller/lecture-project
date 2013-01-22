@@ -6,6 +6,7 @@ import org.eclipse.emf.cdo.CDOObject;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
 import org.feature.multi.perspective.mapping.viewmapping.MappingModel;
 
 /**
@@ -24,10 +25,9 @@ import org.feature.multi.perspective.mapping.viewmapping.MappingModel;
  *
  * @see contextmapper.ContextmapperPackage#getContextDiagram()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraint='self.context->forAll(c1, c2  | c1.name<>c2.name)'"
- * @extends CDOObject
  * @generated
  */
-public interface ContextDiagram extends CDOObject {
+public interface ContextDiagram extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Mapping Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->

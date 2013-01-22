@@ -7,8 +7,12 @@ import contextmapper.ContextmapperPackage;
 import contextmapper.IncludeConnection;
 import contextmapper.RuntimeConfig;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 /**
@@ -25,7 +29,26 @@ import org.eclipse.emf.internal.cdo.CDOObjectImpl;
  *
  * @generated
  */
-public class IncludeConnectionImpl extends CDOObjectImpl implements IncludeConnection {
+public class IncludeConnectionImpl extends EObjectImpl implements IncludeConnection {
+	/**
+	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSource()
+	 * @generated
+	 * @ordered
+	 */
+	protected RuntimeConfig source;
+	/**
+	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTarget()
+	 * @generated
+	 * @ordered
+	 */
+	protected Context target;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -50,9 +73,16 @@ public class IncludeConnectionImpl extends CDOObjectImpl implements IncludeConne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
+	public RuntimeConfig getSource() {
+		if (source != null && source.eIsProxy()) {
+			InternalEObject oldSource = (InternalEObject)source;
+			source = (RuntimeConfig)eResolveProxy(oldSource);
+			if (source != oldSource) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ContextmapperPackage.INCLUDE_CONNECTION__SOURCE, oldSource, source));
+			}
+		}
+		return source;
 	}
 
 	/**
@@ -60,8 +90,8 @@ public class IncludeConnectionImpl extends CDOObjectImpl implements IncludeConne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuntimeConfig getSource() {
-		return (RuntimeConfig)eGet(ContextmapperPackage.Literals.INCLUDE_CONNECTION__SOURCE, true);
+	public RuntimeConfig basicGetSource() {
+		return source;
 	}
 
 	/**
@@ -70,7 +100,10 @@ public class IncludeConnectionImpl extends CDOObjectImpl implements IncludeConne
 	 * @generated
 	 */
 	public void setSource(RuntimeConfig newSource) {
-		eSet(ContextmapperPackage.Literals.INCLUDE_CONNECTION__SOURCE, newSource);
+		RuntimeConfig oldSource = source;
+		source = newSource;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContextmapperPackage.INCLUDE_CONNECTION__SOURCE, oldSource, source));
 	}
 
 	/**
@@ -79,7 +112,24 @@ public class IncludeConnectionImpl extends CDOObjectImpl implements IncludeConne
 	 * @generated
 	 */
 	public Context getTarget() {
-		return (Context)eGet(ContextmapperPackage.Literals.INCLUDE_CONNECTION__TARGET, true);
+		if (target != null && target.eIsProxy()) {
+			InternalEObject oldTarget = (InternalEObject)target;
+			target = (Context)eResolveProxy(oldTarget);
+			if (target != oldTarget) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ContextmapperPackage.INCLUDE_CONNECTION__TARGET, oldTarget, target));
+			}
+		}
+		return target;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Context basicGetTarget() {
+		return target;
 	}
 
 	/**
@@ -88,7 +138,80 @@ public class IncludeConnectionImpl extends CDOObjectImpl implements IncludeConne
 	 * @generated
 	 */
 	public void setTarget(Context newTarget) {
-		eSet(ContextmapperPackage.Literals.INCLUDE_CONNECTION__TARGET, newTarget);
+		Context oldTarget = target;
+		target = newTarget;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContextmapperPackage.INCLUDE_CONNECTION__TARGET, oldTarget, target));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case ContextmapperPackage.INCLUDE_CONNECTION__SOURCE:
+				if (resolve) return getSource();
+				return basicGetSource();
+			case ContextmapperPackage.INCLUDE_CONNECTION__TARGET:
+				if (resolve) return getTarget();
+				return basicGetTarget();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case ContextmapperPackage.INCLUDE_CONNECTION__SOURCE:
+				setSource((RuntimeConfig)newValue);
+				return;
+			case ContextmapperPackage.INCLUDE_CONNECTION__TARGET:
+				setTarget((Context)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case ContextmapperPackage.INCLUDE_CONNECTION__SOURCE:
+				setSource((RuntimeConfig)null);
+				return;
+			case ContextmapperPackage.INCLUDE_CONNECTION__TARGET:
+				setTarget((Context)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case ContextmapperPackage.INCLUDE_CONNECTION__SOURCE:
+				return source != null;
+			case ContextmapperPackage.INCLUDE_CONNECTION__TARGET:
+				return target != null;
+		}
+		return super.eIsSet(featureID);
 	}
 
 } //IncludeConnectionImpl

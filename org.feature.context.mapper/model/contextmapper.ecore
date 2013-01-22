@@ -10,7 +10,7 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mapping" eType="ecore:EClass ../../org.feature.multi.perspective.mapping/model/viewmapping.ecore#//Mapping"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classifier" upperBound="-1"
-        eType="#//Classifier"/>
+        eType="#//Classifier" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extend" upperBound="-1"
         eType="#//ExtendConnection" containment="true" eOpposite="#//ExtendConnection/source"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exclude" upperBound="-1"

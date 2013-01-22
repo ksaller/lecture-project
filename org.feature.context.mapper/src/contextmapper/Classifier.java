@@ -2,6 +2,7 @@
  */
 package contextmapper;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.cdo.CDOObject;
 
 import org.featuremapper.models.feature.Feature;
@@ -21,10 +22,9 @@ import org.featuremapper.models.feature.Feature;
  *
  * @see contextmapper.ContextmapperPackage#getClassifier()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface Classifier extends CDOObject {
+public interface Classifier extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Feature Classification</b></em>' attribute.
 	 * The literals are from the enumeration {@link contextmapper.Classification}.

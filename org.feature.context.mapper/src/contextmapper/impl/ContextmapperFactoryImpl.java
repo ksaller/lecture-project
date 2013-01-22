@@ -57,14 +57,14 @@ public class ContextmapperFactoryImpl extends EFactoryImpl implements Contextmap
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ContextmapperPackage.CONTEXT: return (EObject)createContext();
-			case ContextmapperPackage.CLASSIFIER: return (EObject)createClassifier();
-			case ContextmapperPackage.RUNTIME_CONFIG: return (EObject)createRuntimeConfig();
-			case ContextmapperPackage.CONTEXT_DIAGRAM: return (EObject)createContextDiagram();
-			case ContextmapperPackage.EXTEND_CONNECTION: return (EObject)createExtendConnection();
-			case ContextmapperPackage.EXCLUDE_CONNECTION: return (EObject)createExcludeConnection();
-			case ContextmapperPackage.PRIOR_CONNECTION: return (EObject)createPriorConnection();
-			case ContextmapperPackage.INCLUDE_CONNECTION: return (EObject)createIncludeConnection();
+			case ContextmapperPackage.CONTEXT: return createContext();
+			case ContextmapperPackage.CLASSIFIER: return createClassifier();
+			case ContextmapperPackage.RUNTIME_CONFIG: return createRuntimeConfig();
+			case ContextmapperPackage.CONTEXT_DIAGRAM: return createContextDiagram();
+			case ContextmapperPackage.EXTEND_CONNECTION: return createExtendConnection();
+			case ContextmapperPackage.EXCLUDE_CONNECTION: return createExcludeConnection();
+			case ContextmapperPackage.PRIOR_CONNECTION: return createPriorConnection();
+			case ContextmapperPackage.INCLUDE_CONNECTION: return createIncludeConnection();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

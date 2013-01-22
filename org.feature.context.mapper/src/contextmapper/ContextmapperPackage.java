@@ -85,7 +85,7 @@ public interface ContextmapperPackage extends EPackage {
 	int CONTEXT__MAPPING = 1;
 
 	/**
-	 * The feature id for the '<em><b>Classifier</b></em>' reference list.
+	 * The feature id for the '<em><b>Classifier</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -450,10 +450,10 @@ public interface ContextmapperPackage extends EPackage {
 	EReference getContext_Mapping();
 
 	/**
-	 * Returns the meta object for the reference list '{@link contextmapper.Context#getClassifier <em>Classifier</em>}'.
+	 * Returns the meta object for the containment reference list '{@link contextmapper.Context#getClassifier <em>Classifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Classifier</em>'.
+	 * @return the meta object for the containment reference list '<em>Classifier</em>'.
 	 * @see contextmapper.Context#getClassifier()
 	 * @see #getContext()
 	 * @generated
@@ -798,7 +798,7 @@ public interface ContextmapperPackage extends EPackage {
 		EReference CONTEXT__MAPPING = eINSTANCE.getContext_Mapping();
 
 		/**
-		 * The meta object literal for the '<em><b>Classifier</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Classifier</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

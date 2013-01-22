@@ -2,6 +2,7 @@
  */
 package contextmapper;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.cdo.CDOObject;
 
 /**
@@ -19,10 +20,9 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * @see contextmapper.ContextmapperPackage#getIncludeConnection()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface IncludeConnection extends CDOObject {
+public interface IncludeConnection extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->

@@ -2,6 +2,7 @@
  */
 package contextmapper;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.cdo.CDOObject;
 
 /**
@@ -19,10 +20,9 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * @see contextmapper.ContextmapperPackage#getPriorConnection()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface PriorConnection extends CDOObject {
+public interface PriorConnection extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->

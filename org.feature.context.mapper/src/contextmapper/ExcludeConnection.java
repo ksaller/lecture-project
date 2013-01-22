@@ -2,6 +2,7 @@
  */
 package contextmapper;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.cdo.CDOObject;
 
 /**
@@ -19,10 +20,9 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * @see contextmapper.ContextmapperPackage#getExcludeConnection()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface ExcludeConnection extends CDOObject {
+public interface ExcludeConnection extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link contextmapper.Context#getExclude <em>Exclude</em>}'.

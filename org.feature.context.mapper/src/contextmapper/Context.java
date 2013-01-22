@@ -5,6 +5,7 @@ package contextmapper;
 import org.eclipse.emf.cdo.CDOObject;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.feature.multi.perspective.mapping.viewmapping.Mapping;
 
 /**
@@ -27,10 +28,9 @@ import org.feature.multi.perspective.mapping.viewmapping.Mapping;
  *
  * @see contextmapper.ContextmapperPackage#getContext()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraint='self.mapping <> null'"
- * @extends CDOObject
  * @generated
  */
-public interface Context extends CDOObject {
+public interface Context extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -84,7 +84,7 @@ public interface Context extends CDOObject {
 	void setMapping(Mapping value);
 
 	/**
-	 * Returns the value of the '<em><b>Classifier</b></em>' reference list.
+	 * Returns the value of the '<em><b>Classifier</b></em>' containment reference list.
 	 * The list contents are of type {@link contextmapper.Classifier}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -92,9 +92,9 @@ public interface Context extends CDOObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Classifier</em>' reference list.
+	 * @return the value of the '<em>Classifier</em>' containment reference list.
 	 * @see contextmapper.ContextmapperPackage#getContext_Classifier()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Classifier> getClassifier();
