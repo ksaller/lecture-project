@@ -2,6 +2,8 @@ package contextmapper.diagram.customized;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.feature.multi.perspective.mapping.viewmapping.ViewmappingFactory;
 import org.featuremapper.models.feature.Feature;
@@ -53,18 +55,15 @@ public class Compositor {
 		Context temp = ContextmapperFactory.eINSTANCE.createContext();
 		temp.setMapping(ViewmappingFactory.eINSTANCE.createMapping());
 
-		for (Iterator<Feature> iterator = features.keySet().iterator(); iterator
-				.hasNext();) {
-			Feature f = (Feature) iterator.next();
-			temp.getMapping().getFeatures().add(f);
-		}
-
-		for (Classifier cl : features.values()) {
-			Classifier t = ContextmapperFactory.eINSTANCE.createClassifier();
-			t.setFeature(cl.getFeature());
-			t.setFeatureClassification(cl.getFeatureClassification());
+		Classifier t;
+		for (Entry<Feature, Classifier> entry : features.entrySet()) {
+			temp.getMapping().getFeatures().add(entry.getKey());
+			t = ContextmapperFactory.eINSTANCE.createClassifier();
+			t.setFeature(entry.getValue().getFeature());
+			t.setFeatureClassification(entry.getValue().getFeatureClassification());
 			temp.getClassifier().add(t);
 		}
+		
 		return temp;
 	}
 
