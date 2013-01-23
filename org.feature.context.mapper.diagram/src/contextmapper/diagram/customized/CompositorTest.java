@@ -1,7 +1,6 @@
 package contextmapper.diagram.customized;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 
 import java.io.File;
 import java.util.Map;
@@ -132,18 +131,9 @@ public class CompositorTest {
 		c2.getClassifier().get(0).setFeatureClassification(Classification.DEAD);
 		assertEquals(Compositor.compose(c2, c1).getClassifier().get(0)
 				.getFeatureClassification(), Classification.ALIVE);
-		c3 = Compositor.compose(c1, c2);
-
-	}
-
-	@Test(expected = ContradictionException.class)
-	public void testDeadALIVE() throws ContradictionException {
-		c1.getClassifier().get(0)
-				.setFeatureClassification(Classification.ALIVE);
-		c2.getClassifier().get(0).setFeatureClassification(Classification.DEAD);
-		assertEquals(Compositor.compose(c2, c1).getClassifier().get(0)
+		assertEquals(Compositor.compose(c1, c2).getClassifier().get(0)
 				.getFeatureClassification(), Classification.ALIVE);
-		c3 = Compositor.compose(c2, c1);
+
 	}
 
 	@Test
@@ -166,6 +156,8 @@ public class CompositorTest {
 				.setFeatureClassification(Classification.ALIVE);
 		assertEquals(Compositor.compose(c1, c2).getClassifier().get(0)
 				.getFeatureClassification(), Classification.ALIVE);
+		assertEquals(Compositor.compose(c2, c1).getClassifier().get(0)
+				.getFeatureClassification(), Classification.ALIVE);
 	}
 
 	@Test
@@ -173,6 +165,8 @@ public class CompositorTest {
 		c1.getClassifier().get(0).setFeatureClassification(Classification.DEAD);
 		c2.getClassifier().get(0).setFeatureClassification(Classification.DEAD);
 		assertEquals(Compositor.compose(c1, c2).getClassifier().get(0)
+				.getFeatureClassification(), Classification.DEAD);
+		assertEquals(Compositor.compose(c2, c1).getClassifier().get(0)
 				.getFeatureClassification(), Classification.DEAD);
 	}
 
@@ -184,12 +178,13 @@ public class CompositorTest {
 				.setFeatureClassification(Classification.UNBOUND);
 		assertEquals(Compositor.compose(c1, c2).getClassifier().get(0)
 				.getFeatureClassification(), Classification.UNBOUND);
+		assertEquals(Compositor.compose(c2, c1).getClassifier().get(0)
+				.getFeatureClassification(), Classification.UNBOUND);
 	}
 
 	@Test
 	public void testUnclassifiedDead() throws ContradictionException {
 		c1.getClassifier().clear();
-		// c1.getClassifier().get(0).setFeatureClassification(Classification.UNCLASSIFIED);
 		c2.getClassifier().get(0).setFeatureClassification(Classification.DEAD);
 		assertEquals(Compositor.compose(c1, c2).getClassifier().get(0)
 				.getFeatureClassification(), Classification.DEAD);
@@ -200,11 +195,9 @@ public class CompositorTest {
 
 	@Test
 	public void testUnclassifiedUnbound() throws ContradictionException {
-		// c1.getClassifier().get(0).setFeatureClassification(Classification.UNCLASSIFIED);
 		c1.getClassifier().clear();
 		c2.getClassifier().get(0)
 				.setFeatureClassification(Classification.UNBOUND);
-		c3 = Compositor.compose(c1, c2);
 		assertEquals(Compositor.compose(c1, c2).getClassifier().get(0)
 				.getFeatureClassification(), Classification.UNBOUND);
 		assertEquals(Compositor.compose(c2, c1).getClassifier().get(0)
@@ -216,22 +209,20 @@ public class CompositorTest {
 	public void testUnclassifiedUnclassified() throws ContradictionException {
 		c1.getClassifier().clear();
 		c2.getClassifier().clear();
-		// c1.getClassifier().get(0).setFeatureClassification(Classification.UNCLASSIFIED);
-		// c2.getClassifier().get(0).setFeatureClassification(Classification.UNCLASSIFIED);
-		c3 = Compositor.compose(c1, c2);
-		for (Classifier c : c3.getClassifier())
-			assertFalse(c3.getMapping().getFeatures().get(0) == c.getFeature());
+		assertEquals(Compositor.compose(c1,c2).getClassifier().size(),0);
+		assertEquals(Compositor.compose(c2,c1).getClassifier().size(),0);
+		
 
 	}
 
 	@Test
 	public void testUnclassifiedAlive() throws ContradictionException {
-		// c1.getClassifier().get(0).setFeatureClassification(Classification.UNCLASSIFIED);
 		c1.getClassifier().clear();
 		c2.getClassifier().get(0)
 				.setFeatureClassification(Classification.ALIVE);
-		c3 = Compositor.compose(c1, c2);
 		assertEquals(Compositor.compose(c1, c2).getClassifier().get(0)
+				.getFeatureClassification(), Classification.ALIVE);
+		assertEquals(Compositor.compose(c2, c1).getClassifier().get(0)
 				.getFeatureClassification(), Classification.ALIVE);
 
 	}
