@@ -38,12 +38,12 @@ import contextmapper.Classifier;
 import contextmapper.Context;
 import contextmapper.ContextmapperFactory;
 import contextmapper.diagram.customized.ClassifierCommand;
+
 //import org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection;; DiagramGeneralSection;
 
 /**
  * @generated NOT
- * @author Daniel
- * adapted from AdvancedPropertySection (GMF)
+ * @author Daniel adapted from AdvancedPropertySection (GMF)
  */
 public class ContextmapperPropertySectionCustom extends
 		AbstractModelerPropertySection {
@@ -54,8 +54,13 @@ public class ContextmapperPropertySectionCustom extends
 	protected PropertySheetPage page;
 	protected Composite wrap, comp;
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.ui.views.properties.tabbed.ISection#createControls(org.eclipse.swt.widgets.Composite, org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.ui.views.properties.tabbed.ISection#createControls(org.eclipse
+	 * .swt.widgets.Composite,
+	 * org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage)
 	 */
 	// Verantwortlich für die graphische Darstellung der Properties-View
 	public void createControls(Composite parent,
@@ -64,18 +69,19 @@ public class ContextmapperPropertySectionCustom extends
 
 		parent.setLayout(new FillLayout(SWT.VERTICAL));
 		wrap = getWidgetFactory().createFlatFormComposite(parent);
-		
+
 		comp = getWidgetFactory().createFlatFormComposite(wrap);
-		comp.setLayout(new GridLayout(1, true));
-		
+		// comp.setLayout(new GridLayout(1, true));
+
 		page = new PropertySheetPage();
 
 	}
 
 	/**
 	 * Sets and prepares the actionBars for this section
-	 *  
-	 * @param actionBars the action bars for this page
+	 * 
+	 * @param actionBars
+	 *            the action bars for this page
 	 * @see org.eclipse.gmf.runtime.common.ui.properties.TabbedPropertySheetPage#setActionBars(org.eclipse.ui.IActionBars)
 	 */
 	public void setActionBars(IActionBars actionBars) {
@@ -138,7 +144,7 @@ public class ContextmapperPropertySectionCustom extends
 					IItemPropertySource.class);
 			if (ips != null) {
 				return new PropertySource(object, ips);
-				//				return new ContextPropertySource(object, ips);
+				// return new ContextPropertySource(object, ips);
 			}
 		}
 		if (object instanceof IAdaptable) {
@@ -150,6 +156,7 @@ public class ContextmapperPropertySectionCustom extends
 
 	/**
 	 * Modify/unwrap selection.
+	 * 
 	 * @generated
 	 */
 	protected Object transformSelection(Object selected) {
@@ -211,36 +218,38 @@ public class ContextmapperPropertySectionCustom extends
 	@Override
 	public void refresh() {
 		super.refresh();
-//		System.err.println("Refresh");
-		
+
 		// Hier wird der zur Zeit ausgewählte Context ausgelesen:
 		StructuredSelection ss = (StructuredSelection) getSelection();
 		Context selContext = (Context) (EObject) ss.getFirstElement();
-		
+
 		createClassificationForm(selContext);
 
 	}
-	
+
 	/**
 	 * Creates the classification form for the given context
+	 * 
 	 * @param context
 	 * @author Daniel
 	 */
 	protected void createClassificationForm(Context context) {
-		
-		// Alten Inhalt entfernen 
+
+		// Alten Inhalt entfernen
 		if (comp != null)
-			 comp.dispose();
-		 
+			comp.dispose();
+
 		comp = getWidgetFactory().createFlatFormComposite(wrap);
 		comp.setLayout(new GridLayout(1, true));
-		if(context.getMapping() == null) {
+
+		if (context.getMapping() == null) {
 			getWidgetFactory().createLabel(comp, "No Mapping selected!");
+			wrap.layout(true);
 			return;
-			}
-		getWidgetFactory().createLabel(comp, "Classifiers for "+context.getName());
-		
-//		Context c2 = GlobalObjectGetter.getContextDiagram().getContext().get(0);//(Context) eObjectSelected; 
+		}
+		getWidgetFactory().createLabel(comp,
+				"Classifiers for " + context.getName());
+
 		EList<Feature> features = context.getMapping().getFeatures();
 
 		SelectionListener sl = new SelectionListener() {
@@ -251,14 +260,16 @@ public class ContextmapperPropertySectionCustom extends
 
 				Context c = (Context) cc.getData("c");
 				Feature f = (Feature) cc.getData("f");
-				
-				Classifier classf = ContextmapperFactory.eINSTANCE.createClassifier();
+
+				Classifier classf = ContextmapperFactory.eINSTANCE
+						.createClassifier();
 				classf.setFeature(f);
-				
-				classf.setFeatureClassification(Classification.get(cc.getSelectionIndex()-1));
+
+				classf.setFeatureClassification(Classification.get(cc
+						.getSelectionIndex() - 1));
 
 				ICommandProxy addClassifierCommand = new ICommandProxy(
-						new ClassifierCommand(getEditingDomain(),c, classf));
+						new ClassifierCommand(getEditingDomain(), c, classf));
 				addClassifierCommand.execute();
 
 			}
@@ -269,11 +280,11 @@ public class ContextmapperPropertySectionCustom extends
 
 			}
 		};
-		
+
 		Composite subcomp;
 		CCombo cc;
 		for (Feature feature : features) {
-			
+
 			subcomp = getWidgetFactory().createFlatFormComposite(comp);
 			subcomp.setLayout(new GridLayout(2, true));
 			getWidgetFactory().createCLabel(subcomp, feature.getName());
@@ -285,20 +296,20 @@ public class ContextmapperPropertySectionCustom extends
 			cc.addSelectionListener(sl);
 			cc.setData("c", context);
 			cc.setData("f", feature);
-			
-			// Sucht nach bereits vorhandenem Classifier und setzt den Wert entsprechend
+
+			// Sucht nach bereits vorhandenem Classifier und setzt den Wert
+			// entsprechend
 			EList<Classifier> cls = context.getClassifier();
 			for (int i = 0; i < cls.size(); ++i) {
-				if(feature.equals(cls.get(i).getFeature())) {
-					cc.select(cls.get(i).getFeatureClassification().getValue()+1);
+				if (feature.equals(cls.get(i).getFeature())) {
+					cc.select(cls.get(i).getFeatureClassification().getValue() + 1);
 					break;
 				}
 			}
 		}
-		
+
 		// Parent-Composite aktualisieren
-		wrap.layout(true);
+		wrap.getParent().getParent().layout(true, true);
 	}
 
-	
 }
