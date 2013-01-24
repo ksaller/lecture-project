@@ -37,7 +37,7 @@ import contextmapper.Classification;
 import contextmapper.Classifier;
 import contextmapper.Context;
 import contextmapper.ContextmapperFactory;
-import contextmapper.diagram.customized.ClassifierCommand;
+import contextmapper.diagram.edit.commands.ClassifierCommand;
 
 //import org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection;; DiagramGeneralSection;
 

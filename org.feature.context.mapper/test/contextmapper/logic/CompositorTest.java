@@ -1,9 +1,10 @@
-package contextmapper.diagram.customized;
+package contextmapper.logic;
 
 import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 import java.util.Map;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -12,15 +13,16 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.feature.multi.perspective.mapping.viewmapping.Mapping;
+import org.feature.multi.perspective.mapping.viewmapping.ViewmappingFactory;
+import org.feature.multi.perspective.model.viewmodel.AbstractGroup;
+import org.feature.multi.perspective.model.viewmodel.ViewmodelFactory;
 import org.featuremapper.models.feature.Feature;
 import org.featuremapper.models.feature.FeatureModel;
 import org.featuremapper.models.feature.FeaturePackage;
 import org.junit.Before;
 import org.junit.Test;
-import org.feature.multi.perspective.mapping.viewmapping.Mapping;
-import org.feature.multi.perspective.mapping.viewmapping.ViewmappingFactory;
-import org.feature.multi.perspective.model.viewmodel.AbstractGroup;
-import org.feature.multi.perspective.model.viewmodel.ViewmodelFactory;
+
 import contextmapper.Classification;
 import contextmapper.Classifier;
 import contextmapper.Context;
@@ -45,7 +47,7 @@ public class CompositorTest {
 		cl5 = ContextmapperFactory.eINSTANCE.createClassifier();
 		cl6 = ContextmapperFactory.eINSTANCE.createClassifier();
 		fm = (FeatureModel) loadModel(FeaturePackage.eINSTANCE,
-				"testdaten/documentmanagement.feature", null);
+				"testdata/documentmanagement.feature", null);
 		cl1.setFeature(fm.getRoot());
 		cl2.setFeature(fm.getRoot());
 
@@ -125,15 +127,22 @@ public class CompositorTest {
 	}
 
 	@Test(expected = ContradictionException.class)
-	public void testALIVEDead() throws ContradictionException {
+	public void testAliveDead() throws ContradictionException {
+		c1.getClassifier().get(0)
+				.setFeatureClassification(Classification.ALIVE);
+		c2.getClassifier().get(0).setFeatureClassification(Classification.DEAD);
+		assertEquals(Compositor.compose(c1, c2).getClassifier().get(0)
+				.getFeatureClassification(), Classification.ALIVE);
+
+	}
+	
+	@Test(expected = ContradictionException.class)
+	public void testDeadAlive() throws ContradictionException {
 		c1.getClassifier().get(0)
 				.setFeatureClassification(Classification.ALIVE);
 		c2.getClassifier().get(0).setFeatureClassification(Classification.DEAD);
 		assertEquals(Compositor.compose(c2, c1).getClassifier().get(0)
 				.getFeatureClassification(), Classification.ALIVE);
-		assertEquals(Compositor.compose(c1, c2).getClassifier().get(0)
-				.getFeatureClassification(), Classification.ALIVE);
-
 	}
 
 	@Test

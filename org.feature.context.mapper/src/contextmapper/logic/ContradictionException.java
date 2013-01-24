@@ -1,4 +1,4 @@
-package contextmapper.diagram.customized;
+package contextmapper.logic;
 
 public class ContradictionException extends Exception {
 

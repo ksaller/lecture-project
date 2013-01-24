@@ -1,12 +1,11 @@
-package contextmapper.diagram.customized;
+package contextmapper.logic;
 
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.Map.Entry;
 
 import org.feature.multi.perspective.mapping.viewmapping.ViewmappingFactory;
 import org.featuremapper.models.feature.Feature;
+
 import contextmapper.Classification;
 import contextmapper.Classifier;
 import contextmapper.Context;

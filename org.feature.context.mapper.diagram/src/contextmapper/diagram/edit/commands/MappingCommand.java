@@ -1,4 +1,4 @@
-package contextmapper.diagram.customized;
+package contextmapper.diagram.edit.commands;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
@@ -9,23 +9,26 @@ import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCo
 import org.feature.multi.perspective.mapping.viewmapping.MappingModel;
 
 import contextmapper.ContextDiagram;
+import contextmapper.diagram.customized.GlobalObjectGetter;
 
 /**
-* Command, um dem ContextDiagram das MappingModel zuzuweisen
-*
-* @author Daniel
-*/
+ * Command, um dem ContextDiagram das MappingModel zuzuweisen
+ * 
+ * @author Daniel
+ */
 public class MappingCommand extends AbstractTransactionalCommand {
 
 	private MappingModel mappingModel;
 
-	public MappingCommand(TransactionalEditingDomain editingDomain, MappingModel model) {
+	public MappingCommand(TransactionalEditingDomain editingDomain,
+			MappingModel model) {
 		super(editingDomain, "mapping reference", null);
 		mappingModel = model;
 	}
 
 	@Override
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
 
 		// Aktuelles ContextDiagram holen:
 		ContextDiagram contextDiagram = GlobalObjectGetter.getContextDiagram();

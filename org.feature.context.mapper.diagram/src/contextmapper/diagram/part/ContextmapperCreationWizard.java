@@ -17,7 +17,7 @@ import org.eclipse.ui.PartInitException;
 import org.feature.multi.perspective.mapping.viewmapping.MappingModel;
 
 import contextmapper.diagram.customized.GlobalObjectGetter;
-import contextmapper.diagram.customized.MappingCommand;
+import contextmapper.diagram.edit.commands.MappingCommand;
 
 /**
  * @generated
