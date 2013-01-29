@@ -35,7 +35,6 @@ import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
 
 import contextmapper.diagram.part.ContextmapperCreationWizard;
-import contextmapper.diagram.part.ContextmapperProjectCreationWizard;
 import contextmapper.diagram.part.Messages;
 
 /**
@@ -315,22 +314,6 @@ public class DiagramEditorActionBarAdvisor extends ActionBarAdvisor {
 		 */
 		public void run(IAction action) {
 			ContextmapperCreationWizard wizard = new ContextmapperCreationWizard();
-			wizard.init(getWindow().getWorkbench(), StructuredSelection.EMPTY);
-			WizardDialog wizardDialog = new WizardDialog(
-					getWindow().getShell(), wizard);
-			wizardDialog.open();
-		}
-	}
-	/**
-	 * @generated
-	 */
-	public static class NewProjectAction extends WorkbenchWindowActionDelegate {
-
-		/**
-		 * @generated
-		 */
-		public void run(IAction action) {
-			ContextmapperProjectCreationWizard wizard = new ContextmapperProjectCreationWizard();
 			wizard.init(getWindow().getWorkbench(), StructuredSelection.EMPTY);
 			WizardDialog wizardDialog = new WizardDialog(
 					getWindow().getShell(), wizard);

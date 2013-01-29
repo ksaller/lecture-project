@@ -19,7 +19,6 @@ import org.feature.multi.perspective.mapping.viewmapping.MappingModel;
 import contextmapper.diagram.customized.GlobalObjectGetter;
 import contextmapper.diagram.edit.commands.MappingCommand;
 
-
 /**
  * @generated
  */
