@@ -28,7 +28,7 @@ import contextmapper.Classifier;
 import contextmapper.Context;
 import contextmapper.ContextmapperFactory;
 
-public class CompositorTest {
+public class CompositorWithLogicTableTest {
 	Context c1, c2, c3;
 	Mapping m1, m2;
 	Classifier cl1, cl2, cl3, cl4, cl5, cl6;
