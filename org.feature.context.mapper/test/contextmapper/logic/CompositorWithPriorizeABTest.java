@@ -2,17 +2,6 @@ package contextmapper.logic;
 
 import static org.junit.Assert.assertEquals;
 
-import java.io.File;
-import java.util.Map;
-
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.feature.multi.perspective.mapping.viewmapping.Mapping;
 import org.feature.multi.perspective.mapping.viewmapping.ViewmappingFactory;
 import org.feature.multi.perspective.model.viewmodel.AbstractGroup;
@@ -48,7 +37,7 @@ public class CompositorWithPriorizeABTest {
 		cl4 = ContextmapperFactory.eINSTANCE.createClassifier();
 		cl5 = ContextmapperFactory.eINSTANCE.createClassifier();
 		cl6 = ContextmapperFactory.eINSTANCE.createClassifier();
-		fm = (FeatureModel) loadModel(FeaturePackage.eINSTANCE,
+		fm = (FeatureModel) CompositorTestUtils.loadModel(FeaturePackage.eINSTANCE,
 				"testdata/documentmanagement.feature", null);
 		cl1.setFeature(fm.getRoot());
 		cl2.setFeature(fm.getRoot());
@@ -72,54 +61,6 @@ public class CompositorWithPriorizeABTest {
 		prCon.setSource(c1);
 		prCon.setTarget(c2);
 		c1.getPriorize().add(prCon);
-	}
-
-	private EObject loadModel(EPackage ePackage, String path,
-			ResourceSet resourceSet) {
-		initEMF(ePackage);
-
-		return loadModel(createFileURI(path, true), resourceSet);
-	}
-
-	private void initEMF(EPackage ePackage) {
-		// Initialize the model
-		// logger.debug("Initializing " + ePackage.getName());
-
-		ePackage.getName();
-		registerXMIFactoryAsDefault();
-	}
-
-	private void registerXMIFactoryAsDefault() {
-		// Add XMI factory to registry
-		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-		Map<String, Object> m = reg.getExtensionToFactoryMap();
-		m.put("*", new XMIResourceFactoryImpl());
-	}
-
-	private EObject loadModel(URI uri, ResourceSet resourceSet) {
-		// Obtain a new resource set if necessary
-		if (resourceSet == null)
-			resourceSet = new ResourceSetImpl();
-
-		// Get the resource
-		Resource resource = resourceSet.getResource(uri, true);
-
-		// Add adapter for reverse navigation along unidirectional links
-		ECrossReferenceAdapter adapter = ECrossReferenceAdapter
-				.getCrossReferenceAdapter(resourceSet);
-		if (adapter == null)
-			resourceSet.eAdapters().add(new ECrossReferenceAdapter());
-
-		// Return root model element
-		return resource.getContents().get(0);
-	}
-
-	private URI createFileURI(String path, boolean mustExist) {
-		File filePath = new File(path);
-		if (!filePath.exists() && mustExist)
-			throw new IllegalArgumentException(path + " does not exist.");
-
-		return URI.createFileURI(filePath.getAbsolutePath());
 	}
 
 	@Test
