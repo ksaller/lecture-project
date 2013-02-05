@@ -117,8 +117,6 @@ public class Fixpoint implements IFixpointSolver {
 			System.out.println(clause);
 		System.out.println("\n\n");		
 		
-		//cnf = backtracker(cnf.clone());
-		
 		return result;
 	}
 
@@ -196,23 +194,6 @@ public class Fixpoint implements IFixpointSolver {
 				&& clause.indexOf(' ') != -1;
 	}
 	
-//	private String[] backtracker(String[] cnf){
-//		String[] oldCNF = cnf.clone();
-//		cnf[0] = oldCNF[0].substring(0, oldCNF[0].indexOf(' ')) + " /";
-//		System.out.print(oldCNF[0] + " ");
-//		try {
-//			while(fixpoint(cnf))
-//				System.out.print(". ");
-//		} catch (ConstraintViolation e) {
-//			System.out.println("/");
-//			cnf = new String[oldCNF.length + 1];
-//			System.arraycopy(oldCNF, 0, cnf, 1, oldCNF.length);
-//			cnf[0] = not(oldCNF[0].substring(0, oldCNF[0].indexOf(' '))) + " /";
-//			return backtracker(cnf);
-//		}
-//		
-//		return cnf;
-//	}
 	
 	@Override
 	public boolean validate() {
