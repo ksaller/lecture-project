@@ -24,6 +24,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchPart;
@@ -37,7 +38,10 @@ import contextmapper.Classification;
 import contextmapper.Classifier;
 import contextmapper.Context;
 import contextmapper.ContextmapperFactory;
+import contextmapper.diagram.customized.GlobalObjectGetter;
 import contextmapper.diagram.edit.commands.ClassifierCommand;
+import contextmapper.logic.Fixpoint;
+import contextmapper.logic.IFixpointSolver;
 
 //import org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection;; DiagramGeneralSection;
 
@@ -233,7 +237,7 @@ public class ContextmapperPropertySectionCustom extends
 	 * @param context
 	 * @author Daniel
 	 */
-	protected void createClassificationForm(Context context) {
+	protected void createClassificationForm(final Context context) {
 
 		// Alten Inhalt entfernen
 		if (comp != null)
@@ -247,6 +251,31 @@ public class ContextmapperPropertySectionCustom extends
 			wrap.layout(true);
 			return;
 		}
+		
+		// Fixpoint-Button
+		Button b = getWidgetFactory().createButton(comp, "Fixpoint", SWT.PUSH);
+		b.setData("c",context);
+		b.addSelectionListener(new SelectionListener() {
+			
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				Button b = (Button) e.widget;
+				Context c = (Context) b.getData("c");
+				
+				System.out.println("Fixpoint for " + c.getName());
+				
+				IFixpointSolver ifs = new Fixpoint();
+				ifs.create(context, GlobalObjectGetter.getContextDiagram().getMappingReference().getFeatureModel(), false);
+			}
+			
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		
 		getWidgetFactory().createLabel(comp,
 				"Classifiers for " + context.getName());
 
