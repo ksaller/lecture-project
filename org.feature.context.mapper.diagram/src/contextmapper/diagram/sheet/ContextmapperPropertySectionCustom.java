@@ -40,6 +40,7 @@ import contextmapper.Context;
 import contextmapper.ContextmapperFactory;
 import contextmapper.diagram.customized.GlobalObjectGetter;
 import contextmapper.diagram.edit.commands.ClassifierCommand;
+import contextmapper.logic.ConstraintViolation;
 import contextmapper.logic.Fixpoint;
 import contextmapper.logic.IFixpointSolver;
 
@@ -251,31 +252,46 @@ public class ContextmapperPropertySectionCustom extends
 			wrap.layout(true);
 			return;
 		}
-		
+
 		// Fixpoint-Button
 		Button b = getWidgetFactory().createButton(comp, "Fixpoint", SWT.PUSH);
-		b.setData("c",context);
+		b.setData("c", context);
 		b.addSelectionListener(new SelectionListener() {
-			
+
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				Button b = (Button) e.widget;
 				Context c = (Context) b.getData("c");
-				
+
 				System.out.println("Fixpoint for " + c.getName());
-				
+
 				IFixpointSolver ifs = new Fixpoint();
-				ifs.create(context, GlobalObjectGetter.getContextDiagram().getMappingReference().getFeatureModel(), false);
+				ifs.create(context, GlobalObjectGetter.getContextDiagram()
+						.getMappingReference().getFeatureModel(), true);
+				try {
+					for (Classifier cl : ifs.solve()){
+						System.out.println(" - set "
+								+ cl.getFeature().getName() + " to "
+								+ cl.getFeatureClassification());
+						ICommandProxy addClassifierCommand = new ICommandProxy(
+								new ClassifierCommand(getEditingDomain(), c, cl));
+						addClassifierCommand.execute();
+					}
+					refresh();
+					
+				} catch (ConstraintViolation e1) {
+					System.err.println("Invalid configuration");
+				}
+				System.out.println("Autovervollständigung komplett");
 			}
-			
+
 			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
-		
-		
+
 		getWidgetFactory().createLabel(comp,
 				"Classifiers for " + context.getName());
 

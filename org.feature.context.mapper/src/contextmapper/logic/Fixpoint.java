@@ -49,10 +49,10 @@ public class Fixpoint implements IFixpointSolver {
 		}
 		cnf = tempCnf.clone();
 
-		System.out.println("Step 2:\n\n");
-		for (String i : cnf)
-			System.out.println(i);
-		System.out.println("\n\n");
+//		System.out.println("Step 2:\n\n");
+//		for (String i : cnf)
+//			System.out.println(i);
+//		System.out.println("\n\n");
 
 		// step 3: entferne redundante Klauseln aus der CNF
 		tempCnf = cnf.clone();
@@ -86,10 +86,10 @@ public class Fixpoint implements IFixpointSolver {
 
 		result |= !(cnf.length == tempCnf.length);
 
-		System.out.println("Step 3:\n\n");
-		for (String i : cnf)
-			System.out.println(i);
-		System.out.println("\n\n");
+//		System.out.println("Step 3:\n\n");
+//		for (String i : cnf)
+//			System.out.println(i);
+//		System.out.println("\n\n");
 
 		return result;
 	}
@@ -100,9 +100,20 @@ public class Fixpoint implements IFixpointSolver {
 		int i = 0;
 		while (fixpoint())
 			System.out.print(i++ + " ,");
+		
+//		System.out.println("e = ");
+//		for (String st : e) System.out.println(st);
+//		System.out.println("v = ");
+//		for (String st : v) System.out.println(st);		
+		
 		for (int j = 0; j < cnf.length; j++) {
 			if (isSingularClause(cnf[j])) {
-				result.add(createClassifier(cnf[j].substring(0, cnf[j].length() - 2)));
+				String temp = cnf[j].substring(0, cnf[j].length() - 2);
+				
+//				System.out.println("temp("+i+") = " + temp);
+				
+				if(!e.contains(temp) && (v.equals(null) || v.contains(temp.substring(1))))
+					result.add(createClassifier(temp));
 				cnf[j] = "";
 			}
 		}		
@@ -112,10 +123,10 @@ public class Fixpoint implements IFixpointSolver {
 				tempList.add(clause);
 		cnf = tempList.toArray(new String[tempList.size()]);		
 
-		System.out.println("Step 4:\n\n");
-		for (String clause : cnf)
-			System.out.println(clause);
-		System.out.println("\n\n");		
+//		System.out.println("Step 4:\n\n");
+//		for (String clause : cnf)
+//			System.out.println(clause);
+//		System.out.println("\n\n");		
 		
 		return result;
 	}
@@ -140,11 +151,11 @@ public class Fixpoint implements IFixpointSolver {
 		for (Classifier cl : c.getClassifier()) {
 			if (cl.getFeatureClassification().equals(Classification.ALIVE)) {
 				temp += "+" + cl.getFeature().getName() + " +0\n";
-				e.add("+" + cl.getFeature().getName() + " ");
+				e.add("+" + cl.getFeature().getName());
 			} else if (cl.getFeatureClassification()
 					.equals(Classification.DEAD)) {
 				temp += "-" + cl.getFeature().getName() + " +0\n";
-				e.add("-" + cl.getFeature().getName() + " ");
+				e.add("-" + cl.getFeature().getName());
 			}
 		}
 		cnf = temp.split("\n");
@@ -153,8 +164,8 @@ public class Fixpoint implements IFixpointSolver {
 			cnf[i] = row.substring(0, row.length() - 3).concat(" /");
 			i++;
 		}
-		for (String row : cnf)
-			System.out.println(row);
+//		for (String row : cnf)
+//			System.out.println(row);
 	}
 
 	/**
