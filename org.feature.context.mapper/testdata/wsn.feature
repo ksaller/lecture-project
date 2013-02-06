@@ -2,7 +2,7 @@
 <feature:FeatureModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:feature="http://www.tudresden.de/feature" name="WSN">
   <constraints language="SAT" expression="require(AdHoc,LAR)" constrainedFeatures="LAR AdHoc"/>
   <constraints language="SAT" expression="exclude(Infrastructure,LAR)" constrainedFeatures="Infrastructure LAR"/>
-  <root minCardinality="1" maxCardinality="1" name="WSN Platform">
+  <root minCardinality="1" maxCardinality="1" name="WSN_Platform">
     <groups minCardinality="1" maxCardinality="1">
       <childFeatures maxCardinality="1" name="Connection">
         <groups minCardinality="1" maxCardinality="1">

@@ -1,7 +1,12 @@
 package contextmapper.logic;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import junit.framework.Assert;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -24,46 +29,101 @@ import contextmapper.ContextmapperFactory;
 
 public class FixpointTest {
 
-	
+	private Map<String, Classification> expectedClassifcations;
+
 	@Test
 	// (expected=ConstraintViolation.class)
 	public void testSimpleCNFBuild() throws ConstraintViolation {
+
 		Context c = ContextmapperFactory.eINSTANCE.createContext();
 		Mapping m1 = ViewmappingFactory.eINSTANCE.createMapping();
+
 		Classifier cl1 = ContextmapperFactory.eINSTANCE.createClassifier();
 		Classifier cl2 = ContextmapperFactory.eINSTANCE.createClassifier();
 		Classifier cl3 = ContextmapperFactory.eINSTANCE.createClassifier();
+		Classifier cl4 = ContextmapperFactory.eINSTANCE.createClassifier();
+
 		FeatureModel fm = (FeatureModel) loadModel(FeaturePackage.eINSTANCE,
 				"testdata/wsn.feature", null);
+
+		// AdHoc
 		cl1.setFeature(fm.getRoot().getGroups().get(0).getChildFeatures()
 				.get(0).getGroups().get(0).getChildFeatures().get(0));
-		cl2.setFeature(fm.getRoot().getGroups().get(3).getChildFeatures()
-				.get(0).getGroups().get(0).getChildFeatures().get(0));
-		cl3.setFeature(fm.getRoot().getGroups().get(0).getChildFeatures()
-				.get(0));
 		cl1.setFeatureClassification(Classification.ALIVE);
-		cl2.setFeatureClassification(Classification.DEAD);
-		cl3.setFeatureClassification(Classification.UNBOUND);
+//		System.out.println("CL1: " + cl1.getFeature().getName());
 
-		m1.getFeatures().add(
-				fm.getRoot().getGroups().get(0).getChildFeatures().get(0)
-						.getGroups().get(0).getChildFeatures().get(0));
-		m1.getFeatures().add(
-				fm.getRoot().getGroups().get(3).getChildFeatures().get(0)
-						.getGroups().get(0).getChildFeatures().get(0));
+		// Sensors
+		cl2.setFeature(fm.getRoot().getGroups().get(3).getChildFeatures()
+				.get(0));
+		cl2.setFeatureClassification(Classification.ALIVE);
+//		System.out.println("CL2: " + cl2.getFeature().getName());
+		
+		// Temperatur
+		cl3.setFeature(fm.getRoot().getGroups().get(3).getChildFeatures()
+				.get(0).getGroups().get(0).getChildFeatures().get(1));
+		cl3.setFeatureClassification(Classification.DEAD);
+//		System.out.println("CL3: " + cl3.getFeature().getName());
+		
+		// GPS
+		cl4.setFeature(fm.getRoot().getGroups().get(3).getChildFeatures()
+				.get(0).getGroups().get(0).getChildFeatures().get(0));
+		cl4.setFeatureClassification(Classification.DEAD);
+//		System.out.println("CL4: " + cl4.getFeature().getName());
+		
+		m1.getFeatures().add(cl1.getFeature());
+		m1.getFeatures().add(cl2.getFeature());
+		m1.getFeatures().add(cl3.getFeature());
+		m1.getFeatures().add(cl4.getFeature());
 
 		c.setMapping(m1);
 		c.getClassifier().add(cl1);
 		c.getClassifier().add(cl2);
 		c.getClassifier().add(cl3);
+		c.getClassifier().add(cl4);
+
+		expectedClassifcations = new HashMap<String, Classification>();
+
+		expectedClassifcations.put("WSN_Platform", Classification.ALIVE);
+		expectedClassifcations.put("Connection", Classification.ALIVE);
+		expectedClassifcations.put("AdHoc", Classification.ALIVE);
+		expectedClassifcations.put("WifiAdHoc", Classification.ALIVE);
+		expectedClassifcations.put("Infrastructure", Classification.DEAD);
+		expectedClassifcations.put("WifiInfrastructure", Classification.DEAD);
+		expectedClassifcations.put("GSM", Classification.DEAD);
+		expectedClassifcations.put("Routing", Classification.ALIVE);
+		expectedClassifcations.put("BGP", Classification.DEAD);
+		expectedClassifcations.put("LAR", Classification.ALIVE);
+		expectedClassifcations.put("Monitoring", Classification.ALIVE);
+		expectedClassifcations.put("Analysis", Classification.UNBOUND);
+		expectedClassifcations.put("CollectionProtocol", Classification.ALIVE);
+		expectedClassifcations.put("PushSum", Classification.UNBOUND);
+		expectedClassifcations.put("SystemExp", Classification.UNBOUND);
+		expectedClassifcations.put("CS", Classification.UNBOUND);
+		expectedClassifcations.put("Sensors", Classification.ALIVE);
+		expectedClassifcations.put("GPS", Classification.DEAD);
+		expectedClassifcations.put("Temperatur", Classification.DEAD);
+		expectedClassifcations.put("Pressure", Classification.ALIVE);
+		expectedClassifcations.put("Chipset", Classification.ALIVE);
+		expectedClassifcations.put("ARM", Classification.UNBOUND);
+		expectedClassifcations.put("Intel", Classification.UNBOUND);
 
 		IFixpointSolver ifs = new Fixpoint();
 		ifs.create(c, fm, false);
 		System.out.println("______________________________");
 
-		for (Classifier cl : ifs.solve())
-			System.out.println(" - set " + cl.getFeature().getName() + " to "
-					+ cl.getFeatureClassification());
+		for (Classifier cl : ifs.solve()) {
+//			System.out.println(" - set " + cl.getFeature().getName() + " to "
+//					+ cl.getFeatureClassification());
+			Assert.assertEquals(cl.getFeature().getName(), searchExpectedClassification(cl),
+					cl.getFeatureClassification());
+
+		}
+	}
+
+	private Classification searchExpectedClassification(Classifier cf) {
+
+		return expectedClassifcations.get(cf.getFeature().getName());
+
 	}
 
 	private EObject loadModel(EPackage ePackage, String path,
