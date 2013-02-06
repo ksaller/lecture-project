@@ -19,7 +19,7 @@ import contextmapper.ContextmapperFactory;
 public class Fixpoint implements IFixpointSolver {
 
 	List<String> v = null;
-	List<String> e = new ArrayList<String>();
+//	List<String> e = new ArrayList<String>();
 	Map<String, Feature> features = new HashMap<String, Feature>();
 	String[] cnf;
 
@@ -111,15 +111,15 @@ public class Fixpoint implements IFixpointSolver {
 
 				// System.out.println("temp("+i+") = " + temp);
 
-				if (!e.contains(temp)
-						&& v.contains(temp.substring(1))){
+//				if (!e.contains(temp) &&
+				if(v.contains(temp.substring(1))){
 					result.add(createClassifier(temp));
 				}
 				cnf[j] = "";
 			}
 		}
 		String resultString = "";
-		for(String es : e) resultString += es.substring(1) + " ";
+//		for(String es : e) resultString += es.substring(1) + " ";
 		for(Classifier cl : result) resultString += cl.getFeature().getName() + " ";
 		for (int i = 0; i < v.size(); i++){
 			if(!resultString.contains(v.get(i)))
@@ -160,11 +160,11 @@ public class Fixpoint implements IFixpointSolver {
 		for (Classifier cl : c.getClassifier()) {
 			if (cl.getFeatureClassification().equals(Classification.ALIVE)) {
 				temp += "+" + cl.getFeature().getName() + " +0\n";
-				e.add("+" + cl.getFeature().getName());
+//				e.add("+" + cl.getFeature().getName());
 			} else if (cl.getFeatureClassification()
 					.equals(Classification.DEAD)) {
 				temp += "-" + cl.getFeature().getName() + " +0\n";
-				e.add("-" + cl.getFeature().getName());
+//				e.add("-" + cl.getFeature().getName());
 			}
 		}
 		cnf = temp.split("\n");
