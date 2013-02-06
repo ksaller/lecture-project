@@ -23,13 +23,6 @@ public class Fixpoint implements IFixpointSolver {
 	Map<String, Feature> features = new HashMap<String, Feature>();
 	String[] cnf;
 
-	private String not(String literal) {
-		if (literal.charAt(0) == '-')
-			return "+".concat(literal.substring(1));
-		else
-			return "-".concat(literal.substring(1));
-	}
-
 	/**
 	 * der eigentliche Fixpoint-Algorithmus
 	 */
@@ -43,24 +36,25 @@ public class Fixpoint implements IFixpointSolver {
 				for (int i = 0; i < cnf.length; i++) {
 					tempCnf[i] = tempCnf[i].replace(
 							not(clause.substring(0, clause.length() - 1)), "");
+					if (tempCnf[i].equals("/"))
+						throw new ConstraintViolation(clause.substring(1,
+								clause.length() - 2));
 					result |= !(cnf[i].equals(tempCnf[i]));
 				}
 			}
 		}
 		cnf = tempCnf.clone();
 
-//		System.out.println("Step 2:\n\n");
-//		for (String i : cnf)
-//			System.out.println(i);
-//		System.out.println("\n\n");
+		// System.out.println("Step 2:\n\n");
+		// for (String i : cnf)
+		// System.out.println(i);
+		// System.out.println("\n\n");
 
 		// step 3: entferne redundante Klauseln aus der CNF
 		tempCnf = cnf.clone();
 		boolean contains = false;
 		String[] tempArray;
 		for (int j = 0; j < cnf.length; j++) {
-			if (cnf[j].equals("/"))
-				throw new ConstraintViolation();
 			if (!cnf[j].equals("")) {
 				tempArray = cnf[j].split(" ");
 				for (int i = 0; i < cnf.length; i++) {
@@ -86,10 +80,10 @@ public class Fixpoint implements IFixpointSolver {
 
 		result |= !(cnf.length == tempCnf.length);
 
-//		System.out.println("Step 3:\n\n");
-//		for (String i : cnf)
-//			System.out.println(i);
-//		System.out.println("\n\n");
+		// System.out.println("Step 3:\n\n");
+		// for (String i : cnf)
+		// System.out.println(i);
+		// System.out.println("\n\n");
 
 		return result;
 	}
@@ -97,37 +91,48 @@ public class Fixpoint implements IFixpointSolver {
 	@Override
 	public List<Classifier> solve() throws ConstraintViolation {
 		List<Classifier> result = new ArrayList<Classifier>();
-		int i = 0;
+		int iterations = 0;
 		while (fixpoint())
-			System.out.print(i++ + " ,");
-		
-//		System.out.println("e = ");
-//		for (String st : e) System.out.println(st);
-//		System.out.println("v = ");
-//		for (String st : v) System.out.println(st);		
+			System.out.print(iterations++ + " ,");
+
+		// System.out.println("e = ");
+		// for (String st : e) System.out.println(st);
+		// System.out.println("v = ");
+		// for (String st : v) System.out.println(st);
+
+//		 System.out.println("Step 4:\n\n");
+//		 for (String clause : cnf)
+//		 System.out.println(clause);
+//		 System.out.println("\n\n");
 		
 		for (int j = 0; j < cnf.length; j++) {
 			if (isSingularClause(cnf[j])) {
 				String temp = cnf[j].substring(0, cnf[j].length() - 2);
-				
-//				System.out.println("temp("+i+") = " + temp);
-				
-				if(!e.contains(temp) && (v.equals(null) || v.contains(temp.substring(1))))
+
+				// System.out.println("temp("+i+") = " + temp);
+
+				if (!e.contains(temp)
+						&& v.contains(temp.substring(1))){
 					result.add(createClassifier(temp));
+				}
 				cnf[j] = "";
 			}
-		}		
+		}
+		String resultString = "";
+		for(String es : e) resultString += es.substring(1) + " ";
+		for(Classifier cl : result) resultString += cl.getFeature().getName() + " ";
+		for (int i = 0; i < v.size(); i++){
+			if(!resultString.contains(v.get(i)))
+				result.add(createClassifier(v.get(i)));
+		}
+		
 		List<String> tempList = new ArrayList<String>();
 		for (String clause : cnf)
 			if (!clause.equals(""))
 				tempList.add(clause);
-		cnf = tempList.toArray(new String[tempList.size()]);		
+		cnf = tempList.toArray(new String[tempList.size()]);
 
-//		System.out.println("Step 4:\n\n");
-//		for (String clause : cnf)
-//			System.out.println(clause);
-//		System.out.println("\n\n");		
-		
+
 		return result;
 	}
 
@@ -141,13 +146,17 @@ public class Fixpoint implements IFixpointSolver {
 		SAT4JCNFFormulaFactory builder = new SAT4JCNFFormulaFactory();
 		String temp = builder.createFormulaName(fm);
 
+		v = new ArrayList<String>();
 		if (considerMapping) {
-			v = new ArrayList<String>();
 			for (Feature f : c.getMapping().getFeatures())
+				v.add(f.getName());
+		} else {
+			for (Feature f : fm.getAllFeatures())
 				v.add(f.getName());
 		}
 		temp += "\n";
 		temp = addPlusToCNF(temp);
+		temp += "+" + fm.getRoot().getName() + " +0\n";
 		for (Classifier cl : c.getClassifier()) {
 			if (cl.getFeatureClassification().equals(Classification.ALIVE)) {
 				temp += "+" + cl.getFeature().getName() + " +0\n";
@@ -164,8 +173,8 @@ public class Fixpoint implements IFixpointSolver {
 			cnf[i] = row.substring(0, row.length() - 3).concat(" /");
 			i++;
 		}
-//		for (String row : cnf)
-//			System.out.println(row);
+		// for (String row : cnf)
+		// System.out.println(row);
 	}
 
 	/**
@@ -191,21 +200,31 @@ public class Fixpoint implements IFixpointSolver {
 	// der Eingabestring muss die Form +feature oder -feature haben
 	private Classifier createClassifier(String feature) {
 		Classifier result = ContextmapperFactory.eINSTANCE.createClassifier();
-		Feature f = features.get(feature.substring(1));
-		result.setFeature(f);
+		int temp = 1;
 		if (feature.charAt(0) == '+')
 			result.setFeatureClassification(Classification.ALIVE);
-		else
+		else if (feature.charAt(0) == '-')
 			result.setFeatureClassification(Classification.DEAD);
+		else {result.setFeatureClassification(Classification.UNBOUND);
+			temp = 0;
+		}
+		Feature f = features.get(feature.substring(temp));
+		result.setFeature(f);
 		return result;
 	}
 
-	private boolean isSingularClause(String clause){
+	private boolean isSingularClause(String clause) {
 		return clause.indexOf(' ') == clause.length() - 2
 				&& clause.indexOf(' ') != -1;
 	}
-	
-	
+
+	private String not(String literal) {
+		if (literal.charAt(0) == '-')
+			return "+".concat(literal.substring(1));
+		else
+			return "-".concat(literal.substring(1));
+	}
+
 	@Override
 	public boolean validate() {
 		// TODO Auto-generated method stub

@@ -11,16 +11,10 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.feature.model.slicer.formulaSlicer.formula.builder.SAT4JCNFFormulaFactory;
-import org.feature.model.slicer.formulaSlicer.formula.builder.SimpleCNFBuilderFactory;
 import org.feature.multi.perspective.mapping.viewmapping.Mapping;
 import org.feature.multi.perspective.mapping.viewmapping.ViewmappingFactory;
-import org.feature.multi.perspective.model.viewmodel.AbstractGroup;
-import org.feature.multi.perspective.model.viewmodel.ViewmodelFactory;
 import org.featuremapper.models.feature.FeatureModel;
 import org.featuremapper.models.feature.FeaturePackage;
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 import contextmapper.Classification;
@@ -30,12 +24,7 @@ import contextmapper.ContextmapperFactory;
 
 public class FixpointTest {
 
-	@Before
-	public void setUp() {
-		// PropertyConfigurator.configure("conf/log4j.properties");
-		// load activators of dependent plugins
-	}
-
+	
 	@Test
 	// (expected=ConstraintViolation.class)
 	public void testSimpleCNFBuild() throws ConstraintViolation {
@@ -62,8 +51,6 @@ public class FixpointTest {
 		m1.getFeatures().add(
 				fm.getRoot().getGroups().get(3).getChildFeatures().get(0)
 						.getGroups().get(0).getChildFeatures().get(0));
-
-		System.err.println(m1.getFeatures().size());
 
 		c.setMapping(m1);
 		c.getClassifier().add(cl1);

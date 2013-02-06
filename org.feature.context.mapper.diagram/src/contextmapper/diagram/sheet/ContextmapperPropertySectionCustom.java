@@ -270,9 +270,6 @@ public class ContextmapperPropertySectionCustom extends
 						.getMappingReference().getFeatureModel(), true);
 				try {
 					for (Classifier cl : ifs.solve()){
-						System.out.println(" - set "
-								+ cl.getFeature().getName() + " to "
-								+ cl.getFeatureClassification());
 						ICommandProxy addClassifierCommand = new ICommandProxy(
 								new ClassifierCommand(getEditingDomain(), c, cl));
 						addClassifierCommand.execute();
@@ -280,9 +277,8 @@ public class ContextmapperPropertySectionCustom extends
 					refresh();
 					
 				} catch (ConstraintViolation e1) {
-					System.err.println("Invalid configuration");
+					System.err.println("Fehler bei der Klassifizierung von: <" + e1.getMessage() + ">");
 				}
-				System.out.println("Autovervollständigung komplett");
 			}
 
 			@Override

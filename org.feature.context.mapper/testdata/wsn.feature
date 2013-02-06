@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feature:FeatureModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:feature="http://www.tudresden.de/feature">
+<feature:FeatureModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:feature="http://www.tudresden.de/feature" name="WSN">
+  <constraints language="SAT" expression="require(AdHoc,LAR)" constrainedFeatures="LAR AdHoc"/>
+  <constraints language="SAT" expression="exclude(Infrastructure,LAR)" constrainedFeatures="Infrastructure LAR"/>
   <root minCardinality="1" maxCardinality="1" name="WSN Platform">
     <groups minCardinality="1" maxCardinality="1">
       <childFeatures maxCardinality="1" name="Connection">
         <groups minCardinality="1" maxCardinality="1">
-          <childFeatures maxCardinality="1" name="AdHoc">
+          <childFeatures maxCardinality="1" name="AdHoc" constraints="//@constraints.0">
             <groups minCardinality="1" maxCardinality="1">
               <childFeatures maxCardinality="1" name="WifiAdHoc"/>
             </groups>
           </childFeatures>
-          <childFeatures maxCardinality="1" name="Infrastructure">
+          <childFeatures maxCardinality="1" name="Infrastructure" constraints="//@constraints.1">
             <groups minCardinality="1" maxCardinality="1">
               <childFeatures maxCardinality="1" name="WifiInfrastructure"/>
               <childFeatures maxCardinality="1" name="GSM"/>
@@ -22,12 +24,12 @@
       <childFeatures maxCardinality="1" name="Routing">
         <groups minCardinality="1" maxCardinality="1">
           <childFeatures maxCardinality="1" name="BGP"/>
-          <childFeatures maxCardinality="1" name="LAR"/>
+          <childFeatures maxCardinality="1" name="LAR" constraints="//@constraints.0 //@constraints.1"/>
         </groups>
       </childFeatures>
     </groups>
     <groups minCardinality="1" maxCardinality="1">
-      <childFeatures maxCardinality="2" name="Monitoring">
+      <childFeatures minCardinality="1" maxCardinality="2" name="Monitoring">
         <groups maxCardinality="1">
           <childFeatures maxCardinality="1" name="Analysis"/>
         </groups>
@@ -53,7 +55,7 @@
     </groups>
     <groups minCardinality="1" maxCardinality="1">
       <childFeatures maxCardinality="1" name="Chipset">
-        <groups maxCardinality="2">
+        <groups minCardinality="1" maxCardinality="1">
           <childFeatures maxCardinality="1" name="ARM"/>
           <childFeatures maxCardinality="1" name="Intel"/>
         </groups>
